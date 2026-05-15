@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PASADOR — A Novel by Vicente Gabriel Flores</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Cinzel:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#06040200;
+  --bg:#080604;
+  --parchment:#e4cfaa;
+  --parchment-dim:#a89070;
+  --rust:#7a3020;
+  --gold:#c4973d;
+  --gold-dim:#8a6520;
+  --sep:#1e1208;
+}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--parchment);
+  font-family:'EB Garamond',Georgia,serif;
+  font-size:18px;
+  line-height:1.8;
+  overflow-x:hidden;
+}
+
+/* ── GRAIN TEXTURE ── */
+body::before{
+  content:'';
+  position:fixed;
+  inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events:none;
+  opacity:0.35;
+  z-index:999;
+}
+
+/* ── NAV ── */
+nav{
+  position:fixed;
+  top:0;left:0;right:0;
+  z-index:100;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:1.5rem 4rem;
+  background:linear-gradient(to bottom,rgba(8,6,4,0.95) 0%,rgba(8,6,4,0) 100%);
+  transition:background 0.4s;
+}
+nav.scrolled{background:rgba(8,6,4,0.97);border-bottom:1px solid rgba(196,151,61,0.12)}
+.nav-title{
+  font-family:'Cinzel',serif;
+  font-size:0.9rem;
+  letter-spacing:0.2em;
+  color:var(--gold);
+  text-decoration:none;
+  opacity:0;
+  transition:opacity 0.4s;
+}
+nav.scrolled .nav-title{opacity:1}
+.nav-links{display:flex;gap:2.5rem;list-style:none}
+.nav-links a{
+  font-family:'Cinzel',serif;
+  font-size:0.72rem;
+  letter-spacing:0.18em;
+  color:var(--parchment-dim);
+  text-decoration:none;
+  text-transform:uppercase;
+  transition:color 0.3s;
+}
+.nav-links a:hover{color:var(--gold)}
+
+/* ── HERO ── */
+#hero{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:flex-start;
+  padding:8rem 4rem 6rem;
+  position:relative;
+  overflow:hidden;
+}
+.hero-eyebrow{
+  font-family:'Cinzel',serif;
+  font-size:0.72rem;
+  letter-spacing:0.35em;
+  color:var(--gold);
+  text-transform:uppercase;
+  margin-bottom:2rem;
+  opacity:0;
+  animation:fadeUp 1.2s 0.3s forwards;
+}
+.hero-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(5rem,14vw,13rem);
+  font-weight:300;
+  line-height:0.88;
+  letter-spacing:-0.02em;
+  color:var(--parchment);
+  margin-bottom:2.5rem;
+  opacity:0;
+  animation:fadeUp 1.4s 0.5s forwards;
+}
+.hero-sub{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.1rem,2vw,1.5rem);
+  font-weight:300;
+  font-style:italic;
+  color:var(--parchment-dim);
+  max-width:42rem;
+  line-height:1.6;
+  margin-bottom:3rem;
+  opacity:0;
+  animation:fadeUp 1.4s 0.8s forwards;
+}
+.hero-hook{
+  font-family:'EB Garamond',serif;
+  font-size:clamp(0.95rem,1.4vw,1.1rem);
+  color:var(--parchment);
+  max-width:38rem;
+  line-height:1.9;
+  border-left:1px solid var(--gold);
+  padding-left:1.5rem;
+  margin-bottom:3rem;
+  opacity:0;
+  animation:fadeUp 1.4s 1.1s forwards;
+}
+.hero-sigue{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.2rem;
+  font-style:italic;
+  color:var(--gold);
+  letter-spacing:0.05em;
+  opacity:0;
+  animation:fadeUp 1.2s 1.5s forwards;
+}
+.hero-cta{
+  margin-top:2.5rem;
+  display:flex;gap:1.5rem;
+  opacity:0;
+  animation:fadeUp 1.2s 1.8s forwards;
+}
+.btn{
+  font-family:'Cinzel',serif;
+  font-size:0.72rem;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  text-decoration:none;
+  padding:0.9rem 2rem;
+  border:1px solid var(--gold);
+  color:var(--gold);
+  background:transparent;
+  cursor:pointer;
+  transition:all 0.3s;
+}
+.btn:hover{background:var(--gold);color:var(--bg)}
+.btn-ghost{border-color:rgba(228,207,170,0.3);color:var(--parchment-dim)}
+.btn-ghost:hover{background:rgba(228,207,170,0.08);color:var(--parchment);border-color:var(--parchment-dim)}
+
+/* River line */
+.river{
+  position:absolute;
+  bottom:4rem;left:0;right:0;
+  height:1px;
+  overflow:hidden;
+}
+.river::after{
+  content:'';
+  display:block;
+  height:1px;
+  background:linear-gradient(to right,transparent,var(--gold-dim) 20%,var(--gold-dim) 80%,transparent);
+  animation:riverFlow 6s linear infinite;
+  width:200%;
+  transform:translateX(-50%);
+}
+@keyframes riverFlow{
+  0%{transform:translateX(-50%)}
+  100%{transform:translateX(0%)}
+}
+.scroll-hint{
+  position:absolute;
+  bottom:2rem;left:50%;
+  transform:translateX(-50%);
+  font-family:'Cinzel',serif;
+  font-size:0.6rem;
+  letter-spacing:0.3em;
+  color:var(--parchment-dim);
+  opacity:0.5;
+  animation:pulse 2.5s ease-in-out infinite;
+}
+@keyframes pulse{0%,100%{opacity:0.3}50%{opacity:0.7}}
+
+/* ── SECTIONS GENERAL ── */
+section{padding:7rem 4rem;border-top:1px solid var(--sep)}
+.section-label{
+  font-family:'Cinzel',serif;
+  font-size:0.68rem;
+  letter-spacing:0.35em;
+  color:var(--gold);
+  text-transform:uppercase;
+  margin-bottom:3rem;
+}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.9s ease,transform 0.9s ease}
+.reveal.visible{opacity:1;transform:none}
+
+/* ── NOVEL SECTION ── */
+#novel{max-width:980px;margin:0 auto}
+.novel-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+.novel-pitch{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.3rem,2.2vw,1.85rem);
+  font-weight:300;
+  line-height:1.55;
+  color:var(--parchment);
+}
+.novel-pitch em{font-style:italic;color:var(--gold)}
+.plays{margin-top:3rem}
+.play-item{
+  padding:1.2rem 0;
+  border-bottom:1px solid rgba(228,207,170,0.1);
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  gap:1.2rem;
+  align-items:baseline;
+}
+.play-num{
+  font-family:'Cinzel',serif;
+  font-size:0.6rem;
+  letter-spacing:0.2em;
+  color:var(--gold);
+}
+.play-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.05rem;
+  font-style:italic;
+  color:var(--parchment);
+}
+.play-years{
+  font-family:'Cinzel',serif;
+  font-size:0.65rem;
+  letter-spacing:0.1em;
+  color:var(--parchment-dim);
+  white-space:nowrap;
+}
+.novel-detail{font-size:1rem;line-height:1.85;color:var(--parchment-dim)}
+.novel-detail p+p{margin-top:1.2rem}
+.novel-detail strong{color:var(--parchment);font-weight:500}
+
+/* ── EXCERPT ── */
+#excerpts{background:rgba(196,151,61,0.03)}
+.excerpt-container{max-width:740px;margin:0 auto}
+.excerpt-header{
+  font-family:'Cinzel',serif;
+  font-size:0.75rem;
+  letter-spacing:0.3em;
+  color:var(--gold);
+  margin-bottom:0.5rem;
+}
+.excerpt-subheader{
+  font-family:'Cormorant Garamond',serif;
+  font-size:0.95rem;
+  font-style:italic;
+  color:var(--parchment-dim);
+  margin-bottom:2.5rem;
+  letter-spacing:0.05em;
+}
+.excerpt-text{
+  font-family:'EB Garamond',serif;
+  font-size:1.15rem;
+  line-height:1.95;
+  color:var(--parchment);
+}
+.excerpt-text p+p{text-indent:2em}
+.excerpt-text .first-line{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.5rem;
+  font-style:italic;
+  color:var(--gold);
+  display:block;
+  margin-bottom:0.5rem;
+}
+.excerpt-divider{
+  margin:4rem 0;
+  height:1px;
+  background:linear-gradient(to right,transparent,rgba(196,151,61,0.3),transparent);
+}
+.poem-container{max-width:580px;margin:0 auto}
+.poem-title{
+  font-family:'Cinzel',serif;
+  font-size:0.7rem;
+  letter-spacing:0.3em;
+  color:var(--gold);
+  margin-bottom:2rem;
+}
+.poem{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.2rem;
+  font-style:italic;
+  line-height:1.9;
+  color:var(--parchment);
+}
+.poem-stanza+.poem-stanza{margin-top:1.5rem}
+.poem-en{
+  margin-top:2.5rem;
+  padding-top:2.5rem;
+  border-top:1px solid rgba(228,207,170,0.1);
+  color:var(--parchment-dim);
+  font-size:1.05rem;
+}
+
+/* ── AUTHOR ── */
+#author{max-width:880px;margin:0 auto}
+.author-grid{display:grid;grid-template-columns:1fr 2fr;gap:5rem;align-items:start}
+.author-name-block .name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:2.2rem;
+  font-weight:300;
+  color:var(--parchment);
+  line-height:1.2;
+}
+.author-name-block .pen-note{
+  font-family:'EB Garamond',serif;
+  font-size:0.85rem;
+  font-style:italic;
+  color:var(--parchment-dim);
+  margin-top:0.5rem;
+}
+.author-name-block .rule{
+  width:2.5rem;
+  height:1px;
+  background:var(--gold);
+  margin:1.5rem 0;
+}
+.author-fact{
+  font-family:'Cinzel',serif;
+  font-size:0.65rem;
+  letter-spacing:0.15em;
+  color:var(--parchment-dim);
+  text-transform:uppercase;
+  line-height:2;
+}
+.author-bio{font-size:1.05rem;line-height:1.9;color:var(--parchment-dim)}
+.author-bio p+p{margin-top:1.2rem}
+.author-bio strong{color:var(--parchment);font-weight:500}
+.author-bio em{color:var(--gold);font-style:italic}
+
+/* ── CONTACT ── */
+#contact{text-align:center;padding:8rem 4rem}
+.contact-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2rem,5vw,4rem);
+  font-weight:300;
+  font-style:italic;
+  color:var(--parchment);
+  margin-bottom:1rem;
+}
+.contact-sub{
+  font-family:'EB Garamond',serif;
+  font-size:1rem;
+  color:var(--parchment-dim);
+  margin-bottom:2.5rem;
+}
+.contact-email{
+  font-family:'Cinzel',serif;
+  font-size:0.85rem;
+  letter-spacing:0.2em;
+  color:var(--gold);
+  text-decoration:none;
+  border-bottom:1px solid var(--gold-dim);
+  padding-bottom:0.2rem;
+  transition:color 0.3s,border-color 0.3s;
+}
+.contact-email:hover{color:var(--parchment);border-color:var(--parchment-dim)}
+
+/* ── FOOTER ── */
+footer{
+  padding:2.5rem 4rem;
+  border-top:1px solid var(--sep);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.footer-title{
+  font-family:'Cinzel',serif;
+  font-size:0.65rem;
+  letter-spacing:0.25em;
+  color:var(--gold-dim);
+}
+.footer-closing{
+  font-family:'Cormorant Garamond',serif;
+  font-size:0.95rem;
+  font-style:italic;
+  color:var(--parchment-dim);
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:none}
+}
+
+/* ── RESPONSIVE ── */
+@media(max-width:768px){
+  nav{padding:1.2rem 1.5rem}
+  .nav-links{gap:1.2rem}
+  #hero{padding:7rem 1.5rem 5rem}
+  section{padding:5rem 1.5rem}
+  .novel-grid{grid-template-columns:1fr}
+  .author-grid{grid-template-columns:1fr}
+  footer{flex-direction:column;gap:1rem;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="#hero" class="nav-title">PASADOR</a>
+  <ul class="nav-links">
+    <li><a href="#novel">The Novel</a></li>
+    <li><a href="#excerpts">Excerpts</a></li>
+    <li><a href="#author">Author</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <p class="hero-eyebrow">A Novel · Vicente Gabriel Flores</p>
+  <h1 class="hero-title">PASADOR</h1>
+  <p class="hero-sub">In 1730, a harness-maker's son crossed the Atlantic on a king's promise for land that was not the king's to give. In 1913, his great-great-great-grandson crossed the International Bridge at El Paso in a campesino's shirt.</p>
+  <p class="hero-hook">This is the 183 years between those two crossings — six generations, five flags, and a spring below the bridge that has been rising for twelve thousand years.</p>
+  <p class="hero-sigue">"Sigue. No mires atrás, hijo."</p>
+  <div class="hero-cta">
+    <a href="#excerpts" class="btn">Read an Excerpt</a>
+    <a href="#novel" class="btn btn-ghost">About the Novel</a>
+  </div>
+  <div class="river"></div>
+  <p class="scroll-hint">↓ &nbsp; SCROLL</p>
+</section>
+
+<!-- THE NOVEL -->
+<section id="novel">
+  <p class="section-label reveal">The Novel</p>
+  <div class="novel-grid">
+    <div>
+      <p class="novel-pitch reveal">A Tejano family saga spanning <em>183 years</em> and five flags — from the volcanic island of Tenerife to the International Bridge at El Paso — told as five plays with Steinbeck-style interchapters in the bilingual register of the border.</p>
+      <div class="plays reveal">
+        <div class="play-item">
+          <span class="play-num">I</span>
+          <span class="play-name">The Canary</span>
+          <span class="play-years">1730 – 1803</span>
+        </div>
+        <div class="play-item">
+          <span class="play-num">II</span>
+          <span class="play-name">The Revolution</span>
+          <span class="play-years">1821 – 1836</span>
+        </div>
+        <div class="play-item">
+          <span class="play-num">III</span>
+          <span class="play-name">The River</span>
+          <span class="play-years">1800 – 1856</span>
+        </div>
+        <div class="play-item">
+          <span class="play-num">IV</span>
+          <span class="play-name">The Mine</span>
+          <span class="play-years">1858 – 1870</span>
+        </div>
+        <div class="play-item">
+          <span class="play-num">V</span>
+          <span class="play-name">The Mayor</span>
+          <span class="play-years">1862 – 1913</span>
+        </div>
+      </div>
+    </div>
+    <div class="novel-detail reveal">
+      <p>Each generation inherits what the last built and loses it to a different form of dispossession: a king's deed on land the Payaya had held for twelve thousand years; a republic that made its founders foreigners in the country they helped build; a treaty that moved the line without asking the people on it; a federal marshal's sale that turned Concordia Ranch into a cemetery.</p>
+      <p>The novel's question is the same across all five plays: <strong>what survives when everything you built gets taken?</strong></p>
+      <p>The answer is spoken by a mayor in a campesino's shirt on the International Bridge on a November night in 1913: <em>you carry what has no document.</em></p>
+      <p>Literary historical fiction · <strong>60,433 words</strong> · Written in the bilingual register of the Texas-Mexico border.</p>
+    </div>
+  </div>
+</section>
+
+<!-- EXCERPTS -->
+<section id="excerpts">
+  <p class="section-label reveal">Excerpts</p>
+
+  <div class="excerpt-container">
+    <div class="reveal">
+      <p class="excerpt-header">Prologue: The Crossing</p>
+      <p class="excerpt-subheader">International Bridge · El Paso, Texas · Noviembre de 1913 · Nine o'clock in the evening</p>
+      <div class="excerpt-text">
+        <span class="first-line">"Sigue," his father said. "No mires atrás, hijo." Keep going. Don't look back.</span>
+        <p>The boy had been told not to look back.</p>
+        <p>He was nine years old and his name was Carlos F. Flores, born the tenth of October, nineteen hundred and three, in the house his grandfather had built on the south side of the city. Ciudad Juárez, the name the city had always had and would always have, because a city's name lives in the mouths of its people and not in any document. He was slight for his age, with the Stephenson eyes that had crossed the Atlantic from Kentucky to this valley a hundred years before him: pale, direct, the blue-grey of early morning. The rest of his face was entirely Flores. The face of a people who had been in this valley since before the valley had a name that anyone else recognized.</p>
+        <p>His father's hand was around his wrist. Not the Sunday-walk hand. The other one.</p>
+        <p>Below the bridge, the Río Grande moved south in the November dark. Thirty yards wide, the color of iron at night, moving at the speed of something that has been moving since before anyone was here to watch it and will continue when there is no one left to watch. Its sound came up through the bridge planks: not dramatic, just present. The low continuous voice of water always going somewhere, never arriving.</p>
+        <p>He looked back.</p>
+        <p>He had been told not to. He was nine years old and the city behind him was the only world he had ever known, and something in him — something below obedience, below fear, below the urgency of the night — understood that you must see what a world looks like in the moment of leaving it.</p>
+      </div>
+    </div>
+
+    <div class="excerpt-divider"></div>
+
+    <div class="poem-container reveal">
+      <p class="poem-title">From What Was in the Air · The Fifth Play · 1913</p>
+      <div class="poem">
+        <div class="poem-stanza">
+          Villa llegó de noche en tren de carbón.<br>
+          Hollywood llegó de día con sus cámaras.<br>
+          Ambrose Bierce llegó buscando su muerte<br>
+          y la encontró tan bien escondida<br>
+          que nadie la ha encontrado desde entonces.
+        </div>
+        <div class="poem-stanza">
+          El río no distingue entre ninguno de ellos.<br>
+          Sigue corriendo al sur de todos modos.
+        </div>
+        <div class="poem-stanza">
+          El puente es el umbral.<br>
+          En el umbral, el tiempo no corre en una sola dirección.<br>
+          Todos los que cruzaron están cruzando todavía.
+        </div>
+        <div class="poem-stanza">
+          El agua bajo el puente lo sabe.<br>
+          Lleva doce mil años sabiéndolo.
+        </div>
+      </div>
+      <div class="poem poem-en">
+        <div class="poem-stanza">
+          Villa came by night on a coal train.<br>
+          Hollywood came by day with its cameras.<br>
+          Ambrose Bierce came looking for his death<br>
+          and found it so well hidden<br>
+          that no one has found it since.
+        </div>
+        <div class="poem-stanza">
+          The river does not distinguish between any of them.<br>
+          It keeps running south regardless.
+        </div>
+        <div class="poem-stanza">
+          The bridge is the threshold.<br>
+          On the threshold, time does not run in one direction.<br>
+          Everyone who ever crossed is still crossing.
+        </div>
+        <div class="poem-stanza">
+          The water below the bridge knows this.<br>
+          It has known it for twelve thousand years.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AUTHOR -->
+<section id="author">
+  <p class="section-label reveal">The Author</p>
+  <div class="author-grid">
+    <div class="author-name-block reveal">
+      <p class="name">Vicente<br>Gabriel<br>Flores</p>
+      <p class="pen-note">pen name of Gabriel Salcedo</p>
+      <div class="rule"></div>
+      <p class="author-fact">
+        Kyle, Texas<br>
+        Debut Novel<br>
+        60,433 Words
+      </p>
+    </div>
+    <div class="author-bio reveal">
+      <p>Vicente Gabriel Flores is a descendant of <strong>Carlos F. Flores</strong>, who crossed the International Bridge at El Paso in November 1913 at the age of nine — the crossing that opens and closes PASADOR. The Concordia Ranch, the Flores family's six-generation presence in the El Paso del Norte valley, and the documented history of the families in this novel are the factual spine of the book, built on fifty years of genealogical research by <strong>Alfredo C. Flores</strong>.</p>
+      <p>He holds a Bachelor of Arts in <em>Japanese and Chinese Language</em> from the University of Hawaii at Manoa — a formal education in living between languages that shaped every structural decision in this novel — and an MBA from Rutgers Business School. He spent nearly a decade managing project finance across Japan, China, and Hong Kong before returning to Texas, where he serves as Vice President, Benefits and Contracts at HHS, LLC.</p>
+      <p>PASADOR is his debut novel.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <p class="contact-title reveal">Representation &amp; Inquiries</p>
+  <p class="contact-sub reveal">For rights, representation, and press inquiries:</p>
+  <a href="mailto:gabriel.o.salcedo@gmail.com" class="contact-email reveal">gabriel.o.salcedo@gmail.com</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-title">PASADOR · Vicente Gabriel Flores · 2026</span>
+  <span class="footer-closing">No hemos llegado aún a la vendimia.</span>
+</footer>
+
+<script>
+const nav = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => {
+  const delay = Array.from(el.parentElement.querySelectorAll('.reveal')).indexOf(el);
+  el.style.transitionDelay = `${delay * 0.12}s`;
+  observer.observe(el);
+});
+</script>
+</body>
+</html>
