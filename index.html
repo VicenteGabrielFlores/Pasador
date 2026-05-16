@@ -251,6 +251,106 @@ section{padding:7rem 4rem;border-top:1px solid var(--sep)}
 .novel-detail p+p{margin-top:1.2rem}
 .novel-detail strong{color:var(--parchment);font-weight:500}
 
+/* ── CHRONICLE ── */
+#cronica{
+  max-width:1100px;
+  margin:0 auto;
+  padding:8rem 2rem;
+  text-align:center;
+}
+.cronica-eyebrow{
+  font-family:'Cinzel',serif;
+  font-size:0.7rem;
+  letter-spacing:0.35em;
+  color:var(--gold);
+  text-transform:uppercase;
+  margin-bottom:1.5rem;
+}
+.cronica-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2.8rem,5vw,4rem);
+  font-weight:300;
+  color:var(--parchment);
+  line-height:1.05;
+  margin-bottom:0.4rem;
+}
+.cronica-subtitle{
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;
+  font-size:1.3rem;
+  color:var(--parchment-dim);
+  margin-bottom:3rem;
+}
+.cronica-pitch{
+  max-width:720px;
+  margin:0 auto 3rem;
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.35rem;
+  line-height:1.6;
+  color:var(--parchment);
+  font-weight:300;
+}
+.cronica-pitch em{font-style:italic;color:var(--gold)}
+.cronica-stats{
+  display:flex;
+  justify-content:center;
+  gap:4rem;
+  margin:3rem auto;
+  padding:2rem 0;
+  border-top:1px solid var(--sep);
+  border-bottom:1px solid var(--sep);
+  max-width:680px;
+}
+.cronica-stat-num{
+  display:block;
+  font-family:'Cormorant Garamond',serif;
+  font-size:2.8rem;
+  font-weight:300;
+  color:var(--gold);
+  line-height:1;
+}
+.cronica-stat-label{
+  display:block;
+  font-family:'Cinzel',serif;
+  font-size:0.65rem;
+  letter-spacing:0.3em;
+  color:var(--parchment-dim);
+  text-transform:uppercase;
+  margin-top:0.6rem;
+}
+.cronica-detail{
+  max-width:680px;
+  margin:0 auto 2.5rem;
+  font-family:'EB Garamond',Georgia,serif;
+  font-size:1.05rem;
+  line-height:1.8;
+  color:var(--parchment-dim);
+}
+.cronica-detail strong{color:var(--parchment);font-weight:500}
+.cronica-cta a{
+  display:inline-block;
+  font-family:'Cinzel',serif;
+  font-size:0.8rem;
+  letter-spacing:0.32em;
+  text-transform:uppercase;
+  color:var(--gold);
+  text-decoration:none;
+  border-bottom:1px solid var(--gold-dim);
+  padding:0.5rem 0;
+  transition:all 0.3s;
+}
+.cronica-cta a:hover{
+  color:var(--parchment);
+  border-bottom-color:var(--parchment);
+}
+.cronica-closing{
+  margin-top:3rem;
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;
+  font-size:1.1rem;
+  color:var(--parchment-dim);
+}
+
 /* ── EXCERPT ── */
 #excerpts{background:rgba(196,151,61,0.03)}
 .excerpt-container{max-width:740px;margin:0 auto}
@@ -481,6 +581,8 @@ footer{
   #family .fam-stops::before{display:none}
   #family .fam-founder{flex-direction:column;gap:0.2rem;align-items:flex-start}
   #family .fam-founder-name,#family .fam-founder-dates{min-width:0}
+  #cronica{padding:5rem 1.5rem}
+  .cronica-stats{flex-direction:column;gap:2rem;max-width:300px}
 }
 @media(max-width:480px){
   #family .fam-crests{grid-template-columns:1fr;gap:3rem}
@@ -494,6 +596,7 @@ footer{
   <a href="#hero" class="nav-title">PASADOR</a>
   <ul class="nav-links">
     <li><a href="#novel">The Novel</a></li>
+    <li><a href="#cronica">Crónicas</a></li>
     <li><a href="#excerpts">Excerpts</a></li>
     <li><a href="#author">Author</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -556,6 +659,38 @@ footer{
       <p>Literary historical fiction · <strong>57,826 words</strong> · Written in the bilingual register of the Texas-Mexico border.</p>
     </div>
   </div>
+</section>
+
+<!-- CHRONICLE -->
+<section id="cronica">
+  <p class="cronica-eyebrow reveal">The Documentary Companion</p>
+  <h2 class="cronica-title reveal">Las Crónicas</h2>
+  <p class="cronica-subtitle reveal"><em>The Chronicles</em></p>
+
+  <p class="cronica-pitch reveal">Alongside the novel, a documentary companion — <em>ten chronicles, eighty-eight thousand five hundred words, two hundred and ninety-six years of one family</em> — written in García Márquez tribute voice from the harness-maker's son in 1730 Tenerife to the grandson writing in 2026 Austin.</p>
+
+  <div class="cronica-stats reveal">
+    <div>
+      <span class="cronica-stat-num">296</span>
+      <span class="cronica-stat-label">years</span>
+    </div>
+    <div>
+      <span class="cronica-stat-num">10</span>
+      <span class="cronica-stat-label">chronicles</span>
+    </div>
+    <div>
+      <span class="cronica-stat-num">88,500</span>
+      <span class="cronica-stat-label">words</span>
+    </div>
+  </div>
+
+  <p class="cronica-detail reveal">Each Part is built from nine cards — setting, events, places, people, food, language, primary documents, sources — grounded in the Bexar Archives, parish registers, the El Paso County Historical Society's Hall of Honor, and fifty years of genealogical research by Alfredo C. Flores. <strong>The novel invents what the chronicle cannot. The chronicle records what the novel must respect.</strong></p>
+
+  <div class="cronica-cta reveal">
+    <a href="/historia.html">Read Las Crónicas →</a>
+  </div>
+
+  <p class="cronica-closing reveal">La cosecha no ha llegado todavía.</p>
 </section>
 
 <!-- EXCERPTS -->
