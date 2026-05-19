@@ -139,6 +139,32 @@ nav.scrolled .nav-title{opacity:1}
   opacity:0;
   animation:fadeUp 1.2s 1.5s forwards;
 }
+.hero-invocation{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(0.95rem,1.3vw,1.1rem);
+  font-weight:300;
+  font-style:italic;
+  color:var(--parchment-dim);
+  max-width:42rem;
+  line-height:1.75;
+  margin-bottom:2.5rem;
+  opacity:0;
+  animation:fadeUp 1.4s 0.8s forwards;
+}
+.hero-invocation p{margin:0 0 1.2rem 0}
+.hero-invocation .coda{
+  color:var(--parchment);
+  margin-top:1.6rem;
+  margin-bottom:0.7rem;
+}
+.hero-invocation .close{
+  font-style:normal;
+  color:var(--gold);
+  font-size:1.15em;
+  letter-spacing:0.04em;
+  margin-top:1.3rem;
+  margin-bottom:0;
+}
 .hero-cta{
   margin-top:2.5rem;
   display:flex;gap:1.5rem;
@@ -608,6 +634,7 @@ footer{
     <li><a href="#novel">The Novel</a></li>
     <li><a href="#cronica">Crónicas</a></li>
     <li><a href="#excerpts">Excerpts</a></li>
+    <li><a href="#la-toma">La Toma</a></li>
     <li><a href="#author">Author</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -617,9 +644,44 @@ footer{
 <section id="hero">
   <p class="hero-eyebrow">A Novel · Vicente Gabriel Flores</p>
   <h1 class="hero-title">PASADOR</h1>
-  <p class="hero-sub">On the night of November 15, 1913 — the night Pancho Villa took Ciudad Juárez — the alcalde walked the International Bridge into El Paso at four in the morning, his nine-year-old son at his side.</p>
+
+  <div class="hero-invocation">
+    <p>A king's promise:<br>
+    title and land, <em>hijos dalgo de solar conocido</em> —<br>
+    a name behind the name, by right of birth.</p>
+
+    <p>The promise was kept.<br>
+    In seventeen-thirty, from Tenerife<br>
+    the harness-maker's son sailed;<br>
+    crossed the Atlantic; rode the <em>camino real</em>;<br>
+    and at the fork of two rivers made his stand —<br>
+    Vicente Álvarez Travieso,<br>
+    <em>alguacil mayor de Béxar</em>.<br>
+    The grant was real. The river was real. The land was real.</p>
+
+    <p>Then the king died.<br>
+    The empire fell.<br>
+    The wars came: Mexican, Texan, American, Civil, Mexican again.<br>
+    The flags changed — five of them, sometimes in a week.<br>
+    The marshal came. The bandits came. The <em>federales</em> came.</p>
+
+    <p>What was given was taken.<br>
+    What was taken was won back.<br>
+    What was won back was taken again.</p>
+
+    <p>For two hundred and ninety-six years,<br>
+    across two oceans and five flags,<br>
+    one Tejano family has done one thing only:<br>
+    they held on.</p>
+
+    <p class="coda"><em>Si no por su mano, por la nuestra.</em><br>
+    <em>Sigue.</em><br>
+    <em>No mires atrás, hijo.</em></p>
+
+    <p class="close">His hand. Now mine.</p>
+  </div>
+
   <p class="hero-hook">PASADOR is the 296-year saga of one Tejano family — finally told by the grandson who heard the whole story on a porch on Florence Street and promised, at fourteen, to write it down.</p>
-  <p class="hero-sigue">"Sigue. No mires atrás, hijo."</p>
   <div class="hero-cta">
     <a href="#excerpts" class="btn">Read an Excerpt</a>
     <a href="#novel" class="btn btn-ghost">About the Novel</a>
@@ -781,6 +843,38 @@ footer{
   </div>
 </section>
 
+<!-- LA TOMA -->
+<section id="la-toma" style="max-width:1100px;margin:0 auto;padding:8rem 2rem;text-align:center">
+  <p class="cronica-eyebrow reveal">A Companion Play</p>
+  <h2 class="cronica-title reveal">La Toma</h2>
+  <p class="cronica-subtitle reveal"><em>The Night Villa Came to Juárez</em></p>
+
+  <p class="cronica-pitch reveal">A novella-length play in five acts and four choral poems. One night. The night Pancho Villa took Ciudad Juárez and the alcalde walked his nine-year-old son across the International Bridge into El Paso.</p>
+
+  <div class="cronica-stats reveal">
+    <div>
+      <span class="cronica-stat-num">5</span>
+      <span class="cronica-stat-label">acts</span>
+    </div>
+    <div>
+      <span class="cronica-stat-num">1</span>
+      <span class="cronica-stat-label">night</span>
+    </div>
+    <div>
+      <span class="cronica-stat-num">26,000</span>
+      <span class="cronica-stat-label">words</span>
+    </div>
+  </div>
+
+  <p class="cronica-detail reveal">November 14–15, 1913. The federal garrison sleeps. Villa rides north on a coal train. By dawn he holds Ciudad Juárez. The alcalde and his family walk the International Bridge into El Paso. <strong>The play takes the honest position the novel only glances at:</strong> the family on the bridge was the class Villa was fighting against — and the play does not pretend otherwise. Shakespeare's five-act spine, Dostoevsky's interior, García Márquez's chronicle voice, Clavell's continental sweep.</p>
+
+  <div class="cronica-cta reveal">
+    <a href="/la-toma.html">Read LA TOMA →</a>
+  </div>
+
+  <p class="cronica-closing reveal">He rode against my family. This is the first true thing.</p>
+</section>
+
 <!-- AUTHOR -->
 <section id="author">
   <p class="section-label reveal">The Author</p>
@@ -790,15 +884,17 @@ footer{
       <p class="pen-note">pen name of Gabriel Salcedo</p>
       <div class="rule"></div>
       <p class="author-fact">
-        Austin, Texas<br>
-        Debut Novel<br>
-        57,826 Words
+        Austin, Texas<br><br>
+        PASADOR · a novel · 57,826 words<br>
+        LA TOMA · a play · 26,000 words<br>
+        Las Crónicas · 88,500 words<br><br>
+        2026
       </p>
     </div>
     <div class="author-bio reveal">
-      <p>Vicente Gabriel Flores is a descendant of <strong>Carlos F. Flores</strong>, who crossed the International Bridge at El Paso in November 1913 at the age of nine — the crossing that opens and closes PASADOR. The Concordia Ranch, the Flores family's six-generation presence in the El Paso del Norte valley, and the documented history of the families in this novel are the factual spine of the book, drawn from the family chart of <strong>Alfredo C. Flores</strong>, who nominated and successfully inscribed these ancestors into the El Paso County Historical Society's Hall of Honor.</p>
-      <p>He holds a Bachelor of Arts in <em>Japanese and Chinese Language</em> from the University of Hawaii at Manoa — a formal education in living between languages that shaped every structural decision in this novel — and an MBA from Rutgers Business School. He spent nearly a decade managing project finance across Japan, China, and Hong Kong before returning to Texas, where he serves as Vice President, Benefits and Contracts at HHS, LLC.</p>
-      <p>PASADOR is his debut novel.</p>
+      <p>Vicente Gabriel Flores is a descendant of <strong>Carlos F. Flores</strong>, who crossed the International Bridge at El Paso in November 1913 at the age of nine — the crossing that opens and closes PASADOR and that the play LA TOMA dramatizes in full. The Concordia Ranch, the Flores family's six-generation presence in the El Paso del Norte valley, and the documented history of the families in this body of work are its factual spine, drawn from the family chart of <strong>Alfredo C. Flores</strong>, who nominated and successfully inscribed these ancestors into the El Paso County Historical Society's Hall of Honor.</p>
+      <p>He holds a Bachelor of Arts in <em>Japanese and Chinese Language</em> from the University of Hawaii at Manoa — a formal education in living between languages that shaped every structural decision in this body of work — and an MBA from Rutgers Business School. He spent over a decade in <strong>asset management and capital markets</strong> across Japan, China, and Hong Kong before returning to Texas, where he serves as Vice President, Benefits and Contracts at HHS, LLC.</p>
+      <p><strong>PASADOR</strong> is his debut novel. <strong>LA TOMA: The Night Villa Came to Juárez</strong> is its companion play. <strong>Las Crónicas</strong> — ten chronicles, 88,500 words, 296 years of one family — is the documentary spine alongside both.</p>
     </div>
   </div>
 </section>
@@ -1012,7 +1108,7 @@ footer{
     </div>
 
     <div class="fam-coda reveal">
-      <p class="fam-coda-line">El niño creció. El niño escribe esto.</p>
+      <p class="fam-coda-line">His hand. Now mine.</p>
       <p class="fam-coda-sig">Austin · 2026</p>
     </div>
 
