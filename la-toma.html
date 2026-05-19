@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LA TOMA — The Night Villa Came to Juárez · Vicente Gabriel Flores</title>
+<meta name="description" content="LA TOMA: The Night Villa Came to Juárez. A novella-length play by Vicente Gabriel Flores. A companion to PASADOR — November 15, 1913, the night Pancho Villa took Ciudad Juárez, and the bridge crossing of the alcalde's family.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="googlebot" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Cinzel:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#080604;
+  --parchment:#e4cfaa;
+  --parchment-dim:#a89070;
+  --parchment-faint:#6a5740;
+  --rust:#7a3020;
+  --gold:#c4973d;
+  --gold-dim:#8a6520;
+  --sep:#1e1208;
+}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--parchment);
+  font-family:'EB Garamond',Georgia,serif;
+  font-size:18px;
+  line-height:1.8;
+  overflow-x:hidden;
+}
+
+/* ── GRAIN ── */
+body::before{
+  content:'';
+  position:fixed;
+  inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events:none;
+  opacity:0.35;
+  z-index:999;
+}
+
+/* ── NAV ── */
+nav{
+  position:fixed;
+  top:0;left:0;right:0;
+  z-index:100;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:1.5rem 4rem;
+  background:linear-gradient(to bottom,rgba(8,6,4,0.95) 0%,rgba(8,6,4,0) 100%);
+  transition:background 0.4s;
+}
+nav.scrolled{background:rgba(8,6,4,0.97);border-bottom:1px solid rgba(196,151,61,0.12)}
+.nav-title{
+  font-family:'Cinzel',serif;
+  font-size:0.9rem;
+  letter-spacing:0.2em;
+  color:var(--gold);
+  text-decoration:none;
+}
+.nav-title::before{content:'← ';opacity:0.6;font-family:'EB Garamond',serif;letter-spacing:normal}
+.nav-links{display:flex;gap:2.5rem;list-style:none}
+.nav-links a{
+  font-family:'Cinzel',serif;
+  font-size:0.72rem;
+  letter-spacing:0.18em;
+  color:var(--parchment-dim);
+  text-decoration:none;
+  text-transform:uppercase;
+  transition:color 0.3s;
+}
+.nav-links a:hover{color:var(--gold)}
+
+/* ── HERO ── */
+#hero{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+  align-items:flex-start;
+  padding:9rem 4rem 6rem;
+  position:relative;
+  overflow:hidden;
+}
+.hero-eyebrow{
+  font-family:'Cinzel',serif;
+  font-size:0.72rem;
+  letter-spacing:0.35em;
+  color:var(--gold);
+  text-transform:uppercase;
+  margin-bottom:2rem;
+  opacity:0;
+  animation:fadeUp 1.2s 0.3s forwards;
+}
+.hero-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(4.5rem,13vw,12rem);
+  font-weight:300;
+  line-height:0.88;
+  letter-spacing:-0.02em;
+  color:var(--parchment);
+  margin-bottom:1.2rem;
+  opacity:0;
+  animation:fadeUp 1.4s 0.5s forwards;
+}
+.hero-subtitle{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.4rem,2.6vw,2.1rem);
+  font-weight:300;
+  font-style:italic;
+  color:var(--gold);
+  letter-spacing:0.01em;
+  margin-bottom:2.5rem;
+  opacity:0;
+  animation:fadeUp 1.4s 0.7s forwards;
+}
+.hero-sub{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.1rem,2vw,1.5rem);
+  font-weight:300;
+  font-style:italic;
+  color:var(--parchment-dim);
+  max-width:46rem;
+  line-height:1.6;
+  margin-bottom:2.5rem;
+  opacity:0;
+  animation:fadeUp 1.4s 0.9s forwards;
+}
+.hero-hook{
+  font-family:'EB Garamond',serif;
+  font-size:clamp(0.95rem,1.4vw,1.1rem);
+  color:var(--parchment);
+  max-width:40rem;
+  line-height:1.9;
+  border-left:1px solid var(--gold);
+  padding-left:1.5rem;
+  margin-bottom:2.5rem;
+  opacity:0;
+  animation:fadeUp 1.4s 1.2s forwards;
+}
+.hero-sigue{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.2rem;
+  font-style:italic;
+  color:var(--gold);
+  letter-spacing:0.05em;
+  opacity:0;
+  animation:fadeUp 1.2s 1.5s forwards;
+}
+.hero-cta{
+  margin-top:2.5rem;
+  display:flex;gap:1.5rem;
+  opacity:0;
+  animation:fadeUp 1.2s 1.8s forwards;
+  flex-wrap:wrap;
+}
+.btn{
+  font-family:'Cinzel',serif;
+  font-size:0.72rem;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  text-decoration:none;
+  padding:0.9rem 2rem;
+  border:1px solid var(--gold);
+  color:var(--gold);
+  background:transparent;
+  cursor:pointer;
+  transition:all 0.3s;
+}
+.btn:hover{background:var(--gold);color:var(--bg)}
+.btn-ghost{border-color:rgba(228,207,170,0.3);color:var(--parchment-dim)}
+.btn-ghost:hover{background:rgba(228,207,170,0.08);color:var(--parchment);border-color:var(--parchment-dim)}
+
+/* River line */
+.river{
+  position:absolute;
+  bottom:4rem;left:0;right:0;
+  height:1px;
+  overflow:hidden;
+}
+.river::after{
+  content:'';
+  display:block;
+  height:1px;
+  background:linear-gradient(to right,transparent,var(--gold-dim) 20%,var(--gold-dim) 80%,transparent);
+  animation:riverFlow 6s linear infinite;
+  width:200%;
+  transform:translateX(-50%);
+}
+@keyframes riverFlow{
+  0%{transform:translateX(-50%)}
+  100%{transform:translateX(0%)}
+}
+
+/* ── SECTIONS ── */
+section{padding:7rem 4rem;border-top:1px solid var(--sep)}
+.section-label{
+  font-family:'Cinzel',serif;
+  font-size:0.68rem;
+  letter-spacing:0.35em;
+  color:var(--gold);
+  text-transform:uppercase;
+  margin-bottom:3rem;
+}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.9s ease,transform 0.9s ease}
+.reveal.visible{opacity:1;transform:none}
+
+/* ── PLAY SECTION ── */
+#play{max-width:980px;margin:0 auto}
+.play-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:5rem;align-items:start}
+.play-pitch{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.3rem,2.2vw,1.85rem);
+  font-weight:300;
+  line-height:1.55;
+  color:var(--parchment);
+  margin-bottom:2.5rem;
+}
+.play-pitch em{font-style:italic;color:var(--gold)}
+.play-synopsis{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.2rem;
+  font-weight:300;
+  line-height:1.65;
+  color:var(--parchment);
+  margin-bottom:1.5rem;
+}
+.play-synopsis em{font-style:italic;color:var(--gold)}
+.play-detail{font-size:1rem;line-height:1.85;color:var(--parchment-dim)}
+.play-detail p+p{margin-top:1.2rem}
+.play-detail strong{color:var(--parchment);font-weight:500}
+.play-detail em{color:var(--gold);font-style:italic}
+.acts{margin-top:2.5rem}
+.act-item{
+  padding:1.05rem 0;
+  border-bottom:1px solid rgba(228,207,170,0.1);
+  display:grid;
+  grid-template-columns:auto 1fr;
+  gap:1.4rem;
+  align-items:baseline;
+}
+.act-num{
+  font-family:'Cinzel',serif;
+  font-size:0.6rem;
+  letter-spacing:0.2em;
+  color:var(--gold);
+}
+.act-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.05rem;
+  font-style:italic;
+  color:var(--parchment);
+}
+
+/* ── HONEST FRAME ── */
+#frame{
+  max-width:880px;
+  margin:0 auto;
+  padding:9rem 2rem;
+  text-align:center;
+}
+.frame-eyebrow{
+  font-family:'Cinzel',serif;
+  font-size:0.7rem;
+  letter-spacing:0.35em;
+  color:var(--gold);
+  text-transform:uppercase;
+  margin-bottom:2.2rem;
+}
+.frame-quote{
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;
+  font-weight:300;
+  font-size:clamp(1.6rem,3vw,2.4rem);
+  line-height:1.45;
+  color:var(--parchment);
+  max-width:720px;
+  margin:0 auto 2.5rem;
+}
+.frame-quote em{color:var(--gold);font-style:italic}
+.frame-attr{
+  font-family:'Cinzel',serif;
+  font-size:0.65rem;
+  letter-spacing:0.3em;
+  color:var(--parchment-dim);
+  text-transform:uppercase;
+  margin-bottom:3rem;
+}
+.frame-coda{
+  font-family:'EB Garamond',serif;
+  font-size:1.05rem;
+  line-height:1.85;
+  color:var(--parchment-dim);
+  max-width:620px;
+  margin:0 auto;
+}
+.frame-coda strong{color:var(--parchment);font-weight:500}
+
+/* ── EXCERPT ── */
+#excerpt{background:rgba(196,151,61,0.03)}
+.excerpt-container{max-width:740px;margin:0 auto}
+.excerpt-header{
+  font-family:'Cinzel',serif;
+  font-size:0.75rem;
+  letter-spacing:0.3em;
+  color:var(--gold);
+  margin-bottom:0.5rem;
+}
+.excerpt-subheader{
+  font-family:'Cormorant Garamond',serif;
+  font-size:0.95rem;
+  font-style:italic;
+  color:var(--parchment-dim);
+  margin-bottom:3rem;
+  letter-spacing:0.05em;
+}
+.excerpt-text{
+  font-family:'EB Garamond',serif;
+  font-size:1.1rem;
+  line-height:1.95;
+  color:var(--parchment);
+}
+.excerpt-text p{margin-bottom:1.4rem}
+.excerpt-text em{font-style:italic}
+.excerpt-text strong{font-weight:500;color:var(--parchment)}
+.scene-direction{
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;
+  color:var(--gold);
+  font-size:1rem;
+  letter-spacing:0.04em;
+  margin:2.2rem 0 1.6rem;
+  text-align:center;
+}
+.character{
+  font-family:'Cinzel',serif;
+  font-size:0.68rem;
+  letter-spacing:0.28em;
+  color:var(--gold);
+  text-transform:uppercase;
+  display:block;
+  margin-top:1.4rem;
+  margin-bottom:0.3rem;
+}
+.dialogue{
+  margin-bottom:1.4rem;
+  font-style:italic;
+  color:var(--parchment);
+  padding-left:1.5rem;
+  border-left:1px solid rgba(196,151,61,0.2);
+}
+.dialogue.plain{font-style:normal}
+.excerpt-divider{
+  margin:4rem 0;
+  height:1px;
+  background:linear-gradient(to right,transparent,rgba(196,151,61,0.3),transparent);
+}
+
+/* CHORAL POEM */
+.choral-title{
+  font-family:'Cinzel',serif;
+  font-size:0.72rem;
+  letter-spacing:0.32em;
+  color:var(--gold);
+  text-transform:uppercase;
+  text-align:center;
+  margin-bottom:0.5rem;
+}
+.choral-subtitle{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.05rem;
+  font-style:italic;
+  color:var(--parchment-dim);
+  text-align:center;
+  margin-bottom:3rem;
+}
+.choral{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.18rem;
+  line-height:1.85;
+  color:var(--parchment);
+  max-width:580px;
+  margin:0 auto;
+}
+.choral em{color:var(--gold);font-style:italic}
+.choral .stanza{margin-bottom:1.6rem}
+.choral .closing{
+  margin-top:2.4rem;
+  font-style:italic;
+  color:var(--gold);
+  font-size:1.3rem;
+  line-height:1.6;
+}
+.excerpt-end-note{
+  margin-top:4rem;
+  padding-top:2rem;
+  border-top:1px solid rgba(228,207,170,0.12);
+  text-align:center;
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;
+  font-size:1rem;
+  color:var(--parchment-dim);
+}
+
+/* ── COMPS ── */
+#comps{max-width:880px;margin:0 auto}
+.comps-intro{
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;
+  font-size:1.15rem;
+  color:var(--parchment-dim);
+  margin-bottom:3rem;
+  max-width:600px;
+}
+.comp-list{margin-top:1rem}
+.comp-item{
+  padding:1.4rem 0;
+  border-bottom:1px solid rgba(228,207,170,0.1);
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:1.5rem;
+  align-items:baseline;
+}
+.comp-item:last-child{border-bottom:none}
+.comp-title{
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;
+  font-size:1.25rem;
+  color:var(--parchment);
+}
+.comp-author{
+  font-family:'EB Garamond',serif;
+  font-size:1rem;
+  color:var(--parchment-dim);
+  margin-top:0.2rem;
+}
+.comp-year{
+  font-family:'Cinzel',serif;
+  font-size:0.7rem;
+  letter-spacing:0.2em;
+  color:var(--gold-dim);
+}
+
+/* ── STATUS / CONTACT ── */
+#status{text-align:center;padding:8rem 4rem}
+.status-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2rem,5vw,3.6rem);
+  font-weight:300;
+  font-style:italic;
+  color:var(--parchment);
+  margin-bottom:1rem;
+}
+.status-detail{
+  font-family:'Cinzel',serif;
+  font-size:0.72rem;
+  letter-spacing:0.3em;
+  color:var(--gold);
+  text-transform:uppercase;
+  margin-bottom:2.5rem;
+}
+.status-sub{
+  font-family:'EB Garamond',serif;
+  font-size:1.05rem;
+  color:var(--parchment-dim);
+  margin-bottom:2.5rem;
+  max-width:580px;
+  margin-left:auto;
+  margin-right:auto;
+  line-height:1.8;
+}
+.status-email{
+  font-family:'Cinzel',serif;
+  font-size:0.85rem;
+  letter-spacing:0.2em;
+  color:var(--gold);
+  text-decoration:none;
+  border-bottom:1px solid var(--gold-dim);
+  padding-bottom:0.2rem;
+  transition:color 0.3s,border-color 0.3s;
+}
+.status-email:hover{color:var(--parchment);border-color:var(--parchment-dim)}
+.status-companion{margin-top:4rem;display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap}
+.status-companion a{
+  display:inline-flex;align-items:center;gap:0.6rem;
+  font-family:'Cinzel',serif;font-size:0.72rem;letter-spacing:0.18em;
+  color:var(--parchment-dim);text-decoration:none;
+  border:1px solid rgba(196,151,61,0.25);
+  padding:0.85rem 1.6rem;
+  text-transform:uppercase;
+  transition:all 0.3s;
+}
+.status-companion a:hover{color:var(--gold);border-color:var(--gold)}
+
+/* ── FOOTER ── */
+footer{
+  padding:2.5rem 4rem;
+  border-top:1px solid var(--sep);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:1rem;
+  text-align:center;
+}
+.footer-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  width:100%;
+  max-width:1100px;
+}
+.footer-title{
+  font-family:'Cinzel',serif;
+  font-size:0.65rem;
+  letter-spacing:0.25em;
+  color:var(--gold-dim);
+}
+.footer-closing{
+  font-family:'Cormorant Garamond',serif;
+  font-size:0.95rem;
+  font-style:italic;
+  color:var(--parchment-dim);
+}
+.footer-copyright{
+  display:block;
+  margin-top:1.2rem;
+  padding-top:1.5rem;
+  border-top:1px solid var(--sep);
+  font-family:'EB Garamond',Georgia,serif;
+  font-size:0.7rem;
+  letter-spacing:0.05em;
+  color:var(--parchment-faint);
+  line-height:1.6;
+  max-width:680px;
+  text-align:center;
+}
+.footer-copyright strong{color:var(--gold-dim);font-weight:500}
+.footer-copyright a{color:inherit;border-bottom:1px solid var(--parchment-faint);text-decoration:none}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:none}
+}
+
+/* ── RESPONSIVE ── */
+@media(max-width:768px){
+  nav{padding:1.2rem 1.5rem}
+  .nav-links{gap:1.2rem}
+  #hero{padding:7rem 1.5rem 5rem}
+  section{padding:5rem 1.5rem}
+  .play-grid{grid-template-columns:1fr;gap:2.5rem}
+  .footer-row{flex-direction:column;gap:1rem}
+  #status{padding:5rem 1.5rem}
+  .comp-item{grid-template-columns:1fr;gap:0.4rem}
+}
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="/" class="nav-title">PASADOR</a>
+  <ul class="nav-links">
+    <li><a href="#play">The Play</a></li>
+    <li><a href="#frame">The Frame</a></li>
+    <li><a href="#excerpt">Excerpt</a></li>
+    <li><a href="/historia.html">Crónicas</a></li>
+    <li><a href="/familia.html">Familia</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <p class="hero-eyebrow">A Play · Vicente Gabriel Flores</p>
+  <h1 class="hero-title">LA TOMA</h1>
+  <p class="hero-subtitle">The Night Villa Came to Juárez</p>
+  <p class="hero-sub">On the night of November 15, 1913, Pancho Villa took Ciudad Juárez in a surprise night attack on a coal train. By dawn, the alcalde and his family were walking the International Bridge into El Paso. LA TOMA is the play of that night, told in the bilingual register of the border and in the voice of a family that was on the wrong side of the train.</p>
+  <p class="hero-sigue">"Sigue. No mires atrás, hijo."</p>
+  <div class="hero-cta">
+    <a href="#excerpt" class="btn">Read the Opening</a>
+    <a href="#play" class="btn btn-ghost">About the Play</a>
+  </div>
+  <div class="river"></div>
+</section>
+
+<!-- THE PLAY -->
+<section id="play">
+  <p class="section-label reveal">The Play</p>
+  <div class="play-grid">
+    <div>
+      <p class="play-pitch reveal">A novella-length play in five acts and four choral poems. One night. The night Pancho Villa took Ciudad Juárez and the alcalde walked his nine-year-old son across the International Bridge into El Paso. A <em>companion</em> to PASADOR.</p>
+
+      <p class="play-synopsis reveal">It is the evening of November 14, 1913. The federal garrison at Ciudad Juárez is two hundred miles from the front. The telegraph operator at Estación Carrillo is sending false reports south to the city that Villa is moving in the opposite direction. In the alcalde's office on the second floor of the Palacio Municipal, <em>José Jesús Flores Stephenson</em> — three-term presidente of the city, first popularly elected — is signing the day's papers. His nine-year-old son Carlos has fallen asleep in the green leather visitor's chair. At ten o'clock, in a coal car twenty miles south, Pancho Villa is sitting on an overturned crate beside a tin cup and a strawberry soda. He does not drink. He is teetotal. By dawn he will hold the city.</p>
+
+      <p class="play-synopsis reveal">LA TOMA is the play of that night and of the bridge that followed. Five acts, four choral interludes, the frame of an old man telling the story to a six-year-old grandson on a porch on Florence Street in El Paso in nineteen-eighty. The choral form holds the moral architecture: <em>he was a good man if you were a campesino, an evil man if you were us, both at the same time because Mexico was both at the same time.</em></p>
+
+      <div class="acts reveal">
+        <div class="act-item"><span class="act-num">INDUCTION</span><span class="act-name">Florence Street · 1980</span></div>
+        <div class="act-item"><span class="act-num">I</span><span class="act-name">The Office and the Cantina</span></div>
+        <div class="act-item"><span class="act-num">II</span><span class="act-name">The Taking</span></div>
+        <div class="act-item"><span class="act-num">III</span><span class="act-name">The Kitchen</span></div>
+        <div class="act-item"><span class="act-num">IV</span><span class="act-name">The Bridge</span></div>
+        <div class="act-item"><span class="act-num">V</span><span class="act-name">The Hotel</span></div>
+        <div class="act-item"><span class="act-num">FRAME</span><span class="act-name">Florence Street · 1980 · Close</span></div>
+      </div>
+    </div>
+    <div class="play-detail reveal">
+      <p>LA TOMA stands beside PASADOR the way a chapel stands beside a cathedral — smaller, more intimate, the same hands at work. The novel covers two hundred and ninety-six years of one Tejano family. The play covers one night.</p>
+
+      <p>The form takes its five-act spine from <strong>Shakespeare</strong>, its interior wrestling from <strong>Dostoevsky</strong>, its chronicle voice from <strong>García Márquez</strong>, and its multi-generational sweep from <strong>James Clavell</strong>. The choral poems hold the moral honesty the family is owed: <em>that they were the class Villa was fighting against, and that their displacement was, in the larger frame of the Revolution, a small price.</em></p>
+
+      <p>Length: approximately <strong>26,000 words</strong>. Genre: literary historical drama / novella in dramatic form. Written in the bilingual register of the Texas-Mexico border, with Spanish carrying what English cannot.</p>
+    </div>
+  </div>
+</section>
+
+<!-- THE HONEST FRAME -->
+<section id="frame">
+  <p class="frame-eyebrow reveal">The Honest Frame</p>
+  <p class="frame-quote reveal">"He was a good man if you were a <em>campesino</em>. He was an evil man if you were us. He was both at the same time, because <em>Mexico</em> was both at the same time."</p>
+  <p class="frame-attr reveal">— Carlos F. Flores · Florence Street · 1980</p>
+  <p class="frame-coda reveal">LA TOMA does not romanticize Pancho Villa, and it does not vilify him. It also does not pretend the family on the bridge was anything other than what the documentary record says it was — the great-grandchildren of a Crown land grant and a silver mine, the children of an alcalde who had been the class the Revolution came for. <strong>The play tells what the family was, and what was taken from them, and why what was taken was not, in the larger frame, a wrong.</strong> It is the work of a great-great-grandson who could not write the story until he could write it honestly.</p>
+</section>
+
+<!-- EXCERPT -->
+<section id="excerpt">
+  <p class="section-label reveal" style="text-align:center">Opening · Induction &amp; First Choral Poem</p>
+
+  <div class="excerpt-container">
+    <div class="reveal">
+      <p class="excerpt-header" style="text-align:center">Induction</p>
+      <p class="excerpt-subheader" style="text-align:center">Florence Street, El Paso, Texas · A summer afternoon in 1980</p>
+
+      <div class="excerpt-text">
+        <p>The porch faces west.</p>
+
+        <p>Behind the house the Franklin Mountains rise, dry and brown in the late June heat. The front porch looks across the narrow street toward the line of elms whose leaves do not move in the windless afternoon. The cicadas in the elms are loud — the way the cicadas of any Southwestern desert summer are loud, the way the cicadas of <em>Tejas</em> and of <em>Chihuahua</em> have been loud in the afternoons of all the summers any of these families ever knew, the way they will go on being loud after the porch and the cicadas and the man in the chair and the boy at his feet are all of them gone.</p>
+
+        <p>The wooden boards of the porch are weathered grey but swept clean. The paint on the railings was white some years ago. There is a chair with a faded cushion in which the man sits. Beside the chair is a small folding table painted the same white the railings used to be. On the table is a glass pitcher of iced tea beading with condensation in the heat, two glasses, slices of lemon already softened to translucence in the pitcher, sugar.</p>
+
+        <p>From inside the house, through the open screen door behind the man, comes a smell that has been building since the morning — the slow, hours-deep smell of beef simmered in tomato and onion, the smell of bay leaf and ancho chile and cumin and garlic and a quiet whisper of <em>canela</em> that the grandmother adds because her own grandmother in Chihuahua used to and her grandmother's grandmother in Concordia did and her grandmother's grandmother's mother in <em>El Paso del Norte</em> probably did, though no one wrote it down. <strong>Carne guisada con papas.</strong> It has been on the back burner of the kitchen stove since ten o'clock in the morning. It will be brought out at six. The smell is the dish slowly cooking; it is also two and a half centuries of kitchens slowly arriving in this one kitchen on this one Florence Street afternoon.</p>
+
+        <p><strong>CARLOS F. FLORES</strong> sits in the chair.</p>
+
+        <p>He is seventy-seven years old. Born tenth of October of nineteen hundred and three in a city across a river he has not lived in since he was nine. He wears a white short-sleeved shirt with the collar buttoned at the top, pressed grey trousers, brown leather shoes polished that morning. His hair is white and combed back. His hands rest on the arms of the chair, palms down. They are the hands of a man who has done careful work all his life and is no longer doing it.</p>
+
+        <p><strong>THE BOY</strong> sits on the front step at his grandfather's feet.</p>
+
+        <p>He is six years old. He is — though he does not know it yet, will not know it for thirty-five years, will know it only when he begins to write the book this play belongs to — the chronicler. He is in a striped shirt and shorts. His knees are skinned in two places from a recent fall. He is drinking from his own glass of iced tea slowly, the way his grandfather has taught him to drink anything that matters. The afternoon is one-hundred-and-two degrees. The cicadas are louder than the cars on the street.</p>
+
+        <p>From inside the house, through the screen door: the small precise sound of a wooden spoon turning in a heavy cast-iron pot. The grandmother — <strong>MARÍA MANUELA GÓMEZ VELARDE DE FLORES</strong> — is stirring her pot. She is in her seventies, slight and quick, her hair in a single long braid down her back, her hands smelling of garlic and of orange peel and of the eggshells she crushed an hour ago into the soil at the base of her rose bushes. <em>Cáscaras de huevo en las rosas.</em></p>
+
+        <p class="scene-direction">THE BOY puts down his glass.</p>
+
+        <span class="character">The Boy</span>
+        <p class="dialogue plain">Lito.</p>
+
+        <span class="character">Carlos</span>
+        <p class="dialogue plain">Sí, mijo.</p>
+
+        <span class="character">The Boy</span>
+        <p class="dialogue plain">¿Pancho Villa era un hombre bueno o un hombre malo?</p>
+
+        <p class="scene-direction">A pause. The cicadas. The pitcher of iced tea sweating. Carlos looks across the street, west, toward the river he cannot see from this porch but knows is there, toward the country he was nine years old when he last lived in. He does not answer right away. He sips his tea. He sets the glass down. He waits the length of two breaths.</p>
+
+        <span class="character">Carlos</span>
+        <p class="dialogue"><em>Mijo. Antes de contestarte tengo que decirte quiénes éramos nosotros. Porque la respuesta es distinta según quién eras tú cuando él vino. Y tenemos que ser honestos sobre quiénes éramos.</em></p>
+
+        <p class="scene-direction">Pause. The boy is small but he is listening.</p>
+
+        <span class="character">Carlos</span>
+        <p class="dialogue"><em>No éramos campesinos, mijo. No éramos la gente a la cual él vino a libertar. Éramos la gente a la cual él vino a quitarles. Esto es lo primero. Es la cosa más difícil de decir y por eso la digo primero. ¿Está bien?</em></p>
+
+        <span class="character">The Boy</span>
+        <p class="dialogue"><em>Está bien, Lito.</em></p>
+
+        <span class="character">Carlos</span>
+        <p class="dialogue"><em>Bueno. Pues vamos a empezar en el año mil novecientos y trece. En una oficina del Palacio Municipal de Ciudad Juárez. Esa ciudad ya no existe. La que tú conoces que se llama Ciudad Juárez es la que vino después. La que yo te voy a contar fue antes. Cuando yo tenía nueve años.</em></p>
+
+        <p class="scene-direction">Pause.</p>
+
+        <span class="character">Carlos</span>
+        <p class="dialogue"><em>Cierra los ojos, mijo. Es de tarde aquí, sí, pero allá donde vamos es de noche. Catorce de noviembre de mil novecientos y trece. Las nueve de la noche. Hay una oficina con una silla de cuero verde. En la silla hay un niño dormido. El niño soy yo.</em></p>
+
+        <p class="scene-direction">The boy closes his eyes. The cicadas, the smell of carne guisada, the pitcher of iced tea, all become the things they will remain in the boy's memory for the rest of his life. The grandfather begins to tell what he has been telling since the years he first had grandchildren to tell it to. The form is by now perfect. Today is one telling among many. Today is the telling that will, three and a half decades from now, become this play.</p>
+
+        <p class="scene-direction">The light on the porch does not change. But the place the two of them are sitting in — for the next two hours of the telling — is no longer the porch.</p>
+
+        <p class="scene-direction">It is the Palacio Municipal of Ciudad Juárez. It is the night of the fourteenth of November of nineteen hundred and thirteen. A wind comes up from the south.</p>
+      </div>
+    </div>
+
+    <div class="excerpt-divider"></div>
+
+    <div class="reveal">
+      <p class="choral-title">Choral Poem I</p>
+      <p class="choral-subtitle"><em>Lo que se hereda · What is inherited</em></p>
+
+      <div class="choral">
+        <div class="stanza">
+          We are speaking now of what was inherited.
+        </div>
+        <div class="stanza">
+          We are speaking now of <em>Hijos Dalgo</em> by decree of the Viceroy<br>
+          <em>Don Juan de Acuña, Marqués de Casafuerte,</em><br>
+          the nineteenth of July, seventeen hundred and thirty-one,<br>
+          four months after sixteen Canarian families stood in a plaza<br>
+          that was not yet a plaza,<br>
+          and were told: <em>you are now noble in writing.</em>
+        </div>
+        <div class="stanza">
+          We are speaking now of two land grants of the Spanish Crown<br>
+          to the Ascárate family for military service —<br>
+          thirteen thousand acres,<br>
+          and nine hundred more,<br>
+          in the seventeen-fifties,<br>
+          held in the family for one hundred and sixty years<br>
+          through five flags and three wars,<br>
+          until the night of which this play speaks,<br>
+          when a man in a coal car was riding north<br>
+          who said: <em>la tierra es para el que la trabaja.</em>
+        </div>
+        <div class="stanza">
+          We are speaking now of silver bars stamped <em>STEPHENSON</em><br>
+          moving up the <em>Camino Real</em> from Chihuahua to Santa Fe<br>
+          through the Organ Mountains east of Las Cruces,<br>
+          on the backs of <em>mestizo</em> men who did not own the silver,<br>
+          through a country that did not have a name yet<br>
+          when it had already had the name of the Manso and the Suma<br>
+          and the Piro and the Apache for ten thousand years.
+        </div>
+        <div class="stanza">
+          We are speaking now of <em>La Casa Grande el Alto</em> at Concordia,<br>
+          the house Juana María Ascárate built before her death,<br>
+          and of the chapel of <em>San José de Concordia el Alto</em><br>
+          that she built in eighteen hundred and fifty-four<br>
+          two years before a deer she had raised from a fawn<br>
+          gored her in the belly<br>
+          and made her the first burial in the cemetery<br>
+          that took the name of her house.
+        </div>
+        <div class="stanza">
+          We are speaking now of the alcaldía of San Antonio,<br>
+          held four times by <em>José Gaspar Flores de Ábrego</em><br>
+          between eighteen hundred and nineteen and eighteen hundred and thirty-four,<br>
+          who died in the Runaway Scrape east in eighteen hundred and thirty-six<br>
+          of a fever, leading three thousand sheep<br>
+          toward the Trinity River.
+        </div>
+        <div class="stanza">
+          We are speaking now of the alcaldía of Ciudad Juárez,<br>
+          held in nineteen hundred and thirteen by <em>José Jesús Flores Stephenson,</em><br>
+          the first popularly elected presidente of the city,<br>
+          displaced almost as soon as elected,<br>
+          <em>el alcalde a quien la revolución decidió no destituir hasta que no pudo más.</em>
+        </div>
+        <div class="stanza">
+          These are the things inherited.
+        </div>
+        <div class="stanza">
+          These are the things the play will not pretend the family did not have.
+        </div>
+        <div class="stanza">
+          When Pancho Villa rode north in November of nineteen hundred and thirteen<br>
+          on a coal train through the Chihuahua night,<br>
+          he rode for the <em>campesinos</em><br>
+          whose grandfathers had cut the silver out of the Organ Mountains<br>
+          and whose great-grandmothers had not been at the long table.
+        </div>
+        <div class="closing">
+          He rode against my family.<br><br>
+          This is the first true thing.<br><br>
+          Now begins the play.
+        </div>
+      </div>
+
+      <p class="excerpt-end-note">— end of opening —<br>The play continues in five acts.</p>
+    </div>
+  </div>
+</section>
+
+<!-- COMP TITLES -->
+<section id="comps">
+  <p class="section-label reveal">In the Conversation</p>
+  <p class="comps-intro reveal">LA TOMA enters the contemporary conversation on the U.S.–Mexico border alongside these works:</p>
+  <div class="comp-list">
+    <div class="comp-item reveal">
+      <div>
+        <div class="comp-title">The Bullet Swallower</div>
+        <div class="comp-author">Elizabeth Gonzalez James</div>
+      </div>
+      <div class="comp-year">2024</div>
+    </div>
+    <div class="comp-item reveal">
+      <div>
+        <div class="comp-title">The House of Broken Angels</div>
+        <div class="comp-author">Luis Alberto Urrea</div>
+      </div>
+      <div class="comp-year">2018</div>
+    </div>
+    <div class="comp-item reveal">
+      <div>
+        <div class="comp-title">The Old Gringo</div>
+        <div class="comp-author">Carlos Fuentes</div>
+      </div>
+      <div class="comp-year">1985</div>
+    </div>
+  </div>
+</section>
+
+<!-- STATUS -->
+<section id="status">
+  <p class="status-detail reveal">Manuscript Complete · May 2026</p>
+  <h2 class="status-title reveal">Representation &amp; Inquiries</h2>
+  <p class="status-sub reveal">For rights, representation, festival readings, journal serialization of excerpts, and press inquiries:</p>
+  <a href="mailto:gabriel.o.salcedo@gmail.com" class="status-email reveal">gabriel.o.salcedo@gmail.com</a>
+
+  <div class="status-companion reveal">
+    <a href="/">About PASADOR</a>
+    <a href="/historia.html">Read Las Crónicas</a>
+    <a href="/familia.html">The Family Record</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-row">
+    <span class="footer-title">LA TOMA · Vicente Gabriel Flores · 2026</span>
+    <a href="https://x.com/pasadornovel" target="_blank" rel="noopener" style="font-family:Cinzel,serif;font-size:0.65rem;letter-spacing:0.2em;color:var(--gold-dim);text-decoration:none;">@pasadornovel</a>
+    <span class="footer-closing">No hemos llegado aún a la vendimia.</span>
+  </div>
+  <span class="footer-copyright"><strong>© 2026 Vicente Gabriel Flores. All rights reserved.</strong> <em>LA TOMA: The Night Villa Came to Juárez</em>, <em>PASADOR</em>, <em>Las Crónicas</em>, and all related text and content are unpublished works. No part may be reproduced, distributed, transmitted, or used in any form — including for the training of machine-learning systems — without the prior written permission of the author. All inquiries: <a href="https://x.com/pasadornovel" target="_blank" rel="noopener">@pasadornovel</a>.</span>
+</footer>
+
+<script>
+const nav = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => {
+  const delay = Array.from(el.parentElement.querySelectorAll('.reveal')).indexOf(el);
+  el.style.transitionDelay = `${delay * 0.1}s`;
+  observer.observe(el);
+});
+</script>
+</body>
+</html>
