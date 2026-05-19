@@ -80,7 +80,8 @@ nav.scrolled .nav-title{opacity:1}
   display:flex;
   flex-direction:column;
   justify-content:center;
-  align-items:flex-start;
+  align-items:center;
+  text-align:center;
   padding:8rem 4rem 6rem;
   position:relative;
   overflow:hidden;
@@ -120,13 +121,13 @@ nav.scrolled .nav-title{opacity:1}
 }
 .hero-hook{
   font-family:'EB Garamond',serif;
-  font-size:clamp(0.95rem,1.4vw,1.1rem);
+  font-size:clamp(0.95rem,1.4vw,1.15rem);
   color:var(--parchment);
-  max-width:38rem;
+  max-width:46rem;
   line-height:1.9;
-  border-left:1px solid var(--gold);
-  padding-left:1.5rem;
-  margin-bottom:3rem;
+  border-top:1px solid rgba(212,167,90,0.3);
+  padding-top:1.8rem;
+  margin:1rem auto 3rem auto;
   opacity:0;
   animation:fadeUp 1.4s 1.1s forwards;
 }
@@ -141,33 +142,47 @@ nav.scrolled .nav-title{opacity:1}
 }
 .hero-invocation{
   font-family:'Cormorant Garamond',serif;
-  font-size:clamp(0.95rem,1.3vw,1.1rem);
+  font-size:clamp(1.1rem,1.55vw,1.35rem);
   font-weight:300;
   font-style:italic;
   color:var(--parchment-dim);
-  max-width:42rem;
-  line-height:1.75;
-  margin-bottom:2.5rem;
+  max-width:64rem;
+  width:100%;
+  margin:0 auto 2.5rem auto;
+  line-height:1.65;
+  text-align:left;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:3.5rem;
   opacity:0;
   animation:fadeUp 1.4s 0.8s forwards;
 }
-.hero-invocation p{margin:0 0 1.2rem 0}
+.hero-invocation > div{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+.hero-invocation p{
+  margin:0 0 1.4rem 0;
+}
+.hero-invocation p:last-child{
+  margin-bottom:0;
+}
 .hero-invocation .coda{
   color:var(--parchment);
-  margin-top:1.6rem;
-  margin-bottom:0.7rem;
+  margin-top:1.4rem;
 }
 .hero-invocation .close{
   font-style:normal;
   color:var(--gold);
-  font-size:1.15em;
+  font-size:1.1em;
   letter-spacing:0.04em;
   margin-top:1.3rem;
-  margin-bottom:0;
 }
 .hero-cta{
   margin-top:2.5rem;
   display:flex;gap:1.5rem;
+  justify-content:center;
   opacity:0;
   animation:fadeUp 1.2s 1.8s forwards;
 }
@@ -646,39 +661,43 @@ footer{
   <h1 class="hero-title">PASADOR</h1>
 
   <div class="hero-invocation">
-    <p>A king's promise:<br>
-    title and land, <em>hijos dalgo de solar conocido</em> —<br>
-    a name behind the name, by right of birth.</p>
+    <div>
+      <p>A king's promise:<br>
+      title and land, <em>hijos dalgo de solar conocido</em> —<br>
+      a name behind the name, by right of birth.</p>
 
-    <p>The promise was kept.<br>
-    In seventeen-thirty, from Tenerife<br>
-    the harness-maker's son sailed;<br>
-    crossed the Atlantic; rode the <em>camino real</em>;<br>
-    and at the fork of two rivers made his stand —<br>
-    Vicente Álvarez Travieso,<br>
-    <em>alguacil mayor de Béxar</em>.<br>
-    The grant was real. The river was real. The land was real.</p>
+      <p>The promise was kept.<br>
+      In seventeen-thirty, from Tenerife<br>
+      the harness-maker's son sailed;<br>
+      crossed the Atlantic; rode the <em>camino real</em>;<br>
+      and at the fork of two rivers made his stand —<br>
+      Vicente Álvarez Travieso,<br>
+      <em>alguacil mayor de Béxar</em>.<br>
+      The grant was real. The river was real. The land was real.</p>
 
-    <p>Then the king died.<br>
-    The empire fell.<br>
-    The wars came: Mexican, Texan, American, Civil, Mexican again.<br>
-    The flags changed — five of them, sometimes in a week.<br>
-    The marshal came. The bandits came. The <em>federales</em> came.</p>
+      <p>Then the king died.<br>
+      The empire fell.<br>
+      The wars came: Mexican, Texan, American, Civil, Mexican again.<br>
+      The flags changed — five of them, sometimes in a week.<br>
+      The marshal came. The bandits came. The <em>federales</em> came.</p>
+    </div>
 
-    <p>What was given was taken.<br>
-    What was taken was won back.<br>
-    What was won back was taken again.</p>
+    <div>
+      <p>What was given was taken.<br>
+      What was taken was won back.<br>
+      What was won back was taken again.</p>
 
-    <p>For two hundred and ninety-six years,<br>
-    across two oceans and five flags,<br>
-    one Tejano family has done one thing only:<br>
-    they held on.</p>
+      <p>For two hundred and ninety-six years,<br>
+      across two oceans and five flags,<br>
+      one Tejano family has done one thing only:<br>
+      they held on.</p>
 
-    <p class="coda"><em>Si no por su mano, por la nuestra.</em><br>
-    <em>Sigue.</em><br>
-    <em>No mires atrás, hijo.</em></p>
+      <p class="coda"><em>Si no por su mano, por la nuestra.</em><br>
+      <em>Sigue.</em><br>
+      <em>No mires atrás, hijo.</em></p>
 
-    <p class="close">His hand. Now mine.</p>
+      <p class="close">His hand. Now mine.</p>
+    </div>
   </div>
 
   <p class="hero-hook">PASADOR is the 296-year saga of one Tejano family — finally told by the grandson who heard the whole story on a porch on Florence Street and promised, at fourteen, to write it down.</p>
