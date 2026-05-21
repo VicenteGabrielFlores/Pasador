@@ -4,6 +4,48 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PASADOR — A Novel by Vicente Gabriel Flores</title>
+<meta name="description" content="PASADOR is the debut novel of Vicente Gabriel Flores (pen name of Gabriel Salcedo) and the spine of A King's Promise — a body of work tracing one Tejano family across 296 years, two oceans, and five flags.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://vicentegabrielflores.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Vicente Gabriel Flores">
+<meta property="og:title" content="PASADOR — A Novel by Vicente Gabriel Flores">
+<meta property="og:description" content="PASADOR is the debut novel of Vicente Gabriel Flores and the spine of A King's Promise — one Tejano family across 296 years, two oceans, and five flags.">
+<meta property="og:url" content="https://vicentegabrielflores.com/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@pasadornovel">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://vicentegabrielflores.com/#website",
+      "url": "https://vicentegabrielflores.com/",
+      "name": "Vicente Gabriel Flores",
+      "description": "The body of work of Vicente Gabriel Flores — A King's Promise.",
+      "inLanguage": "en"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://vicentegabrielflores.com/#author",
+      "name": "Vicente Gabriel Flores",
+      "alternateName": "Gabriel Salcedo",
+      "url": "https://vicentegabrielflores.com/",
+      "jobTitle": "Author",
+      "description": "Sixth-generation Tejano writer, author of A King's Promise — the novel PASADOR, the documentary companion Las Crónicas, and a cycle of documentary-verse plays.",
+      "sameAs": ["https://x.com/pasadornovel"]
+    },
+    {
+      "@type": "Book",
+      "name": "PASADOR",
+      "author": { "@id": "https://vicentegabrielflores.com/#author" },
+      "inLanguage": "en",
+      "url": "https://vicentegabrielflores.com/"
+    }
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Cinzel:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -74,6 +116,28 @@ nav.scrolled .nav-title{opacity:1}
   transition:color 0.3s;
 }
 .nav-links a:hover{color:var(--gold)}
+
+/* ── MOBILE NAV TOGGLE ── */
+.nav-toggle{
+  display:none;
+  flex-direction:column;
+  justify-content:center;
+  gap:5px;
+  width:36px;height:36px;
+  padding:0;
+  background:none;
+  border:none;
+  cursor:pointer;
+}
+.nav-toggle span{
+  display:block;
+  width:24px;height:1.5px;
+  background:var(--gold);
+  transition:transform 0.3s ease,opacity 0.3s ease;
+}
+.nav-toggle.active span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.nav-toggle.active span:nth-child(2){opacity:0}
+.nav-toggle.active span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
 
 /* ── HERO ── */
 #hero{
@@ -654,7 +718,33 @@ footer{
 /* ── RESPONSIVE ── */
 @media(max-width:768px){
   nav{padding:1.2rem 1.5rem}
-  .nav-links{gap:1.2rem}
+  .nav-title{opacity:1}
+  .nav-toggle{display:flex}
+  .nav-links{
+    position:absolute;
+    top:100%;left:0;right:0;
+    flex-direction:column;
+    gap:0;
+    background:rgba(8,6,4,0.99);
+    border-bottom:1px solid rgba(196,151,61,0.18);
+    padding:0 1.5rem;
+    max-height:0;
+    overflow:hidden;
+    transition:max-height 0.4s ease,padding 0.4s ease;
+  }
+  .nav-links.open{
+    max-height:75vh;
+    padding:0.4rem 1.5rem 1rem;
+  }
+  .nav-links li{width:100%}
+  .nav-links a{
+    display:block;
+    padding:0.95rem 0.2rem;
+    font-size:0.78rem;
+    letter-spacing:0.16em;
+    border-bottom:1px solid var(--sep);
+  }
+  .nav-links li:last-child a{border-bottom:none}
   #hero{padding:7rem 1.5rem 5rem}
   section{padding:5rem 1.5rem}
   .novel-grid{grid-template-columns:1fr}
@@ -678,7 +768,10 @@ footer{
 
 <nav id="navbar">
   <a href="#hero" class="nav-title">PASADOR</a>
-  <ul class="nav-links">
+  <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="navLinks">
     <li><a href="#novel">The Novel</a></li>
     <li><a href="#cronica">Crónicas</a></li>
     <li><a href="#excerpts">Excerpts</a></li>
@@ -945,15 +1038,18 @@ footer{
       <p class="author-fact">
         Austin, Texas<br><br>
         PASADOR · a novel · 57,826 words<br>
+        Las Crónicas · ten chronicles · 88,500 words<br>
+        The Modern Play · Book I · 56,000 words<br>
         LA TOMA · a play · 26,000 words<br>
-        Las Crónicas · 88,500 words<br><br>
+        Belmont Road · a play in five acts<br><br>
         2026
       </p>
     </div>
     <div class="author-bio reveal">
       <p>Vicente Gabriel Flores is a descendant of <strong>Carlos F. Flores</strong>, who crossed the International Bridge at El Paso in November 1913 at the age of nine — the crossing that opens and closes PASADOR and that the play LA TOMA dramatizes in full. The Concordia Ranch, the Flores family's six-generation presence in the El Paso del Norte valley, and the documented history of the families in this body of work are its factual spine, drawn from the family chart of <strong>Alfredo C. Flores</strong>, who nominated and successfully inscribed these ancestors into the El Paso County Historical Society's Hall of Honor.</p>
       <p>He holds a Bachelor of Arts in <em>Japanese and Chinese Language</em> from the University of Hawaii at Manoa — a formal education in living between languages that shaped every structural decision in this body of work — and an MBA from Rutgers Business School. He spent over a decade in <strong>asset management and capital markets</strong> across Japan, China, and Hong Kong before returning to Texas, where he serves as Vice President, Benefits and Contracts at HHS, LLC.</p>
-      <p><strong>PASADOR</strong> is his debut novel. <strong>LA TOMA: The Night Villa Came to Juárez</strong> is its companion play. <strong>Las Crónicas</strong> — ten chronicles, 88,500 words, 296 years of one family — is the documentary spine alongside both.</p>
+      <p><strong>PASADOR</strong> is his debut novel — the spine of <em>A King's Promise</em>, a body of work tracing one Tejano family across 296 years, two oceans, and five flags. Alongside it stands <strong>Las Crónicas</strong>, the documentary companion, which sets the same history down in ten chronicles.</p>
+      <p>From that spine the work has grown into a cycle of documentary-verse plays. <strong>A King's Promise · Book I — The Modern Play</strong> narrates the American present of 2024 through 2026 from a chapel settlement on Mars in the year 2100. <strong>LA TOMA: The Night Villa Came to Juárez</strong> is the companion play of the 1913 crossing. <strong>BELMONT ROAD</strong>, a contemporary play in five acts, is the most recent — and the cycle continues.</p>
     </div>
   </div>
 </section>
@@ -1206,6 +1302,21 @@ footer{
 const nav = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+navToggle.addEventListener('click', () => {
+  const open = navLinks.classList.toggle('open');
+  navToggle.classList.toggle('active', open);
+  navToggle.setAttribute('aria-expanded', open);
+});
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    navToggle.classList.remove('active');
+    navToggle.setAttribute('aria-expanded', 'false');
+  });
 });
 
 const observer = new IntersectionObserver((entries) => {
