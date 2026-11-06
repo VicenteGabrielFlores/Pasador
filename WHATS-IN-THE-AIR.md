@@ -32,11 +32,9 @@ The author name on every new page is **Vicente Gabriel Flores**. Do not add any 
 
 ## Icon and signature
 
-The browser icon is the lowercase script g, antique gold on midnight. The pages already point at the shared files: `favicon.svg`, `favicon.ico` (16, 32, and 48), `favicon-16x16.png`, `favicon-32x32.png`, `favicon-48x48.png`, `favicon-96x96.png`, `apple-touch-icon.png`, `icon-192.png`, and `icon-512.png`. Leave that mark in place. Do not restore the eye, and do not put a circle around the g. Do not set the g behind the stanzas or drop it in as a seal.
+The site mark is Vicente Gabriel Flores's handwritten signature, the gold-leaf oval in `vicente-gabriel-flores-signature.png`. Do not redraw it, and do not substitute a letter or a portrait. The browser files (`favicon.svg`, `favicon.ico`, the PNG sizes, the Apple touch icon, `icon-192.png`, `icon-512.png`) are that same signature reduced. At 16 and 32 pixels it does not read. Leave the files; do not invent a simpler mark.
 
-The approved portrait — the midnight-and-gold likeness with the script g on it — belongs once, after the whole bilingual edition, under the written byline, with open space around it. About 150 pixels wide on a desktop window, about 125 on a phone. Keep the full picture. Do not crop it or stretch it. Soften the outer edge into the page background. The archive may carry one small copy, not a copy on every card. Do not repeat it beside the poem.
-
-That portrait file was not in the site folder when the icon was changed, so it is not embedded yet. Do not draw a substitute face. When the approved file is added, save it as `vicente-gabriel-flores-midnight-gold-portrait.jpg` and place it as above.
+Every edition ends once, after the English and the Spanish, with the written name and then the full signature beneath it, across the text column. Copying the previous edition keeps that close. Do not put the signature beside the stanzas, in a corner, or on the archive cards. The home page has no picture logo; do not add one.
 
 ## Feed
 
