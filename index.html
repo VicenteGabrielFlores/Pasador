@@ -7,6 +7,7 @@
 <meta name="description" content="PASADOR is the debut novel of Vicente Gabriel Flores (pen name of Gabriel Salcedo) and the spine of A King's Promise — a body of work tracing one Tejano family across 296 years, two oceans, and five flags.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://vicentegabrielflores.com/">
+<link rel="alternate" type="application/atom+xml" title="What's in the Air" href="https://vicentegabrielflores.com/whats-in-the-air.xml">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Vicente Gabriel Flores">
 <meta property="og:title" content="PASADOR — A Novel by Vicente Gabriel Flores">
@@ -126,6 +127,7 @@ nav.scrolled .nav-title{opacity:1}
   color:var(--parchment-dim);
   text-decoration:none;
   text-transform:uppercase;
+  white-space:nowrap;
   transition:color 0.3s;
 }
 .nav-links a:hover{color:var(--gold)}
@@ -728,6 +730,34 @@ footer{
   to{opacity:1;transform:none}
 }
 
+/* The added link stays on one line. Collapse the existing menu until that line fits. */
+@media(max-width:1271px){
+  nav{padding:1.2rem 1.5rem}
+  .nav-title{opacity:1}
+  .nav-toggle{display:flex}
+  .nav-links{
+    position:absolute;
+    top:100%;left:0;right:0;
+    flex-direction:column;
+    gap:0;
+    background:rgba(8,6,4,0.99);
+    border-bottom:1px solid rgba(196,151,61,0.18);
+    padding:0 1.5rem;
+    max-height:0;
+    overflow:hidden;
+    transition:max-height 0.4s ease,padding 0.4s ease;
+  }
+  .nav-links.open{max-height:75vh;padding:0.4rem 1.5rem 1rem}
+  .nav-links li{width:100%}
+  .nav-links a{
+    display:block;
+    padding:0.95rem 0.2rem;
+    font-size:0.78rem;
+    letter-spacing:0.16em;
+    border-bottom:1px solid var(--sep);
+  }
+  .nav-links li:last-child a{border-bottom:none}
+}
 /* ── RESPONSIVE ── */
 @media(max-width:1100px){
   nav{padding:1.2rem 1.5rem}
@@ -793,6 +823,7 @@ footer{
     <li><a href="/modern-play.html">Modern Play</a></li>
     <li><a href="#belmont-road">Belmont Road</a></li>
     <li><a href="/poems.html">Poems</a></li>
+    <li><a href="/whats-in-the-air.html">The Air</a></li>
     <li><a href="#author">Author</a></li>
   </ul>
 </nav>
