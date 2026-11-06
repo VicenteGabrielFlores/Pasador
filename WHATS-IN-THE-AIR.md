@@ -30,6 +30,12 @@ The author name on every new page is **Vicente Gabriel Flores**. Do not add any 
 - On the archive page, add the same edition at the start of the `Blog` JSON-LD `blogPost` array.
 - Archive card: date, both poem titles, the author name, and the edition's own opening sentences. Link the card to the edition URL.
 
+## Icon and signature
+
+The site mark is Vicente Gabriel Flores's handwritten signature, the gold-leaf oval in `vicente-gabriel-flores-signature.png`. Do not redraw it, and do not substitute a letter or a portrait. The browser files (`favicon.svg`, `favicon.ico`, the PNG sizes, the Apple touch icon, `icon-192.png`, `icon-512.png`) are that same signature reduced. At 16 and 32 pixels it does not read. Leave the files; do not invent a simpler mark.
+
+Every edition ends once, after the English and the Spanish, with the written name and then the full signature beneath it, across the text column. Copying the previous edition keeps that close. Do not put the signature beside the stanzas, in a corner, or on the archive cards. The home page has no picture logo; do not add one.
+
 ## Feed
 
 `whats-in-the-air.xml` is an Atom feed of real editions only, newest first. Each entry's `<id>` and `<link>` are the edition's canonical URL. Put both languages in `<content type="html">`. There is one feed. Do not keep a second copy.

@@ -1,6 +1,10 @@
 A KING'S PROMISE — FAVICON DEPLOYMENT PACKAGE
 ============================================
 
+The mark is Vicente Gabriel Flores's handwritten gold-leaf signature.
+favicon.ico contains 16, 32, and 48. Those tiny sizes do not read the signature.
+Do not replace this set with the old eye or with a drawn letter.
+
 Drop every file in this folder into the ROOT of your website
 (the same folder that holds index.html).
 
