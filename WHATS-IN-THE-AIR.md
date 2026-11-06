@@ -30,6 +30,14 @@ The author name on every new page is **Vicente Gabriel Flores**. Do not add any 
 - On the archive page, add the same edition at the start of the `Blog` JSON-LD `blogPost` array.
 - Archive card: date, both poem titles, the author name, and the edition's own opening sentences. Link the card to the edition URL.
 
+## Icon and signature
+
+The browser icon is the lowercase script g, antique gold on midnight. The pages already point at the shared files: `favicon.svg`, `favicon.ico` (16, 32, and 48), `favicon-16x16.png`, `favicon-32x32.png`, `favicon-48x48.png`, `favicon-96x96.png`, `apple-touch-icon.png`, `icon-192.png`, and `icon-512.png`. Leave that mark in place. Do not restore the eye, and do not put a circle around the g. Do not set the g behind the stanzas or drop it in as a seal.
+
+The approved portrait — the midnight-and-gold likeness with the script g on it — belongs once, after the whole bilingual edition, under the written byline, with open space around it. About 150 pixels wide on a desktop window, about 125 on a phone. Keep the full picture. Do not crop it or stretch it. Soften the outer edge into the page background. The archive may carry one small copy, not a copy on every card. Do not repeat it beside the poem.
+
+That portrait file was not in the site folder when the icon was changed, so it is not embedded yet. Do not draw a substitute face. When the approved file is added, save it as `vicente-gabriel-flores-midnight-gold-portrait.jpg` and place it as above.
+
 ## Feed
 
 `whats-in-the-air.xml` is an Atom feed of real editions only, newest first. Each entry's `<id>` and `<link>` are the edition's canonical URL. Put both languages in `<content type="html">`. There is one feed. Do not keep a second copy.

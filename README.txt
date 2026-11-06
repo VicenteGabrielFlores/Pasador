@@ -1,6 +1,10 @@
 A KING'S PROMISE — FAVICON DEPLOYMENT PACKAGE
 ============================================
 
+The mark is a lowercase script g, antique gold on midnight.
+favicon.ico contains 16, 32, and 48. favicon-48x48.png is the 48px file.
+Do not replace this set with the old eye.
+
 Drop every file in this folder into the ROOT of your website
 (the same folder that holds index.html).
 
