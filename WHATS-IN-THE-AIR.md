@@ -21,14 +21,17 @@ The author name on every new page is **Vicente Gabriel Flores**. Do not add any 
 - Unique meta description drawn from that edition. One clear sentence. No keyword list.
 - `og:type` is `article`. `og:url` matches the canonical URL. Title, description, and the existing `og-image.jpg` are set. Same for the Twitter card.
 - Keep `<meta name="twitter:site" content="@pasadornovel">` and `<meta name="twitter:creator" content="@pasadornovel">` on the archive and on every edition.
-- `BlogPosting` JSON-LD: `author.name` is `Vicente Gabriel Flores`, `datePublished` and `dateModified` are the edition date (`YYYY-MM-DD`). `headline` is the poem title. `alternativeHeadline` is the Spanish poem title. `inLanguage` is `en` and `es`.
-- Every author `Person` includes `"sameAs": ["https://x.com/pasadornovel"]`.
+- `BlogPosting` JSON-LD: `author.name` is `Vicente Gabriel Flores`, `datePublished` and `dateModified` are the edition date (`YYYY-MM-DD`). `headline` is the poem title. `alternativeHeadline` is the Spanish poem title. `inLanguage` is `en` and `es`. Keep `@type` as `Blog` on the archive and `BlogPosting` on the edition. Do not relabel either as `NewsArticle`. Do not add a clock time.
+- Every author `Person` includes `"@id": "https://vicentegabrielflores.com/#author"`, `"url": "https://vicentegabrielflores.com/"`, and `"sameAs": ["https://x.com/pasadornovel"]`. That `@id` is the homepage author. Do not give the author a second identifier.
 - Near the byline, and again at the end of the edition, keep the link `Follow on X / Sígueme en X: @pasadornovel` to `https://x.com/pasadornovel`. The archive keeps the same link under the introduction and at the end of the list. Copying the previous edition file keeps these lines; do not delete them when replacing the day's text.
+- The visible author name, on the edition byline and on the archive card, is a link to `https://vicentegabrielflores.com/#author`. That fragment is the homepage section `id="author"`. Do not point it at a page that does not exist. On the archive, the author link stays outside the edition link. A card cannot contain a second link inside the first.
+- The archive footer and every edition footer keep `mailto:cronista@vicentegabrielflores.com` beside `@pasadornovel`. That address is already public on the homepage for rights, representation, and press inquiries. Do not add a phone number, a postal address, or a new editorial-policy paragraph.
+- Do not add an outbound link for a named source unless that exact URL was supplied and checked against the sentence it would support. Leave the sentence as prose until then. Do not rewrite the poem or the synopsis to sound like a news report.
 - If a URL for that day's X Article was not supplied, do not add one. Do not post to X.
 - Visible `<time datetime="YYYY-MM-DD">` matches that date. The manuscript's timezone is America/Chicago. Do not invent a clock time. In the Atom feed only, use `YYYY-MM-DDT00:00:00-06:00` (or `-05:00` while Chicago is on daylight time) as the calendar-day boundary.
 - English prose and poem live in `<section lang="en">`. Spanish lives in `<section lang="es">`.
 - On the archive page, add the same edition at the start of the `Blog` JSON-LD `blogPost` array.
-- Archive card: date, both poem titles, the author name, and the edition's own opening sentences. Link the card to the edition URL.
+- Archive card: date, both poem titles, the linked author name, and the edition's own opening sentences. The poem titles and “Read this edition” link to the edition URL. The author name links to `https://vicentegabrielflores.com/#author`.
 
 ## Feed
 
