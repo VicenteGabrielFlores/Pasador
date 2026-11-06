@@ -34,6 +34,10 @@ The author name on every new page is **Vicente Gabriel Flores**. Do not add any 
 
 `whats-in-the-air.xml` is an Atom feed of real editions only, newest first. Each entry's `<id>` and `<link>` are the edition's canonical URL. Put both languages in `<content type="html">`. There is one feed. Do not keep a second copy.
 
+## Foreground color
+
+Copying the previous edition keeps its color tokens. Leave them. Body copy, both languages of the poem, navigation, links, captions, and the footer use a brighter cream and antique gold on the black page, measured to WCAG AA. Do not return that text to the older dim brown or dim gold, and do not change the type size to make it readable. Do not edit book-cover images or `og-image.jpg`.
+
 ## Checks before the pull request
 
 - The poem lines match the supplied text, including breaks.
