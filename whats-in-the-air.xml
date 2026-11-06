@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='utf-8'?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <!-- EDITIONS: newest first. Prepend an <entry> and set feed/updated to that edition date. ATOM_STAMP midnight America/Chicago is the calendar-day boundary only; the manuscript gives no clock time. See WHATS-IN-THE-AIR.md. Do not invent editions. -->
+  <title>What's in the Air / Lo que hay en el aire</title>
+  <subtitle>A daily literary synopsis by Vicente Gabriel Flores. Art, history, politics, and music, then an original poem, a sensory passage, and the echo.</subtitle>
+  <link href="https://vicentegabrielflores.com/whats-in-the-air.xml" rel="self" type="application/atom+xml" />
+  <link href="https://vicentegabrielflores.com/whats-in-the-air.html" rel="alternate" type="text/html" />
+  <id>https://vicentegabrielflores.com/whats-in-the-air.xml</id>
+  <updated>2026-11-06T00:00:00-06:00</updated>
+  <author>
+    <name>Vicente Gabriel Flores</name>
+    <uri>https://vicentegabrielflores.com/</uri>
+    </author>
+  <rights>© 2026 Vicente Gabriel Flores. All rights reserved.</rights>
+  <entry>
+    <title>The Unfinished Note / La nota inconclusa — November 6, 2026</title>
+    <link href="https://vicentegabrielflores.com/whats-in-the-air-2026-11-06.html" rel="alternate" type="text/html" />
+    <id>https://vicentegabrielflores.com/whats-in-the-air-2026-11-06.html</id>
+    <published>2026-11-06T00:00:00-06:00</published>
+    <updated>2026-11-06T00:00:00-06:00</updated>
+    <author>
+      <name>Vicente Gabriel Flores</name>
+      <uri>https://vicentegabrielflores.com/</uri>
+      </author>
+    <summary>November 6, 2026. The Unfinished Note by Vicente Gabriel Flores: Sax before the saxophone, an El Paso opening, an Austin gallery still waiting, an unfinished count.</summary>
+    <content type="html">&lt;section lang="en"&gt;
+&lt;h2&gt;The Unfinished Note&lt;/h2&gt;
+&lt;p&gt;On this date in 1814, Antoine-Joseph Sax was born in Dinant. The saxophone did not yet exist. Years later he gave a reed a body of brass—a woodwind that sounds as if metal had learned to breathe. Today the air holds that unfinished invention again: not as plaque, but as pressure in the chest before a note.&lt;/p&gt;
+&lt;p&gt;In El Paso, the 77th Sun Bowl Art Exhibit opened last evening at the International Museum of Art on Montana Avenue. In Austin, Co-Lab Projects waits one more night: &lt;em&gt;RHIZO / MATIC&lt;/em&gt; opens to the public Saturday on Glissman Road. Between a show begun and a show not yet open, I imagine varnish in the gallery air, frames catching Thursday's late light, dust and coffee, the faint metallic bite of cold brass—how the day leans toward music.&lt;/p&gt;
+&lt;p&gt;On this same calendar day in 1860, Abraham Lincoln was elected the sixteenth president of the United States. One hundred sixty-six years later, the midterm count is still unfinished: the Senate races in Mississippi and Alaska remain uncalled as of this morning. CBS News projects Democratic majorities in both chambers of the next Congress, seating in January. The margins are still moving. What any of it will mean is not yet a fact.&lt;/p&gt;
+&lt;p&gt;I imagine Lincoln's night and this one sharing the quiet after the shouting: coffee on the tongue, a ballot's edge against a fingertip. The paper belongs to different centuries; the waiting is familiar. That is THE ECHO. Behind each vote is someone whose name the tally does not tell us. A reed waits for spit. A gallery waits for feet. Votes already cast wait for the last tallies to settle.&lt;/p&gt;
+&lt;p&gt;Before the first breath&lt;br&gt;
+the brass is only temperature—&lt;br&gt;
+warm from the hand, cold from the room.&lt;/p&gt;
+&lt;p&gt;Ink on a tally sheet&lt;br&gt;
+has the same unfinished shine&lt;br&gt;
+as varnish under imagined light.&lt;/p&gt;
+&lt;p&gt;Imagine Dinant: a child, a piece of metal&lt;br&gt;
+that has not learned to sing.&lt;br&gt;
+In El Paso a painting has begun its long listen.&lt;br&gt;
+In Austin a gallery waits for Saturday&lt;br&gt;
+the way a mouth holds a note&lt;br&gt;
+it has not decided to release.&lt;/p&gt;
+&lt;p&gt;What is coming does not arrive as news.&lt;br&gt;
+It arrives as names already written—&lt;br&gt;
+hands that marked a ballot&lt;br&gt;
+still waiting to be counted whole.&lt;/p&gt;
+&lt;/section&gt;
+&lt;section lang="es"&gt;
+&lt;h2&gt;La nota inconclusa&lt;/h2&gt;
+&lt;p&gt;En esta fecha de 1814 nació en Dinant Antoine-Joseph Sax. El saxofón todavía no existía. Años después le dio a una caña un cuerpo de latón: un instrumento de viento de madera que suena como si el metal hubiera aprendido a respirar. Hoy el aire vuelve a guardar esa invención a medias: no como placa, sino como presión en el pecho antes de la nota.&lt;/p&gt;
+&lt;p&gt;En El Paso, anoche abrió la 77.ª Sun Bowl Art Exhibit en el International Museum of Art, en Montana Avenue. En Austin, Co-Lab Projects espera una noche más: &lt;em&gt;RHIZO / MATIC&lt;/em&gt; abre al público el sábado en Glissman Road. Entre una muestra empezada y otra aún por abrir, imagino el olor a barniz en la galería, los marcos tomando la luz tardía del jueves, polvo y café, ese leve sabor metálico del latón frío—el modo en que el día se inclina hacia la música.&lt;/p&gt;
+&lt;p&gt;El mismo día del calendario, en 1860, Abraham Lincoln fue elegido decimosexto presidente de los Estados Unidos. Ciento sesenta y seis años después, el conteo de mitad de mandato sigue incompleto: las elecciones al Senado en Mississippi y Alaska siguen sin proyección esta mañana. CBS News proyecta mayorías demócratas en ambas cámaras del próximo Congreso, con toma de posesión en enero. Los márgenes aún se mueven. Lo que todo eso significará todavía no es un hecho.&lt;/p&gt;
+&lt;p&gt;Imagino la noche de Lincoln y esta compartiendo el silencio después del grito: café en la lengua, el borde de una papeleta contra el dedo. El papel pertenece a siglos distintos; la espera resulta familiar. Ese es EL ECO. Detrás de cada voto hay alguien cuyo nombre no aparece en la suma. Una caña espera saliva. Una sala espera pasos. Los votos ya emitidos esperan que los últimos escrutinios se asienten.&lt;/p&gt;
+&lt;p&gt;Antes del primer aliento&lt;br&gt;
+el metal es solo temperatura—&lt;br&gt;
+cálido de la mano, frío del cuarto.&lt;/p&gt;
+&lt;p&gt;La tinta en la hoja del conteo&lt;br&gt;
+tiene el mismo brillo a medias&lt;br&gt;
+que el barniz bajo una luz imaginada.&lt;/p&gt;
+&lt;p&gt;Imagina Dinant: un niño, un trozo de metal&lt;br&gt;
+que no ha aprendido a cantar.&lt;br&gt;
+En El Paso un cuadro ha empezado su larga escucha.&lt;br&gt;
+En Austin una galería espera el sábado&lt;br&gt;
+como una boca guarda la nota&lt;br&gt;
+que todavía no decide soltar.&lt;/p&gt;
+&lt;p&gt;Lo que viene no llega como noticia.&lt;br&gt;
+Llega como nombres ya escritos—&lt;br&gt;
+manos que marcaron una papeleta&lt;br&gt;
+y aún esperan ser contadas del todo.&lt;/p&gt;
+&lt;/section&gt;
+&lt;p&gt;&lt;a href="https://vicentegabrielflores.com/whats-in-the-air-2026-11-06.html"&gt;Read this edition&lt;/a&gt;&lt;/p&gt;</content>
+    </entry>
+  </feed>
