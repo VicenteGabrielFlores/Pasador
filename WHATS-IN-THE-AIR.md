@@ -20,7 +20,11 @@ The author name on every new page is **Vicente Gabriel Flores**. Do not add any 
 - Unique `<title>`: poem title, the date, and `What's in the Air`
 - Unique meta description drawn from that edition. One clear sentence. No keyword list.
 - `og:type` is `article`. `og:url` matches the canonical URL. Title, description, and the existing `og-image.jpg` are set. Same for the Twitter card.
+- Keep `<meta name="twitter:site" content="@pasadornovel">` and `<meta name="twitter:creator" content="@pasadornovel">` on the archive and on every edition.
 - `BlogPosting` JSON-LD: `author.name` is `Vicente Gabriel Flores`, `datePublished` and `dateModified` are the edition date (`YYYY-MM-DD`). `headline` is the poem title. `alternativeHeadline` is the Spanish poem title. `inLanguage` is `en` and `es`.
+- Every author `Person` includes `"sameAs": ["https://x.com/pasadornovel"]`.
+- Near the byline, and again at the end of the edition, keep the link `Follow on X / Sígueme en X: @pasadornovel` to `https://x.com/pasadornovel`. The archive keeps the same link under the introduction and at the end of the list. Copying the previous edition file keeps these lines; do not delete them when replacing the day's text.
+- If a URL for that day's X Article was not supplied, do not add one. Do not post to X.
 - Visible `<time datetime="YYYY-MM-DD">` matches that date. The manuscript's timezone is America/Chicago. Do not invent a clock time. In the Atom feed only, use `YYYY-MM-DDT00:00:00-06:00` (or `-05:00` while Chicago is on daylight time) as the calendar-day boundary.
 - English prose and poem live in `<section lang="en">`. Spanish lives in `<section lang="es">`.
 - On the archive page, add the same edition at the start of the `Blog` JSON-LD `blogPost` array.
@@ -38,6 +42,6 @@ The author name on every new page is **Vicente Gabriel Flores**. Do not add any 
 - The new URL is in `sitemap.xml`.
 - `robots` meta on the new page is `index, follow`, matching the rest of the site.
 - No analytics snippet, no newsletter field, no claim about search ranking.
-- Desktop and mobile: the navigation opens, the edition is readable, and the poem lines wrap without a horizontal scrollbar.
+- Desktop and mobile: the navigation opens, the edition is readable, the follow link wraps inside the screen, and the poem lines wrap without a horizontal scrollbar.
 
 Open the pull request for review. Merging is what publishes the site.
