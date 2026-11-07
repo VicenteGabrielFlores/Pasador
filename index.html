@@ -118,6 +118,7 @@ nav.scrolled{background:rgba(8,6,4,0.97);border-bottom:1px solid rgba(196,151,61
   opacity:0;
   transition:opacity 0.4s;
 }
+.nav-title img{display:none}
 nav.scrolled .nav-title{opacity:1}
 .nav-links{display:flex;gap:1.8rem;list-style:none}
 .nav-links a{
@@ -734,6 +735,7 @@ footer{
 @media(max-width:1271px){
   nav{padding:1.2rem 1.5rem}
   .nav-title{opacity:1}
+  .nav-title img{display:block}
   .nav-toggle{display:flex}
   .nav-links{
     position:absolute;
@@ -762,6 +764,7 @@ footer{
 @media(max-width:1100px){
   nav{padding:1.2rem 1.5rem}
   .nav-title{opacity:1}
+  .nav-title img{display:block}
   .nav-toggle{display:flex}
   .nav-links{
     position:absolute;
@@ -810,7 +813,7 @@ footer{
 <body>
 
 <nav id="navbar">
-  <a href="#hero" class="nav-title">PASADOR</a>
+  <a href="#hero" class="nav-title" style="display:inline-flex;align-items:center;gap:0.45rem"><img src="/portrait-vicente.png" alt="" width="22" height="22" style="width:22px;height:22px;border-radius:50%;object-fit:cover;flex:none">PASADOR</a>
   <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
