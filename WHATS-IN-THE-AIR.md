@@ -26,7 +26,8 @@ The author name on every new page is **Vicente Gabriel Flores**. Do not add any 
 - Near the byline, and again at the end of the edition, keep the link `Follow on X / Sígueme en X: @pasadornovel` to `https://x.com/pasadornovel`. The archive keeps the same link under the introduction and at the end of the list. Copying the previous edition file keeps these lines; do not delete them when replacing the day's text.
 - The visible author name, on the edition byline and on the archive card, is a link to `https://vicentegabrielflores.com/#author`. That fragment is the homepage section `id="author"`. Do not point it at a page that does not exist. On the archive, the author link stays outside the edition link. A card cannot contain a second link inside the first.
 - The archive footer and every edition footer keep `mailto:cronista@vicentegabrielflores.com` beside `@pasadornovel`. That address is already public on the homepage for rights, representation, and press inquiries. Do not add a phone number, a postal address, or a new editorial-policy paragraph.
-- Do not add an outbound link for a named source unless that exact URL was supplied and checked against the sentence it would support. Leave the sentence as prose until then. Do not rewrite the poem or the synopsis to sound like a news report.
+- Do not add an outbound link inside a synopsis sentence or a poem. If the day's supplied sources note gives the exact URLs, add them only in a compact sources list after the signature. Do not rewrite the poem or the synopsis to sound like a news report.
+- After both languages and the written byline, place `vicente-gabriel-flores-signature.png` once, across the text column, with space above it. Alt text: `Handwritten signature of Vicente Gabriel Flores`. Do not repeat it, do not set it beside a stanza, and do not use the portrait or a letter as the signature.
 - If a URL for that day's X Article was not supplied, do not add one. Do not post to X.
 - Visible `<time datetime="YYYY-MM-DD">` matches that date. The manuscript's timezone is America/Chicago. Do not invent a clock time. In the Atom feed only, use `YYYY-MM-DDT00:00:00-06:00` (or `-05:00` while Chicago is on daylight time) as the calendar-day boundary.
 - English prose and poem live in `<section lang="en">`. Spanish lives in `<section lang="es">`.
@@ -43,7 +44,7 @@ Copying the previous edition keeps its color tokens. Leave them. Body copy, both
 
 ## Checks before the pull request
 
-- The poem lines match the supplied text, including breaks.
+- The poem lines match the supplied text, including breaks. *The Brave Bulls* stays italic when the supplied text italicizes it.
 - The election and news sentences stay as supplied, with their source attribution left in the body.
 - Internal links resolve: archive, edition, home, poems, articles, feed.
 - The new URL is in `sitemap.xml`.
