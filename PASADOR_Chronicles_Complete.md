@@ -24,8 +24,6 @@ The structure is ten Parts, each treating a defined period, each organized into 
 8. **Los Papeles** — *Primary Documents*
 9. **Las Fuentes** — *Sources*
 
-The chronicle's voice is a deliberate tribute to **Gabriel García Márquez**, who taught the chronicler that the family chronicle can hold the marvelous and the documentary in the same hand. The novel's other godfathers are **William Shakespeare** (the five-Play structure), **Fyodor Dostoevsky** (the moral interior), and **James Clavell** (the family saga across continents). The chronicler honors all four.
-
 The chronicle is dedicated, as the novel is, to the chronicler's mother **Carmen Josefina "Josie" Flores** and to the chronicler's cousin **Ana Christina Alexander** (c. 1969 – 2026).
 
 — *Vicente Gabriel Flores*
@@ -2603,18 +2601,6 @@ What the chronicle records below is the path that took me from **the porch on Fl
 
 *PASADOR* — the novel of fifty-seven thousand eight hundred and twenty-six words I completed in the spring of two thousand and twenty-six — is the literary form into which I poured my family's two hundred and ninety-six years of documentary history. The novel has a Prologue (*The Crossing*, set in November nineteen hundred and thirteen at the International Bridge) and five Plays. I have discussed each Play in the relevant earlier Part of these Chronicles. The novel closes with an Epilogue (*The House on Florence Street*, set in nineteen hundred and eighty) and a brief Coda set in twenty hundred and twenty-six.
 
-The novel rests on four literary godfathers, and I name them openly because the closing requires the honesty.
-
-**William Shakespeare.** The five-Play structure of the novel is a deliberate Shakespearean inheritance. *Shakespeare's history plays moved a family's destiny across stages and generations and used the dramatic form to compress decades into the speakable moment.* PASADOR follows that pattern, moving the family across one hundred and eighty-three years on five stages, compressing each stage to its essential confrontation, allowing the offstage history to remain offstage and the stage history to be what the reader sees.
-
-**Fyodor Dostoevsky.** The novel's emotional and moral interior — the willingness to give the characters' inner lives more weight than their actions — is a deliberate Dostoevskian inheritance. *Dostoevsky taught the nineteenth century that the conscience could carry an entire novel; that the choice the character makes in the small hours of a sleepless night is as historically consequential as the public act of the next morning.* PASADOR adopts this scale: Hugh's grief after Juana's death carries as much narrative weight as the war that took his country.
-
-**Gabriel García Márquez.** The novel's treatment of the marvelous as ordinary fact — the spirits of dead grandmothers watching the children play, the silver dollar that survives generations in a leather pouch, the rivers that know about borders the maps do not yet know, the volcano that erupts on the eve of a wedding two thousand miles away — is a deliberate Garciamarquian inheritance. *Cien años de soledad, which I read at twenty and re-read at thirty and again at forty, established for me the chronicle voice — the voice of the writer who knows all times at once, who tells the future as already past and the past as not yet finished, who lets the marvelous sit beside the documentary without apology.* This chronicle is in his voice. The novel is in his voice. I owe him an enormous and acknowledged debt.
-
-**James Clavell.** The novel's structural shape — *the head of the family who sets sail, founds the family's foundation in a new land, has children who in turn influence the family's fortunes across generations and continents* — is a Clavellian inheritance. I read Clavell's Asian Saga (*Tai-Pan, Shogun, Gai-Jin, Noble House*) during my own years in Asia, and I recognized — with the surprise that recognition brings — that I was living one of the chapters of the kind of novel Clavell had written. The family that founded itself in San Antonio in seventeen hundred and thirty-one and that found one of its descendants in Hong Kong in two thousand and seven was a Clavellian family before I had read Clavell.
-
-I name the four godfathers without ceremony. The chronicle and the novel both owe them what they owe them.
-
 ---
 
 ## III · Los Sucesos
@@ -2744,8 +2730,6 @@ In the spring of two thousand and twenty-six, in *Austin, Texas*, where I now li
 
 **The descendants of the Chinese railroad workers of late nineteenth-century El Paso.** *Unnamed in the chronicle because I do not know their names. The chronicle leaves the space open. I hope that one of them will, perhaps, read these pages someday and recognize their grandparents in mine.*
 
-**The four literary godfathers** — *Shakespeare, Dostoevsky, García Márquez, Clavell* — already named above.
-
 **Carlos F. Flores** (10 October 1903 – October 1988). My grandfather. The man whose stories made all of this possible. Buried at **Memory Gardens of the Valley** in El Paso. *La crónica termina donde el cuento empezó: en el porche de la casa en Florence Street, en una tarde de octubre, con el abuelo en la silla a la izquierda y el nieto en el escalón. Le doy las gracias.*
 
 **María Manuela Gómez Velarde de Flores** (d. 1990s). My grandmother. Buried at **Memory Gardens of the Valley**. The woman who tended her son Manuel's grave at Concordia for sixty years. *La que me enseñó, sin enseñarme, que el cuidado de los muertos es uno de los gestos más largos que un ser humano puede hacer.*
@@ -2807,14 +2791,6 @@ The household Jinghan and I keep in Austin is principally English-Spanish-Mandar
 ### Sources
 
 The principal sources for this chronicle are the sources cited in Parts I through IX. The chronicler will not duplicate that bibliography. For the Tenth Part specifically:
-
-**On Shakespeare.** The Folger Shakespeare Library editions of the history plays.
-
-**On Dostoevsky.** *Crime and Punishment* (1866), *The Brothers Karamazov* (1880), *The Idiot* (1869).
-
-**On García Márquez.** *Cien años de soledad* (1967). The chronicle's voice is in deliberate tribute.
-
-**On James Clavell.** The Asian Saga: *Tai-Pan* (1966), *Shogun* (1975), *Noble House* (1981), *Gai-Jin* (1993). Read during my Asian years.
 
 **On Murasaki Shikibu.** *The Tale of Genji* (c. 1010). The Royall Tyler translation (Viking, 2001). The Edward Seidensticker translation (Knopf, 1976). Read during my Kobe years.
 
