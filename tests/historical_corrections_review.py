@@ -23,7 +23,7 @@ class SupportedCorrections(unittest.TestCase):
             HISTORIA,
         )
         self.assertIn(
-            "He married Margarita on the nineteenth of June, eighteen hundred and fifty-eight. He was twenty-eight; she was twenty-four.",
+            "He married Margarita on the nineteenth of June, eighteen hundred and fifty-eight. He was twenty-eight; she was about twenty-seven.",
             HISTORIA,
         )
         self.assertIn(
@@ -98,8 +98,8 @@ class HeldText(unittest.TestCase):
         self.assertNotIn("public record gives eighteen hundred", HISTORIA)
 
     def test_scene_ages_and_derived_years_unchanged(self):
-        self.assertIn("He was twenty-eight; she was twenty-four.", HISTORIA)
-        self.assertIn("Margarita Stephenson — aged twenty-four", HISTORIA)
+        self.assertIn("He was twenty-eight; she was about twenty-seven.", HISTORIA)
+        self.assertIn("Margarita Stephenson — aged about twenty-seven", HISTORIA)
         self.assertIn("José María Flores — aged twenty-eight", HISTORIA)
         self.assertIn("Margarita is twenty-four. José María is twenty-eight.", HISTORIA)
         self.assertIn("from the second year of the marriage forward", HISTORIA)
@@ -179,7 +179,10 @@ class ApprovedRecordCorrections(unittest.TestCase):
         self.assertIn("He is nine years old.", HISTORIA)
         self.assertIn("nine-year-old son", index)
         self.assertIn("A nine-year-old looked back", FAMILIA)
-        self.assertIn("1836 — 1914", FAMILIA)
+        self.assertIn("1831 — 1914", FAMILIA)
+        self.assertIn("Born in El Paso in 1831", HISTORIA)
+        self.assertIn("at the age of eighty-three", HISTORIA)
+        self.assertNotIn("Born in San Antonio in the year of the Texas Revolution", HISTORIA)
         self.assertIn("María Luisa <em>Peres</em>", FAMILIA)
 
 
