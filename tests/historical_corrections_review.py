@@ -88,12 +88,14 @@ class HeldText(unittest.TestCase):
             FAMILIA,
         )
 
-    def test_juana_birth_conflict_unchanged(self):
+    def test_juana_dates_and_gravestone_quote(self):
+        self.assertIn("born February 8, 1809; died February 6, 1856", HISTORIA)
+        self.assertIn("8 Feb 1809 — 6 Feb 1856", FAMILIA)
         self.assertIn(
-            "Born in El Paso del Norte in eighteen hundred and nine (by the family chart; the public record gives eighteen hundred).",
+            "DOÑA JUANA MARÍA ASCÁRATE DE STEPHENSON, NACIDA EL PASO DEL NORTE 1809, FALLECIDA CONCORDIA 6 DE FEBRERO 1856.",
             HISTORIA,
         )
-        self.assertIn("1809 — 6 Feb 1856", FAMILIA)
+        self.assertNotIn("public record gives eighteen hundred", HISTORIA)
 
     def test_scene_ages_and_derived_years_unchanged(self):
         self.assertIn("He was twenty-eight; she was twenty-four.", HISTORIA)
@@ -101,9 +103,14 @@ class HeldText(unittest.TestCase):
         self.assertIn("José María Flores — aged twenty-eight", HISTORIA)
         self.assertIn("Margarita is twenty-four. José María is twenty-eight.", HISTORIA)
         self.assertIn("from the second year of the marriage forward", HISTORIA)
-        self.assertIn("the second year of Margarita and José María", HISTORIA)
+        self.assertNotIn("the second year of Margarita and José María", HISTORIA)
         self.assertIn("French would be, four years later,", HISTORIA)
-        self.assertIn("aged thirty-three, married Josefina Samaniego Siqueiros, aged twenty", HISTORIA)
+        self.assertIn(
+            "On October 3, 1888, at the church of San Fernando, <em>José Jesús Flores Stephenson married Josefina Samaniego Siqueiros, daughter",
+            HISTORIA,
+        )
+        self.assertNotIn("aged thirty-three, married Josefina Samaniego Siqueiros", HISTORIA)
+        self.assertNotIn("Josefina Samaniego Siqueiros, aged twenty", HISTORIA)
 
     def test_child_surnames_and_cousinship_unchanged(self):
         self.assertIn("María del Carmen Flores Gómez", HISTORIA)
@@ -131,7 +138,12 @@ class HeldText(unittest.TestCase):
     def test_other_1860s_records_not_rewritten(self):
         self.assertIn("mil ochocientos sesenta y uno", HISTORIA)
         self.assertIn("mil ochocientos sesenta y siete", HISTORIA)
-        self.assertIn("born at Concordia in eighteen hundred and sixty-two", HISTORIA)
+        self.assertIn("born on December 24, 1861, in Juárez (Paso del Norte)", HISTORIA)
+        self.assertNotIn("born at Concordia in eighteen hundred and sixty-two", HISTORIA)
+        self.assertIn(
+            "birth of José Jesús at Concordia in eighteen hundred and sixty-two",
+            HISTORIA,
+        )
 
     def test_only_the_two_pages_and_this_test_change(self):
         diff = subprocess.check_output(
@@ -142,9 +154,33 @@ class HeldText(unittest.TestCase):
         allowed = {
             "historia.html",
             "familia.html",
+            "index.html",
             "tests/historical_corrections_review.py",
         }
         self.assertTrue(set(diff) <= allowed, diff)
+
+
+class ApprovedRecordCorrections(unittest.TestCase):
+    def test_certificate_and_register_facts(self):
+        index = (ROOT / "index.html").read_text(encoding="utf-8")
+        self.assertIn("December 24, 1861", HISTORIA)
+        self.assertIn("1518 Montana Street", HISTORIA)
+        self.assertIn("September 13, 1939", HISTORIA)
+        self.assertIn("at the age of seventy-seven", HISTORIA)
+        self.assertIn("October 3, 1888", HISTORIA)
+        self.assertIn("24 Dec 1861 — 12 Sep 1939", FAMILIA)
+        self.assertIn("1861 — 1939", index)
+        self.assertIn("Ciudad Juárez (Paso del Norte)", HISTORIA)
+        self.assertIn("March 17, 1988", HISTORIA)
+        self.assertIn("at the age of ten", index)
+        self.assertIn("at thirteen", index)
+        self.assertNotIn("stepfather", HISTORIA)
+        self.assertIn("current husband", HISTORIA)
+        self.assertIn("He is nine years old.", HISTORIA)
+        self.assertIn("nine-year-old son", index)
+        self.assertIn("A nine-year-old looked back", FAMILIA)
+        self.assertIn("1836 — 1914", FAMILIA)
+        self.assertIn("María Luisa <em>Peres</em>", FAMILIA)
 
 
 if __name__ == "__main__":
