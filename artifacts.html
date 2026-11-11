@@ -101,6 +101,26 @@ nav.scrolled{background:rgba(8,6,4,0.97);border-bottom:1px solid rgba(196,151,61
   color:var(--parchment-dim);font-size:1.35rem;margin-bottom:1.6rem;
 }
 .hero-lead{max-width:40rem;margin-bottom:1rem}
+.opening-poem{max-width:42rem;margin:0.2rem auto 2.4rem}
+.poem-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2rem,4vw,2.8rem);
+  font-weight:300;font-style:italic;line-height:1.1;
+  color:var(--parchment);text-align:center;margin-bottom:0.7rem;
+}
+.poem-subtitle{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.05rem;font-style:italic;color:var(--parchment-dim);
+  text-align:center;margin-bottom:1.4rem;letter-spacing:0.02em;
+}
+.poem-body{
+  font-family:'EB Garamond',serif;font-size:1.08rem;line-height:1.85;
+  color:var(--parchment);max-width:42rem;margin:0 auto;
+}
+.poem-body .stanza{margin-bottom:1.6rem}
+.poem-body .stanza:last-child{margin-bottom:0}
+.edition-signature{margin:2.25rem auto 0;max-width:200px;width:200px;padding:0}
+.edition-signature img{display:block;width:100%;height:auto}
 .kinds{list-style:none;margin:1.6rem 0 0;padding:0}
 .kinds li{margin:0.35rem 0}
 .kinds strong{
@@ -208,6 +228,8 @@ footer{
   .nav-links a{display:block;padding:0.95rem 0.2rem;border-bottom:1px solid var(--sep)}
   .nav-links li:last-child a{border-bottom:none}
   #hero,main,footer{padding-left:1.4rem;padding-right:1.4rem}
+  .poem-body{font-size:1rem}
+  .edition-signature{margin-top:2rem;max-width:136px;width:136px}
   #hero{padding-top:7.5rem}
 }
 </style>
@@ -512,6 +534,32 @@ footer{
   <p class="hero-eyebrow">Records · Registros</p>
   <h1 class="hero-title">Artifacts</h1>
   <p class="hero-es" lang="es">Los papeles, no la novela.</p>
+  <div class="opening-poem">
+    <h2 class="poem-title">What the Paper Keeps</h2>
+    <p class="poem-subtitle" lang="es">Lo que guarda el papel</p>
+    <div class="poem-body">
+      <p class="stanza">A priest in Cuautitlán dipped his pen<br>
+      and called them wanderers, travelers,<br>
+      islanders with salt still in their names.<br>
+      He did not know he was writing to me.</p>
+      <p class="stanza">In San Antonio a hand pressed hard<br>
+      enough to sign a petition into history,<br>
+      the letters leaning like men against the wind.</p>
+      <p class="stanza">At Carrizal the ink says twenty-five.<br>
+      The bones say otherwise. I keep them both.<br>
+      A family is what survives its clerks.</p>
+      <p class="stanza">Then death in a clean bureaucratic hand,<br>
+      then a draft card: a height, a weight, the color of his eyes,<br>
+      the bridge crossed once, and never crossed back the same.</p>
+      <p class="stanza" lang="es">Un cura en Cuautitlán mojó la pluma<br>
+      y los llamó andantes, pasajeros.<br>
+      No sabía que me escribía a mí.</p>
+      <p class="stanza" lang="es">Lo que el papel no guarda, lo guardo yo.</p>
+    </div>
+    <figure class="edition-signature">
+      <img src="/vicente-gabriel-flores-signature.png" alt="Signature of Vicente Gabriel Flores" width="900" height="506">
+    </figure>
+  </div>
   <p class="hero-lead">These are records behind the work, not the work itself. A verified record is an original or an official text that has been read. Family narrative is what the Chronicles and family memory say, and it stays labeled as that. Fiction is the dialogue and the scenes in the novel and the plays: a document does not rewrite a scene, and a scene is not offered here as a record.</p>
   <p class="hero-lead">The papers are not all one story. They show grants and baptisms, signed letters and death certificates. They also show conflict: crown and state, the church, the colonists, and the Native peoples already living on this land. Settling new country was discovery and disruption at the same time. It was innovative, great, and awful, depending on who is looking. The settlers conquered, lived that life, and left paper that carries both the fact of conquering peoples and the richness of the land and its water, grass, and ore. The page says that plainly. Judgment belongs to the reader.</p>
   <p class="hero-lead">These are the papers behind the work: the Canary Island founding, Gaspar’s San Antonio, the Stephenson ranch at Concordia, and the Juárez household that crossed the bridge in 1913.</p>
