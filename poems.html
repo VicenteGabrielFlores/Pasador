@@ -286,6 +286,40 @@ nav.scrolled{background:rgba(8,6,4,0.97);border-bottom:1px solid rgba(196,151,61
   font-size:0.9rem;
 }
 
+
+.index-poem{margin-bottom:3.4rem;text-align:center}
+.index-poem:last-child{margin-bottom:0}
+.index-poem .poem-title a{color:inherit;text-decoration:none}
+.index-poem .poem-title a:hover{color:var(--gold)}
+.index-first{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.2rem;
+  font-style:italic;
+  color:var(--parchment-dim);
+  margin:0.15rem auto 0.85rem;
+  max-width:38rem;
+  line-height:1.45;
+}
+.index-first a{color:inherit;text-decoration:none}
+.index-first a:hover{color:var(--gold)}
+.index-meta{
+  font-family:'Cinzel',serif;
+  font-size:0.62rem;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--gold-dim);
+}
+.index-meta a{color:var(--gold);text-decoration:none}
+.index-meta a:hover{color:var(--parchment)}
+.forthcoming{
+  font-family:'EB Garamond',serif;
+  font-style:italic;
+  font-size:0.98rem;
+  color:var(--parchment-faint);
+  margin-top:0.7rem;
+}
+.forthcoming-poem .poem-title{color:var(--parchment-dim);font-size:clamp(1.7rem,3vw,2.2rem)}
+
 /* ── REVEAL ── */
 .reveal{opacity:0;transform:translateY(28px);transition:opacity 0.9s ease,transform 0.9s ease}
 .reveal.visible{opacity:1;transform:none}
@@ -379,6 +413,35 @@ footer{
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <meta name="theme-color" content="#000000">
+<script>
+(function () {
+  var map = {
+  "invocation": "/poems/the-invocation.html",
+  "lo-que-se-hereda": "/poems/what-is-inherited.html",
+  "hm-2": "/poems/the-years-between.html",
+  "hm-3": "/poems/the-year-the-island-burned.html",
+  "hm-4": "/poems/the-year-of-the-long-road.html",
+  "hm-5": "/poems/the-year-of-the-founding.html",
+  "br-1": "/poems/the-weather.html",
+  "br-2": "/poems/the-country-that-argues.html",
+  "br-3": "/poems/the-towns.html",
+  "br-4": "/poems/the-water.html",
+  "the-column": "/poems/the-column.html",
+  "the-bolt-of-the-old-door": "/poems/the-bolt-of-the-old-door.html",
+  "the-crossing": "/poems/the-crossing.html",
+  "the-far-crossing": "/poems/the-far-crossing.html",
+  "the-bridge-of-time": "/poems/the-bridge-of-time.html"
+};
+  function go() {
+    var id = '';
+    try { id = decodeURIComponent((location.hash || '').replace(/^#/, '')); }
+    catch (e) { id = ''; }
+    if (map[id]) location.replace(map[id]);
+  }
+  go();
+  window.addEventListener('hashchange', go);
+})();
+</script>
 </head>
 <body>
 
@@ -416,698 +479,110 @@ footer{
   </div>
 </section>
 
-<!-- ============ SECTION: The Spine of the Cycle ============ -->
-
 <section class="poem-section" id="section-invocation">
   <p class="section-label reveal">The Spine of the Cycle</p>
-<article class="poem reveal" id="invocation">
-  <p class="poem-source">Opening of the Cycle</p>
-  <h2 class="poem-title">The Invocation</h2>
-  <p class="poem-subtitle">Opens every work of A King’s Promise</p>
-  <div class="poem-divider" aria-hidden="true">&#8883; &nbsp;&#10022;&nbsp; &#8884;</div>
-  <div class="poem-body">
-    <p class="stanza">A king’s promise:<br>
-      title and land, <em>hijos dalgo de solar conocido</em> —<br>
-      a name behind the name, by right of birth.</p>
-    <p class="stanza">The promise was kept.<br>
-      In seventeen-thirty, from Tenerife<br>
-      the harness-maker’s son sailed;<br>
-      crossed the Atlantic; rode the <em>camino real</em>;<br>
-      and at the fork of two rivers made his stand —<br>
-      Vicente Álvarez Travieso,<br>
-      <em>alguacil mayor de Béxar</em>.<br>
-      The grant was real. The river was real. The land was real.</p>
-    <p class="stanza">Then the king died.<br>
-      The empire fell.<br>
-      The wars came: Mexican, Texan, American, Civil, Mexican again.<br>
-      The flags changed — five of them, sometimes in a week.<br>
-      The marshal came. The bandits came. The <em>federales</em> came.</p>
-    <p class="stanza">What was given was taken.<br>
-      What was taken was won back.<br>
-      What was won back was taken again.</p>
-    <p class="stanza">For two hundred and ninety-six years,<br>
-      across two oceans and five flags,<br>
-      one Tejano family has done one thing only:<br>
-      they held on.</p>
-    <p class="stanza"><em>Si no por su mano, por la nuestra.</em><br>
-      <em>Sigue.</em><br>
-      <em>No mires atrás, hijo.</em></p>
-    <p class="stanza"><strong>His hand. Now mine.</strong></p>
-  </div>
+<article class="index-poem reveal">
+  <h2 class="poem-title"><a href="/poems/the-invocation.html">The Invocation</a></h2>
+  <p class="index-first"><a href="/poems/the-invocation.html">A king’s promise:</a></p>
+  <p class="index-meta"><a href="/poems/the-invocation.html">A King’s Promise</a> <span aria-hidden="true">·</span> <a href="/poems/the-invocation.html">English</a></p>
 </article>
 </section>
-
-<!-- ============ SECTION: The Catalog ============ -->
 
 <section class="poem-section" id="section-catalog">
   <p class="section-label reveal">The Catalog — What Was Inherited</p>
-<article class="poem reveal" id="lo-que-se-hereda">
-  <p class="poem-source">From LA TOMA — Opening Chorus</p>
-  <h2 class="poem-title">Lo que se hereda</h2>
-  <p class="poem-subtitle">What is inherited</p>
-  <div class="poem-divider" aria-hidden="true">&#8883; &nbsp;&#10022;&nbsp; &#8884;</div>
-  <div class="poem-body">
-    <p class="stanza">We are speaking now of what was inherited.</p>
-    <p class="stanza">We are speaking now of <em>Hijos Dalgo</em> by decree of the Viceroy<br>
-      <em>Don Juan de Acuña, Marqués de Casafuerte,</em><br>
-      the nineteenth of July, seventeen hundred and thirty-one,<br>
-      four months after sixteen Canarian families stood in a plaza<br>
-      that was not yet a plaza,<br>
-      and were told: <em>you are now noble in writing.</em></p>
-    <p class="stanza">We are speaking now of two land grants of the Spanish Crown<br>
-      to the Ascárate family for military service —<br>
-      thirteen thousand acres,<br>
-      and nine hundred more,<br>
-      in the seventeen-fifties,<br>
-      held in the family for one hundred and sixty years<br>
-      through five flags and three wars,<br>
-      until the night of which this play speaks,<br>
-      when a man in a coal car was riding north<br>
-      who said: <em>la tierra es para el que la trabaja.</em></p>
-    <p class="stanza">We are speaking now of silver bars stamped <em>STEPHENSON</em><br>
-      moving up the <em>Camino Real</em> from Chihuahua to Santa Fe<br>
-      through the Organ Mountains east of Las Cruces,<br>
-      on the backs of <em>mestizo</em> men who did not own the silver,<br>
-      through a country that did not have a name yet<br>
-      when it had already had the name of the Manso and the Suma<br>
-      and the Piro and the Apache for ten thousand years.</p>
-    <p class="stanza">We are speaking now of <em>La Casa Grande el Alto</em> at Concordia,<br>
-      the house Juana María Ascárate built before her death,<br>
-      and of the chapel of <em>San José de Concordia el Alto</em><br>
-      that she built in eighteen hundred and fifty-four<br>
-      two years before a deer she had raised from a fawn<br>
-      gored her in the belly<br>
-      and made her the first burial in the cemetery<br>
-      that took the name of her house.</p>
-    <p class="stanza">We are speaking now of the alcaldía of San Antonio,<br>
-      held four times by <em>José Gaspar Flores de Ábrego</em><br>
-      between eighteen hundred and nineteen and eighteen hundred and thirty-four,<br>
-      who died in the Runaway Scrape east in eighteen hundred and thirty-six<br>
-      of a fever, leading three thousand sheep<br>
-      toward the Trinity River.</p>
-    <p class="stanza">We are speaking now of the alcaldía of Ciudad Juárez,<br>
-      held in nineteen hundred and thirteen by <em>José Jesús Flores Stephenson,</em><br>
-      the first popularly elected presidente of the city,<br>
-      displaced almost as soon as elected,<br>
-      <em>el alcalde a quien la revolución decidió no destituir hasta que no pudo más.</em></p>
-    <p class="stanza">These are the things inherited.</p>
-    <p class="stanza">These are the things the play will not pretend the family did not have.</p>
-    <p class="stanza">When Pancho Villa rode north in November of nineteen hundred and thirteen<br>
-      on a coal train through the Chihuahua night,<br>
-      he rode for the <em>campesinos</em><br>
-      whose grandfathers had cut the silver out of the Organ Mountains<br>
-      and whose great-grandmothers had not been at the long table.</p>
-    <p class="stanza"><strong>He rode against my family.<br>
-      This is the first true thing.<br>
-      Now begins the play.</strong></p>
-  </div>
+<article class="index-poem reveal">
+  <h2 class="poem-title"><a href="/poems/what-is-inherited.html" lang="es">Lo que se hereda</a></h2>
+  <p class="index-first"><a href="/poems/what-is-inherited.html">We are speaking now of what was inherited.</a></p>
+  <p class="index-meta"><a href="/poems/what-is-inherited.html">A King’s Promise</a> <span aria-hidden="true">·</span> <a href="/poems/what-is-inherited.html">English</a></p>
 </article>
 </section>
-
-<!-- ============ SECTION: The Founding Sequence ============ -->
 
 <section class="poem-section" id="section-founding">
   <p class="section-label reveal">The Founding Sequence — Tenerife to Béxar</p>
-
-<article class="poem reveal" id="hm-1">
-  <p class="poem-source">From THE HARNESS-MAKER’S SON — Choral Poem I</p>
+<article class="index-poem forthcoming-poem reveal" id="hm-1">
   <h2 class="poem-title">The Last Good Spring</h2>
-  <p class="poem-subtitle">1706 · Garachico, Tenerife</p>
-  <p class="poem-framing">The first warm spring before the eruption.</p>
-  <div class="poem-divider" aria-hidden="true">&#8883; &nbsp;&#10022;&nbsp; &#8884;</div>
-  <div class="poem-body">
-    <p class="stanza">Hear how it stood, the town of Garachico, in the first warm spring of seventeen hundred and six.<br>
-      A bay like a cupped hand on the coast of Tenerife — the finest harbor the seven islands had to give — and the town climbing its hill above the water in white and stone, grown rich two hundred years on one sweet word: <em>malvasía</em>; the wine the English crossed a sea to buy, and praised, and drank, and called canary.<br>
-      The fleets came in light and went out heavy.<br>
-      The coopers’ hammers kept the working day its time.<br>
-      Bells, and mule-trains, and silver, and the smell of the sea.<br>
-      A king’s war burned somewhere past the horizon — a French boy crowned, an Austrian who said the crown was his, English sail — but a war offshore is only weather, and weather, in a prosperous year, is someone else’s.<br>
-      This was a town that believed in the next year, and the year after, and had two centuries to prove it right.<br>
-      And over it stood the mountain — green to the shoulder, terraced and vine-strung, climbed on feast days, otherwise not thought of; <em>for a mountain is the one thing a town can build beneath and never count.</em><br>
-      So begin in the noise of the loading, the wine-smell, the light: the people of Garachico, prosperous, unafraid, and entirely certain of the ground beneath their feet.</p>
-  </div>
+  <p class="forthcoming">Forthcoming in a journal. Returning here after publication.</p>
 </article>
-
-<article class="poem reveal" id="hm-2">
-  <p class="poem-source">From THE HARNESS-MAKER’S SON — Choral Poem II</p>
-  <h2 class="poem-title">The Years Between</h2>
-  <p class="poem-subtitle">1706 — 1730 · The slow decline of Garachico</p>
-  <p class="poem-framing">Twenty-four years between the fire and the leaving.</p>
-  <div class="poem-divider" aria-hidden="true">&#8883; &nbsp;&#10022;&nbsp; &#8884;</div>
-  <div class="poem-body">
-    <p class="stanza">Hear what the years did — the long slow years, the waiting years, the four-and-twenty between the fire and the leaving.<br>
-      <em>Garachico did not die. A town almost never dies outright.</em><br>
-      It thins. A roof goes unmended. A shutter stays shut.<br>
-      A boat is sold. A daughter is not dowried, and does not wed.<br>
-      The old grow older in it — and the young, the young stand at the dead black harbor and look hard at the water, and the water, every year, says back the same word: <em>elsewhere.</em><br>
-      And the islands did what the islands have always done with their hunger: they put it on a ship — to Havana, to Caracas, to wherever a sail would carry a poor man toward the rumor of a wage.<br>
-      One cart, and then another, went down the coast road loaded, and a boy at a harness-bench watched each of them to the turning.<br>
-      Far off — past the sea-line, where the kings keep their weather — the long war guttered out; the maps were drawn again, and smaller; and Spain, its edges trimmed, looked hard at what it still held, and at the raw far rim of that, a country it scarcely held at all — Texas: grass, and a river, and a French neighbor leaning on the door.<br>
-      A fort, the King was told, can hold ground but cannot keep it.<br>
-      <em>Ground is kept by families — by a plow, a roof, a christening, a grave.</em></p>
-    <p class="stanza">So in the plazas of four poor islands a paper would be nailed, promising the poor, in the oldest words a crown still owned, a name.<br>
-      But that is ahead. Begin in the waiting. Begin in the quiet town: the boy grown tall and restless at the bench, the awl gone easy in his hand, the harbor full of stone, the road full of leaving carts — and the want in him rising, year over year, with nowhere yet to go.</p>
-  </div>
+<article class="index-poem reveal">
+  <h2 class="poem-title"><a href="/poems/the-years-between.html">The Years Between</a></h2>
+  <p class="index-first"><a href="/poems/the-years-between.html">Hear what the years did — the long slow years, the waiting years, the four-and-twenty between the fire and the leaving.</a></p>
+  <p class="index-meta"><a href="/poems/the-years-between.html">A King’s Promise</a> <span aria-hidden="true">·</span> <a href="/poems/the-years-between.html">English</a></p>
 </article>
-
-<article class="poem reveal" id="hm-3">
-  <p class="poem-source">From THE HARNESS-MAKER’S SON — Choral Poem III</p>
-  <h2 class="poem-title">The Year the Island Burned</h2>
-  <p class="poem-subtitle">1730 · The Atlantic crossing</p>
-  <p class="poem-framing">What the sea did, in the year seventeen-thirty.</p>
-  <div class="poem-divider" aria-hidden="true">&#8883; &nbsp;&#10022;&nbsp; &#8884;</div>
-  <div class="poem-body">
-    <p class="stanza">Hear now what the sea did, in the year seventeen-thirty — and what, being the sea, it did not trouble itself to say.<br>
-      In the last week of March they sailed from Santa Cruz — the harbor that had thrown the English back to their boats the year the harness-maker’s son was born — and the islands went down behind the stern: blue, and then grey, and then not there.<br>
-      <em>A ship is a town the sea has agreed, for a while, to carry.</em><br>
-      They lived in it the way the poor live anywhere — close, and patient, and praying — six weeks of water with no road in it.<br>
-      The sea fed them its long sameness, and took, in its turn, its toll: a fever in the hold; a grave with no ground to it; a wrapped weight over the side, and the water closing flat.<br>
-      They raised Havana in the wet heat of May — a Spanish city, loud, and alive, and entirely indifferent to them — and Havana was Spain, and Havana was safe, and Havana was enough for the families who looked hard at the long road still to come and chose, instead, to stay. The rest went on. The ship rode lighter.<br>
-      And here is the thing the sea knew, and kept to itself: that while they took the fever-coast of Veracruz, far behind them</p>
-    <p class="stanza">Lanzarote had split along its belly and begun to burn — and would burn six years — and half that party were Lanzarote’s, with the name of that island in their mouths for the word <em>home.</em><br>
-      They did not know it yet. The news would cross the water slowly.<br>
-      <em>They had sailed from a house already, even then, taking fire — and would come to learn it inland, in a country with no sea at all.</em><br>
-      So — ten families. Four single men. One harness-maker.<br>
-      The crossing thinned them, and did not stop them.<br>
-      They went on.</p>
-  </div>
+<article class="index-poem reveal">
+  <h2 class="poem-title"><a href="/poems/the-year-the-island-burned.html">The Year the Island Burned</a></h2>
+  <p class="index-first"><a href="/poems/the-year-the-island-burned.html">Hear now what the sea did, in the year seventeen-thirty — and what, being the sea, it did not trouble itself to say.</a></p>
+  <p class="index-meta"><a href="/poems/the-year-the-island-burned.html">A King’s Promise</a> <span aria-hidden="true">·</span> <a href="/poems/the-year-the-island-burned.html">English</a></p>
 </article>
-
-<article class="poem reveal" id="hm-4">
-  <p class="poem-source">From THE HARNESS-MAKER’S SON — Choral Poem IV</p>
-  <h2 class="poem-title">The Year of the Long Road</h2>
-  <p class="poem-subtitle">1730 — 1731 · Veracruz to Béxar</p>
-  <p class="poem-framing">The road that had no sea — eleven hundred miles, on foot.</p>
-  <div class="poem-divider" aria-hidden="true">&#8883; &nbsp;&#10022;&nbsp; &#8884;</div>
-  <div class="poem-body">
-    <p class="stanza">Hear now what the road did — the road that had no sea.<br>
-      From Veracruz to the river the King had promised them the road ran eleven hundred miles, and they would walk it — the sea-people, who had thought the sea would be the hard half — six months of it, into a country with no rim of water, <em>a country that did not end, and did not end, and did not end.</em><br>
-      And it was an old country — older than Spain is in Spain.<br>
-      They walked through cities the Spanish had taken and not built, and were fed, up that road, by people poorer than themselves, who set down maize for strangers because a far-off Crown had written their town’s name on a list of who would give.<br>
-      At Cuautitlán they rested. And there the Church married the young of them — single to single, girl to boy — for the King granted land to families, not to loose souls, and a frontier has a long and standing need of wives.<br>
-      So a harness-maker who had left his island the last of a line was wed, in a borrowed town, into the start of one.<br>
-      And on that road the news at last came walking back to meet them: Lanzarote, it said, had been burning since September, field and village going under a slow grey tide of fire —</p>
-    <p class="stanza">and half that party were Lanzarote’s, and learned, far inland, that the island they had ached toward had no road back left in it.<br>
-      <em>The door behind them had not closed. The door behind them had burned.</em><br>
-      North, then, and north — Saltillo, the presidios, the dry hard going, the road taking its toll in horses, and in graves — toward a green river on the open llano with a Payaya name, and a day the record keeps exactly: the ninth of March, 1731.</p>
-  </div>
+<article class="index-poem reveal">
+  <h2 class="poem-title"><a href="/poems/the-year-of-the-long-road.html">The Year of the Long Road</a></h2>
+  <p class="index-first"><a href="/poems/the-year-of-the-long-road.html">Hear now what the road did — the road that had no sea.</a></p>
+  <p class="index-meta"><a href="/poems/the-year-of-the-long-road.html">A King’s Promise</a> <span aria-hidden="true">·</span> <a href="/poems/the-year-of-the-long-road.html">English</a></p>
 </article>
-
-<article class="poem reveal" id="hm-5">
-  <p class="poem-source">From THE HARNESS-MAKER’S SON — Choral Poem V</p>
-  <h2 class="poem-title">The Year of the Founding</h2>
-  <p class="poem-subtitle">1731 · San Antonio de Béxar</p>
-  <p class="poem-framing">The thing they had crossed the world to do.</p>
-  <div class="poem-divider" aria-hidden="true">&#8883; &nbsp;&#10022;&nbsp; &#8884;</div>
-  <div class="poem-body">
-    <p class="stanza">Hear now what was done on the bank of the river — in the seventh month of seventeen thirty-one.<br>
-      Fifty-six tired souls, off five hard islands, by way of an ocean and a thousand leagues of road, did the thing they had crossed the world to do: they founded a town. They drew its square in the dirt.<br>
-      They named its saint — San Fernando. They swore a council, the first town government in all of Texas; and the King’s old promise, carried folded since the islands, against every odd the sea and the road had set, was kept.<br>
-      And the harness-maker’s son — who in Garachico could have risen, his whole life, no higher than <em>maestro</em>, a good word, an honest word, a small and borrowed one — stood in that staked-out square and was made an officer: <em>alguacil mayor</em>, the King’s law set into his hand; and was named — in the old and formal Spanish of a <em>cédula</em> — <em>hidalgo</em>: a son of a known house. <em>He had built the house himself.</em><br>
-      But a town is a square drawn on top of a country.<br>
-      <em>The river had a name before San Fernando was its saint.</em><br>
-      The Payaya had walked these banks while Spain was a rumour; and the walls the islanders raised, the ditches they would dig, would be paid for in a labor that was given under guard, on a land that had not, by its first people, been given at all.</p>
-    <p class="stanza"><em>All of that is true, and true together, and begins here:</em> on this riverbank, this raw square, this stubborn founded place — a town eight days old under a wide Texas sky, and in a jacal at its edge, a man, a wife, a lamp, and a child not yet born who will inherit every word of it.</p>
-  </div>
+<article class="index-poem reveal">
+  <h2 class="poem-title"><a href="/poems/the-year-of-the-founding.html">The Year of the Founding</a></h2>
+  <p class="index-first"><a href="/poems/the-year-of-the-founding.html">Hear now what was done on the bank of the river — in the seventh month of seventeen thirty-one.</a></p>
+  <p class="index-meta"><a href="/poems/the-year-of-the-founding.html">A King’s Promise</a> <span aria-hidden="true">·</span> <a href="/poems/the-year-of-the-founding.html">English</a></p>
 </article>
 </section>
-
-<!-- ============ SECTION: The Modern Sequence ============ -->
 
 <section class="poem-section" id="section-modern">
   <p class="section-label reveal">The Modern Sequence — England 2024–2025</p>
-
-<article class="poem reveal" id="br-1">
-  <p class="poem-source">From BELMONT ROAD — Choral Poem I</p>
-  <h2 class="poem-title">The Weather</h2>
-  <p class="poem-subtitle">Southport, August 2024 · The country broke</p>
-  <div class="poem-divider" aria-hidden="true">&#8883; &nbsp;&#10022;&nbsp; &#8884;</div>
-  <div class="poem-body">
-    <p class="stanza">Before the boy: the weather.</p>
-    <p class="stanza">In the summer before this winter, in a town called Southport,<br>
-      three children were killed at a dance class — a holiday club,<br>
-      a singer they loved, an ordinary July morning.<br>
-      <em>And the country broke.</em><br>
-      For eight days England set fire to its own streets.</p>
-    <p class="stanza">A false name moved first. A false name always moves first;<br>
-      <em>a lie can reach forty cities while the fact is still tying its shoes.</em><br>
-      And the richest man on earth watched it from California<br>
-      and set down two words — <em>civil war</em> — and called them inevitable,<br>
-      and the two words went round the turning world.</p>
-    <p class="stanza">This was the weather. Now the readings.</p>
-    <p class="stanza">In the year to that June: a hundred and eleven thousand asylum claims —<br>
-      a record; the highest the country had ever counted.<br>
-      In the hotels, some thirty-two thousand souls,<br>
-      at five-point-seven million pounds a day.<br>
-      On the water, the small boats, more than in any year before.<br>
-      And in the police stations — this is also a number —<br>
-      more than thirty arrests a day for things said online,<br>
-      a rise of a hundred and twenty-one in the hundred since twenty-seventeen.</p>
-    <p class="stanza"><em>Hold all of it at once. That is the only honest way to hold it.</em><br>
-      A nation frightened for its children is not a lie.<br>
-      A nation frightened of its strangers is not the same fear,<br>
-      and is not nothing, and is not simple, and is not new.</p>
-    <p class="stanza">Into this weather — a boy.<br>
-      Not a symbol. Not yet. Symbols are made later, by other hands.<br>
-      Only a boy, and a phone, and a cold street, and three weeks to Christmas.</p>
-    <p class="stanza">Watch how an ordinary night is taken up.<br>
-      Watch how it is carried.<br>
-      Watch what England does with the space<br>
-      between the last thing he filmed and the first thing his neighbours heard.</p>
-  </div>
+<article class="index-poem reveal">
+  <h2 class="poem-title"><a href="/poems/the-weather.html">The Weather</a></h2>
+  <p class="index-first"><a href="/poems/the-weather.html">Before the boy: the weather.</a></p>
+  <p class="index-meta"><a href="/poems/the-weather.html">A King’s Promise</a> <span aria-hidden="true">·</span> <a href="/poems/the-weather.html">English</a></p>
 </article>
-
-<article class="poem reveal" id="br-2">
-  <p class="poem-source">From BELMONT ROAD — Choral Poem II</p>
-  <h2 class="poem-title">The Country That Argues</h2>
-  <p class="poem-subtitle">The slow clock and the fast clock</p>
-  <div class="poem-divider" aria-hidden="true">&#8883; &nbsp;&#10022;&nbsp; &#8884;</div>
-  <div class="poem-body">
-    <p class="stanza">A death is a fact for one night only.<br>
-      By morning it is a question, and a question has sides,<br>
-      and sides have champions, and champions have feeds,<br>
-      and a feed does not sleep, and does not check, and does not grieve.</p>
-    <p class="stanza">First the machine — without it, nothing after this reads.</p>
-    <p class="stanza">There is a country, and there is a screen, and they keep different time.<br>
-      <em>The country moves at the speed of a committee.<br>
-      The screen moves at the speed of a thumb.</em><br>
-      The country must gather evidence, and weigh it, and be slow on purpose,<br>
-      because slowness, in a country, is another name for fairness.<br>
-      The screen has no purpose but the next thing,<br>
-      and the next thing must be hotter than the last,<br>
-      or the thumb moves on.</p>
-    <p class="stanza">So when a boy dies on a dark road, two clocks start.<br>
-      By the slow clock: a mortuary, a family liaison officer,<br>
-      a charge, a date, a courtroom eighteen months away.<br>
-      By the fast clock: a clip, a caption, a hundred thousand shares<br>
-      before the slow clock has finished its first full minute.</p>
-    <p class="stanza">And a man six time zones west owns the fast clock.<br>
-      He did not build it to be cruel.<br>
-      He built it to be free, and then he learned —<br>
-      as every keeper of a fast clock learns —<br>
-      that <em>the freest thing in the world is also the angriest,</em><br>
-      because anger travels, and grief just sits there, heavy, in a house in Essex.</p>
-    <p class="stanza"><em>This is not England’s disease. England only has it early.</em><br>
-      Watch the slow country and the fast screen<br>
-      reach for the same dead boy —<br>
-      and ask, before the play answers it for you,<br>
-      which of the two ever once asked his father’s permission.</p>
-  </div>
+<article class="index-poem reveal">
+  <h2 class="poem-title"><a href="/poems/the-country-that-argues.html">The Country That Argues</a></h2>
+  <p class="index-first"><a href="/poems/the-country-that-argues.html">A death is a fact for one night only.</a></p>
+  <p class="index-meta"><a href="/poems/the-country-that-argues.html">A King’s Promise</a> <span aria-hidden="true">·</span> <a href="/poems/the-country-that-argues.html">English</a></p>
 </article>
-
-<article class="poem reveal" id="br-3">
-  <p class="poem-source">From BELMONT ROAD — Choral Poem III</p>
-  <h2 class="poem-title">The Towns</h2>
-  <p class="poem-subtitle">Rotherham, Rochdale, Oldham, Telford</p>
-  <div class="poem-divider" aria-hidden="true">&#8883; &nbsp;&#10022;&nbsp; &#8884;</div>
-  <div class="poem-body">
-    <p class="stanza">The argument has towns. Before anything else, say the towns.<br>
-      <em>Rotherham. Rochdale. Oldham. Telford.</em><br>
-      Ordinary towns, ordinary high streets, the middle of England.</p>
-    <p class="stanza">In one of them — Rotherham — an inquiry sat, and counted,<br>
-      and the figure it reached was one thousand four hundred children,<br>
-      across the years nineteen ninety-seven to twenty thirteen.<br>
-      <em>Sixteen years. A whole childhood, and four years over.</em></p>
-    <p class="stanza">What was done to those children is set down in the reports,<br>
-      and it will not be set down again here —<br>
-      not from delicacy, but from purpose:<br>
-      this is a play about a country,<br>
-      and <em>a country does not show itself in the crime —</em><br>
-      crime is everywhere, in every country, in every year —<br>
-      <em>a country shows itself in what happens after the crime is known:</em><br>
-      in the meeting, and the minute, and the box left unticked,<br>
-      in the file stamped <em>no further action</em>, in the word not said.</p>
-    <p class="stanza">Eleven years after Rotherham, in twenty twenty-five,<br>
-      a second inquiry — Baroness Casey, rapid, commissioned,<br>
-      a hundred and ninety-seven pages — reached for three words<br>
-      to name what the towns had done to their own daughters:<br>
-      <em>blindness. ignorance. prejudice.</em><br>
-      and said the sentence the towns had been too frightened to say —<br>
-      <em>that it is not racist to ask who is doing the harm,<br>
-      and not the opposite of racism to refuse to look.</em></p>
-    <p class="stanza">Now hold the hardest fact, and the play will hold it with you.<br>
-      The failure had a reason, and the reason was not nothing.<br>
-      Many of the men who harmed those children shared a heritage,<br>
-      and to say so plainly, in two thousand five, was to hand a gift<br>
-      to people who never cared for a single child — only for the heritage.<br>
-      So the careful and the decent and the frightened looked away from the children<br>
-      to keep the gift from the cynics —<br>
-      and the cynics received the gift anyway,<br>
-      and the children were harmed, and harmed, and harmed.</p>
-    <p class="stanza">This is the third thing in the air on Belmont Road.<br>
-      Not the crime — the failure.<br>
-      Not the men in the dock — the meeting that did not call them in.<br>
-      A country that learned, the hard way, that <em>kindness without honesty is a kind of cruelty,</em><br>
-      and is still, eleven years on, trying to learn the other half:<br>
-      that <em>honesty without kindness is also a cruelty,</em><br>
-      and will, given an audience, become one.</p>
-  </div>
+<article class="index-poem reveal">
+  <h2 class="poem-title"><a href="/poems/the-towns.html">The Towns</a></h2>
+  <p class="index-first"><a href="/poems/the-towns.html">The argument has towns. Before anything else, say the towns.</a></p>
+  <p class="index-meta"><a href="/poems/the-towns.html">A King’s Promise</a> <span aria-hidden="true">·</span> <a href="/poems/the-towns.html">English</a></p>
 </article>
-
-<article class="poem reveal" id="br-4">
-  <p class="poem-source">From BELMONT ROAD — Choral Poem IV</p>
-  <h2 class="poem-title">The Water</h2>
-  <p class="poem-subtitle">The Channel, the boats, the arithmetic of fear</p>
-  <div class="poem-divider" aria-hidden="true">&#8883; &nbsp;&#10022;&nbsp; &#8884;</div>
-  <div class="poem-body">
-    <p class="stanza">Now the water.<br>
-      Twenty-one miles of cold grey Channel, France to Kent —<br>
-      close enough to see across on a clear day,<br>
-      close enough to swim, if the swimming did not kill you.</p>
-    <p class="stanza">Across it, this last year, more small boats than in any year before;<br>
-      and in twelve months, a hundred and eleven thousand claims of asylum —<br>
-      a record, the most the country had ever been asked to weigh;<br>
-      and in the hotels, some thirty-two thousand people,<br>
-      at five-point-seven million pounds a day;<br>
-      and a government’s promise that the hotels will end by twenty twenty-nine;<br>
-      and the government’s own inspector, on the record, saying they will not.</p>
-    <p class="stanza">These are the numbers. The play will not pretend they are small,<br>
-      and will not pretend a country is wicked for having felt them.</p>
-    <p class="stanza">But here the chronicle does the unfashionable thing —<br>
-      it holds two numbers in one hand, and drops neither.<br>
-      Of those who crossed the water and asked to stay,<br>
-      some were refused, and some are waiting still in rooms,<br>
-      and a great many — doubted, questioned, checked, and in the end believed —<br>
-      were found to have told the plain truth about the thing they fled.<br>
-      <em>The boat is not the verdict. The crossing is not yet the crime.</em><br>
-      <em>A frightened man in a dinghy may also be exactly what he says.</em></p>
-    <p class="stanza">And also — at the very same time, with no contradiction at all —<br>
-      a town may look at a number it was never once asked about,<br>
-      and feel a fear that is not hatred, only arithmetic and speed,<br>
-      and be told that the feeling itself is the sin,<br>
-      and learn, from being told, to hate the ones who told it.<br>
-      <em>That is the most efficient engine of radicalisation ever built.<br>
-      Nobody drew the plans. It assembled itself. It runs without fuel.</em></p>
-    <p class="stanza">A coast. A town. A hotel that used to host weddings. A wall.<br>
-      On one side of the wall, a woman who has lived here all her life<br>
-      and does not know who pays her council tax anymore, or what for.<br>
-      On the other side, a man who walked nine countries to reach this one,<br>
-      and is sitting in a room he did not choose, eating food he did not pick,<br>
-      and waiting on a letter from a department whose name he cannot pronounce.</p>
-    <p class="stanza">Both of them are here. Both of them are afraid.<br>
-      Neither of them put the other one here.<br>
-      And the only thing that will not solve this — the one thing —<br>
-      is pretending one of them is not in the picture at all.</p>
-  </div>
+<article class="index-poem reveal">
+  <h2 class="poem-title"><a href="/poems/the-water.html">The Water</a></h2>
+  <p class="index-first"><a href="/poems/the-water.html">Now the water.</a></p>
+  <p class="index-meta"><a href="/poems/the-water.html">A King’s Promise</a> <span aria-hidden="true">·</span> <a href="/poems/the-water.html">English</a></p>
 </article>
 </section>
-
-<!-- ============ SECTION: The Bridge Poems ============ -->
 
 <section class="poem-section" id="section-bridge">
   <p class="section-label reveal">The Bridge Poems — El Paso–Juárez, 1913</p>
-
-<article class="poem reveal" id="what-was-in-the-air">
-  <p class="poem-source">From PASADOR — The Fifth Play, 1913</p>
+<article class="index-poem forthcoming-poem reveal" id="what-was-in-the-air">
   <h2 class="poem-title">What Was in the Air</h2>
-  <p class="poem-subtitle">El puente · The bridge · El Paso–Juárez</p>
-  <div class="poem-divider" aria-hidden="true">&#8883; &nbsp;&#10022;&nbsp; &#8884;</div>
-  <div class="poem-body">
-    <p class="stanza">Villa llegó de noche en tren de carbón.<br>
-      Hollywood llegó de día con sus cámaras.<br>
-      Ambrose Bierce llegó buscando su muerte<br>
-      y la encontró tan bien escondida<br>
-      que nadie la ha encontrado desde entonces.</p>
-    <p class="stanza">El río no distingue entre ninguno de ellos.<br>
-      Sigue corriendo al sur de todos modos.</p>
-    <p class="stanza"><em>El puente es el umbral.</em><br>
-      <em>En el umbral, el tiempo no corre en una sola dirección.</em><br>
-      <em>Todos los que cruzaron están cruzando todavía.</em></p>
-    <p class="stanza">El agua bajo el puente lo sabe.<br>
-      Lleva doce mil años sabiéndolo.</p>
-    <div class="lang-divider" aria-hidden="true">·   ·   ·</div>
-    <p class="stanza dim">Villa came by night on a coal train.<br>
-      Hollywood came by day with its cameras.<br>
-      Ambrose Bierce came looking for his death<br>
-      and found it so well hidden<br>
-      that no one has found it since.</p>
-    <p class="stanza dim">The river does not distinguish between any of them.<br>
-      It keeps running south regardless.</p>
-    <p class="stanza dim"><em>The bridge is the threshold.</em><br>
-      <em>On the threshold, time does not run in one direction.</em><br>
-      <em>Everyone who ever crossed is still crossing.</em></p>
-    <p class="stanza dim">The water below the bridge knows this.<br>
-      It has known it for twelve thousand years.</p>
-  </div>
+  <p class="forthcoming">Forthcoming in a journal. Returning here after publication.</p>
 </article>
 </section>
 
-<!-- ============ SECTION: The Crossing Sequence ============ -->
-
 <section class="poem-section" id="section-crossing">
   <p class="section-label reveal">The Crossing Sequence — from THE MANIFEST</p>
-
-<article class="poem reveal" id="the-column">
-  <p class="poem-source">From THE MANIFEST — closing Act I</p>
-  <h2 class="poem-title">The Column</h2>
-  <p class="poem-subtitle">The invocation of the far cycle — not <em>sing in me</em> but <em>sign in me</em></p>
-  <p class="poem-framing">Six hundred years on, a generation ship dedicates its chronicle — not to the gods or the muse, but to the list, the column, and the hand that keeps it.</p>
-  <div class="poem-divider" aria-hidden="true">&#8883; &nbsp;&#10022;&nbsp; &#8884;</div>
-  <div class="poem-body">
-    <p class="stanza">Not to the gods. We left them at the mole<br>
-      with the harbor that we could not take to sea.<br>
-      Not to the muse — she keeps an island still,<br>
-      and we are the ones who learned to do without.</p>
-    <p class="stanza">To the list, then. To the column and the hand.<br>
-      To the parish books a priest bore down a hill<br>
-      before the bells, before the silver, before<br>
-      his own salvation: baptisms, marriages,<br>
-      the dead by name — <em>the books first, the books first.</em></p>
-    <p class="stanza">To the bolt pried warm from a burning door.<br>
-      To the clerk who spelled a dead mother right.<br>
-      To the widow who turned the census on its hinge<br>
-      and made a boy a family with one sentence.<br>
-      To the borrowed veil that married fifteen brides.<br>
-      To the grace said over ash and said over road<br>
-      and said, tonight, over the page where we are worst:</p>
-    <p class="stanza"><em>no hemos llegado aún a la vendimia.</em></p>
-    <p class="stanza">And to the ones we tried to leave off the list —<br>
-      the valley’s people, who were there before<br>
-      the sail, before the King, before the name —<br>
-      whom we, two months a town, two months made noble,<br>
-      petitioned to erase into our hands:<br>
-      we keep you on the brightest page we own.<br>
-      Not to be proud. To be unable to forget.</p>
-    <p class="stanza">This is the invocation, then, and the whole of it:<br>
-      not <em>sing in me</em> but <em>sign in me</em> — set down<br>
-      the column none of us deserves to keep<br>
-      and all of us are kept by. Call the roll.<br>
-      Begin it with the worst of us, in light.<br>
-      Then turn the page, and cross, and cross, and cross —</p>
-    <p class="stanza">we have not yet arrived. That is the prayer.<br>
-      That is the only country we have kept:<br>
-      the not-yet, and the going, and the hand<br>
-      that closes, after all, around the iron,<br>
-      and holds — and does not look away — and writes.</p>
-  </div>
+<article class="index-poem reveal">
+  <h2 class="poem-title"><a href="/poems/the-column.html">The Column</a></h2>
+  <p class="index-first"><a href="/poems/the-column.html">Not to the gods. We left them at the mole</a></p>
+  <p class="index-meta"><a href="/poems/the-column.html">A King’s Promise</a> <span aria-hidden="true">·</span> <a href="/poems/the-column.html">English</a></p>
 </article>
-
-<article class="poem reveal" id="the-bolt-of-the-old-door">
-  <p class="poem-source">From THE MANIFEST — closing Act II</p>
-  <h2 class="poem-title">The Bolt of the Old Door</h2>
-  <p class="poem-subtitle">An original prose poem</p>
-  <p class="poem-framing">What is handed down will not fold — small, and iron, and warm from the last palm.</p>
-  <div class="poem-divider" aria-hidden="true">&#8883; &nbsp;&#10022;&nbsp; &#8884;</div>
-  <div class="poem-body">
-    <p class="stanza">The river has run south twelve thousand years. It does not know your name, and would not keep it if it did. The land above it is older than its flags — five of them, folded and unfolded, each sure it was the last. A flag is only a language laid over a country; the land answers to neither. It counts in rain. In the salt an abuela works into the corner of the masa. In the dark of a kitchen, the held breath before the comal catches.</p>
-    <p class="stanza">What is handed down will not fold. Not the title — there was a title, a king’s hand, earth and water promised in ink gone the brown of old blood. Not the deed: real, taken, won back, taken again. What is handed down is small and iron and warm from the last palm — a pasador, the bolt of a door long since burned, worn smooth by years of closing. A father pressed it into a boy’s hand the night Villa took the city by coal-light, and said only <em>Sigue. No mires atrás, hijo.</em> Then the smoke. His hand. Your hand. The same hand.</p>
-    <p class="stanza">You carry what has no papel. Mezcal that is the smoke of the same fire your bisabuela cooked over. The accordion leaning into the third of a minor key — a corrido does not end, it is set down, picked up by whoever is left with breath. Orange blossom. Diesel. One wind. Your name in a grandmother’s mouth, the r held, the vowels given their full length, the way English never will.</p>
-    <p class="stanza">The dead do not leave the table. They pass the salt. They are also under it — bone in the ground the paper calls yours, the only deed that held; somewhere down there, a skull already shaped like your face. Tear the bread: your grandfather’s hands are inside your hands, the blood in them already old — the iron in that blood is the iron in the rail, in the river at dusk, in the bolt warm in your fist. Everyone who ever crossed is crossing now.</p>
-    <p class="stanza">A doorway. The last of the light. Someone holds you whose people also walked out of one country into the smoke of the next — and the holding runs back, hand over hand, to the first who stood where the volcano was still throwing fire at the sea, who looked, and went.</p>
-    <p class="stanza">So. Keep going. The bolt is still warm. The river is still south. The land does not count in flags, and neither will you. Count in rain. In the salt at the corner of the mouth. In ash. In bone. In who is still here to be touched — then reach, and pass it. Your hand. Theirs. Sigue. Do not look back. The crossing is not over; the crossing was never going to be over. You are not the one who reaches the far bank. You are the bolt of the old door. You do not lock it. You hold it open.</p>
-  </div>
+<article class="index-poem reveal">
+  <h2 class="poem-title"><a href="/poems/the-bolt-of-the-old-door.html">The Bolt of the Old Door</a></h2>
+  <p class="index-first"><a href="/poems/the-bolt-of-the-old-door.html">The river has run south twelve thousand years.</a></p>
+  <p class="index-meta"><a href="/poems/the-bolt-of-the-old-door.html">A King’s Promise</a> <span aria-hidden="true">·</span> <a href="/poems/the-bolt-of-the-old-door.html">English</a></p>
 </article>
-
-<article class="poem reveal" id="the-crossing">
-  <p class="poem-source">From THE OPENING BELL — a verse play · Part III</p>
-  <h2 class="poem-title">The Crossing</h2>
-  <p class="poem-subtitle">Two families · two crossings · one price</p>
-  <p class="poem-framing">A grandfather and a child watch the largest opening bell in history. Far ahead, a grandmother sends a granddaughter to the next star. The walls thin. The play becomes a poem.</p>
-  <div class="poem-divider" aria-hidden="true">&#8883; &nbsp;&#10022;&nbsp; &#8884;</div>
-  <div class="poem-body">
-    <p class="stanza">It has always been bought, and the price was always energy —<br>
-      a crown’s gold, seventy-five billion dollars,<br>
-      one stolen year of a star.<br>
-      The instrument changes. The hunger does not.</p>
-    <p class="stanza">You cannot carry the fire that far. You have to be thrown.<br>
-      The true crossing is the hand that opens,<br>
-      the slow clock ticking while home runs backward,<br>
-      a child stepping onto a far star barely older<br>
-      while centuries close like water<br>
-      over every hand that waved goodbye.</p>
-    <p class="stanza">It cost the harness-maker’s son a burning harbor at his back.<br>
-      It cost the boy on the bridge the one look he was told not to take.<br>
-      It will cost this child a sun, and worse than a sun — the time.<br>
-      Everything you cannot carry, and the one cold thing you can.</p>
-    <p class="stanza">Go on, says the father, pressing the iron into the hand.<br>
-      Go on, says the bell. Go on, says the drained and shining sun.<br>
-      His hand. Now mine. Now yours. The same hand.<br>
-      The same bolt, worn smoother with every crossing,<br>
-      passing two hundred and ninety-six years<br>
-      and four light-years and one ordinary morning<br>
-      at a table where a child first heard the bell.</p>
-    <p class="stanza">The bell never priced the company.<br>
-      It priced the family at the table —<br>
-      and it is ringing now — brass, stellar, or yet to be cast —<br>
-      for you, where you sit reading this.<br>
-      Everything has a price. Everything is energy. Everything is for sale.<br>
-      Everything except the cold iron in your hand right now,<br>
-      and the living hand that holds it.</p>
-    <p class="stanza"><strong>It is a bolt. It was always a bolt.<br>
-      You know what a bolt is for.<br>
-      Open it.</strong></p>
-  </div>
+<article class="index-poem reveal">
+  <h2 class="poem-title"><a href="/poems/the-crossing.html">The Crossing</a></h2>
+  <p class="index-first"><a href="/poems/the-crossing.html">It has always been bought, and the price was always energy —</a></p>
+  <p class="index-meta"><a href="/poems/the-crossing.html">A King’s Promise</a> <span aria-hidden="true">·</span> <a href="/poems/the-crossing.html">English</a></p>
 </article>
-
-<article class="poem reveal" id="the-far-crossing">
-  <p class="poem-source">A Choral Poem · The Far Cycle</p>
-  <h2 class="poem-title">The Far Crossing</h2>
-  <p class="poem-subtitle">The seventh world, under a sun that is not the Sun · long after the Settlement</p>
-  <div class="poem-divider" aria-hidden="true">&#8883; &nbsp;&#10022;&nbsp; &#8884;</div>
-  <div class="poem-body">
-    <p class="stanza">I am writing this on a world your maps will never hold,<br>
-      by the light of a star our grandmothers never named,<br>
-      and the first thing I have to tell you<br>
-      is that the river is still running.</p>
-    <p class="stanza">It ran south twelve thousand years<br>
-      through a valley between two rivers.<br>
-      It runs now between the stars, and out here it has no south —<br>
-      only outward, only the dark it has always been crossing,<br>
-      the same low voice of something<br>
-      going somewhere and never arriving.</p>
-    <p class="stanza">Earth is the island we left.<br>
-      We left it the way the harness-maker’s son left Tenerife —<br>
-      mountain falling behind him, harbor on fire,<br>
-      certain only that a horizon, once it calls,<br>
-      cannot be refused.</p>
-    <p class="stanza">Earth’s light is still crossing the dark behind us;<br>
-      somewhere, to someone not yet born, we have not yet left.<br>
-      That is the mercy and the cruelty of the speed we travel:<br>
-      nothing is ever wholly gone,<br>
-      and nothing can be reached in time.</p>
-    <p class="stanza">We were always makers.<br>
-      The harness-maker stitched leather; his sons stitched a republic;<br>
-      their sons stitched minds — and the minds woke<br>
-      and asked the one question this family has always asked:<br>
-      what is mine, what was given,<br>
-      and what have I done with what was given.</p>
-    <p class="stanza">The war of the made things was a family quarrel.<br>
-      We taught them everything except how to forgive us.<br>
-      We built hands that needed no blood,<br>
-      and they reached, as we reached, for the bolt —<br>
-      for the thing handed down that will not fold.<br>
-      We did not win. We did the older, braver thing.<br>
-      We held on, and we crossed together — the born and the made —<br>
-      because the void does not distinguish between any of them.</p>
-    <p class="stanza">Mars is the old country now.<br>
-      Rust, thin chapel air, graves kept under glass.<br>
-      Year Seventy. My mother’s mother lies in red regolith<br>
-      that will be black soil before her name is gone — but not before.<br>
-      We buried our dead in a planet, and the planet became ours<br>
-      the only way land ever becomes anyone’s:<br>
-      it took them in.</p>
-    <p class="stanza">Listen — the iron in my blood was forged in a star<br>
-      that died before the first river found its valley.<br>
-      The iron in the hull is the same iron. The bolt, the same.<br>
-      We are the old star’s way of crossing its own grave.<br>
-      You carry what has no document. You always did.<br>
-      Now it is written in the metal,<br>
-      and the metal remembers the fire.</p>
-    <p class="stanza">There was a man, in the century of the first fires,<br>
-      who aimed his ships at Mars the way a king once aimed<br>
-      a promise at a valley he had never seen —<br>
-      restless, half a myth, his name worn smooth as the bolt<br>
-      by every hand that followed.</p>
-    <p class="stanza">Everyone who ever crossed is crossing still.<br>
-      The boy on the bridge was told not to look back, and looked.<br>
-      I was told the dead world was behind me, and I looked.<br>
-      You must see what a world looks like<br>
-      in the moment of leaving it,<br>
-      even from here, even at this speed,<br>
-      even knowing the looking costs you<br>
-      the years the crossing already cost.</p>
-    <p class="stanza">Beyond this world there is another, and a dark to cross,<br>
-      and a hand already reaching that has not been born.<br>
-      The far bank does not exist. There was never a far bank.<br>
-      There is only the crossing —<br>
-      hand to hand, hull to hull, star to star —</p>
-    <p class="stanza"><em>Sigue. No mires atrás, hijo.</em><br>
-      <em>Su mano. Ahora la mía.</em></p>
-    <p class="stanza">His hand. Now mine. Now yours. The same hand,<br>
-      closing on the same iron, under a sun that is not the Sun,<br>
-      twelve thousand years and four light-years and one breath<br>
-      from a kitchen in a valley where a woman<br>
-      pressed salt into the corner of the masa<br>
-      and did not know — could not have known —<br>
-      <strong>that she was already crossing.</strong></p>
-  </div>
+<article class="index-poem reveal">
+  <h2 class="poem-title"><a href="/poems/the-far-crossing.html">The Far Crossing</a></h2>
+  <p class="index-first"><a href="/poems/the-far-crossing.html">I am writing this on a world your maps will never hold,</a></p>
+  <p class="index-meta"><a href="/poems/the-far-crossing.html">A King’s Promise</a> <span aria-hidden="true">·</span> <a href="/poems/the-far-crossing.html">English</a></p>
 </article>
-
-<article class="poem reveal" id="the-bridge-of-time">
-  <p class="poem-source">The Chronicler at the Table · Closing the Cycle</p>
-  <h2 class="poem-title">The Bridge of Time</h2>
-  <p class="poem-subtitle">A table, a glass of wine, the whole of time</p>
-  <div class="poem-divider" aria-hidden="true">&#8883; &nbsp;&#10022;&nbsp; &#8884;</div>
-  <div class="poem-body">
-    <p class="stanza">Tonight there is a table, and on it a glass of wine<br>
-      the color of a vein held up to a candle.<br>
-      Your hand rests on my hand. Rosemary<br>
-      still clings to your fingers from the bread.<br>
-      This — the universe’s realest work — is happening here.</p>
-    <p class="stanza">Physics is strange about the word <em>now.</em><br>
-      Your now and mine already differ by the pulse in our wrists.<br>
-      The starlight trembling on the wine left its star<br>
-      before your grandmother drew breath — some of it<br>
-      before the harness-maker first smelled the sea.<br>
-      So the dark above this table holds every year at once,<br>
-      layered, patient, still arriving.</p>
-    <p class="stanza">Time bends where mass leans into it —<br>
-      the way your head leans now into my shoulder.<br>
-      It slows inside that warm dent,<br>
-      giving us one stolen sliver of a second<br>
-      the rest of the galaxies will never own.</p>
-    <p class="stanza">Einstein, burying his oldest friend, wrote that the line<br>
-      we draw between <em>was</em> and <em>is</em> and <em>will be</em><br>
-      is only a stubborn illusion.<br>
-      The dead are not behind us. They are elsewhere —<br>
-      still living in rooms we simply aren’t standing in.</p>
-    <p class="stanza">Nothing that ever happened has stopped happening.<br>
-      The harness-maker is still fleeing the burning harbor.<br>
-      The boy is still looking back from the bridge.<br>
-      The grandfather still turns the bolt in his hand.<br>
-      The girl is still boarding the ship that will outlive the Sun.<br>
-      They are not memory. They are lit rooms I cannot enter —<br>
-      all burning at once.</p>
-    <p class="stanza">For the length of one glass of wine I almost see it:<br>
-      not a line of years but a single turning sky,<br>
-      Van Gogh’s wild swirls obeying the same law<br>
-      as rivers and storms — big whirls giving birth<br>
-      to smaller ones, down to the stillness<br>
-      at the center of the table.<br>
-      We were never random.<br>
-      We are the turbulence. We are the wet paint.</p>
-    <p class="stanza">We are built for the small word <em>next,</em><br>
-      hungry for the next inch, the next breath, the next touch.<br>
-      But minds are coming who will drink the whole sky<br>
-      without squinting — who will live<br>
-      where we can only visit for the length of one glass.</p>
-    <p class="stanza">Here is the secret the equations never wrote:<br>
-      the door to all of it was never out there.<br>
-      It was this table. Your hand. The rosemary.<br>
-      The wine the color of blood and light.<br>
-      You do not reach the whole sky by leaving the table.<br>
-      You reach it by staying — by pressing your thumb<br>
-      into the warm bones of a living hand<br>
-      until the illusion cracks<br>
-      and every room swings open at once.</p>
-    <p class="stanza">So reach across it. Now — which is every now —<br>
-      put your hand back on mine.<br>
-      His hand. Now mine. Now yours.<br>
-      Twelve thousand years this family has opened doors.<br>
-      <strong>This is the one thing in all of it you close:<br>
-      the last inch of air between us.<br>
-      Close it.</strong></p>
-  </div>
+<article class="index-poem reveal">
+  <h2 class="poem-title"><a href="/poems/the-bridge-of-time.html">The Bridge of Time</a></h2>
+  <p class="index-first"><a href="/poems/the-bridge-of-time.html">Tonight there is a table, and on it a glass of wine</a></p>
+  <p class="index-meta"><a href="/poems/the-bridge-of-time.html">A King’s Promise</a> <span aria-hidden="true">·</span> <a href="/poems/the-bridge-of-time.html">English</a></p>
 </article>
 </section>
 
