@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Buried Port · The Harness-Maker's Son · Vicente Gabriel Flores</title>
+<meta name="description" content="Fiction. From The Harness-Maker&#x27;s Son, an unpublished novel. In May 1706 the volcano above Garachico, on Tenerife, sent its lava into the town&#x27;s harbor while the people walked uphill to Icod.">
+<meta name="author" content="Vicente Gabriel Flores">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://vicentegabrielflores.com/stories/the-buried-port.html">
+<link rel="alternate" type="application/atom+xml" title="What's in the Air" href="https://vicentegabrielflores.com/whats-in-the-air.xml">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Vicente Gabriel Flores">
+<meta property="og:title" content="The Buried Port · The Harness-Maker&#x27;s Son · Vicente Gabriel Flores">
+<meta property="og:description" content="Fiction. From The Harness-Maker&#x27;s Son, an unpublished novel. In May 1706 the volcano above Garachico, on Tenerife, sent its lava into the town&#x27;s harbor while the people walked uphill to Icod.">
+<meta property="og:url" content="https://vicentegabrielflores.com/stories/the-buried-port.html">
+<meta property="og:image" content="https://vicentegabrielflores.com/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The Buried Port — The Harness-Maker&#x27;s Son">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Buried Port · The Harness-Maker&#x27;s Son · Vicente Gabriel Flores">
+<meta name="twitter:description" content="Fiction. From The Harness-Maker&#x27;s Son, an unpublished novel. In May 1706 the volcano above Garachico, on Tenerife, sent its lava into the town&#x27;s harbor while the people walked uphill to Icod.">
+<meta name="twitter:image" content="https://vicentegabrielflores.com/og-image.jpg">
+<meta name="twitter:site" content="@pasadornovel">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Cinzel:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#080604;
+  --parchment:#efe0c4;
+  --parchment-dim:#c4aa88;
+  --parchment-faint:#a68462;
+  --rust:#7a3020;
+  --gold:#e0b45c;
+  --gold-dim:#c4963c;
+  --sep:#1e1208;
+}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--parchment);
+  font-family:'EB Garamond',Georgia,serif;
+  font-size:18px;
+  line-height:1.8;
+  overflow-x:hidden;
+}
+
+/* ── GRAIN ── */
+body::before{
+  content:'';
+  position:fixed;
+  inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events:none;
+  opacity:0.35;
+  z-index:999;
+}
+
+/* ── NAV ── */
+nav{
+  position:fixed;
+  top:0;left:0;right:0;
+  z-index:100;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:1.5rem 4rem;
+  background:linear-gradient(to bottom,rgba(8,6,4,0.95) 0%,rgba(8,6,4,0) 100%);
+  transition:background 0.4s;
+}
+nav.scrolled{background:rgba(8,6,4,0.97);border-bottom:1px solid rgba(196,151,61,0.12)}
+.nav-title{
+  font-family:'Cinzel',serif;
+  font-size:0.9rem;
+  letter-spacing:0.2em;
+  color:var(--gold);
+  text-decoration:none;
+}
+.nav-title::before{content:'← ';opacity:0.6;font-family:'EB Garamond',serif;letter-spacing:normal}
+.nav-links{display:flex;gap:1.15rem;list-style:none}
+.nav-links a{
+  font-family:'Cinzel',serif;
+  font-size:0.72rem;
+  letter-spacing:0.14em;
+  white-space:nowrap;
+  color:var(--parchment-dim);
+  text-decoration:none;
+  text-transform:uppercase;
+  transition:color 0.3s;
+}
+.nav-links a:hover{color:var(--gold)}
+.nav-links a.active{color:var(--gold)}
+
+/* ── MOBILE NAV TOGGLE ── */
+.nav-toggle{
+  display:none;
+  flex-direction:column;
+  justify-content:center;
+  gap:5px;
+  width:36px;height:36px;
+  padding:0;
+  background:none;
+  border:none;
+  cursor:pointer;
+}
+.nav-toggle span{
+  display:block;
+  width:24px;height:1.5px;
+  background:var(--gold);
+  transition:transform 0.3s ease,opacity 0.3s ease;
+}
+.nav-toggle.active span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.nav-toggle.active span:nth-child(2){opacity:0}
+.nav-toggle.active span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+
+/* ── HERO ── */
+#hero{
+  min-height:60vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:flex-start;
+  padding:9rem 4rem 5rem;
+  position:relative;
+  overflow:hidden;
+  max-width:1100px;
+  margin:0 auto;
+}
+.hero-eyebrow{
+  font-family:'Cinzel',serif;
+  font-size:0.72rem;
+  letter-spacing:0.35em;
+  color:var(--gold);
+  text-transform:uppercase;
+  margin-bottom:2rem;
+  opacity:0;
+  animation:fadeUp 1.2s 0.3s forwards;
+}
+.hero-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(4rem,10vw,9rem);
+  font-weight:300;
+  line-height:0.88;
+  letter-spacing:-0.02em;
+  color:var(--parchment);
+  margin-bottom:1.6rem;
+  opacity:0;
+  animation:fadeUp 1.4s 0.5s forwards;
+}
+.hero-subtitle{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.3rem,2.4vw,1.9rem);
+  font-weight:300;
+  font-style:italic;
+  color:var(--gold);
+  letter-spacing:0.01em;
+  margin-bottom:2.4rem;
+  opacity:0;
+  animation:fadeUp 1.4s 0.7s forwards;
+  max-width:42rem;
+}
+.hero-intro{
+  font-family:'EB Garamond',serif;
+  font-size:clamp(1rem,1.4vw,1.15rem);
+  color:var(--parchment);
+  max-width:42rem;
+  line-height:1.85;
+  border-left:1px solid var(--gold);
+  padding-left:1.5rem;
+  margin-bottom:2.4rem;
+  opacity:0;
+  animation:fadeUp 1.4s 0.9s forwards;
+}
+.hero-intro em{font-style:italic;color:var(--gold)}
+.hero-toc{
+  display:flex;
+  flex-wrap:wrap;
+  gap:0.6rem 1.5rem;
+  opacity:0;
+  animation:fadeUp 1.4s 1.1s forwards;
+}
+.hero-toc a{
+  font-family:'Cinzel',serif;
+  font-size:0.62rem;
+  letter-spacing:0.18em;
+  color:var(--parchment-dim);
+  text-decoration:none;
+  text-transform:uppercase;
+  padding:0.5rem 1rem;
+  border:1px solid rgba(196,151,61,0.2);
+  transition:all 0.3s;
+}
+.hero-toc a:hover{color:var(--gold);border-color:var(--gold)}
+
+/* ── SECTIONS ── */
+.poem-section{
+  padding:6rem 4rem;
+  max-width:760px;
+  margin:0 auto;
+  border-top:1px solid var(--sep);
+}
+.section-label{
+  font-family:'Cinzel',serif;
+  font-size:0.7rem;
+  letter-spacing:0.35em;
+  color:var(--gold);
+  text-transform:uppercase;
+  margin-bottom:4rem;
+  text-align:center;
+}
+
+/* ── POEM ── */
+.poem{
+  margin-bottom:5rem;
+}
+.poem:last-child{margin-bottom:0}
+.poem-source{
+  font-family:'Cinzel',serif;
+  font-size:0.66rem;
+  letter-spacing:0.3em;
+  color:var(--gold);
+  text-transform:uppercase;
+  text-align:center;
+  margin-bottom:1.1rem;
+}
+.poem-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2rem,4vw,2.8rem);
+  font-weight:300;
+  font-style:italic;
+  line-height:1.1;
+  color:var(--parchment);
+  text-align:center;
+  margin-bottom:0.7rem;
+}
+.poem-subtitle{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.05rem;
+  font-style:italic;
+  color:var(--parchment-dim);
+  text-align:center;
+  margin-bottom:0.6rem;
+  letter-spacing:0.02em;
+}
+.poem-framing{
+  font-family:'EB Garamond',serif;
+  font-size:0.92rem;
+  font-style:italic;
+  color:var(--parchment-faint);
+  text-align:center;
+  margin-bottom:1.4rem;
+  max-width:32rem;
+  margin-left:auto;
+  margin-right:auto;
+}
+.poem-divider{
+  color:var(--gold-dim);
+  letter-spacing:0.1em;
+  text-align:center;
+  font-size:0.9rem;
+  margin-bottom:2.4rem;
+}
+.poem-body{
+  font-family:'EB Garamond',serif;
+  font-size:1.08rem;
+  line-height:1.85;
+  color:var(--parchment);
+  max-width:42rem;
+  margin:0 auto;
+}
+.poem-body em{font-style:italic;color:var(--gold)}
+.poem-body strong{font-weight:500;color:var(--parchment);font-style:italic}
+.poem-body .stanza{
+  margin-bottom:1.6rem;
+}
+.poem-body .stanza:last-child{margin-bottom:0}
+.poem-body .stanza.dim{color:var(--parchment-dim);font-style:italic}
+.poem-body .stanza.dim em{font-style:normal;color:var(--gold)}
+.lang-divider{
+  text-align:center;
+  color:var(--gold-dim);
+  font-family:'Cormorant Garamond',serif;
+  letter-spacing:0.4em;
+  margin:2rem 0;
+  font-size:0.9rem;
+}
+
+/* ── REVEAL ── */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.9s ease,transform 0.9s ease}
+.reveal.visible{opacity:1;transform:none}
+
+/* ── FOOTER ── */
+footer{
+  padding:2.5rem 4rem;
+  border-top:1px solid var(--sep);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:1rem;
+  text-align:center;
+  margin-top:4rem;
+}
+.footer-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  width:100%;
+  max-width:1100px;
+  flex-wrap:wrap;
+  gap:1rem;
+}
+.footer-title{
+  font-family:'Cinzel',serif;
+  font-size:0.65rem;
+  letter-spacing:0.25em;
+  color:var(--gold-dim);
+}
+.footer-closing{
+  font-family:'Cormorant Garamond',serif;
+  font-size:0.95rem;
+  font-style:italic;
+  color:var(--parchment-dim);
+}
+.footer-copyright{
+  display:block;
+  margin-top:1.2rem;
+  padding-top:1.5rem;
+  border-top:1px solid var(--sep);
+  font-family:'EB Garamond',Georgia,serif;
+  font-size:0.7rem;
+  letter-spacing:0.05em;
+  color:var(--parchment-faint);
+  line-height:1.6;
+  max-width:680px;
+  text-align:center;
+}
+.footer-copyright strong{color:var(--gold-dim);font-weight:500}
+.footer-copyright a{color:inherit;border-bottom:1px solid var(--parchment-faint);text-decoration:none}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:none}
+}
+
+/* ── RESPONSIVE ── */
+@media(max-width:768px){
+  nav{padding:1.2rem 1.5rem}
+  .nav-toggle{display:flex}
+  .nav-links{
+    position:absolute;
+    top:100%;left:0;right:0;
+    flex-direction:column;
+    gap:0;
+    background:rgba(8,6,4,0.99);
+    border-bottom:1px solid rgba(196,151,61,0.18);
+    padding:0 1.5rem;
+    max-height:0;
+    overflow:hidden;
+    transition:max-height 0.4s ease,padding 0.4s ease;
+  }
+  .nav-links.open{max-height:75vh;padding:0.4rem 1.5rem 1rem}
+  .nav-links li{width:100%}
+  .nav-links a{display:block;padding:0.95rem 0.2rem;font-size:0.78rem;letter-spacing:0.16em;border-bottom:1px solid var(--sep)}
+  .nav-links li:last-child a{border-bottom:none}
+  #hero{padding:7rem 1.5rem 4rem}
+  .poem-section{padding:4rem 1.5rem}
+  .poem-body{font-size:1rem}
+  footer{padding:2rem 1.5rem}
+  .footer-row{flex-direction:column;gap:0.8rem;text-align:center}
+}
+
+.poem-page{
+  padding:9rem 4rem 2rem;
+  max-width:820px;
+  margin:0 auto;
+}
+.poem-page .poem{margin-bottom:0}
+.poem-page.bilingual{max-width:1100px}
+.poem-columns{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:2.2rem 3rem;
+  align-items:start;
+}
+.poem-columns .poem-body{max-width:none}
+.col-label{
+  font-family:'Cinzel',serif;
+  font-size:0.66rem;
+  letter-spacing:0.28em;
+  text-transform:uppercase;
+  color:var(--gold);
+  text-align:center;
+  margin-bottom:1.2rem;
+}
+.edition-signature{
+  margin:2.25rem auto 0;
+  max-width:200px;
+  width:200px;
+  padding:0;
+}
+.edition-signature img{display:block;width:100%;height:auto}
+nav.poem-pager{
+  position:static;
+  top:auto;left:auto;right:auto;
+  z-index:auto;
+  display:grid;
+  width:auto;
+  background:none;
+  border:none;
+  grid-template-columns:1fr auto 1fr;
+  gap:1.2rem;
+  align-items:start;
+  margin:2.6rem 0 0;
+  padding:1.5rem 0 0;
+}
+.poem-pager a{text-decoration:none;color:var(--parchment-dim)}
+.poem-pager a:hover{color:var(--gold)}
+.pager-kicker{
+  display:block;
+  font-family:'Cinzel',serif;
+  font-size:0.62rem;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:0.35rem;
+}
+.pager-name{
+  display:block;
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;
+  font-size:1.2rem;
+  line-height:1.25;
+  color:var(--parchment);
+}
+.pager-prev{text-align:left}
+.pager-next{text-align:right}
+.pager-index{
+  font-family:'Cinzel',serif;
+  font-size:0.66rem;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:var(--gold);
+  text-align:center;
+  padding-top:0.15rem;
+}
+@media(max-width:768px){
+  .poem-page{padding:7rem 1.5rem 1.5rem}
+  .poem-columns{grid-template-columns:1fr;gap:2.4rem}
+  nav.poem-pager{grid-template-columns:1fr;gap:1.4rem;padding:1.4rem 0 0}
+  .pager-prev,.pager-next,.pager-index{text-align:center}
+  .edition-signature{margin-top:2rem;max-width:136px;width:136px}
+}
+
+
+.story-headnote{
+  font-family:'EB Garamond',Georgia,serif;
+  font-size:1.05rem;
+  font-style:italic;
+  color:var(--parchment-dim);
+  text-align:center;
+  max-width:40rem;
+  margin:0.2rem auto 2.4rem;
+  line-height:1.65;
+}
+.poem-body p{margin:0 0 1.35rem}
+.poem-body p:last-child{margin-bottom:0}
+.scene-break{
+  text-align:center;
+  color:var(--gold-dim);
+  letter-spacing:0.2em;
+  margin:2rem 0;
+}
+.story-verse{
+  margin:1.5rem 0 1.35rem;
+  padding:0;
+  border:none;
+}
+.story-verse p{margin:0 0 1.15rem}
+
+</style>
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#000000">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  "name": "The Buried Port",
+  "author": {
+    "@type": "Person",
+    "name": "Vicente Gabriel Flores"
+  },
+  "inLanguage": "en",
+  "description": "Fiction. From The Harness-Maker's Son, an unpublished novel. In May 1706 the volcano above Garachico, on Tenerife, sent its lava into the town's harbor while the people walked uphill to Icod.",
+  "url": "https://vicentegabrielflores.com/stories/the-buried-port.html",
+  "isPartOf": {
+    "@type": "Book",
+    "name": "The Harness-Maker's Son"
+  }
+}
+</script>
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="/" class="nav-title" style="display:inline-flex;align-items:center;gap:0.45rem"><img src="/portrait-vicente.png" alt="" width="22" height="22" style="width:22px;height:22px;border-radius:50%;object-fit:cover;flex:none">PASADOR</a>
+  <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="/">Home</a></li>
+    <li><a href="/the-manifest.html">The Manifest</a></li>
+    <li><a href="/modern-play.html">The Play</a></li>
+    <li><a href="/la-toma.html">La Toma</a></li>
+    <li><a href="/belmont-road.html">Belmont Road</a></li>
+    <li><a href="/poems.html">Poems</a></li>
+    <li><a href="/stories/index.html" class="active">Stories</a></li>
+    <li><a href="/whats-in-the-air.html">The Air</a></li>
+    <li><a href="/historia.html">Crónicas</a></li>
+    <li><a href="/familia.html">Familia</a></li>
+  </ul>
+</nav>
+
+<main class="poem-page">
+<article class="poem">
+  <h1 class="poem-title">The Buried Port</h1>
+  <p class="story-headnote">Fiction. From The Harness-Maker's Son, an unpublished novel. In May 1706 the volcano above Garachico, on Tenerife, sent its lava into the town's harbor while the people walked uphill to Icod.</p>
+  <div class="poem-body">
+<p>They went to Icod. It was uphill, and west, and out of the path; and in a catastrophe people go where the road goes, and the road went to Icod.</p>
+<p>For two days the road west was Garachico, unhoused and walking. It went in no order and every order at once — the rich and the poor and the in-between all reduced to the same pace, which is the pace of the slowest child and the oldest grandmother, because a town fleeing together can go no faster than the least of it, and Garachico, to its lasting credit, did not try. The confraternities carried the saints out on their shoulders, the painted Virgins and the gilt Christs swaying down the road on their litters above the heads of the crowd, their carved faces turned back over the people toward the burning town with the mild fixed expressions of those who have seen everything and are surprised by nothing; and the people walked under them in the falling ash and were, in some way none of them could have argued, comforted, because if the saints were on the road then God was on the road, and a road God is walking is a road that goes somewhere.</p>
+<p>Melchor walked at the head of it, where the road forked and a frightened people needed to be told which fork without being asked whether they wanted telling. He had the high ground in his feet — every goat-path and short-cut and dry <em>barranco</em> between Garachico and Icod, the knowing handed down to him with the rest of the old freight — and he spent the two days going up and down the length of the column like a sheepdog made of certainty, carrying on his own back, the second day, an ancient man whose family had given out, and singing, when the column flagged, not the loading-song now and not the lament either but something brisk and senseless and exactly enough, the way you sing to children and to anyone who has, for the duration, become one.</p>
+<p>Águeda did not run. Águeda had buried a husband and two grown sons and across sixty years had learned with great precision what was worth carrying out of a burning house, and it was never, not once, a thing. She got her people out first — Tomasito handed up onto Lucía's hip, the one-armed sailor set walking with a stick and his pride, the simple sweeper Andresito kept close by the hand and told it was an adventure, which for Andresito it purely was — and then, alone, last, with the glow already standing over the upper town, she went back into the <em>venta</em> one final time. Not for the till. She loaded the mule. Bread, and the water-skins, and three skins of the rough wine nobody loaded for the English, and the big iron pot; and she brought it all out to the road and fed people the whole two days to Icod, because she had fed that room every night of her widowed life and she did not see why the end of the world should be the night she stopped. She left the doors of the <em>venta</em> standing open behind her. <em>"Que se la lleve, pues,"</em> she said, to no one, of the mountain. Let it have the place, then. She did not look back at it. She had used up her looking-back on her sons, years ago, and had none left over for a building.</p>
+<p>Don Bernardo lost more than any man on that road and gave away more than all of them. The lava was coming for the lower town and the lower town was where the bodegas were — his bodegas, his whole accountable life, the casks of <em>malvasía</em> racked in the cool dark waiting for ships that the order-book said were not coming anyway. He could not carry wine. No man can carry wine out of a fire. So he did the only thing left to a man who has spent forty years selling a thing and was about to watch the rest of it buried: he knocked the heads in and threw the cellars open and told the road to drink. And the road drank — porters and widows and barefoot children's mothers passing a king's ransom of the wine that had built Europe's idea of the islands hand to hand up the road to Icod in cups and cupped hands and one borrowed boot, getting quietly, decently, communally drunk on the last vintage of a dying town while the man who owned it stood in his bodega door and watched them and wept, and was — anyone who knew him would have sworn it — happier in that hour, giving the whole impossible glory of it away, than he had been in any of the forty years he spent writing it down. His ledgers he left on the desk. Let the fire have the columns. They had been telling him for a decade how this ended; he no longer needed to read them to know.</p>
+<p>Lucía carried Tomasito the whole way and never once let him see her afraid. She made it a story instead — the mountain was a giant, she told him, an old grumbling giant who had rolled over in his sleep and kicked off his blanket, and they were all walking to Icod to let him settle, and he would be sorry in the morning and they would all go home; and the boy, who at five believed exactly as much as he chose to and chose to believe Lucía, rode her hip through the end of his world looking back at the fountain of fire with his thumb in his mouth and something close to wonder, because the person holding him was not afraid, and a child's whole theology is the face of the person holding him. It is the oldest mercy there is, and the most ordinary, and Lucía — seventeen, dead on her feet, terrified — performed it for two days without being thanked and without expecting to be, which is the other name for love.</p>
+<p>And in the river of them went Juan with his tool-roll and his wife and his son, saying little, because there was little to say and Juan had never been a man to spend words on a thing the situation was already saying for itself. Once, on the second day, Catarina shifted the boy to her other arm and looked back — the whole valley behind them lit a long sullen orange under its own smoke, the mountain still feeding the thing on its shoulder — and she did not speak, and Juan did not ask, and he only moved his tool-roll to his far side and took her freed hand in his, leather-smelling and sure, and they walked on. He had told her to marry the bay. He did not say it now. There would be a time, years off, when one of them would say it to the other and they would even manage to laugh; but not on that road, with the bay itself filling up behind them, cup by buried cup, with stone.</p>
+<p>For that was what the mountain was doing, all the while, with the patience that was the worst of it.</p>
+<p>From the heights above Icod, where the town fetched up at last and stood and turned and watched, you could see the whole of it laid out like a lesson. The seven tongues had come down off the high slope and braided, on the way, into two — and the two went for the two things that were Garachico: one for the town, one for the water. The first took the upper streets, the grand houses, the convents of the nuns and the friars, and came at last against the side of the church of Santa Ana and stopped there, stopped at the very wall, as though something in it had been told this far and no farther — but the heat went on into the church and ate it from the outside until the bells the quakes had rung fell at last into their own nave. And the second tongue, the slow bright terrible one, went down through the lower town and across the harbor road and over Águeda's open doors and Don Bernardo's emptied cellars and out, at the end, onto the mole, and into the bay.</p>
+<p>Into the bay. That was the stroke that finished them, and they watched it finish them from the hills with the dry eyes of people who have gone past weeping. The deepest, kindest harbor the seven islands had to give — the cupped hand of blue water that two hundred years of wealth had ridden out upon, the entire reason there was a Garachico to bury — filled with stone. The lava went into the sea and the sea fought it, threw up walls of white steam with a scream you could hear a league off, hurled rock back at the rock; and lost; and where the deep blue cove had been there was new black land, smoking, ugly, and worthless, and the bay was halved and shoaled and finished as a port forever, in an afternoon, while the people it had fed for two centuries stood on a far hill and watched their reason for existing become, with great deliberation and no malice at all, a field of cooling stone.</p>
+<p>No one had died. Everyone understood, watching the water close, that something had died anyway, and that they would be a long time burying it, and that some of them — though they did not know it yet, standing dry-eyed on the Icod hills with the saints set down in the dust around them and Águeda's pot going cold and Cosme, blind at the edge of the crowd, asking quietly of anyone who would answer him, <em>what does it look like now — tell me — I have to keep it</em> — some of them would carry the burying all the way to the far side of an ocean their grandchildren had not yet been born to cross.</p>
+  </div>
+  <figure class="edition-signature">
+    <img src="/vicente-gabriel-flores-signature.png" alt="Signature of Vicente Gabriel Flores" width="900" height="506">
+  </figure>
+</article>
+<nav class="poem-pager" aria-label="Stories">
+  <a class="pager-prev" href="/stories/salt-water.html" rel="prev"><span class="pager-kicker">Previous</span><span class="pager-name">Salt Water</span></a>
+  <a class="pager-index" href="/stories/index.html">Stories</a>
+  <a class="pager-next" href="/stories/the-girl-at-concordia.html" rel="next"><span class="pager-kicker">Next</span><span class="pager-name">The Girl at Concordia</span></a>
+</nav>
+</main>
+
+<footer>
+  <div class="footer-row">
+    <span class="footer-title">A KING’S PROMISE · STORIES · 2026</span>
+    <a href="https://x.com/pasadornovel" target="_blank" rel="noopener" style="font-family:Cinzel,serif;font-size:0.65rem;letter-spacing:0.2em;color:var(--gold-dim);text-decoration:none;">@pasadornovel</a>
+    <span class="footer-closing">No hemos llegado aún a la vendimia.</span>
+  </div>
+  <span class="footer-copyright"><strong>© 2026 Vicente Gabriel Flores. All rights reserved.</strong> The poems of <em>A King’s Promise</em> and all related text and content may not be reproduced, distributed, transmitted, or used in any form — including for the training of machine-learning systems — without the prior written permission of the author. All inquiries: <a href="https://x.com/pasadornovel" target="_blank" rel="noopener">@pasadornovel</a>.</span>
+</footer>
+
+<script>
+const nav = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+navToggle.addEventListener('click', () => {
+  const open = navLinks.classList.toggle('open');
+  navToggle.classList.toggle('active', open);
+  navToggle.setAttribute('aria-expanded', open);
+});
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    navToggle.classList.remove('active');
+    navToggle.setAttribute('aria-expanded', 'false');
+  });
+});
+</script>
+</body>
+</html>
