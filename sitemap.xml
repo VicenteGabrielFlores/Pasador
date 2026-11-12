@@ -10,7 +10,7 @@
 
   <url>
     <loc>https://vicentegabrielflores.com/poems.html</loc>
-    <lastmod>2026-11-11</lastmod>
+    <lastmod>2026-11-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -116,6 +116,13 @@
   <url>
     <loc>https://vicentegabrielflores.com/poems/the-bridge-of-time.html</loc>
     <lastmod>2026-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://vicentegabrielflores.com/poems/the-oldest-hunger.html</loc>
+    <lastmod>2026-11-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
