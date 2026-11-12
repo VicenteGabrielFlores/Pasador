@@ -48,7 +48,14 @@
       "url": "https://vicentegabrielflores.com/",
       "jobTitle": "Author",
       "description": "Sixth-generation Tejano writer, author of A King's Promise — the novel PASADOR, the documentary companion Las Crónicas, and a cycle of documentary-verse plays.",
-      "sameAs": ["https://x.com/pasadornovel"]
+      "sameAs": ["https://x.com/pasadornovel"],
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://vicentegabrielflores.com/assets/author/vicente-gabriel-flores-portrait.jpg",
+        "width": 1024,
+        "height": 1024,
+        "caption": "Portrait of Vicente Gabriel Flores"
+      }
     },
     {
       "@type": "Book",
@@ -612,6 +619,14 @@ section{padding:7rem 4rem;border-top:1px solid var(--sep)}
 .author-bio p+p{margin-top:1.2rem}
 .author-bio strong{color:var(--parchment);font-weight:500}
 .author-bio em{color:var(--gold);font-style:italic}
+.author-portrait{
+  display:block;
+  width:100%;
+  max-width:16.5rem;
+  height:auto;
+  margin:0 0 1.75rem;
+  border:1px solid rgba(224,180,92,0.35);
+}
 
 /* ── CONTACT ── */
 #contact{text-align:center;padding:8rem 4rem}
@@ -1245,6 +1260,7 @@ footer{
   <p class="section-label reveal">The Author</p>
   <div class="author-grid">
     <div class="author-name-block reveal">
+      <img class="author-portrait" src="/assets/author/vicente-gabriel-flores-portrait-560.jpg" srcset="/assets/author/vicente-gabriel-flores-portrait-560.jpg 560w, /assets/author/vicente-gabriel-flores-portrait.jpg 1024w" sizes="(max-width: 1100px) 16.5rem, 14rem" width="560" height="560" alt="Portrait of Vicente Gabriel Flores" loading="lazy" decoding="async">
       <p class="name">Vicente<br>Gabriel<br>Flores</p>
       <p class="pen-note">pen name of Gabriel Salcedo</p>
       <div class="rule"></div>
