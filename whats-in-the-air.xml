@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <!-- EDITIONS: newest first. Prepend an <entry> and set feed/updated to that edition date. ATOM_STAMP midnight America/Chicago is the calendar-day boundary only; the manuscript gives no clock time. See WHATS-IN-THE-AIR.md. Do not invent editions. -->
   <title>What's in the Air / Lo que hay en el aire</title>
-  <subtitle>A daily literary synopsis by Vicente Gabriel Flores. Art, history, politics, and music, then an original poem, a sensory passage, and the echo.</subtitle>
+  <subtitle>The murmurs of now, caught as they pass and written as poems by Vicente Gabriel Flores. Art, history, politics, and music, then an original poem, a sensory passage, and the echo.</subtitle>
   <link href="https://vicentegabrielflores.com/whats-in-the-air.xml" rel="self" type="application/atom+xml" />
   <link href="https://vicentegabrielflores.com/whats-in-the-air.html" rel="alternate" type="text/html" />
   <id>https://vicentegabrielflores.com/whats-in-the-air.xml</id>
