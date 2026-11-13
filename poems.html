@@ -288,6 +288,24 @@ nav.scrolled{background:rgba(8,6,4,0.97);border-bottom:1px solid rgba(196,151,61
 }
 
 
+
+.index-featured .featured-art{
+  margin:0 auto 1.6rem;
+  max-width:640px;
+}
+.index-featured .featured-art img{display:block;width:100%;height:auto}
+.index-featured .featured-art figcaption{
+  margin-top:.45rem;
+  font-family:'Cinzel',serif;
+  font-size:.62rem;
+  letter-spacing:.24em;
+  text-transform:uppercase;
+  color:var(--gold-dim);
+}
+@media(max-width:768px){
+  .index-featured .featured-art{margin:0 auto 1.2rem;max-width:100%}
+}
+
 .index-poem{margin-bottom:3.4rem;text-align:center}
 .index-poem:last-child{margin-bottom:0}
 .index-poem .poem-title a{color:inherit;text-decoration:none}
@@ -432,7 +450,8 @@ footer{
   "the-crossing": "/poems/the-crossing.html",
   "the-far-crossing": "/poems/the-far-crossing.html",
   "the-bridge-of-time": "/poems/the-bridge-of-time.html",
-  "the-oldest-hunger": "/poems/the-oldest-hunger.html"
+  "the-oldest-hunger": "/poems/the-oldest-hunger.html",
+  "it-feels-me": "/poems/it-feels-me.html"
 };
   function go() {
     var id = '';
@@ -473,6 +492,7 @@ footer{
   <p class="hero-subtitle">The Oldest Hunger, for Lawrence Gabriel — and seventeen poems from the body of work, Tenerife to El Paso to a sun that is not the Sun, 1706 to the end of time.</p>
   <p class="hero-intro">These are the poems scattered through the cycle: the spine of the novel <em>PASADOR</em>, the opening chorus of <em>La Toma</em>, the five choral poems of the founding play <em>The Harness-Maker’s Son</em>, and the four choral poems of <em>Belmont Road</em>. They are read aloud, in performance, by a Chronicler. They are the work showing its hand. And with the Crossing Sequence — the five act-closing poems of the new novel <em>THE MANIFEST</em> — the cycle now runs forward as well as back: from a burning harbor in seventeen-thirty to a ship that outlives the Sun.</p>
   <div class="hero-toc">
+    <a href="#section-it-feels-me">It Feels Me</a>
     <a href="#section-oldest-hunger">The Oldest Hunger</a>
     <a href="#section-invocation">The Spine</a>
     <a href="#section-catalog">The Catalog</a>
@@ -481,6 +501,25 @@ footer{
     <a href="#section-bridge">The Bridge</a>
     <a href="#section-crossing">The Crossing · 5 poems</a>
   </div>
+</section>
+
+<section class="poem-section" id="section-it-feels-me">
+  <p class="section-label reveal">Featured</p>
+<article class="index-poem index-featured reveal">
+  <figure class="featured-art">
+    <a href="/poems/it-feels-me.html">
+      <picture>
+        <source type="image/webp" srcset="/assets/poems/gabriel-goldleaf-800.webp 800w, /assets/poems/gabriel-goldleaf-1584.webp 1584w" sizes="(max-width:768px) 100vw, 640px">
+        <img src="/assets/poems/gabriel-goldleaf-800.jpg" srcset="/assets/poems/gabriel-goldleaf-800.jpg 800w, /assets/poems/gabriel-goldleaf-1584.jpg 1584w" sizes="(max-width:768px) 100vw, 640px" width="1584" height="672" alt="Gold-leaf brushstrokes form the character 永, eternity, inside a thin gold circle, while ribbons of golden light and four-point stars stream through black space." decoding="async">
+      </picture>
+    </a>
+    <figcaption>Art · Vicente Gabriel Flores.</figcaption>
+  </figure>
+  <h2 class="poem-title"><a href="/poems/it-feels-me.html">It Feels Me</a></h2>
+  <p class="index-first"><a href="/poems/it-feels-me.html" lang="es">Me siente</a></p>
+  <p class="index-first"><a href="/poems/it-feels-me.html">The river takes my ankles first.</a></p>
+  <p class="index-meta"><a href="/poems/it-feels-me.html">A Poem</a> <span aria-hidden="true">·</span> <a href="/poems/it-feels-me.html">English</a> <span aria-hidden="true">·</span> <a href="/poems/it-feels-me.html" lang="es">Español</a></p>
+</article>
 </section>
 
 <section class="poem-section" id="section-oldest-hunger">
