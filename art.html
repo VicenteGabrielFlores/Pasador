@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Art · Vicente Gabriel Flores</title>
+<meta name="description" content="永 (Eternity), Hunger, and 望 (Wàng) / Wish — works by Vicente Gabriel Flores.">
+<meta name="author" content="Vicente Gabriel Flores">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://vicentegabrielflores.com/art.html">
+<link rel="alternate" type="application/atom+xml" title="What's in the Air" href="https://vicentegabrielflores.com/whats-in-the-air.xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Vicente Gabriel Flores">
+<meta property="og:title" content="Art · Vicente Gabriel Flores">
+<meta property="og:description" content="永 (Eternity), Hunger, and 望 (Wàng) / Wish — works by Vicente Gabriel Flores.">
+<meta property="og:url" content="https://vicentegabrielflores.com/art.html">
+<meta property="og:image" content="https://vicentegabrielflores.com/assets/poems/it-feels-me-og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="永 (Eternity): gold brushwork forms the character inside a thin gold circle, with ribbons of light and stars on black. Vicente Gabriel Flores.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Art · Vicente Gabriel Flores">
+<meta name="twitter:description" content="永 (Eternity), Hunger, and 望 (Wàng) / Wish — works by Vicente Gabriel Flores.">
+<meta name="twitter:image" content="https://vicentegabrielflores.com/assets/poems/it-feels-me-og.jpg">
+<meta name="twitter:image:alt" content="永 (Eternity): gold brushwork forms the character inside a thin gold circle, with ribbons of light and stars on black. Vicente Gabriel Flores.">
+<meta name="twitter:site" content="@pasadornovel">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Cinzel:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#080604;
+  --parchment:#efe0c4;
+  --parchment-dim:#c4aa88;
+  --parchment-faint:#a68462;
+  --gold:#e0b45c;
+  --gold-dim:#c4963c;
+  --sep:#1e1208;
+}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--parchment);
+  font-family:'EB Garamond',Georgia,serif;
+  font-size:18px;
+  line-height:1.8;
+  overflow-x:hidden;
+}
+body::before{
+  content:'';
+  position:fixed;
+  inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events:none;
+  opacity:0.35;
+  z-index:999;
+}
+nav{
+  position:fixed;
+  top:0;left:0;right:0;
+  z-index:100;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:1.5rem 4rem;
+  background:linear-gradient(to bottom,rgba(8,6,4,0.95) 0%,rgba(8,6,4,0) 100%);
+  transition:background 0.4s;
+}
+nav.scrolled{background:rgba(8,6,4,0.97);border-bottom:1px solid rgba(196,151,61,0.12)}
+.nav-title{
+  font-family:'Cinzel',serif;
+  font-size:0.9rem;
+  letter-spacing:0.2em;
+  color:var(--gold);
+  text-decoration:none;
+}
+.nav-title::before{content:'← ';opacity:0.6;font-family:'EB Garamond',serif;letter-spacing:normal}
+.nav-links{display:flex;gap:1.15rem;list-style:none}
+.nav-links a{
+  font-family:'Cinzel',serif;
+  font-size:0.72rem;
+  letter-spacing:0.14em;
+  white-space:nowrap;
+  color:var(--parchment-dim);
+  text-decoration:none;
+  text-transform:uppercase;
+  transition:color 0.3s;
+}
+.nav-links a:hover{color:var(--gold)}
+.nav-links a.active{color:var(--gold)}
+.nav-toggle{
+  display:none;
+  flex-direction:column;
+  justify-content:center;
+  gap:5px;
+  width:36px;height:36px;
+  padding:0;
+  background:none;
+  border:none;
+  cursor:pointer;
+}
+.nav-toggle span{
+  display:block;
+  width:24px;height:1.5px;
+  background:var(--gold);
+  transition:transform 0.3s ease,opacity 0.3s ease;
+}
+.nav-toggle.active span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.nav-toggle.active span:nth-child(2){opacity:0}
+.nav-toggle.active span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+
+#hero{
+  padding:7rem 4rem 1.6rem;
+  max-width:1100px;
+  margin:0 auto;
+}
+.hero-eyebrow{
+  font-family:'Cinzel',serif;
+  font-size:0.72rem;
+  letter-spacing:0.35em;
+  color:var(--gold);
+  text-transform:uppercase;
+  margin-bottom:1.1rem;
+  opacity:0;
+  animation:fadeUp 1.2s 0.3s forwards;
+}
+.hero-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(3.4rem,8vw,6rem);
+  font-weight:300;
+  line-height:0.88;
+  letter-spacing:-0.02em;
+  color:var(--parchment);
+  margin-bottom:0.55rem;
+  opacity:0;
+  animation:fadeUp 1.4s 0.5s forwards;
+}
+.hero-subtitle{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.3rem,2.4vw,1.9rem);
+  font-weight:300;
+  font-style:italic;
+  color:var(--gold);
+  margin-bottom:1.15rem;
+  opacity:0;
+  animation:fadeUp 1.4s 0.7s forwards;
+}
+.hero-intro{
+  font-family:'EB Garamond',serif;
+  font-size:clamp(1.05rem,1.5vw,1.25rem);
+  color:var(--parchment);
+  max-width:36rem;
+  line-height:1.85;
+  border-left:1px solid var(--gold);
+  padding-left:1.5rem;
+  opacity:0;
+  animation:fadeUp 1.4s 0.9s forwards;
+}
+
+.work{
+  padding:2.4rem 0 4.2rem;
+  border-top:1px solid var(--sep);
+}
+.work-frame{
+  width:100%;
+  margin:0 auto;
+  text-align:center;
+}
+.work-frame.wide{max-width:1584px}
+.work-frame.contained{max-width:640px;padding:0 1.5rem}
+.work-frame img{display:block;width:100%;height:auto}
+.work-body{
+  max-width:36rem;
+  margin:1.8rem auto 0;
+  padding:0 1.5rem;
+  text-align:center;
+}
+.work-title{
+  font-family:'Cormorant Garamond','Noto Serif CJK JP','Noto Serif CJK SC','Songti SC','Hiragino Mincho ProN',serif;
+  font-size:clamp(2rem,4vw,2.8rem);
+  font-weight:300;
+  font-style:italic;
+  line-height:1.15;
+  color:var(--parchment);
+  margin-bottom:0.7rem;
+}
+.work-meta{
+  font-family:'Cinzel',serif;
+  font-size:0.66rem;
+  letter-spacing:0.22em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:1.5rem;
+}
+.work-statement{
+  font-family:'EB Garamond',serif;
+  font-size:1.12rem;
+  line-height:1.85;
+  color:var(--parchment);
+  margin-bottom:0.7rem;
+}
+.work-statement[lang="es"],
+.work-statement.es{
+  font-style:italic;
+  color:var(--parchment-dim);
+}
+.work-related{
+  margin-top:1.4rem;
+  font-family:'Cinzel',serif;
+  font-size:0.62rem;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:var(--parchment-faint);
+}
+.work-related a{
+  color:var(--gold);
+  text-decoration:none;
+  border-bottom:1px solid rgba(224,180,92,0.35);
+}
+.work-related a:hover{border-bottom-color:var(--gold)}
+
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.9s ease,transform 0.9s ease}
+.reveal.visible{opacity:1;transform:none}
+
+footer{
+  padding:2.5rem 4rem;
+  border-top:1px solid var(--sep);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:1rem;
+  text-align:center;
+  margin-top:2rem;
+}
+.footer-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  width:100%;
+  max-width:1100px;
+  flex-wrap:wrap;
+  gap:1rem;
+}
+.footer-title{
+  font-family:'Cinzel',serif;
+  font-size:0.65rem;
+  letter-spacing:0.25em;
+  color:var(--gold-dim);
+}
+.footer-closing{
+  font-family:'Cormorant Garamond',serif;
+  font-size:0.95rem;
+  font-style:italic;
+  color:var(--parchment-dim);
+}
+.footer-copyright{
+  display:block;
+  margin-top:1.2rem;
+  padding-top:1.5rem;
+  border-top:1px solid var(--sep);
+  font-family:'EB Garamond',Georgia,serif;
+  font-size:0.7rem;
+  letter-spacing:0.05em;
+  color:var(--parchment-faint);
+  line-height:1.6;
+  max-width:680px;
+  text-align:center;
+}
+.footer-copyright strong{color:var(--gold-dim);font-weight:500}
+.footer-copyright a{color:inherit;border-bottom:1px solid var(--parchment-faint);text-decoration:none}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:none}
+}
+
+@media(min-width:900px){
+  #hero{padding:6.2rem 4rem 0.85rem}
+  .hero-title{font-size:clamp(3.2rem,7vw,5.2rem)}
+  .hero-subtitle{margin-bottom:0.85rem}
+  #eternity.work{padding-top:0.7rem}
+  #eternity .work-frame.wide{
+    max-width:min(1584px, calc((100vh - 25.5rem) * 1584 / 672));
+    margin-left:auto;
+    margin-right:auto;
+  }
+}
+@media(max-width:768px){
+  nav{padding:1.2rem 1.5rem}
+  .nav-toggle{display:flex}
+  .nav-links{
+    position:absolute;
+    top:100%;left:0;right:0;
+    flex-direction:column;
+    gap:0;
+    background:rgba(8,6,4,0.99);
+    border-bottom:1px solid rgba(196,151,61,0.18);
+    padding:0 1.5rem;
+    max-height:0;
+    overflow:hidden;
+    transition:max-height 0.4s ease,padding 0.4s ease;
+  }
+  .nav-links.open{max-height:75vh;padding:0.4rem 1.5rem 1rem}
+  .nav-links li{width:100%}
+  .nav-links a{display:block;padding:0.95rem 0.2rem;font-size:0.78rem;letter-spacing:0.16em;border-bottom:1px solid var(--sep)}
+  .nav-links li:last-child a{border-bottom:none}
+  #hero{padding:6.2rem 1.5rem 1.4rem}
+  .work{padding:1.8rem 0 3.2rem}
+  .work-frame.contained{padding:0 1.5rem}
+  .work-statement{font-size:1.05rem}
+  footer{padding:2rem 1.5rem}
+  .footer-row{flex-direction:column;gap:0.8rem;text-align:center}
+}
+@media (prefers-reduced-motion: reduce){
+  .hero-eyebrow,.hero-title,.hero-subtitle,.hero-intro{animation:none;opacity:1;transform:none}
+  .reveal{opacity:1;transform:none;transition:none}
+}
+</style>
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#000000">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Art",
+  "url": "https://vicentegabrielflores.com/art.html",
+  "creator": {
+    "@type": "Person",
+    "name": "Vicente Gabriel Flores",
+    "image": "https://vicentegabrielflores.com/assets/author/vicente-gabriel-flores-portrait.jpg"
+  },
+  "hasPart": [
+    {
+      "@type": "VisualArtwork",
+      "name": "永 (Eternity)",
+      "dateCreated": "2026-11-13",
+      "artMedium": "Gold brushwork on black",
+      "url": "https://vicentegabrielflores.com/art.html#eternity",
+      "image": "https://vicentegabrielflores.com/assets/poems/gabriel-goldleaf-1584.jpg",
+      "creator": {"@type": "Person", "name": "Vicente Gabriel Flores"}
+    },
+    {
+      "@type": "VisualArtwork",
+      "name": "Hunger",
+      "dateCreated": "2026-11-13",
+      "artMedium": "Gold brushwork on black, after the artist's drawing",
+      "url": "https://vicentegabrielflores.com/art.html#hunger",
+      "image": "https://vicentegabrielflores.com/assets/art/hunger-1600.png",
+      "creator": {"@type": "Person", "name": "Vicente Gabriel Flores"}
+    },
+    {
+      "@type": "VisualArtwork",
+      "name": "望 (Wàng) / Wish",
+      "dateCreated": "2026-11-13",
+      "artMedium": "Gold brushwork on black, after the artist's drawing",
+      "url": "https://vicentegabrielflores.com/art.html#wish",
+      "image": "https://vicentegabrielflores.com/assets/art/wish-1024.png",
+      "creator": {"@type": "Person", "name": "Vicente Gabriel Flores"}
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="/" class="nav-title" style="display:inline-flex;align-items:center;gap:0.45rem"><img src="/portrait-vicente.png" alt="" width="22" height="22" style="width:22px;height:22px;border-radius:50%;object-fit:cover;flex:none">PASADOR</a>
+  <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="/">Home</a></li>
+    <li><a href="/the-manifest.html">The Manifest</a></li>
+    <li><a href="/modern-play.html">The Play</a></li>
+    <li><a href="/la-toma.html">La Toma</a></li>
+    <li><a href="/belmont-road.html">Belmont Road</a></li>
+    <li><a href="/poems.html">Poems</a></li>
+    <li><a href="/art.html" class="active">Art</a></li>
+    <li><a href="/stories/index.html">Stories</a></li>
+    <li><a href="/whats-in-the-air.html">The Air</a></li>
+    <li><a href="/historia.html">Crónicas</a></li>
+    <li><a href="/artifacts.html">Artifacts</a></li>
+    <li><a href="/familia.html">Familia</a></li>
+  </ul>
+</nav>
+
+<section id="hero">
+  <p class="hero-eyebrow">Vicente Gabriel Flores</p>
+  <h1 class="hero-title">Art</h1>
+  <p class="hero-subtitle" lang="es">Arte</p>
+  <p class="hero-intro">The site is a canvas of what was, what is, and what is coming.</p>
+</section>
+
+<article class="work" id="eternity">
+  <figure class="work-frame wide reveal">
+    <picture>
+      <source type="image/webp" srcset="/assets/poems/gabriel-goldleaf-800.webp 800w, /assets/poems/gabriel-goldleaf-1584.webp 1584w" sizes="100vw">
+      <img src="/assets/poems/gabriel-goldleaf-1584.jpg" srcset="/assets/poems/gabriel-goldleaf-800.jpg 800w, /assets/poems/gabriel-goldleaf-1584.jpg 1584w" sizes="100vw" width="1584" height="672" alt="Gold brushwork forms the character 永, eternity, inside a thin gold circle, while ribbons of golden light and four-point stars stream through black space.">
+    </picture>
+  </figure>
+  <div class="work-body reveal">
+    <h2 class="work-title">永 (Eternity)</h2>
+    <p class="work-meta">13 November 2026 · Gold brushwork on black</p>
+    <p class="work-statement">永 is a symbol for eternity. A body swimming in a river: the river flows, time flows. What was, what is, and what is coming move in the same current, and the body is set free in it.</p>
+    <p class="work-related">Related work · <a href="/poems/it-feels-me.html">It Feels Me / Me siente</a></p>
+  </div>
+</article>
+
+<article class="work" id="hunger">
+  <figure class="work-frame contained reveal">
+    <picture>
+      <source type="image/png" srcset="/assets/art/hunger-800.png 800w, /assets/art/hunger-1600.png 1600w" sizes="(max-width:768px) 100vw, 640px">
+      <img src="/assets/art/hunger-1600.png" srcset="/assets/art/hunger-800.png 800w, /assets/art/hunger-1600.png 1600w" sizes="(max-width:768px) 100vw, 640px" width="1600" height="1624" alt="Gold line on black, after a drawing by Vicente Gabriel Flores: a kneeling mother bends toward a reaching baby, whose other hand rests on the earth; stars glint in the dark.">
+    </picture>
+  </figure>
+  <div class="work-body reveal">
+    <h2 class="work-title">Hunger</h2>
+    <p class="work-meta">13 November 2026 · Gold brushwork on black, after the artist’s drawing</p>
+    <p class="work-statement">A mother on her knees, a child reaching, and the earth already in that small hand. The dark around them is full of stars. I drew what the body knows before it has a name for hunger.</p>
+    <p class="work-related">Related work · <a href="/poems/the-oldest-hunger.html">The Oldest Hunger / El hambre más antigua</a></p>
+  </div>
+</article>
+
+<article class="work" id="wish">
+  <figure class="work-frame contained reveal">
+    <picture>
+      <source type="image/png" srcset="/assets/art/wish-800.png 800w, /assets/art/wish-1024.png 1024w" sizes="(max-width:768px) 100vw, 640px">
+      <img src="/assets/art/wish-1024.png" srcset="/assets/art/wish-800.png 800w, /assets/art/wish-1024.png 1024w" sizes="(max-width:768px) 100vw, 640px" width="1024" height="1024" alt="Gold brushwork on black, after a drawing by Vicente Gabriel Flores: a figure stands on slanted ground, an eye raised to a moon and stars, the arm reaching.">
+    </picture>
+  </figure>
+  <div class="work-body reveal">
+    <h2 class="work-title">望 (Wàng) / Wish</h2>
+    <p class="work-meta">13 November 2026 · Gold brushwork on black, after the artist’s drawing</p>
+    <p class="work-statement">He looks up to the stars. He wishes, he wonders. He calls out for answers. Now he takes it as his own.</p>
+    <p class="work-statement es" lang="es">Mira hacia las estrellas. Desea, se pregunta. Clama por respuestas. Ahora lo toma como suyo.</p>
+    <p class="work-related">Related work · <a href="/whats-in-the-air.html">What’s in the Air / Lo que hay en el aire</a></p>
+  </div>
+</article>
+
+<footer>
+  <div class="footer-row">
+    <span class="footer-title">ART · 2026</span>
+    <a href="https://x.com/pasadornovel" target="_blank" rel="noopener" style="font-family:Cinzel,serif;font-size:0.65rem;letter-spacing:0.2em;color:var(--gold-dim);text-decoration:none;">@pasadornovel</a>
+    <span class="footer-closing">No hemos llegado aún a la vendimia.</span>
+  </div>
+  <span class="footer-copyright"><strong>© 2026 Vicente Gabriel Flores. All rights reserved.</strong> The works of Vicente Gabriel Flores and all related text and content may not be reproduced, distributed, transmitted, or used in any form — including for the training of machine-learning systems — without the prior written permission of the author. All inquiries: <a href="https://x.com/pasadornovel" target="_blank" rel="noopener">@pasadornovel</a>.</span>
+</footer>
+
+<script>
+const nav = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+navToggle.addEventListener('click', () => {
+  const open = navLinks.classList.toggle('open');
+  navToggle.classList.toggle('active', open);
+  navToggle.setAttribute('aria-expanded', open);
+});
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    navToggle.classList.remove('active');
+    navToggle.setAttribute('aria-expanded', 'false');
+  });
+});
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
