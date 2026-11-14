@@ -53,3 +53,7 @@ Copying the previous edition keeps its color tokens. Leave them. Body copy, both
 - Desktop and mobile: the navigation opens, the edition is readable, the follow link wraps inside the screen, and the poem lines wrap without a horizontal scrollbar.
 
 Open the pull request for review. Merging is what publishes the site.
+
+## Artwork
+
+If an edition shows an artwork, credit it as described in [ART-ATTRIBUTION.md](ART-ATTRIBUTION.md). The artist is Vicente Gabriel Flores. Jinghan, Lawrence, and Leo are titles of works.
