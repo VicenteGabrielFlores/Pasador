@@ -1,0 +1,33 @@
+<!--
+  Author credit for new pages on vicentegabrielflores.com.
+  1. In <head>, keep or add:
+       <meta name="author" content="Vicente Gabriel Flores">
+       <link rel="stylesheet" href="/assets/author-credit.css">
+  2. Keep any existing JSON-LD, signature, and canonical tags.
+     Add or complete an author Person on the work's JSON-LD (Poem, Article,
+     VisualArtwork, CollectionPage, CreativeWork, Book, NewsArticle as appropriate):
+-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  "name": "TITLE",
+  "author": {
+    "@type": "Person",
+    "@id": "https://vicentegabrielflores.com/#author",
+    "name": "Vicente Gabriel Flores",
+    "url": "https://vicentegabrielflores.com/author.html",
+    "image": "https://vicentegabrielflores.com/assets/author/vicente-gabriel-flores-portrait.jpg"
+  }
+}
+</script>
+<!--
+  3. Visible byline, under the title (and Spanish title if the page has one).
+     English-only page:
+       <p class="author-byline"><a href="/author.html">Vicente Gabriel Flores</a></p>
+     Bilingual or Spanish page:
+       <p class="author-byline"><a href="/author.html">Vicente Gabriel Flores</a></p>
+       <p class="author-byline" lang="es">por <a href="/author.html">Vicente Gabriel Flores</a></p>
+  What's in the Air editions are NewsArticle pages with their own byline.
+  Copy a previous edition and follow WHATS-IN-THE-AIR.md rather than this snippet.
+-->
