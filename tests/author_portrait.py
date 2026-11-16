@@ -48,10 +48,9 @@ class AuthorPortrait(unittest.TestCase):
     def test_homepage_author_section_uses_the_portrait(self):
         index = (ROOT / "index.html").read_text(encoding="utf-8")
         author = index.split('id="author"', 1)[1].split("</section>", 1)[0]
-        self.assertIn('class="author-portrait"', author)
-        self.assertIn('alt="Portrait of Vicente Gabriel Flores"', author)
-        self.assertIn("/assets/author/vicente-gabriel-flores-portrait-560.jpg", author)
-        self.assertIn("/assets/author/vicente-gabriel-flores-portrait.jpg", author)
+        self.assertNotIn('class="author-portrait"', author)
+        self.assertIn('href="/author.html"', author)
+        self.assertIn("/assets/author/vicente-gabriel-flores-portrait.jpg", index)
         self.assertIn('src="/portrait-vicente.png"', index)
         self.assertIn(
             'property="og:image" content="https://vicentegabrielflores.com/og-image.jpg"',
