@@ -584,8 +584,8 @@ section{padding:7rem 4rem;border-top:1px solid var(--sep)}
 }
 
 /* ── AUTHOR ── */
-#author{max-width:880px;margin:0 auto}
-.author-grid{display:grid;grid-template-columns:1fr 2fr;gap:5rem;align-items:start}
+#author{max-width:880px;margin:0 auto;text-align:center}
+.author-grid{max-width:34rem;margin:0 auto}
 .author-name-block .name{
   font-family:'Cormorant Garamond',serif;
   font-size:2.2rem;
@@ -604,7 +604,7 @@ section{padding:7rem 4rem;border-top:1px solid var(--sep)}
   width:2.5rem;
   height:1px;
   background:var(--gold);
-  margin:1.5rem 0;
+  margin:1.5rem auto;
 }
 .author-fact{
   font-family:'Cinzel',serif;
@@ -614,18 +614,19 @@ section{padding:7rem 4rem;border-top:1px solid var(--sep)}
   text-transform:uppercase;
   line-height:2;
 }
-.author-bio{font-size:1.05rem;line-height:1.9;color:var(--parchment-dim)}
-.author-bio p+p{margin-top:1.2rem}
-.author-bio strong{color:var(--parchment);font-weight:500}
-.author-bio em{color:var(--gold);font-style:italic}
-.author-portrait{
-  display:block;
-  width:100%;
-  max-width:16.5rem;
-  height:auto;
-  margin:0 0 1.75rem;
-  border:1px solid rgba(224,180,92,0.35);
+.author-more{
+  display:inline-block;
+  margin-top:2rem;
+  font-family:'Cinzel',serif;
+  font-size:0.72rem;
+  letter-spacing:0.18em;
+  color:var(--gold);
+  text-decoration:none;
+  border-bottom:1px solid var(--gold-dim);
+  padding-bottom:0.2rem;
+  transition:color 0.3s,border-color 0.3s;
 }
+.author-more:hover{color:var(--parchment);border-bottom-color:var(--gold)}
 
 /* ── CONTACT ── */
 #contact{text-align:center;padding:8rem 4rem}
@@ -1482,7 +1483,6 @@ section[id]{scroll-margin-top:5.5rem}
   <p class="section-label reveal">The Author</p>
   <div class="author-grid">
     <div class="author-name-block reveal">
-      <img class="author-portrait" src="/assets/author/vicente-gabriel-flores-portrait-560.jpg" srcset="/assets/author/vicente-gabriel-flores-portrait-560.jpg 560w, /assets/author/vicente-gabriel-flores-portrait.jpg 1024w" sizes="(max-width: 1100px) 16.5rem, 14rem" width="560" height="560" alt="Portrait of Vicente Gabriel Flores" loading="lazy" decoding="async">
       <p class="name">Vicente<br>Gabriel<br>Flores</p>
       <p class="pen-note">pen name of Gabriel Salcedo</p>
       <div class="rule"></div>
@@ -1498,17 +1498,9 @@ section[id]{scroll-margin-top:5.5rem}
         The Harness-Maker&rsquo;s Son &middot; the founding play<br>
         Belmont Road &middot; a play in five acts<br>
         Poems &middot; seventeen choral poems<br><br>
-        <em>His hand. Now mine.</em><br>
-        <em>Su mano. Ahora la m&iacute;a.</em><br><br>
         2026
       </p>
-    </div>
-    <div class="author-bio reveal">
-      <p>Vicente Gabriel Flores is a descendant of <strong>Carlos F. Flores</strong>, who crossed the International Bridge at El Paso in November 1913 at the age of ten &mdash; the crossing that opens and closes <em>PASADOR</em> and that the play <em>LA TOMA</em> dramatizes in full. The Concordia Ranch, the Flores family&rsquo;s six-generation presence in the El Paso del Norte valley, and the documented history of the families in this body of work are its factual spine, drawn from the family chart of <strong>Alfredo C. Flores</strong>, who nominated and successfully inscribed these ancestors into the El Paso County Historical Society&rsquo;s Hall of Honor.</p>
-      <p>He holds a Bachelor of Arts in <em>Japanese and Chinese Language</em> from the University of Hawaii at Manoa &mdash; a formal education in living between languages that shaped every structural decision in this body of work &mdash; and an MBA from Rutgers Business School. He spent over a decade in <strong>asset management and capital markets</strong> across Japan, China, and Hong Kong before returning to Texas, where he continues a career in corporate contracts and M&amp;A.</p>
-      <p><strong><em>PASADOR</em></strong> is his debut novel &mdash; the spine of <em>A King&rsquo;s Promise</em>, a body of work tracing one Tejano family across 296 years, two oceans, and five flags. Alongside it stands <strong><em>Las Cr&oacute;nicas</em></strong>, the documentary companion, which sets the same history down in ten chronicles.</p>
-      <p>From that spine the work has grown into a cycle of documentary-verse plays. <strong><em>A King&rsquo;s Promise: Book One &mdash; The Modern Play</em></strong> narrates the American present of 2024 through 2026 from a chapel settlement on Mars in <em>Year Seventy of the Settlement</em> &mdash; the year 2146. <strong><em>LA TOMA: The Night Villa Came to Juárez</em></strong> is the companion play of the 1913 crossing. <strong><em>The Harness-Maker&rsquo;s Son</em></strong> is the founding play &mdash; Garachico in 1706 to the founding of San Antonio de B&eacute;xar in 1731. <strong><em>BELMONT ROAD</em></strong>, the most recent, is a contemporary play in five acts set in England in 2024 and 2025. And <strong><em>THE MANIFEST</em></strong>, the cycle&rsquo;s first novel of science fiction, carries the same family &mdash; and the same iron bolt, the <em>pasador</em>, handed down the generations &mdash; six hundred years on, aboard a generation ship braking toward humankind&rsquo;s first living world. Seventeen <a href="/poems.html" style="color:var(--gold);border-bottom:1px solid var(--gold-dim);text-decoration:none">choral poems</a> scattered through these works form the cycle&rsquo;s verse spine; the cycle continues.</p>
-      <p><em>His hand. Now mine.</em></p>
+      <a class="author-more" href="/author.html">Read about the author →</a>
     </div>
   </div>
 </section>
