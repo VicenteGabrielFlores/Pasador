@@ -67,12 +67,12 @@ On `art.html`, and on every page that shows the work, add this JSON-LD. Use the 
       "creator": {
         "@type": "Person",
         "name": "Vicente Gabriel Flores",
-        "url": "https://vicentegabrielflores.com"
+        "url": "https://vicentegabrielflores.com/author.html"
       },
       "copyrightHolder": {
         "@type": "Person",
         "name": "Vicente Gabriel Flores",
-        "url": "https://vicentegabrielflores.com"
+        "url": "https://vicentegabrielflores.com/author.html"
       },
       "creditText": "Vicente Gabriel Flores"
     },
@@ -83,7 +83,7 @@ On `art.html`, and on every page that shows the work, add this JSON-LD. Use the 
       "creator": {
         "@type": "Person",
         "name": "Vicente Gabriel Flores",
-        "url": "https://vicentegabrielflores.com"
+        "url": "https://vicentegabrielflores.com/author.html"
       },
       "creditText": "Vicente Gabriel Flores",
       "copyrightNotice": "© 2026 Vicente Gabriel Flores. All rights reserved.",
