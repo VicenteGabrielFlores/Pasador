@@ -9,7 +9,7 @@ The author name on every new page is **Vicente Gabriel Flores**. Do not add any 
 1. Copy `whats-in-the-air-2026-11-06.html` to `whats-in-the-air-YYYY-MM-DD.html`.
 2. Prepend one card at the top of the list in `whats-in-the-air.html` (newest first).
 3. Prepend one `<entry>` in `whats-in-the-air.xml` and set the feed `<updated>` to that edition.
-4. Add the new page to `sitemap.xml` and prepend it in `news-sitemap.xml`. Set `<lastmod>` on the new page, on `whats-in-the-air.html`, on `whats-in-the-air.xml`, and on both entries in `sitemap-index.xml`.
+4. Add the new page to `sitemap.xml` and leave it there. Rebuild `news-sitemap.xml` so it lists only editions dated within the last 2 days (48 hours): each new edition replaces older entries. Set `<lastmod>` on the new page, on `whats-in-the-air.html`, on `whats-in-the-air.xml`, and on both entries in `sitemap-index.xml`.
 5. Leave `robots.txt` as it is unless a real restriction is required. `Allow: /` already covers these URLs. Keep the `Sitemap` lines for `sitemap.xml`, `sitemap-index.xml`, and `news-sitemap.xml`. Do not remove existing rules.
 6. Home and Poems already link to the archive. A new edition does not need a new navigation item. Articles keeps its own row; do not add a link there unless it still fits on one line at 390px and 1280px.
 
@@ -40,7 +40,9 @@ The author name on every new page is **Vicente Gabriel Flores**. Do not add any 
 
 ## News sitemap
 
-`news-sitemap.xml` lists the Air editions. It uses the `news` namespace (`http://www.google.com/schemas/sitemap-news/0.9`). `news:name` is `Vicente Gabriel Flores`. `news:publication_date` is the edition date, with no clock time. `news:title` is the English poem title (`headline`). Newest first.
+`news-sitemap.xml` uses the `news` namespace (`http://www.google.com/schemas/sitemap-news/0.9`). `news:name` is `Vicente Gabriel Flores`. `news:publication_date` is the edition date, with no clock time. `news:title` is the English poem title (`headline`). Newest first.
+
+Google News reads only articles from the last 48 hours. Keep an edition here only while its date is today or yesterday in America/Chicago, the date-only form of that window. Each new edition replaces the file's older entries. Do not leave an edition once its date is more than two days old. Older editions stay in `sitemap.xml`.
 
 `news:language` is `en`. Each edition is one bilingual page whose document language is English, and the news sitemap allows a single language code on a URL, so `es` is not a second tag beside it. A future edition whose page language is Spanish (`<html lang="es">`, with no English section) uses `es`.
 
@@ -55,8 +57,8 @@ Copying the previous edition keeps its color tokens. Leave them. Body copy, both
 - The poem lines match the supplied text, including breaks. *The Brave Bulls* stays italic when the supplied text italicizes it.
 - The election and news sentences stay as supplied, with their source attribution left in the body.
 - Internal links resolve: archive, edition, home, poems, articles, feed.
-- The new URL is in `sitemap.xml` and in `news-sitemap.xml`.
-- `robots` meta on the new page is `index, follow`, matching the rest of the site.
+- The new URL is in `sitemap.xml`. It is in `news-sitemap.xml` only while its date is today or yesterday in America/Chicago.
+- `robots` meta on the new page is `index, follow, max-image-preview:large`, matching the rest of the site. Do not add `noindex`.
 - No analytics snippet, no newsletter field, no claim about search ranking.
 - Desktop and mobile: the navigation opens, the edition is readable, the follow link wraps inside the screen, and the poem lines wrap without a horizontal scrollbar.
 
