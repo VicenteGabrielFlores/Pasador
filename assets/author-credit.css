@@ -1,0 +1,49 @@
+/* Shared author byline for Vicente Gabriel Flores.
+   Uses each page's existing gold and parchment tokens and typefaces.
+   Copy the HTML in author-credit.snippet.html onto new poem, article, and artwork pages. */
+.author-byline{
+  font-family:'Cinzel','Cormorant Garamond',serif;
+  font-size:0.72rem;
+  letter-spacing:0.16em;
+  color:var(--gold-dim,#c4963c);
+  margin:0 0 1rem;
+}
+.author-byline a{
+  color:inherit;
+  text-decoration:none;
+  border-bottom:1px solid var(--gold-dim,#c4963c);
+}
+.author-byline a:hover,
+.author-byline a:focus-visible{
+  color:var(--gold,#e0b45c);
+}
+.author-byline[lang="es"]{
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-style:italic;
+  letter-spacing:0.04em;
+  font-size:1rem;
+  color:var(--parchment-dim,#c4aa88);
+  margin-top:-0.35rem;
+  margin-bottom:1.1rem;
+}
+.poem .author-byline,
+.poem-page .author-byline,
+.author-byline-block{
+  text-align:center;
+}
+.author-byline-block{
+  margin:0 0 1.6rem;
+}
+.author-byline-block .author-byline{
+  margin-bottom:0.35rem;
+}
+.hero-title + .author-byline,
+.hero-title + .author-byline-block{
+  margin-top:-0.5rem;
+  margin-bottom:1.4rem;
+}
+.poem-title + .author-byline,
+.poem-subtitle + .author-byline,
+.poem-subtitle + .author-byline[lang="es"]{
+  /* keep the title-to-divider rhythm */
+}
