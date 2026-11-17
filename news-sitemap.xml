@@ -2,6 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
   <url>
+    <loc>https://vicentegabrielflores.com/whats-in-the-air-2026-11-17.html</loc>
+    <news:news>
+      <news:publication>
+        <news:name>Vicente Gabriel Flores</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2026-11-17</news:publication_date>
+      <news:title>In Full Light</news:title>
+    </news:news>
+  </url>
+  <url>
     <loc>https://vicentegabrielflores.com/whats-in-the-air-2026-11-16.html</loc>
     <news:news>
       <news:publication>
