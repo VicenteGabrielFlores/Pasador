@@ -25,7 +25,7 @@ exiftool -overwrite_original -charset utf8 \
   -IPTC:Credit="vicentegabrielflores.com" \
   -XMP-photoshop:Source="vicentegabrielflores.com" \
   -IPTC:Source="vicentegabrielflores.com" \
-  -XMP-xmpRights:WebStatement="https://vicentegabrielflores.com/art.html" \
+  -XMP-xmpRights:WebStatement="https://vicentegabrielflores.com/rights.html" \
   path/to/artwork.jpg
 ```
 
@@ -41,7 +41,7 @@ Keep a `<title>` that names the work, and add this metadata. It is not visible t
 <title>TITLE</title>
 <metadata>
   <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-    <rdf:Description rdf:about="https://vicentegabrielflores.com/art.html#anchor">
+    <rdf:Description rdf:about="https://vicentegabrielflores.com/art/jinghan.html">
       <dc:title xmlns:dc="http://purl.org/dc/elements/1.1/">TITLE</dc:title>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Vicente Gabriel Flores</dc:creator>
       <dc:rights xmlns:dc="http://purl.org/dc/elements/1.1/">© 2026 Vicente Gabriel Flores. All rights reserved.</dc:rights>
@@ -51,6 +51,8 @@ Keep a `<title>` that names the work, and add this metadata. It is not visible t
 ```
 
 ## Page data
+
+Jinghan, Lawrence, and Leo each have a page: `/art/jinghan.html`, `/art/lawrence.html`, and `/art/leo.html`. The picture files use those titles in the filename. The older filenames stay in the repo so existing image URLs still open. Lawrence is a drawing, not a photograph. `license` and `acquireLicensePage` point at `/rights.html`, which tells people to write to cronista@vicentegabrielflores.com.
 
 On `art.html`, and on every page that shows the work, add this JSON-LD. Use the date already shown on the page. Point `image` and `contentUrl` at the artwork file. Each `img` alt text gives the title and "by Vicente Gabriel Flores", for example: `Jinghan, gold-leaf painting by Vicente Gabriel Flores`.
 
@@ -62,33 +64,21 @@ On `art.html`, and on every page that shows the work, add this JSON-LD. Use the 
       "@type": "VisualArtwork",
       "name": "TITLE",
       "dateCreated": "YYYY-MM-DD",
-      "url": "https://vicentegabrielflores.com/art.html#anchor",
+      "url": "https://vicentegabrielflores.com/art/jinghan.html",
       "image": "https://vicentegabrielflores.com/assets/art/FILE",
-      "creator": {
-        "@type": "Person",
-        "name": "Vicente Gabriel Flores",
-        "url": "https://vicentegabrielflores.com/author.html"
-      },
-      "copyrightHolder": {
-        "@type": "Person",
-        "name": "Vicente Gabriel Flores",
-        "url": "https://vicentegabrielflores.com/author.html"
-      },
+      "creator": {"@id": "https://vicentegabrielflores.com/#author"},
+      "copyrightHolder": {"@id": "https://vicentegabrielflores.com/#author"},
       "creditText": "Vicente Gabriel Flores"
     },
     {
       "@type": "ImageObject",
       "name": "TITLE",
       "contentUrl": "https://vicentegabrielflores.com/assets/art/FILE",
-      "creator": {
-        "@type": "Person",
-        "name": "Vicente Gabriel Flores",
-        "url": "https://vicentegabrielflores.com/author.html"
-      },
+      "creator": {"@id": "https://vicentegabrielflores.com/#author"},
       "creditText": "Vicente Gabriel Flores",
-      "copyrightNotice": "© 2026 Vicente Gabriel Flores. All rights reserved.",
-      "license": "https://vicentegabrielflores.com/art.html",
-      "acquireLicensePage": "https://vicentegabrielflores.com/art.html"
+      "copyrightNotice": "© 2026 Vicente Gabriel Flores",
+      "license": "https://vicentegabrielflores.com/rights.html",
+      "acquireLicensePage": "https://vicentegabrielflores.com/rights.html"
     }
   ]
 }

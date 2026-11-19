@@ -11,7 +11,6 @@ from PIL import Image
 ROOT = Path(__file__).resolve().parents[1]
 FULL = ROOT / "assets/author/vicente-gabriel-flores-portrait.jpg"
 SMALL = ROOT / "assets/author/vicente-gabriel-flores-portrait-560.jpg"
-URL = "https://vicentegabrielflores.com/assets/author/vicente-gabriel-flores-portrait.jpg"
 
 
 def persons(path):
@@ -50,7 +49,10 @@ class AuthorPortrait(unittest.TestCase):
         author = index.split('id="author"', 1)[1].split("</section>", 1)[0]
         self.assertNotIn('class="author-portrait"', author)
         self.assertIn('href="/author.html"', author)
-        self.assertIn("/assets/author/vicente-gabriel-flores-portrait.jpg", index)
+        self.assertIn(
+            "https://vicentegabrielflores.com/assets/author-portrait-dramatic.jpg",
+            index,
+        )
         self.assertIn('src="/portrait-vicente.png"', index)
         self.assertIn(
             'property="og:image" content="https://vicentegabrielflores.com/og-image.jpg"',
@@ -61,20 +63,46 @@ class AuthorPortrait(unittest.TestCase):
             index,
         )
 
-    def test_person_nodes_point_at_the_portrait(self):
+    def test_one_person_entity(self):
+        canonical = "https://vicentegabrielflores.com/#author"
+        image = "https://vicentegabrielflores.com/assets/author-portrait-dramatic.jpg"
+        same = [
+            "https://x.com/pasadornovel",
+            "https://www.amazon.com/author/vicentegabrielflores",
+        ]
+        jobs = ["Writer", "Poet", "Playwright", "Visual Artist"]
+        description = "Tejano writer and visual artist based in Austin, Texas."
+
+        def named(path):
+            return [node for node in persons(path) if node.get("name") == "Vicente Gabriel Flores"]
+
+        for name in ("author.html", "index.html"):
+            nodes = named(ROOT / name)
+            self.assertTrue(nodes, name)
+            for node in nodes:
+                self.assertEqual(node.get("@id"), canonical, name)
+                got = node.get("image")
+                url = got.get("url") if isinstance(got, dict) else got
+                self.assertEqual(url, image, name)
+                self.assertEqual(node.get("jobTitle"), jobs, name)
+                self.assertEqual(node.get("description"), description, name)
+                self.assertEqual(node.get("sameAs"), same, name)
+                self.assertEqual(node.get("url"), "https://vicentegabrielflores.com/author.html", name)
+
         for name in (
-            "index.html",
             "artifacts.html",
             "whats-in-the-air.html",
             "poems/the-invocation.html",
             "stories/salt-water.html",
+            "art.html",
+            "the-manifest.html",
         ):
-            nodes = persons(ROOT / name)
-            self.assertTrue(nodes, name)
-            for node in nodes:
-                image = node.get("image")
-                url = image.get("url") if isinstance(image, dict) else image
-                self.assertEqual(url, URL, name)
+            text = (ROOT / name).read_text(encoding="utf-8")
+            self.assertIn(canonical, text, name)
+            for node in persons(ROOT / name):
+                if node.get("name") == "Vicente Gabriel Flores" or node.get("@id") == canonical:
+                    self.assertEqual(node.get("@id"), canonical, name)
+                    self.assertNotIn("image", node, name)
 
     def test_icons_are_not_replaced(self):
         for name in (
