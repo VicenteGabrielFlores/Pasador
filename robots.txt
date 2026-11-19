@@ -3,4 +3,3 @@ Allow: /
 
 Sitemap: https://vicentegabrielflores.com/sitemap.xml
 Sitemap: https://vicentegabrielflores.com/sitemap-index.xml
-Sitemap: https://vicentegabrielflores.com/news-sitemap.xml

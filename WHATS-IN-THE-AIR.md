@@ -8,10 +8,11 @@ The author name on every new page is **Vicente Gabriel Flores**. Do not add any 
 
 1. Copy `whats-in-the-air-2026-11-06.html` to `whats-in-the-air-YYYY-MM-DD.html`.
 2. Prepend one card at the top of the list in `whats-in-the-air.html` (newest first).
+2b. In index.html, replace both `/whats-in-the-air-YYYY-MM-DD.html` hrefs in the Air tile and the EN/ES titles with the new edition; set `/` lastmod. `tests/home_air_link.py` fails if the homepage does not link the newest edition file in the repo.
 3. Prepend one `<entry>` in `whats-in-the-air.xml` and set the feed `<updated>` to that edition.
-4. Add the new page to `sitemap.xml` and leave it there. Rebuild `news-sitemap.xml` so it lists only editions dated within the last 2 days (48 hours): each new edition replaces older entries. Set `<lastmod>` on the new page, on `whats-in-the-air.html`, on `whats-in-the-air.xml`, and on both entries in `sitemap-index.xml`.
-5. Leave `robots.txt` as it is unless a real restriction is required. `Allow: /` already covers these URLs. Keep the `Sitemap` lines for `sitemap.xml`, `sitemap-index.xml`, and `news-sitemap.xml`. Do not remove existing rules.
-6. Home and Poems already link to the archive. A new edition does not need a new navigation item. Articles keeps its own row; do not add a link there unless it still fits on one line at 390px and 1280px.
+4. Add the new page to `sitemap.xml` and leave it there. Do not add `whats-in-the-air.xml` to `sitemap.xml`. Rebuild `news-sitemap.xml` so it lists only editions dated within the last 2 days (48 hours): each new edition replaces older entries. The news sitemap file stays in the repo; do not list it in `sitemap-index.xml` or `robots.txt`. Set `<lastmod>` on the new page, on `whats-in-the-air.html`, and on the `sitemap.xml` entry in `sitemap-index.xml`. Set `<lastmod>` on `/` when step 2b changes the homepage.
+5. Leave `robots.txt` as it is unless a real restriction is required. `Allow: /` already covers these URLs. Keep the `Sitemap` lines for `sitemap.xml` and `sitemap-index.xml`. Do not add `news-sitemap.xml` back to `robots.txt`. Do not remove the other rules.
+6. Home and Poems already link to the archive. A new edition does not need its own navigation item. The shared menu already links the archive. Leave that menu in place, including Author, Art, La Toma, Articles, Davos, Crónicas, and Familia.
 
 ## URL and metadata
 
@@ -21,8 +22,9 @@ The author name on every new page is **Vicente Gabriel Flores**. Do not add any 
 - Unique meta description drawn from that edition. One clear sentence. No keyword list.
 - `og:type` is `article`. `og:url` matches the canonical URL. Title, description, and the existing `og-image.jpg` are set. Same for the Twitter card.
 - Keep `<meta name="twitter:site" content="@pasadornovel">` and `<meta name="twitter:creator" content="@pasadornovel">` on the archive and on every edition.
-- `NewsArticle` JSON-LD: `author` is a `Person` with `name` `Vicente Gabriel Flores` and `url` `https://vicentegabrielflores.com/`. `datePublished` and `dateModified` are the edition date (`YYYY-MM-DD`); if `dateModified` is missing, set it to that same date. `headline` is the poem title. `alternativeHeadline` is the Spanish poem title. `inLanguage` is `en` and `es`. Keep `publisher`, `image`, and `mainEntityOfPage`. `@type` on the edition is `NewsArticle`. The archive page stays `@type` `Blog`; each item in its `blogPost` array is a `NewsArticle` for that edition, with `dateModified` set to the edition date. Do not add a clock time.
-- Every author `Person` includes `"@id": "https://vicentegabrielflores.com/#author"`, `"url": "https://vicentegabrielflores.com/author.html"`, and `"sameAs": ["https://x.com/pasadornovel"]`. That `@id` stays the same on every page. The `url` is the author page. Do not give the author a second identifier.
+- `BlogPosting` JSON-LD, not `NewsArticle`. `genre` is `Literary commentary`. `headline` is the English poem title. `alternativeHeadline` is the Spanish poem title. `datePublished` and `dateModified` are the edition date (`YYYY-MM-DD`); if `dateModified` is missing, set it to that same date. Do not add a clock time. `inLanguage` is `en` and `es`. `author` is only `{"@id":"https://vicentegabrielflores.com/#author"}`. `isPartOf` keeps `{"@id":"https://vicentegabrielflores.com/whats-in-the-air.html#series"}`. `hasPart` is a `CreativeWork` with `genre` `Poetry` and `name` set to the English title, a slash, and the Spanish title. Keep `image` and `mainEntityOfPage`. Do not add a publisher Organization.
+- The archive page stays `@type` `Blog`. Each item in its `blogPost` array is a `BlogPosting` with the same genre, dates, author `@id`, and poem `hasPart`.
+- Do not repeat the full Person on an edition or on the archive. The one Person, `@id` `https://vicentegabrielflores.com/#author`, is on `author.html` and the homepage. Its `sameAs` includes `https://x.com/pasadornovel` and `https://www.amazon.com/author/vicentegabrielflores`. Do not give the author a second `@id`.
 - Near the byline, and again at the end of the edition, keep the link `Follow on X / Sígueme en X: @pasadornovel` to `https://x.com/pasadornovel`. The archive keeps the same link under the introduction and at the end of the list. Copying the previous edition file keeps these lines; do not delete them when replacing the day's text.
 - The visible author name, on the edition byline and on the archive card, is a link to `https://vicentegabrielflores.com/author.html`. On the archive, the author link stays outside the edition link. A card cannot contain a second link inside the first.
 - The archive footer and every edition footer keep `mailto:cronista@vicentegabrielflores.com` beside `@pasadornovel`. That address is already public on the homepage for rights, representation, and press inquiries. Do not add a phone number, a postal address, or a new editorial-policy paragraph.
@@ -31,12 +33,12 @@ The author name on every new page is **Vicente Gabriel Flores**. Do not add any 
 - If a URL for that day's X Article was not supplied, do not add one. Do not post to X.
 - Visible `<time datetime="YYYY-MM-DD">` matches that date. The manuscript's timezone is America/Chicago. Do not invent a clock time. In the Atom feed only, use `YYYY-MM-DDT00:00:00-06:00` (or `-05:00` while Chicago is on daylight time) as the calendar-day boundary.
 - English prose and poem live in `<section lang="en">`. Spanish lives in `<section lang="es">`.
-- On the archive page, add the same edition at the start of the `Blog` JSON-LD `blogPost` array, as a `NewsArticle`.
+- On the archive page, add the same edition at the start of the `Blog` JSON-LD `blogPost` array, as a `BlogPosting`.
 - Archive card: date, both poem titles, the linked author name, and the edition's own opening sentences. The poem titles and “Read this edition” link to the edition URL. The author name links to `https://vicentegabrielflores.com/author.html`.
 
 ## Feed
 
-`whats-in-the-air.xml` is an Atom feed of real editions only, newest first. Each entry's `<id>` and `<link>` are the edition's canonical URL. Put both languages in `<content type="html">`. There is one feed. Do not keep a second copy.
+`whats-in-the-air.xml` is an Atom feed of real editions only, newest first. Each entry's `<id>` and `<link>` are the edition's canonical URL. Put both languages in `<content type="html">`. There is one feed. Do not keep a second copy. Do not list this feed in `sitemap.xml`. Every public page keeps `<link rel="alternate" type="application/atom+xml" title="What's in the Air" href="https://vicentegabrielflores.com/whats-in-the-air.xml">` in `<head>`.
 
 ## News sitemap
 
@@ -46,7 +48,7 @@ Google News reads only articles from the last 48 hours. Keep an edition here onl
 
 `news:language` is `en`. Each edition is one bilingual page whose document language is English, and the news sitemap allows a single language code on a URL, so `es` is not a second tag beside it. A future edition whose page language is Spanish (`<html lang="es">`, with no English section) uses `es`.
 
-`robots.txt` names this file. `sitemap-index.xml` lists it beside `sitemap.xml`.
+`news-sitemap.xml` stays in the repository. `robots.txt` does not name it, and `sitemap-index.xml` does not list it. Do not add it back to either file.
 
 ## Foreground color
 

@@ -1,214 +1,302 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 
-  <url>
+<url>
     <loc>https://vicentegabrielflores.com/</loc>
-    <lastmod>2026-11-06</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
-  <url>
+<url>
     <loc>https://vicentegabrielflores.com/author.html</loc>
-    <lastmod>2026-11-16</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  
+    <image:image>
+      <image:loc>https://vicentegabrielflores.com/assets/author-portrait-dramatic.jpg</image:loc>
+      <image:title>Vicente Gabriel Flores, author portrait</image:title>
+    </image:image>
   </url>
 
-  <url>
+<url>
     <loc>https://vicentegabrielflores.com/poems.html</loc>
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
-  <url>
+<url>
     <loc>https://vicentegabrielflores.com/art.html</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  
+    <image:image>
+      <image:loc>https://vicentegabrielflores.com/assets/art/jinghan-gold-leaf-painting-vicente-gabriel-flores-1584.jpg</image:loc>
+      <image:title>Jinghan</image:title>
+      <image:license>https://vicentegabrielflores.com/rights.html</image:license>
+    </image:image>
+    <image:image>
+      <image:loc>https://vicentegabrielflores.com/assets/art/lawrence-mother-and-baby-drawing-vicente-gabriel-flores-1600.png</image:loc>
+      <image:title>Lawrence</image:title>
+      <image:license>https://vicentegabrielflores.com/rights.html</image:license>
+    </image:image>
+    <image:image>
+      <image:loc>https://vicentegabrielflores.com/assets/art/leo-drawing-vicente-gabriel-flores-1024.png</image:loc>
+      <image:title>Leo</image:title>
+      <image:license>https://vicentegabrielflores.com/rights.html</image:license>
+    </image:image>
   </url>
 
-  <url>
+<url>
     <loc>https://vicentegabrielflores.com/poems/the-invocation.html</loc>
-    <lastmod>2026-11-11</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
-  <url>
+<url>
     <loc>https://vicentegabrielflores.com/poems/what-is-inherited.html</loc>
-    <lastmod>2026-11-11</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
-  <url>
+<url>
     <loc>https://vicentegabrielflores.com/poems/the-years-between.html</loc>
-    <lastmod>2026-11-11</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
-  <url>
+<url>
     <loc>https://vicentegabrielflores.com/poems/the-year-the-island-burned.html</loc>
-    <lastmod>2026-11-11</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
-  <url>
+<url>
     <loc>https://vicentegabrielflores.com/poems/the-year-of-the-long-road.html</loc>
-    <lastmod>2026-11-11</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
-  <url>
+<url>
     <loc>https://vicentegabrielflores.com/poems/the-year-of-the-founding.html</loc>
-    <lastmod>2026-11-11</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
-  <url>
+<url>
     <loc>https://vicentegabrielflores.com/poems/the-weather.html</loc>
-    <lastmod>2026-11-11</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
-  <url>
+<url>
     <loc>https://vicentegabrielflores.com/poems/the-country-that-argues.html</loc>
-    <lastmod>2026-11-11</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
-  <url>
+<url>
     <loc>https://vicentegabrielflores.com/poems/the-towns.html</loc>
-    <lastmod>2026-11-11</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
-  <url>
+<url>
     <loc>https://vicentegabrielflores.com/poems/the-water.html</loc>
-    <lastmod>2026-11-11</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
-  <url>
+<url>
     <loc>https://vicentegabrielflores.com/poems/the-column.html</loc>
-    <lastmod>2026-11-11</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
-  <url>
+<url>
     <loc>https://vicentegabrielflores.com/poems/the-bolt-of-the-old-door.html</loc>
-    <lastmod>2026-11-11</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
-  <url>
+<url>
     <loc>https://vicentegabrielflores.com/poems/the-crossing.html</loc>
-    <lastmod>2026-11-11</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
-  <url>
+<url>
     <loc>https://vicentegabrielflores.com/poems/the-far-crossing.html</loc>
-    <lastmod>2026-11-11</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
-  <url>
+<url>
     <loc>https://vicentegabrielflores.com/poems/the-bridge-of-time.html</loc>
-    <lastmod>2026-11-11</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
-  <url>
+<url>
     <loc>https://vicentegabrielflores.com/poems/the-oldest-hunger.html</loc>
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
-  <url>
+<url>
     <loc>https://vicentegabrielflores.com/poems/it-feels-me.html</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
-  <url>
+<url>
     <loc>https://vicentegabrielflores.com/modern-play.html</loc>
-    <lastmod>2026-06-10</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
-  <url>
+<url>
     <loc>https://vicentegabrielflores.com/the-manifest.html</loc>
+    <lastmod>2026-11-19</lastmod>
   </url>
 
-  <url>
+<url>
     <loc>https://vicentegabrielflores.com/la-toma.html</loc>
-    <lastmod>2026-06-10</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
-  <url>
+<url>
     <loc>https://vicentegabrielflores.com/belmont-road.html</loc>
-    <lastmod>2026-06-10</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <url>
+<url>
     <loc>https://vicentegabrielflores.com/historia.html</loc>
-    <lastmod>2026-06-10</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <url>
+<url>
     <loc>https://vicentegabrielflores.com/familia.html</loc>
-    <lastmod>2026-06-10</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <url>
+<url>
     <loc>https://vicentegabrielflores.com/artifacts.html</loc>
-    <lastmod>2026-11-11</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  
+    <image:image>
+      <image:loc>https://vicentegabrielflores.com/assets/artifacts/travieso-curbelo-marriage-1730-cuautitlan.jpg</image:loc>
+      <image:title>Handwritten marriage entry of 15 October 1730 for Vicente Álvarez Travieso and Ana María Ramírez Curbelo in the San Buenaventura register at Cuautitlán.</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://vicentegabrielflores.com/assets/artifacts/gaspar-flores-luisa-perez-petition-1801-heading.jpg</image:loc>
+      <image:title>Opening page of the November 1801 petition in which Gaspar Flores asks to marry Luisa Pérez, before the cura of San Fernando de Béxar.</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://vicentegabrielflores.com/assets/artifacts/gaspar-flores-luisa-perez-petition-1801-signatures.jpg</image:loc>
+      <image:title>Signature page of the November 1801 petition, with Gaspar Mª Flores, the consent signed by Vicente Flores, and the start of Antonio Pérez’s consent.</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://vicentegabrielflores.com/assets/artifacts/ascarate-confirmation-1858-gammel-p1027.jpg</image:loc>
+      <image:title>Printed page of the 11 February 1858 Texas act confirming El Rancho de Ascarete, Gammel’s Laws of Texas, volume 4, page 1027.</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://vicentegabrielflores.com/assets/artifacts/ysleta-relinquishment-1854-gammel-p42.jpg</image:loc>
+      <image:title>Printed first page of the 31 January 1854 Texas act relinquishing land to the inhabitants of Ysleta, Gammel volume 4, page 42.</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://vicentegabrielflores.com/assets/artifacts/ysleta-relinquishment-1854-gammel-p43.jpg</image:loc>
+      <image:title>Printed second page of the 31 January 1854 Ysleta relinquishment act, Gammel volume 4, page 43.</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://vicentegabrielflores.com/assets/artifacts/ysleta-amendment-1858-gammel-p1094.jpg</image:loc>
+      <image:title>Printed first page of the 15 February 1858 amendment to the Ysleta act, Gammel volume 4, page 1094.</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://vicentegabrielflores.com/assets/artifacts/ysleta-amendment-1858-gammel-p1095.jpg</image:loc>
+      <image:title>Printed second page of the 15 February 1858 Ysleta amendment, Gammel volume 4, page 1095.</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://vicentegabrielflores.com/assets/artifacts/bracito-garcia-to-stephenson-1854.jpg</image:loc>
+      <image:title>Printed certified copy of the 16 November 1854 deed from Francisco García y San Juan to Hugh Stephenson for two-thirds of Bracito.</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://vicentegabrielflores.com/assets/artifacts/bracito-stephenson-to-garcia-1854-026.jpg</image:loc>
+      <image:title>First printed page of the 16 November 1854 deed by which Hugh Stephenson released one-third of Bracito back to Francisco García y San Juan.</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://vicentegabrielflores.com/assets/artifacts/bracito-stephenson-to-garcia-1854-027.jpg</image:loc>
+      <image:title>Second printed page of Hugh Stephenson’s 1854 release of one-third of Bracito to Francisco García y San Juan.</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://vicentegabrielflores.com/assets/artifacts/bracito-decree-1854.jpg</image:loc>
+      <image:title>Printed page of the court decree in the Bracito partition between García and Stephenson, from the 1860 House report.</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://vicentegabrielflores.com/assets/artifacts/margarita-stephenson-de-flores-death-cert-1914.jpg</image:loc>
+      <image:title>Texas death certificate number 12214 for Margarita Stephenson de Flores, who died 24 June 1914 in El Paso.</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://vicentegabrielflores.com/assets/artifacts/jose-j-flores-josefa-samaniego-marriage-1888-carrizal.jpg</image:loc>
+      <image:title>The 3 October 1888 marriage entry of José J. Flores and Josefa Samaniego in the San Fernando register at El Carrizal, cropped to this entry.</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://vicentegabrielflores.com/assets/artifacts/jose-jesus-flores-death-cert-1939.jpg</image:loc>
+      <image:title>Texas death certificate of José Jesús Flores, who died 12 September 1939 at 1518 Montana Street in El Paso.</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://vicentegabrielflores.com/assets/artifacts/carlos-f-flores-wwii-draft-card-1942.jpg</image:loc>
+      <image:title>Both sides of the World War II draft card signed by Carlos F. Flores at Local Board No. 3, El Paso, on 16 February 1942.</image:title>
+    </image:image>
   </url>
 
-  <url>
+<url>
     <loc>https://vicentegabrielflores.com/davos.html</loc>
-    <lastmod>2026-06-10</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
-  <url>
+<url>
     <loc>https://vicentegabrielflores.com/articles.html</loc>
-    <lastmod>2026-11-06</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
 
-  <url>
+<url>
     <loc>https://vicentegabrielflores.com/whats-in-the-air.html</loc>
     <lastmod>2026-11-19</lastmod>
     <changefreq>weekly</changefreq>
@@ -222,122 +310,114 @@
     <priority>0.7</priority>
   </url>
 
-  <url>
+<url>
     <loc>https://vicentegabrielflores.com/whats-in-the-air-2026-11-18.html</loc>
-    <lastmod>2026-11-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://vicentegabrielflores.com/whats-in-the-air-2026-11-17.html</loc>
-    <lastmod>2026-11-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://vicentegabrielflores.com/whats-in-the-air-2026-11-16.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://vicentegabrielflores.com/whats-in-the-air-2026-11-14.html</loc>
-    <lastmod>2026-11-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://vicentegabrielflores.com/whats-in-the-air-2026-11-13.html</loc>
-    <lastmod>2026-11-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://vicentegabrielflores.com/whats-in-the-air-2026-11-12.html</loc>
-    <lastmod>2026-11-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://vicentegabrielflores.com/whats-in-the-air-2026-11-11.html</loc>
-    <lastmod>2026-11-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://vicentegabrielflores.com/whats-in-the-air-2026-11-10.html</loc>
-    <lastmod>2026-11-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://vicentegabrielflores.com/whats-in-the-air-2026-11-09.html</loc>
-    <lastmod>2026-11-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://vicentegabrielflores.com/whats-in-the-air-2026-11-08.html</loc>
-    <lastmod>2026-11-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://vicentegabrielflores.com/whats-in-the-air-2026-11-07.html</loc>
-    <lastmod>2026-11-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://vicentegabrielflores.com/whats-in-the-air-2026-11-06.html</loc>
-    <lastmod>2026-11-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://vicentegabrielflores.com/whats-in-the-air.xml</loc>
     <lastmod>2026-11-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.4</priority>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 
+<url>
+    <loc>https://vicentegabrielflores.com/whats-in-the-air-2026-11-17.html</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 
-  <url>
+<url>
+    <loc>https://vicentegabrielflores.com/whats-in-the-air-2026-11-16.html</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+<url>
+    <loc>https://vicentegabrielflores.com/whats-in-the-air-2026-11-14.html</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+<url>
+    <loc>https://vicentegabrielflores.com/whats-in-the-air-2026-11-13.html</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+<url>
+    <loc>https://vicentegabrielflores.com/whats-in-the-air-2026-11-12.html</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+<url>
+    <loc>https://vicentegabrielflores.com/whats-in-the-air-2026-11-11.html</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+<url>
+    <loc>https://vicentegabrielflores.com/whats-in-the-air-2026-11-10.html</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+<url>
+    <loc>https://vicentegabrielflores.com/whats-in-the-air-2026-11-09.html</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+<url>
+    <loc>https://vicentegabrielflores.com/whats-in-the-air-2026-11-08.html</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+<url>
+    <loc>https://vicentegabrielflores.com/whats-in-the-air-2026-11-07.html</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+<url>
+    <loc>https://vicentegabrielflores.com/whats-in-the-air-2026-11-06.html</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+<url>
     <loc>https://vicentegabrielflores.com/stories/index.html</loc>
-    <lastmod>2026-11-11</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <url>
+<url>
     <loc>https://vicentegabrielflores.com/stories/salt-water.html</loc>
-    <lastmod>2026-11-11</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
-  <url>
+<url>
     <loc>https://vicentegabrielflores.com/stories/the-buried-port.html</loc>
-    <lastmod>2026-11-11</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
-  <url>
+<url>
     <loc>https://vicentegabrielflores.com/stories/the-girl-at-concordia.html</loc>
-    <lastmod>2026-11-11</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -354,5 +434,51 @@
     <lastmod>2026-11-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+
+<url>
+    <loc>https://vicentegabrielflores.com/rights.html</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+</url>
+
+<url>
+    <loc>https://vicentegabrielflores.com/art/jinghan.html</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+
+    <image:image>
+      <image:loc>https://vicentegabrielflores.com/assets/art/jinghan-gold-leaf-painting-vicente-gabriel-flores-1584.jpg</image:loc>
+      <image:title>Jinghan</image:title>
+      <image:license>https://vicentegabrielflores.com/rights.html</image:license>
+    </image:image>
+  </url>
+
+<url>
+    <loc>https://vicentegabrielflores.com/art/lawrence.html</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+
+    <image:image>
+      <image:loc>https://vicentegabrielflores.com/assets/art/lawrence-mother-and-baby-drawing-vicente-gabriel-flores-1600.png</image:loc>
+      <image:title>Lawrence</image:title>
+      <image:license>https://vicentegabrielflores.com/rights.html</image:license>
+    </image:image>
+  </url>
+
+<url>
+    <loc>https://vicentegabrielflores.com/art/leo.html</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+
+    <image:image>
+      <image:loc>https://vicentegabrielflores.com/assets/art/leo-drawing-vicente-gabriel-flores-1024.png</image:loc>
+      <image:title>Leo</image:title>
+      <image:license>https://vicentegabrielflores.com/rights.html</image:license>
+    </image:image>
   </url>
 </urlset>
