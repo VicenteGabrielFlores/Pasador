@@ -10,7 +10,7 @@ The author name on every new page is **Vicente Gabriel Flores**. Do not add any 
 2. Prepend one card at the top of the list in `whats-in-the-air.html` (newest first).
 2b. In index.html, replace both `/whats-in-the-air-YYYY-MM-DD.html` hrefs in the Air tile and the EN/ES titles with the new edition; set `/` lastmod. `tests/home_air_link.py` fails if the homepage does not link the newest edition file in the repo.
 3. Prepend one `<entry>` in `whats-in-the-air.xml` and set the feed `<updated>` to that edition.
-4. Add the new page to `sitemap.xml` and leave it there. Do not add `whats-in-the-air.xml` to `sitemap.xml`. Rebuild `news-sitemap.xml` so it lists only editions dated within the last 2 days (48 hours): each new edition replaces older entries. The news sitemap file stays in the repo; do not list it in `sitemap-index.xml` or `robots.txt`. Set `<lastmod>` on the new page, on `whats-in-the-air.html`, and on the `sitemap.xml` entry in `sitemap-index.xml`. Set `<lastmod>` on `/` when step 2b changes the homepage.
+4. Add the new page to `sitemap.xml` and leave it there. Do not add `whats-in-the-air.xml` to `sitemap.xml`. Rebuild `news-sitemap.xml` so it lists only editions dated within the last 2 days (48 hours): each new edition replaces older entries. The news sitemap file stays in the repo and stays listed in `sitemap-index.xml`. Do not add it to `robots.txt`. Set `<lastmod>` on the new page, on `whats-in-the-air.html`, and on the `sitemap.xml` entry in `sitemap-index.xml`. Set `<lastmod>` on `/` when step 2b changes the homepage.
 5. Leave `robots.txt` as it is unless a real restriction is required. `Allow: /` already covers these URLs. Keep the `Sitemap` lines for `sitemap.xml` and `sitemap-index.xml`. Do not add `news-sitemap.xml` back to `robots.txt`. Do not remove the other rules.
 6. Home and Poems already link to the archive. A new edition does not need its own navigation item. The shared menu already links the archive. Leave that menu in place, including Author, Art, La Toma, Articles, Davos, Crónicas, and Familia.
 
@@ -48,7 +48,7 @@ Google News reads only articles from the last 48 hours. Keep an edition here onl
 
 `news:language` is `en`. Each edition is one bilingual page whose document language is English, and the news sitemap allows a single language code on a URL, so `es` is not a second tag beside it. A future edition whose page language is Spanish (`<html lang="es">`, with no English section) uses `es`.
 
-`news-sitemap.xml` stays in the repository. `robots.txt` does not name it, and `sitemap-index.xml` does not list it. Do not add it back to either file.
+`news-sitemap.xml` stays in the repository. `sitemap-index.xml` lists it beside `sitemap.xml`. `robots.txt` does not name it. Do not add it to `robots.txt`.
 
 ## Foreground color
 
