@@ -4,7 +4,7 @@
 
 <url>
     <loc>https://vicentegabrielflores.com/</loc>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -298,9 +298,16 @@
 
 <url>
     <loc>https://vicentegabrielflores.com/whats-in-the-air.html</loc>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://vicentegabrielflores.com/whats-in-the-air-2026-11-20.html</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 
   <url>
