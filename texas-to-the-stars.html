@@ -16,6 +16,8 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@pasadornovel">
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Cinzel:wght@400;500&display=swap">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Cinzel:wght@400;500&display=swap" rel="stylesheet">
 <style id="shared-nav-css">
 /* shared-nav */
@@ -87,30 +89,59 @@ footer a{color:inherit}
   }
 }
 </script>
+<link rel="stylesheet" href="/assets/site-nav.css">
 </head>
 <body>
 <nav id="navbar" aria-label="Primary">
-  <a href="/" class="nav-title"><img src="/portrait-vicente.png" alt="" width="22" height="22">PASADOR</a>
-  <button class="nav-toggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false">
+  <a href="/" class="nav-title"><img src="/assets/portrait-menu.webp" alt="" width="22" height="22">PASADOR</a>
+  <button class="nav-toggle" id="navToggle" type="button" aria-controls="navLinks" aria-expanded="false" aria-label="Open menu" data-label-open="Open menu" data-label-close="Close menu">
     <span></span><span></span><span></span>
   </button>
   <ul class="nav-links" id="navLinks">
-    <li><a href="/">Home</a></li>
-    <li><a href="/author.html">Author</a></li>
-    <li><a href="/the-manifest.html">The Manifest</a></li>
-    <li><a href="/modern-play.html">The Play</a></li>
-    <li><a href="/la-toma.html">La Toma</a></li>
-    <li><a href="/belmont-road.html">Belmont Road</a></li>
-    <li><a href="/from-ship-to-ship.html">Ship to Ship</a></li>
-    <li><a href="/davos.html">Davos</a></li>
-    <li><a href="/articles.html">Articles</a></li>
-    <li><a href="/poems.html">Poems</a></li>
-    <li><a href="/art.html">Art</a></li>
-    <li><a href="/stories/index.html">Stories</a></li>
-    <li><a href="/whats-in-the-air.html">The Air</a></li>
-    <li><a href="/historia.html">Crónicas</a></li>
-    <li><a href="/artifacts.html">Artifacts</a></li>
-    <li><a href="/familia.html">Familia</a></li>
+    <li class="nav-group">
+      <button type="button" class="nav-group-btn" aria-expanded="false" aria-controls="nav-writing">Writing</button>
+      <ul class="nav-sub" id="nav-writing">
+        <li><a href="/poems.html">Poems</a></li>
+        <li><a href="/stories/index.html">Stories</a></li>
+        <li><a href="/la-toma.html">La Toma</a></li>
+        <li><a href="/modern-play.html">The Modern Play</a></li>
+        <li><a href="/belmont-road.html">Belmont Road</a></li>
+        <li><a href="/from-ship-to-ship.html">From Ship to Ship</a></li>
+        <li><a href="/davos.html">Davos</a></li>
+        <li><a href="/articles.html">Articles</a></li>
+        <li><a href="/#novel">The Novel</a></li>
+        <li><a href="/the-manifest.html">The Manifest</a></li>
+      </ul>
+    </li>
+    <li class="nav-group">
+      <button type="button" class="nav-group-btn" aria-expanded="false" aria-controls="nav-art">Art</button>
+      <ul class="nav-sub" id="nav-art">
+        <li><a href="/art.html">Art</a></li>
+        <li><a href="/art/jinghan.html">Jinghan</a></li>
+        <li><a href="/art/lawrence.html">Lawrence</a></li>
+        <li><a href="/art/leo.html">Leo</a></li>
+      </ul>
+    </li>
+    <li class="nav-group"><a class="nav-direct" href="/whats-in-the-air.html">The Air</a></li>
+    <li class="nav-group">
+      <button type="button" class="nav-group-btn" aria-expanded="false" aria-controls="nav-cronicas">Las Crónicas</button>
+      <ul class="nav-sub" id="nav-cronicas">
+        <li><a href="/historia.html">Las Crónicas</a></li>
+        <li><a href="/san-antonio-1731.html">San Antonio, 1731</a></li>
+        <li><a href="/alamo.html">The Alamo</a></li>
+        <li><a href="/el-paso.html">El Paso and Juárez</a></li>
+        <li><a href="/texas-to-the-stars.html">Texas to the Stars</a></li>
+        <li><a href="/artifacts.html">Artifacts</a></li>
+        <li><a href="/familia.html">La Familia</a></li>
+      </ul>
+    </li>
+    <li class="nav-group">
+      <button type="button" class="nav-group-btn" aria-expanded="false" aria-controls="nav-author">Author</button>
+      <ul class="nav-sub" id="nav-author">
+        <li><a href="/author.html">Author</a></li>
+        <li><a href="/rights.html">Rights</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 <main>
@@ -150,7 +181,7 @@ footer a{color:inherit}
 </main>
 <footer><span class="footer-title">PASADOR · Las Crónicas · Vicente Gabriel Flores · 2026</span>
   <a href="https://x.com/pasadornovel" target="_blank" rel="noopener" class="footer-link">@pasadornovel</a>
-  <span class="footer-closing">No hemos llegado aún a la vendimia.</span>
+  <span class="footer-closing" lang="es">No hemos llegado aún a la vendimia.</span>
   <span class="footer-copyright"><strong>© 2026 Vicente Gabriel Flores. All rights reserved.</strong> This is an unpublished work. No part of <em>Las Crónicas</em> or the novel <em>PASADOR</em> may be reproduced, distributed, transmitted, or used in any form — including for the training of machine-learning systems — without the prior written permission of the author. All inquiries: <a href="https://x.com/pasadornovel" target="_blank" rel="noopener" style="color:inherit;border-bottom:1px solid var(--parchment-faint);text-decoration:none;">@pasadornovel</a>.</span></footer>
 <script id="shared-nav-js">
 (function(){
@@ -174,5 +205,6 @@ footer a{color:inherit}
   });
 })();
 </script>
+<script src="/assets/site-nav.js" defer></script>
 </body>
 </html>

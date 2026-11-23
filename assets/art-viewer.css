@@ -1,0 +1,155 @@
+/* Artwork label and the full-screen viewer. The look stays black and gold. */
+.art-zoom{
+  display:block;
+  width:100%;
+  padding:0;
+  border:0;
+  background:none;
+  color:inherit;
+  cursor:zoom-in;
+  text-align:inherit;
+}
+.art-zoom img{display:block;width:100%;height:auto}
+.art-zoom:focus-visible{outline:1px solid #e0b45c;outline-offset:3px}
+
+.work-label{
+  margin:0 auto 0.2rem;
+  text-align:center;
+}
+.work-label .work-fact{
+  margin:0.55rem 0;
+}
+.work-label dt{
+  font-family:'Cinzel',serif;
+  font-size:0.62rem;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:#e0b45c;
+}
+.work-label dd{
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-style:italic;
+  font-weight:300;
+  font-size:1.45rem;
+  line-height:1.2;
+  color:#efe0c4;
+  margin:0.1rem 0 0;
+}
+.work-fact[hidden],
+.work-statement[hidden]{display:none !important}
+
+.art-viewer{
+  width:100vw;
+  height:100vh;
+  max-width:100vw;
+  max-height:100vh;
+  margin:0;
+  padding:0;
+  border:0;
+  background:#080604;
+  color:#efe0c4;
+}
+.art-viewer::backdrop{background:rgba(0,0,0,0.94)}
+.art-viewer-stage{
+  width:100%;
+  height:100%;
+  overflow:hidden;
+  touch-action:none;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:grab;
+}
+.art-viewer-stage.is-panning{cursor:grabbing}
+.art-viewer-stage img{
+  position:absolute;
+  left:0;
+  top:0;
+  max-width:none;
+  max-height:none;
+  transform-origin:0 0;
+  user-select:none;
+  -webkit-user-drag:none;
+}
+.art-viewer-close,
+.art-viewer-hint{
+  font-family:'Cinzel',serif;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+}
+.art-viewer-close{
+  position:absolute;
+  top:0.85rem;
+  right:0.85rem;
+  z-index:2;
+  background:transparent;
+  color:#e0b45c;
+  border:1px solid rgba(224,180,92,0.55);
+  padding:0.55rem 0.85rem;
+  font-size:0.66rem;
+  cursor:pointer;
+}
+.art-viewer-hint{
+  position:absolute;
+  left:0.85rem;
+  right:6rem;
+  bottom:0.85rem;
+  z-index:2;
+  margin:0;
+  font-size:0.58rem;
+  color:#c4aa88;
+  pointer-events:none;
+}
+.art-viewer-close:focus-visible{outline:1px solid #e0b45c;outline-offset:3px}
+
+/* Homepage band. Same type and the same gold line as the other sections. */
+.art-band{
+  padding:2.4rem 0 3.2rem;
+  border-top:1px solid rgba(224,180,92,0.55);
+  text-align:center;
+}
+.art-band-kicker{
+  font-family:'Cinzel',serif;
+  font-size:0.72rem;
+  letter-spacing:0.35em;
+  text-transform:uppercase;
+  color:#e0b45c;
+  margin:0 0 0.35rem;
+}
+.art-band-es{
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-style:italic;
+  font-weight:300;
+  font-size:clamp(1.6rem,3vw,2.4rem);
+  color:#e0b45c;
+  margin:0 0 1.2rem;
+}
+.art-band-frame{
+  margin:0;
+}
+.art-band-frame img{display:block;width:100%;height:auto}
+.art-band-caption{
+  max-width:40rem;
+  margin:1.15rem auto 0;
+  padding:0 1.4rem;
+  font-family:'EB Garamond',Georgia,serif;
+  font-size:1.12rem;
+  line-height:1.6;
+  color:#efe0c4;
+}
+.art-band-caption a{color:#e0b45c;text-decoration:none;border-bottom:1px solid rgba(224,180,92,0.35)}
+.art-band-links{
+  margin:0.85rem 0 0;
+  font-family:'Cinzel',serif;
+  font-size:0.66rem;
+  letter-spacing:0.16em;
+  text-transform:uppercase;
+}
+.art-band-links a{color:#e0b45c;text-decoration:none}
+.art-band-links a:hover,
+.art-band-links a:focus-visible{color:#efe0c4}
+.art-band-links .sep{color:#e0b45c;opacity:0.55;margin:0 0.7rem}
+@media (max-width:700px){
+  .art-band{padding:1.8rem 0 2.4rem}
+  .art-band-caption{font-size:1.05rem}
+}
