@@ -80,6 +80,8 @@
 }
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Cinzel:wght@400;500&display=swap">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Cinzel:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -1047,32 +1049,92 @@ section[id]{scroll-margin-top:5.5rem}
   .nav-title{font-size:0.68rem;letter-spacing:0.1em}
 }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ImageObject",
+      "name": "og-image.jpg",
+      "contentUrl": "https://vicentegabrielflores.com/og-image.jpg",
+      "creator": {
+        "@id": "https://vicentegabrielflores.com/#author"
+      },
+      "creditText": "Vicente Gabriel Flores",
+      "copyrightNotice": "© 2026 Vicente Gabriel Flores",
+      "license": "https://vicentegabrielflores.com/rights.html",
+      "acquireLicensePage": "https://vicentegabrielflores.com/rights.html"
+    },
+    {
+      "@type": "ImageObject",
+      "name": "jinghan-gold-leaf-painting-vicente-gabriel-flores-800.jpg",
+      "contentUrl": "https://vicentegabrielflores.com/assets/art/jinghan-gold-leaf-painting-vicente-gabriel-flores-800.jpg",
+      "creator": {
+        "@id": "https://vicentegabrielflores.com/#author"
+      },
+      "creditText": "Vicente Gabriel Flores",
+      "copyrightNotice": "© 2026 Vicente Gabriel Flores",
+      "license": "https://vicentegabrielflores.com/rights.html",
+      "acquireLicensePage": "https://vicentegabrielflores.com/rights.html"
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="/assets/site-nav.css">
+<link rel="stylesheet" href="/assets/art-viewer.css">
 </head>
-<body>
+<body data-viewer-hint="Pinch or scroll to zoom. Escape closes." data-viewer-close="Close">
 
-<nav id="navbar">
-  <a href="#hero" class="nav-title" style="display:inline-flex;align-items:center;gap:0.45rem"><img src="/portrait-vicente.png" alt="" width="22" height="22" style="width:22px;height:22px;border-radius:50%;object-fit:cover;flex:none">Vicente Gabriel Flores</a>
-  <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+<nav id="navbar" aria-label="Primary">
+  <a href="/" class="nav-title"><img src="/assets/portrait-menu.webp" alt="" width="22" height="22">PASADOR</a>
+  <button class="nav-toggle" id="navToggle" type="button" aria-controls="navLinks" aria-expanded="false" aria-label="Open menu" data-label-open="Open menu" data-label-close="Close menu">
     <span></span><span></span><span></span>
   </button>
   <ul class="nav-links" id="navLinks">
-    <li><a href="/poems.html">Poems</a></li>
-    <li><a href="/art.html">Art</a></li>
-    <li><a href="/stories/index.html">Stories</a></li>
-    <li><a href="#plays">Plays</a></li>
-    <li><a href="#novels">Novels</a></li>
-    <li><a href="/whats-in-the-air.html">What’s in the Air</a></li>
-    <li><a href="/historia.html">Crónicas</a></li>
-    <li><a href="/author.html">Author</a></li>
-    <li class="nav-more"><a href="#novel">The Novel</a></li>
-    <li class="nav-more"><a href="#manifest">The Manifest</a></li>
-    <li class="nav-more"><a href="/artifacts.html">Artifacts</a></li>
-    <li class="nav-more"><a href="#harness">Harness-Maker</a></li>
-    <li class="nav-more"><a href="/la-toma.html">La Toma</a></li>
-    <li class="nav-more"><a href="/modern-play.html">Modern Play</a></li>
-    <li class="nav-more"><a href="/from-ship-to-ship.html">Ship to Ship</a></li>
-    <li class="nav-more"><a href="#belmont-road">Belmont Road</a></li>
-    <li class="nav-more"><a href="#family">La Familia</a></li>
+    <li class="nav-group">
+      <button type="button" class="nav-group-btn" aria-expanded="false" aria-controls="nav-writing">Writing</button>
+      <ul class="nav-sub" id="nav-writing">
+        <li><a href="/poems.html">Poems</a></li>
+        <li><a href="/stories/index.html">Stories</a></li>
+        <li><a href="/la-toma.html">La Toma</a></li>
+        <li><a href="/modern-play.html">The Modern Play</a></li>
+        <li><a href="/belmont-road.html">Belmont Road</a></li>
+        <li><a href="/from-ship-to-ship.html">From Ship to Ship</a></li>
+        <li><a href="/davos.html">Davos</a></li>
+        <li><a href="/articles.html">Articles</a></li>
+        <li><a href="/#novel">The Novel</a></li>
+        <li><a href="/the-manifest.html">The Manifest</a></li>
+      </ul>
+    </li>
+    <li class="nav-group">
+      <button type="button" class="nav-group-btn" aria-expanded="false" aria-controls="nav-art">Art</button>
+      <ul class="nav-sub" id="nav-art">
+        <li><a href="/art.html">Art</a></li>
+        <li><a href="/art/jinghan.html">Jinghan</a></li>
+        <li><a href="/art/lawrence.html">Lawrence</a></li>
+        <li><a href="/art/leo.html">Leo</a></li>
+      </ul>
+    </li>
+    <li class="nav-group"><a class="nav-direct" href="/whats-in-the-air.html">The Air</a></li>
+    <li class="nav-group">
+      <button type="button" class="nav-group-btn" aria-expanded="false" aria-controls="nav-cronicas">Las Crónicas</button>
+      <ul class="nav-sub" id="nav-cronicas">
+        <li><a href="/historia.html">Las Crónicas</a></li>
+        <li><a href="/san-antonio-1731.html">San Antonio, 1731</a></li>
+        <li><a href="/alamo.html">The Alamo</a></li>
+        <li><a href="/el-paso.html">El Paso and Juárez</a></li>
+        <li><a href="/texas-to-the-stars.html">Texas to the Stars</a></li>
+        <li><a href="/artifacts.html">Artifacts</a></li>
+        <li><a href="/familia.html">La Familia</a></li>
+      </ul>
+    </li>
+    <li class="nav-group">
+      <button type="button" class="nav-group-btn" aria-expanded="false" aria-controls="nav-author">Author</button>
+      <ul class="nav-sub" id="nav-author">
+        <li><a href="/author.html">Author</a></li>
+        <li><a href="/rights.html">Rights</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 
@@ -1164,6 +1226,23 @@ section[id]{scroll-margin-top:5.5rem}
   <p class="quiet-links"><a href="/artifacts.html">Artifacts</a><span class="sep">·</span><a href="/familia.html">La Familia</a></p>
 </section>
 
+
+<!-- ART -->
+<section id="art" class="art-band" aria-labelledby="art-heading">
+  <p class="art-band-kicker" id="art-heading">Art</p>
+  <p class="art-band-es" lang="es">Arte</p>
+  <figure class="art-band-frame">
+    <a class="art-zoom" href="/assets/art/jinghan-gold-leaf-painting-vicente-gabriel-flores-1584.jpg" aria-label="Enlarge Jinghan">
+      <picture>
+        <source type="image/webp" srcset="/assets/art/jinghan-gold-leaf-painting-vicente-gabriel-flores-800.webp 800w, /assets/art/jinghan-gold-leaf-painting-vicente-gabriel-flores-1584.webp 1584w" sizes="100vw">
+        <img src="/assets/art/jinghan-gold-leaf-painting-vicente-gabriel-flores-800.jpg" srcset="/assets/art/jinghan-gold-leaf-painting-vicente-gabriel-flores-800.jpg 800w, /assets/art/jinghan-gold-leaf-painting-vicente-gabriel-flores-1584.jpg 1584w" sizes="100vw" width="1584" height="672" alt="Jinghan, gold-leaf painting by Vicente Gabriel Flores: gold brushwork inside a thin gold circle, with ribbons of golden light and four-point stars on black." loading="lazy" decoding="async">
+      </picture>
+    </a>
+  </figure>
+  <p class="art-band-caption"><a href="/art/jinghan.html">Jinghan</a>. Gold brushwork inside a thin gold circle, with ribbons of golden light and four-point stars on black. <span lang="es">Pincel de oro dentro de un círculo de oro fino, con cintas de luz dorada y estrellas de cuatro puntas sobre negro.</span></p>
+  <p class="art-band-links"><a href="/art.html">Art</a><span class="sep">·</span><a href="/art.html" lang="es">Arte</a><span class="sep">·</span><a href="/art/jinghan.html">Jinghan</a><span class="sep">·</span><a href="/art/lawrence.html">Lawrence</a><span class="sep">·</span><a href="/art/leo.html">Leo</a></p>
+</section>
+
 <!-- THE NOVEL -->
 <section id="novel">
   <p class="section-label reveal">The Novel</p>
@@ -1217,7 +1296,7 @@ section[id]{scroll-margin-top:5.5rem}
 <!-- CHRONICLE -->
 <section id="cronica">
   <p class="cronica-eyebrow reveal">The Documentary Companion</p>
-  <h2 class="cronica-title reveal">Las Crónicas</h2>
+  <h2 class="cronica-title reveal" lang="es">Las Crónicas</h2>
   <p class="cronica-subtitle reveal"><em>The Chronicles</em></p>
 
   <p class="cronica-pitch reveal">Alongside the novel, a documentary companion — <em>ten chronicles, eighty-eight thousand five hundred words, two hundred and ninety-six years of one family</em> — from the harness-maker's son in 1730 Tenerife to the grandson writing in 2026 Austin.</p>
@@ -1489,7 +1568,7 @@ section[id]{scroll-margin-top:5.5rem}
     <span class="oa-note">cronista@vicentegabrielflores.com</span>
   </div>
 
-  <p class="cronica-closing reveal">No están detrás de nosotros. Están en otra habitación.</p>
+  <p class="cronica-closing reveal" lang="es">No están detrás de nosotros. Están en otra habitación.</p>
 </section>
 
 
@@ -1542,7 +1621,7 @@ section[id]{scroll-margin-top:5.5rem}
   <div class="fam-container">
 
     <p class="fam-label reveal">The Family · 1730 — 2026</p>
-    <h2 class="fam-title reveal">La <em>Familia</em></h2>
+    <h2 class="fam-title reveal" lang="es">La <em>Familia</em></h2>
     <p class="fam-lede reveal">Four families, twelve documented generations, two ocean crossings — the record beneath the novel.</p>
 
     <div class="fam-crests reveal">
@@ -1764,7 +1843,7 @@ section[id]{scroll-margin-top:5.5rem}
 <footer>
   <span class="footer-title">PASADOR · Vicente Gabriel Flores · 2026</span>
   <a href="https://x.com/pasadornovel" target="_blank" rel="noopener" style="font-family:Cinzel,serif;font-size:0.65rem;letter-spacing:0.2em;color:var(--gold-dim);text-decoration:none;">@pasadornovel</a>
-  <span class="footer-closing">No hemos llegado aún a la vendimia.</span>
+  <span class="footer-closing" lang="es">No hemos llegado aún a la vendimia.</span>
   <span class="footer-copyright"><strong>© 2026 Vicente Gabriel Flores. All rights reserved.</strong> <em>PASADOR</em>, <em>THE MANIFEST</em>, <em>Las Crónicas</em>, and all related text and content are unpublished works. No part may be reproduced, distributed, transmitted, or used in any form — including for the training of machine-learning systems — without the prior written permission of the author. All inquiries: <a href="https://x.com/pasadornovel" target="_blank" rel="noopener" style="color:inherit;border-bottom:1px solid var(--parchment-faint);text-decoration:none;">@pasadornovel</a>.</span>
 </footer>
 
@@ -1804,5 +1883,7 @@ document.querySelectorAll('.reveal').forEach(el => {
   observer.observe(el);
 });
 </script>
+<script src="/assets/site-nav.js" defer></script>
+<script src="/assets/art-viewer.js" defer></script>
 </body>
 </html>

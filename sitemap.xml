@@ -4,7 +4,7 @@
 
 <url>
     <loc>https://vicentegabrielflores.com/</loc>
-    <lastmod>2026-11-22</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -30,7 +30,7 @@
 
 <url>
     <loc>https://vicentegabrielflores.com/art.html</loc>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   
@@ -529,5 +529,64 @@
       <image:title>Leo</image:title>
       <image:license>https://vicentegabrielflores.com/rights.html</image:license>
     </image:image>
+  </url>
+<url>
+    <loc>https://vicentegabrielflores.com/es-ES/art.html</loc>
+    <lastmod>2026-11-23</lastmod>
+  </url>
+
+<url>
+    <loc>https://vicentegabrielflores.com/es-ES/art/jinghan.html</loc>
+    <lastmod>2026-11-23</lastmod>
+  </url>
+
+<url>
+    <loc>https://vicentegabrielflores.com/es-ES/art/lawrence.html</loc>
+    <lastmod>2026-11-23</lastmod>
+  </url>
+
+<url>
+    <loc>https://vicentegabrielflores.com/es-ES/art/leo.html</loc>
+    <lastmod>2026-11-23</lastmod>
+  </url>
+
+<url>
+    <loc>https://vicentegabrielflores.com/es-MX/art.html</loc>
+    <lastmod>2026-11-23</lastmod>
+  </url>
+
+<url>
+    <loc>https://vicentegabrielflores.com/es-MX/art/jinghan.html</loc>
+    <lastmod>2026-11-23</lastmod>
+  </url>
+
+<url>
+    <loc>https://vicentegabrielflores.com/es-MX/art/lawrence.html</loc>
+    <lastmod>2026-11-23</lastmod>
+  </url>
+
+<url>
+    <loc>https://vicentegabrielflores.com/es-MX/art/leo.html</loc>
+    <lastmod>2026-11-23</lastmod>
+  </url>
+
+<url>
+    <loc>https://vicentegabrielflores.com/ja/art.html</loc>
+    <lastmod>2026-11-23</lastmod>
+  </url>
+
+<url>
+    <loc>https://vicentegabrielflores.com/ja/art/jinghan.html</loc>
+    <lastmod>2026-11-23</lastmod>
+  </url>
+
+<url>
+    <loc>https://vicentegabrielflores.com/ja/art/lawrence.html</loc>
+    <lastmod>2026-11-23</lastmod>
+  </url>
+
+<url>
+    <loc>https://vicentegabrielflores.com/ja/art/leo.html</loc>
+    <lastmod>2026-11-23</lastmod>
   </url>
 </urlset>

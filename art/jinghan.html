@@ -8,6 +8,11 @@
 <meta name="author" content="Vicente Gabriel Flores">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="canonical" href="https://vicentegabrielflores.com/art/jinghan.html">
+<link rel="alternate" hreflang="en" href="https://vicentegabrielflores.com/art/jinghan.html">
+<link rel="alternate" hreflang="es-ES" href="https://vicentegabrielflores.com/es-ES/art/jinghan.html">
+<link rel="alternate" hreflang="es-MX" href="https://vicentegabrielflores.com/es-MX/art/jinghan.html">
+<link rel="alternate" hreflang="ja" href="https://vicentegabrielflores.com/ja/art/jinghan.html">
+<link rel="alternate" hreflang="x-default" href="https://vicentegabrielflores.com/art/jinghan.html">
 <link rel="stylesheet" href="/assets/author-credit.css">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Vicente Gabriel Flores">
@@ -24,6 +29,7 @@
 <meta name="twitter:image:alt" content="Jinghan, gold-leaf painting by Vicente Gabriel Flores: gold brushwork inside a thin gold circle, with ribbons of golden light and four-point stars on black.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&amp;family=EB+Garamond:ital,wght@0,400;0,500;1,400&amp;family=Cinzel:wght@400;500&amp;display=swap">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&amp;family=EB+Garamond:ital,wght@0,400;0,500;1,400&amp;family=Cinzel:wght@400;500&amp;display=swap" rel="stylesheet">
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -39,23 +45,27 @@
     {
       "@type": "VisualArtwork",
       "name": "Jinghan",
-      "dateCreated": "2026-11-13",
       "url": "https://vicentegabrielflores.com/art/jinghan.html",
       "image": "https://vicentegabrielflores.com/assets/art/jinghan-gold-leaf-painting-vicente-gabriel-flores-1584.jpg",
       "creator": {
-        "@id": "https://vicentegabrielflores.com/#author"
+        "@type": "Person",
+        "@id": "https://vicentegabrielflores.com/#author",
+        "name": "Vicente Gabriel Flores"
       },
       "copyrightHolder": {
         "@id": "https://vicentegabrielflores.com/#author"
       },
-      "creditText": "Vicente Gabriel Flores"
+      "creditText": "Vicente Gabriel Flores",
+      "artform": "gold-leaf painting"
     },
     {
       "@type": "ImageObject",
       "name": "Jinghan",
       "contentUrl": "https://vicentegabrielflores.com/assets/art/jinghan-gold-leaf-painting-vicente-gabriel-flores-1584.jpg",
       "creator": {
-        "@id": "https://vicentegabrielflores.com/#author"
+        "@type": "Person",
+        "@id": "https://vicentegabrielflores.com/#author",
+        "name": "Vicente Gabriel Flores"
       },
       "creditText": "Vicente Gabriel Flores",
       "copyrightNotice": "© 2026 Vicente Gabriel Flores",
@@ -118,43 +128,83 @@ footer{padding:2rem 1.5rem 3rem;border-top:1px solid var(--sep);text-align:cente
 }
 </style>
 
+<link rel="stylesheet" href="/assets/site-nav.css">
+<link rel="stylesheet" href="/assets/art-viewer.css">
 </head>
-<body>
+<body data-viewer-hint="Pinch or scroll to zoom. Escape closes." data-viewer-close="Close">
 <nav id="navbar" aria-label="Primary">
-  <a href="/" class="nav-title"><img src="/portrait-vicente.png" alt="" width="22" height="22">PASADOR</a>
-  <button class="nav-toggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false">
+  <a href="/" class="nav-title"><img src="/assets/portrait-menu.webp" alt="" width="22" height="22">PASADOR</a>
+  <button class="nav-toggle" id="navToggle" type="button" aria-controls="navLinks" aria-expanded="false" aria-label="Open menu" data-label-open="Open menu" data-label-close="Close menu">
     <span></span><span></span><span></span>
   </button>
   <ul class="nav-links" id="navLinks">
-    <li><a href="/">Home</a></li>
-    <li><a href="/author.html">Author</a></li>
-    <li><a href="/the-manifest.html">The Manifest</a></li>
-    <li><a href="/modern-play.html">The Play</a></li>
-    <li><a href="/la-toma.html">La Toma</a></li>
-    <li><a href="/belmont-road.html">Belmont Road</a></li>
-    <li><a href="/from-ship-to-ship.html">Ship to Ship</a></li>
-    <li><a href="/davos.html">Davos</a></li>
-    <li><a href="/articles.html">Articles</a></li>
-    <li><a href="/poems.html">Poems</a></li>
-    <li><a href="/art.html" class="active" aria-current="page">Art</a></li>
-    <li><a href="/stories/index.html">Stories</a></li>
-    <li><a href="/whats-in-the-air.html">The Air</a></li>
-    <li><a href="/historia.html">Crónicas</a></li>
-    <li><a href="/artifacts.html">Artifacts</a></li>
-    <li><a href="/familia.html">Familia</a></li>
+    <li class="nav-group">
+      <button type="button" class="nav-group-btn" aria-expanded="false" aria-controls="nav-writing">Writing</button>
+      <ul class="nav-sub" id="nav-writing">
+        <li><a href="/poems.html">Poems</a></li>
+        <li><a href="/stories/index.html">Stories</a></li>
+        <li><a href="/la-toma.html">La Toma</a></li>
+        <li><a href="/modern-play.html">The Modern Play</a></li>
+        <li><a href="/belmont-road.html">Belmont Road</a></li>
+        <li><a href="/from-ship-to-ship.html">From Ship to Ship</a></li>
+        <li><a href="/davos.html">Davos</a></li>
+        <li><a href="/articles.html">Articles</a></li>
+        <li><a href="/#novel">The Novel</a></li>
+        <li><a href="/the-manifest.html">The Manifest</a></li>
+      </ul>
+    </li>
+    <li class="nav-group">
+      <button type="button" class="nav-group-btn" aria-expanded="false" aria-controls="nav-art">Art</button>
+      <ul class="nav-sub" id="nav-art">
+        <li><a href="/art.html">Art</a></li>
+        <li><a href="/art/jinghan.html">Jinghan</a></li>
+        <li><a href="/art/lawrence.html">Lawrence</a></li>
+        <li><a href="/art/leo.html">Leo</a></li>
+      </ul>
+    </li>
+    <li class="nav-group"><a class="nav-direct" href="/whats-in-the-air.html">The Air</a></li>
+    <li class="nav-group">
+      <button type="button" class="nav-group-btn" aria-expanded="false" aria-controls="nav-cronicas">Las Crónicas</button>
+      <ul class="nav-sub" id="nav-cronicas">
+        <li><a href="/historia.html">Las Crónicas</a></li>
+        <li><a href="/san-antonio-1731.html">San Antonio, 1731</a></li>
+        <li><a href="/alamo.html">The Alamo</a></li>
+        <li><a href="/el-paso.html">El Paso and Juárez</a></li>
+        <li><a href="/texas-to-the-stars.html">Texas to the Stars</a></li>
+        <li><a href="/artifacts.html">Artifacts</a></li>
+        <li><a href="/familia.html">La Familia</a></li>
+      </ul>
+    </li>
+    <li class="nav-group">
+      <button type="button" class="nav-group-btn" aria-expanded="false" aria-controls="nav-author">Author</button>
+      <ul class="nav-sub" id="nav-author">
+        <li><a href="/author.html">Author</a></li>
+        <li><a href="/rights.html">Rights</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 <article class="work" id="jinghan">
   <figure class="work-frame wide">
 
-    <picture>
+    <a class="art-zoom" href="/assets/art/jinghan-gold-leaf-painting-vicente-gabriel-flores-1584.jpg" aria-label="Enlarge Jinghan">
+<picture>
       <source type="image/webp" srcset="/assets/art/jinghan-gold-leaf-painting-vicente-gabriel-flores-800.webp 800w, /assets/art/jinghan-gold-leaf-painting-vicente-gabriel-flores-1584.webp 1584w" sizes="100vw">
-      <img src="/assets/art/jinghan-gold-leaf-painting-vicente-gabriel-flores-1584.jpg" srcset="/assets/art/jinghan-gold-leaf-painting-vicente-gabriel-flores-800.jpg 800w, /assets/art/jinghan-gold-leaf-painting-vicente-gabriel-flores-1584.jpg 1584w" sizes="100vw" width="1584" height="672" alt="Jinghan, gold-leaf painting by Vicente Gabriel Flores: gold brushwork inside a thin gold circle, with ribbons of golden light and four-point stars on black.">
+      <img src="/assets/art/jinghan-gold-leaf-painting-vicente-gabriel-flores-1584.jpg" srcset="/assets/art/jinghan-gold-leaf-painting-vicente-gabriel-flores-800.jpg 800w, /assets/art/jinghan-gold-leaf-painting-vicente-gabriel-flores-1584.jpg 1584w" sizes="100vw" width="1584" height="672" alt="Jinghan, gold-leaf painting by Vicente Gabriel Flores: gold brushwork inside a thin gold circle, with ribbons of golden light and four-point stars on black." fetchpriority="high" decoding="async">
     </picture>
+</a>
   </figure>
   <div class="work-body">
     <h1 class="work-title">Jinghan</h1>
-    <p class="work-meta">13 November 2026 · Vicente Gabriel Flores</p>
+    <dl class="work-label">
+      <div class="work-fact"><dt>Title</dt><dd>Jinghan</dd></div>
+      <div class="work-fact" hidden><dt>Year made</dt><dd>[year]</dd></div>
+      <div class="work-fact" hidden><dt>Medium</dt><dd>[medium]</dd></div>
+      <div class="work-fact" hidden><dt>Size</dt><dd>[size]</dd></div>
+    </dl>
+    <p class="work-statement" lang="en" hidden>[statement]</p>
+    <p class="work-statement" lang="es" hidden>[statement]</p>
+    <p class="work-meta">Added <time datetime="2026-11-13">13 November 2026</time> · Vicente Gabriel Flores</p>
     <p class="work-related">Related work · <a href="/poems/it-feels-me.html">It Feels Me / Me siente</a></p>
     <p class="work-related"><a href="/art.html#jinghan">All art</a> · <a href="/rights.html">Rights and licensing</a></p>
   </div>
@@ -193,5 +243,7 @@ footer{padding:2rem 1.5rem 3rem;border-top:1px solid var(--sep);text-align:cente
 })();
 </script>
 
+<script src="/assets/site-nav.js" defer></script>
+<script src="/assets/art-viewer.js" defer></script>
 </body>
 </html>

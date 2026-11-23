@@ -95,7 +95,7 @@ class AuthorPortrait(unittest.TestCase):
             "https://vicentegabrielflores.com/assets/author-portrait-dramatic.jpg",
             index,
         )
-        self.assertIn('src="/portrait-vicente.png"', index)
+        self.assertIn('src="/assets/portrait-menu.webp"', index)
         self.assertIn(
             'property="og:image" content="https://vicentegabrielflores.com/og-image.jpg"',
             index,

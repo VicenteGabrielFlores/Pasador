@@ -69,3 +69,15 @@ Open the pull request for review. Merging is what publishes the site.
 ## Artwork
 
 If an edition shows an artwork, credit it as described in [ART-ATTRIBUTION.md](ART-ATTRIBUTION.md). The artist is Vicente Gabriel Flores. Jinghan, Lawrence, and Leo are titles of works.
+
+## Image metadata
+
+Every edition's `image` is an `ImageObject` for `og-image.jpg`. Copying the previous edition keeps these fields. Do not delete them. A new file needs the same fields, so the next edition has them too:
+
+- `creator`: `{ "@type": "Person", "@id": "https://vicentegabrielflores.com/#author", "name": "Vicente Gabriel Flores" }`
+- `creditText`: `Vicente Gabriel Flores`
+- `copyrightNotice`: `© 2026 Vicente Gabriel Flores`
+- `license`: `https://vicentegabrielflores.com/rights.html`
+- `acquireLicensePage`: `https://vicentegabrielflores.com/rights.html`
+
+Keep `url`, `width`, and `height`. Add `contentUrl` with the same address as `url`.

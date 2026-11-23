@@ -50,7 +50,7 @@ class PortraitIcons(unittest.TestCase):
         self.assertEqual(base64.b64decode(svg[start:end]), SOURCE.read_bytes())
 
     def test_wordmarks_use_the_portrait_and_signature_is_untouched(self):
-        mark = 'src="/portrait-vicente.png"'
+        mark = 'src="/assets/portrait-menu.webp"'
         for name in [
             "index.html",
             "historia.html",
@@ -63,7 +63,10 @@ class PortraitIcons(unittest.TestCase):
             "whats-in-the-air-2026-11-06.html",
         ]:
             self.assertIn(mark, (ROOT / name).read_text(encoding="utf-8"), name)
-        self.assertFalse((ROOT / "vicente-gabriel-flores-signature.png").exists())
+        menu = Image.open(ROOT / "assets/portrait-menu.webp")
+        self.assertEqual(menu.size, (64, 64))
+        self.assertLess((ROOT / "assets/portrait-menu.webp").stat().st_size, 5000)
+        self.assertTrue((ROOT / "vicente-gabriel-flores-signature.png").exists())
         historia = (ROOT / "historia.html").read_text(encoding="utf-8")
         self.assertIn("Primavera de 2026", historia)
         self.assertIn("19 June 1858", (ROOT / "familia.html").read_text(encoding="utf-8"))

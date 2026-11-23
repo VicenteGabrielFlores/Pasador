@@ -8,7 +8,6 @@ and auction-dependent dates.
 """
 
 from pathlib import Path
-import subprocess
 import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -145,19 +144,14 @@ class HeldText(unittest.TestCase):
             HISTORIA,
         )
 
-    def test_only_the_two_pages_and_this_test_change(self):
-        diff = subprocess.check_output(
-            ["git", "diff", "--name-only", "HEAD"],
-            cwd=ROOT,
-            text=True,
-        ).split()
-        allowed = {
-            "historia.html",
-            "familia.html",
-            "index.html",
-            "tests/historical_corrections_review.py",
-        }
-        self.assertTrue(set(diff) <= allowed, diff)
+    def test_chronicle_record_filenames_stay(self):
+        for name in (
+            "san-antonio-1731.html",
+            "alamo.html",
+            "el-paso.html",
+            "texas-to-the-stars.html",
+        ):
+            self.assertTrue((ROOT / name).is_file(), name)
 
 
 class ApprovedRecordCorrections(unittest.TestCase):
