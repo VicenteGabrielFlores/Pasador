@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""The approved oil portrait is the author photo. Icons stay on the older mark."""
+"""The dramatic portrait is the author photo. Icons stay on the older mark."""
 
 import json
 import re
@@ -9,8 +9,10 @@ from pathlib import Path
 from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[1]
-FULL = ROOT / "assets/author/vicente-gabriel-flores-portrait.jpg"
-SMALL = ROOT / "assets/author/vicente-gabriel-flores-portrait-560.jpg"
+DRAMATIC = ROOT / "assets/author-portrait-dramatic.jpg"
+WEBP = ROOT / "assets/author-portrait-dramatic.webp"
+OG = ROOT / "assets/author-portrait-dramatic-og.jpg"
+TEXT_SUFFIXES = {".html", ".xml", ".json", ".js", ".css", ".py", ".svg", ".webmanifest", ".txt", ".md"}
 
 
 def persons(path):
@@ -38,11 +40,51 @@ def persons(path):
 
 class AuthorPortrait(unittest.TestCase):
     def test_optimized_copies(self):
-        with Image.open(FULL) as full, Image.open(SMALL) as small:
-            self.assertEqual(full.size, (1024, 1024))
-            self.assertEqual(small.size, (560, 560))
-        self.assertLess(FULL.stat().st_size, 200_000)
-        self.assertLess(SMALL.stat().st_size, 200_000)
+        with Image.open(DRAMATIC) as jpg, Image.open(WEBP) as webp, Image.open(OG) as og:
+            self.assertEqual(jpg.format, "JPEG")
+            self.assertEqual(jpg.size, (1199, 1312))
+            self.assertTrue(jpg.info.get("progressive"))
+            self.assertEqual(webp.format, "WEBP")
+            self.assertEqual(webp.size, (1199, 1312))
+            self.assertEqual(og.format, "JPEG")
+            self.assertEqual(og.size, (1200, 630))
+            self.assertTrue(og.info.get("progressive"))
+        self.assertLess(DRAMATIC.stat().st_size, 200_000)
+        self.assertLess(WEBP.stat().st_size, DRAMATIC.stat().st_size)
+        self.assertLess(OG.stat().st_size, 200_000)
+
+    def test_old_oil_portraits_are_removed(self):
+        self.assertFalse((ROOT / "assets/author/vicente-gabriel-flores-portrait.jpg").exists())
+        self.assertFalse((ROOT / "assets/author/vicente-gabriel-flores-portrait-560.jpg").exists())
+        self.assertFalse((ROOT / "assets/author").exists())
+        needle = "vicente-gabriel-flores-portrait"
+        folder = "assets/author/"
+        for path in ROOT.rglob("*"):
+            if not path.is_file() or path.suffix.lower() not in TEXT_SUFFIXES:
+                continue
+            if path.resolve() == Path(__file__).resolve():
+                continue
+            text = path.read_text(encoding="utf-8", errors="ignore")
+            rel = path.relative_to(ROOT).as_posix()
+            self.assertNotIn(needle, text, rel)
+            self.assertNotIn(folder, text, rel)
+
+    def test_published_dimensions_match_the_files(self):
+        with Image.open(DRAMATIC) as jpg, Image.open(OG) as og:
+            width, height = jpg.size
+            og_width, og_height = og.size
+        author = (ROOT / "author.html").read_text(encoding="utf-8")
+        self.assertIn(f'width="{width}" height="{height}"', author)
+        self.assertIn(f'property="og:image:width" content="{og_width}"', author)
+        self.assertIn(f'property="og:image:height" content="{og_height}"', author)
+        for name in ("author.html", "index.html"):
+            for node in persons(ROOT / name):
+                if node.get("name") != "Vicente Gabriel Flores":
+                    continue
+                image = node.get("image")
+                if isinstance(image, dict):
+                    self.assertEqual(image.get("width"), width, name)
+                    self.assertEqual(image.get("height"), height, name)
 
     def test_homepage_author_section_uses_the_portrait(self):
         index = (ROOT / "index.html").read_text(encoding="utf-8")
