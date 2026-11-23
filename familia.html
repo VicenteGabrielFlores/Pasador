@@ -219,6 +219,16 @@ footer .footer-copyright a { color: inherit; text-decoration: none; border-botto
 }
 </style>
 
+
+<style id="record-css">
+.claim,.stop,.person{scroll-margin-top:5.5rem}
+sup.src{font-size:.72em;line-height:0}
+sup.src a{color:var(--gold);text-decoration:none}
+.claim-notes{max-width:880px;margin:0 auto 4rem;padding:0 8%;color:var(--cream-muted);font-size:1.02rem}
+.claim-notes h2{font-family:'Cormorant Garamond',serif;font-weight:400;color:var(--cream);font-size:1.8rem}
+.claim-notes a{color:var(--gold)}
+</style>
+
 </head>
 <body>
 
@@ -724,10 +734,10 @@ footer .footer-copyright a { color: inherit; text-decoration: none; border-botto
       <!-- Carlos -->
       <div class="generation">
         <div class="couple">
-          <div class="person">
+          <div class="person" id="carlos-1913">
             <div class="person-name">Carlos F. <em>Flores</em></div>
             <div class="person-dates">10 Oct 1903 — 18 Mar 1988</div>
-            <div class="person-note">Walked the International Bridge into El Paso at his father's side at ten years old, the night Pancho Villa took Ciudad Juárez. Carried a folded paper for eighty-two years. The draft card and the held death notices are in <a href="/artifacts.html#carlos-flores">Artifacts</a>.</div>
+            <div class="person-note">Walked the International Bridge into El Paso at his father's side at ten years old, the night Pancho Villa took Ciudad Juárez.<sup class="src"><a href="#note-3">3</a></sup> Carried a folded paper for eighty-two years. The draft card and the held death notices are in <a href="/artifacts.html#carlos-flores">Artifacts</a>.</div>
             <div class="person-place">Juárez · El Paso · Florence Street</div>
           </div>
           <div class="junction">&amp;</div>
@@ -819,19 +829,19 @@ footer .footer-copyright a { color: inherit; text-decoration: none; border-botto
       <div class="stop-year">August 1730</div>
     </div>
 
-    <div class="stop">
+    <div class="stop" id="arrival-1731">
       <div class="stop-text">
         <div class="stop-place">San Antonio de Béjar</div>
-        <div class="stop-detail">Arrived at eleven o'clock in the morning. The viceroy named them <em>Hijos Dalgo</em> — Persons of Nobility. The Payaya had been at Yanaguana for twelve thousand years before them.</div>
+        <div class="stop-detail">Arrived at eleven o'clock in the morning.<sup class="src"><a href="#note-1">1</a></sup> The viceroy named them <em>Hijos Dalgo</em> — Persons of Nobility. The Payaya had been at Yanaguana for twelve thousand years before them.</div>
       </div>
       <div class="stop-dot"></div>
       <div class="stop-year">9 Mar 1731</div>
     </div>
 
-    <div class="stop">
+    <div class="stop" id="concordia-name">
       <div class="stop-text">
         <div class="stop-place">Concordia Ranch · <em>El Paso del Norte</em></div>
-        <div class="stop-detail">Hugh named Concordia for the Missouri town that raised him; the land came from Juana's father, and the life of the place was hers. <em>Hugh puso a Concordia el nombre del pueblo de Missouri que lo crió; la tierra vino del padre de Juana, y la vida del lugar fue suya.</em> The silver moved north stamped <em>STEPHENSON</em>. The 1828 date is the marriage: histories say August; a register transcription says 11 November.</div>
+        <div class="stop-detail">Hugh named Concordia for the Missouri town that raised him; the land came from Juana's father, and the life of the place was hers.<sup class="src"><a href="#note-2">2</a></sup> <em>Hugh puso a Concordia el nombre del pueblo de Missouri que lo crió; la tierra vino del padre de Juana, y la vida del lugar fue suya.</em> The silver moved north stamped <em>STEPHENSON</em>. The 1828 date is the marriage: histories say August; a register transcription says 11 November.</div>
       </div>
       <div class="stop-dot"></div>
       <div class="stop-year">1828</div>
@@ -899,6 +909,15 @@ footer .footer-copyright a { color: inherit; text-decoration: none; border-botto
 
 </section>
 
+<section class="claim-notes" id="claim-notes">
+  <h2>Notes</h2>
+  <p lang="es"><em>Notas. Solo fuentes ya nombradas en Las Crónicas.</em></p>
+  <ol>
+    <li id="note-1">Handbook of Texas, “Canary Islanders,” cited in the Fuentes. <a href="https://www.tshaonline.org/handbook/entries/canary-islanders">Canary Islanders</a>. The same arrival is at <a href="/historia.html#arrival-1731">Las Crónicas</a>.</li>
+    <li id="note-2">Handbook of Texas, “Stephenson, Hugh” and “Stephenson, Juana María Ascárate,” cited in the Fuentes. <a href="https://www.tshaonline.org/handbook/entries/stephenson-hugh">Hugh</a>. <a href="https://www.tshaonline.org/handbook/entries/stephenson-juana-maria-ascarate">Juana</a>. See also <a href="/historia.html#concordia-chapel">the chapel line</a>.</li>
+    <li id="note-3">Family tradition for the crossing at ten in November 1913. Tradición familiar. Born 10 October 1903. The draft card is on <a href="/artifacts.html#carlos-flores">Artifacts</a>. The Chronicle line is <a href="/historia.html#carlos-1913">here</a>.</li>
+  </ol>
+</section>
 <!-- FOOTER -->
 <footer>
   <a class="back-link" href="/">Back to PASADOR</a>
