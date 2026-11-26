@@ -1,0 +1,63 @@
+:root{
+  --iron:#070709;
+  --leaf:#e5c158;
+  --brass:#9e7e2e;
+  --type:#f2ede2;
+  --type-soft:#e6d9c4;
+  --line:rgba(229,193,88,0.35);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--iron);
+  color:var(--type);
+  font-family:"EB Garamond",Georgia,serif;
+  font-size:1.15rem;
+  line-height:1.75;
+}
+main{max-width:760px;margin:0 auto;padding:6.5rem 1.3rem 4rem}
+.kicker{
+  font-family:"Cinzel",serif;
+  font-size:0.7rem;
+  letter-spacing:0.22em;
+  text-transform:uppercase;
+  color:var(--leaf);
+  margin:0 0 0.8rem;
+}
+h1{
+  font-family:"Cormorant Garamond",Georgia,serif;
+  font-weight:500;
+  font-size:clamp(2.4rem,6vw,4.2rem);
+  line-height:1.05;
+  margin:0 0 0.4rem;
+  color:var(--type);
+}
+.era{font-family:"Cinzel",serif;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--leaf);margin:0 0 1.4rem}
+.author-byline a{color:var(--leaf)}
+p{margin:0 0 1rem;color:var(--type)}
+.rule{border:0;border-top:1px solid var(--line);margin:1.6rem 0}
+h2{
+  font-family:"Cinzel",serif;
+  font-size:0.78rem;
+  letter-spacing:0.16em;
+  text-transform:uppercase;
+  color:var(--leaf);
+  font-weight:500;
+  margin:1.8rem 0 0.6rem;
+}
+ul{margin:0 0 1rem;padding-left:1.2rem}
+li{margin:0.35rem 0}
+a{color:var(--leaf)}
+.cross{border-top:1px solid var(--line);margin-top:2rem;padding-top:1rem}
+.cross a{margin-right:0.8rem}
+footer{max-width:760px;margin:0 auto;padding:0 1.3rem 3rem;color:var(--type-soft);font-size:0.95rem}
+blockquote{
+  margin:1.2rem 0;
+  padding-left:1rem;
+  border-left:1px solid var(--brass);
+  font-family:"Cormorant Garamond",Georgia,serif;
+  font-style:italic;
+  font-size:1.25rem;
+  color:var(--type);
+}
