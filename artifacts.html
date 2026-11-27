@@ -172,14 +172,29 @@ main{max-width:820px;margin:0 auto;padding:1rem 2rem 5rem}
 }
 .pill.es{color:var(--parchment-dim);border-color:var(--sep)}
 
-.frames{display:grid;gap:1.2rem;margin-top:1rem}
-.frames.portrait{max-width:32rem}
+.frames{display:grid;gap:1.2rem;margin:0.85rem 0 1.15rem}
+.frames.portrait{max-width:40rem;margin-left:auto;margin-right:auto}
+@media (min-width:900px){
+  .card .frames:not(.portrait){
+    width:min(1040px, calc(100vw - 4rem));
+    position:relative;left:50%;transform:translateX(-50%);
+  }
+}
+.section > .labels{margin:0.35rem 0 1rem}
 .zoom-open{
   display:block;width:100%;padding:0;border:0;background:none;cursor:zoom-in;
+  position:relative;
 }
+.zoom-open:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
 .zoom-open img{
   display:block;width:100%;height:auto;
   border:1px solid rgba(224,180,92,0.28);
+}
+.zoom-hint{
+  position:absolute;right:0.55rem;bottom:0.55rem;
+  font-family:'Cinzel',serif;font-size:0.56rem;letter-spacing:0.14em;
+  text-transform:uppercase;color:var(--bg);background:var(--gold);
+  padding:0.28rem 0.48rem;pointer-events:none;
 }
 .cap{
   margin-top:0.55rem;font-size:0.98rem;color:var(--parchment-dim);
@@ -1016,7 +1031,7 @@ footer{
   </div>
   <p class="hero-lead">These are records behind the work, not the work itself. A verified record is an original or an official text that has been read. Family narrative is what the Chronicles and family memory say, and it stays labeled as that. Fiction is the dialogue and the scenes in the novel and the plays: a document does not rewrite a scene, and a scene is not offered here as a record.</p>
   <p class="hero-lead">The papers are not all one story. They show grants and baptisms, signed letters and death certificates. They also show conflict: crown and state, the church, the colonists, and the Native peoples already living on this land. Settling new country was discovery and disruption at the same time. It was innovative, great, and awful, depending on who is looking. The settlers conquered, lived that life, and left paper that carries both the fact of conquering peoples and the richness of the land and its water, grass, and ore. The page says that plainly. Judgment belongs to the reader.</p>
-  <p class="hero-lead">These are the papers behind the work: the Canary Island founding, Gaspar’s San Antonio, the Stephenson ranch at Concordia, and the Juárez household that crossed the bridge in 1913. A later section holds public-domain maps and plates of Coahuila y Tejas, kept apart from the family papers.</p>
+  <p class="hero-lead">The page runs from the Canary Island founding through Gaspar’s San Antonio, the Stephenson ranch at Concordia, and the Juárez household that crossed the bridge in 1913, and then to the maps and plates of Coahuila y Tejas.</p>
   <ul class="kinds">
     <li><strong>Verified record</strong> <span lang="es">Registro verificado.</span> The text has been read, or it is a printed official copy of a statute or deed.</li>
     <li><strong>Catalog record</strong> <span lang="es">Registro de catálogo.</span> A finding aid names the item. The instrument itself has not been read, and nothing inside it is quoted.</li>
@@ -1030,22 +1045,23 @@ footer{
   <p class="section-kicker">I</p>
   <h2>Travieso / Canary Islands</h2>
   <p class="section-es" lang="es">Travieso · Islas Canarias</p>
-  <p class="section-intro">Later historical writing calls this founding company Canary Islanders (<span lang="es">Isleños</span>). The 1730 marriage register is shown. The two wills remain cataloged and unread. The register itself says “naturales de las Islas Canarias,” and it does not use the word isleños.</p>
+  <p class="section-intro">Later historical writing calls this founding company Canary Islanders (<span lang="es">Isleños</span>). The 1730 marriage register is shown. The two wills remain cataloged and unread.</p>
 
   <article class="card" id="travieso-curbelo-marriage">
     <p class="date">15 October 1730, Pueblo de Cuautitlán</p>
     <h3>Marriage of Vicente Álvarez Travieso and Ana María Ramírez Curbelo</h3>
-    <p>The San Buenaventura marriage register records that on 15 October 1730, in the Pueblo de Cuautitlán, Vicente Álvarez Travieso and Ana María Ramírez Curbelo were married, and that they were “naturales de las Islas Canarias, vagos, viandantes.” The entry does not use the word isleños. Later family telling has given other days in September; this page follows the date on this register and does not rewrite the novel.</p>
-    <p class="bridge">This is the Cuautitlán marriage the Second Chronicle turns on: Vicente and Ana María Ramírez Curbelo, recorded as natives of the Canary Islands, on the road to Béxar.</p>
-    <p class="meta">Citation: <a href="https://www.familysearch.org/ark:/61903/3:1:939X-QBHQ-H?cc=1837908">FamilySearch, San Buenaventura, Cuautitlán, Matrimonios, the 15 October 1730 entry</a> (ark 3:1:939X-QBHQ-H). Credit: the parish register. Image: FamilySearch, shared by the author.</p>
     <div class="frames">
       <figure>
         <button type="button" class="zoom-open">
           <img src="/assets/artifacts/travieso-curbelo-marriage-1730-cuautitlan.jpg" width="1400" height="721" alt="Handwritten marriage entry of 15 October 1730 for Vicente Álvarez Travieso and Ana María Ramírez Curbelo in the San Buenaventura register at Cuautitlán.">
+          <span class="zoom-hint">Enlarge</span>
         </button>
-        <figcaption class="cap">“Naturales de las Islas Canarias, vagos, viandantes” — natives of the Canary Islands, wanderers, travelers. Image: FamilySearch, shared by the author.</figcaption>
+        <figcaption class="cap">The 15 October 1730 entry.</figcaption>
       </figure>
     </div>
+    <p>The San Buenaventura marriage register records that on 15 October 1730, in the Pueblo de Cuautitlán, Vicente Álvarez Travieso and Ana María Ramírez Curbelo were married, and that they were “naturales de las Islas Canarias, vagos, viandantes” — natives of the Canary Islands, wanderers, travelers. The entry does not use the word isleños. Later family telling has given other days in September; this page follows the date on this register and does not rewrite the novel.</p>
+    <p class="bridge">This is the Cuautitlán marriage the Second Chronicle turns on: Vicente and Ana María Ramírez Curbelo, recorded as natives of the Canary Islands, on the road to Béxar.</p>
+    <p class="meta">Citation: <a href="https://www.familysearch.org/ark:/61903/3:1:939X-QBHQ-H?cc=1837908">FamilySearch, San Buenaventura, Cuautitlán, Matrimonios, the 15 October 1730 entry</a> (ark 3:1:939X-QBHQ-H). Credit: the parish register. Image: FamilySearch, shared by the author.</p>
     <div class="labels">
       <span class="pill">Verified record</span>
       <span class="pill">Show image</span>
@@ -1082,8 +1098,12 @@ footer{
 <section class="section" id="author-letter-2026">
   <h2>Author's letter, 2026</h2>
   <p class="section-es" lang="es">Carta del autor, 2026</p>
-  <p>Written in the custom of Vicente Álvarez Travieso's 1734 petition: one citizen, one petition, one request.</p>
-  <p lang="es">Escrita a la manera de la petición de Vicente Álvarez Travieso en 1734: un ciudadano, una petición, una solicitud.</p>
+  <div class="labels">
+    <span class="pill">Contemporary document · 2026</span>
+    <span class="pill es">Documento contemporáneo · 2026</span>
+  </div>
+  <p>Written in the custom of Vicente Álvarez Travieso's 1734 petition.</p>
+  <p lang="es">Escrita a la manera de la petición de Vicente Álvarez Travieso en 1734.</p>
   <p class="bridge">Sent to Governor-elect Hinojosa's transition team, November 18, 2026, four days after the first Starship catch. The inauguration it names is January 19, 2027.</p>
   <p>Dear Governor-elect Hinojosa:</p>
   <p>In November of 1734, in the villa of San Fernando de Béxar, a Canary Islander named Vicente Álvarez Travieso asked his governor for permission to go to Saltillo. He was sick, there was no doctor within reach, and he could not leave the province without the governor's license. The governor refused him. His neighbors signed their names in protest, and the case went up to the viceroy in Mexico City. Fourteen years later Travieso stood in Mexico City himself, pressing for the money the Crown had ordered for the villa's church, and telling the viceroy, plainly, that the sum would not be enough.</p>
@@ -1115,23 +1135,25 @@ footer{
   <article class="card" id="gaspar-perez-petition">
     <p class="date">November 1801, San Fernando de Béxar</p>
     <h3>Petition of Gaspar Flores to marry Luisa Pérez</h3>
-    <p>A matrimonial petition before the cura of San Fernando shows Gaspar Flores, called español, originario of this presidio, legitimate son of Vicente Flores and Antonia Fuentes, seeking to marry Luisa Pérez, española, originaria of this presidio, legitimate daughter of Antonio Pérez and María Romero. The page carries the signature and rubric of Gaspar Mª Flores, and his father Vicente Flores signs his consent. The day in November is not clear enough to state as a fact. A later margin date of a finished marriage is not legible enough here. This is a signed petition, not a marriage certificate, and it is not used as proof of the unread 1837 estate-file title.</p>
-    <p class="bridge">This signed petition is the San Antonio paper in which Gaspar, son of Vicente Flores, asks to marry Luisa Pérez; it is the generation that stands between the Travieso founding and the later Concordia line.</p>
-    <p class="meta">Citation: <a href="https://www.familysearch.org/ark:/61903/3:1:3Q9M-CSNP-89DM-M">FamilySearch, San Fernando de Béxar, film 008085854, the November 1801 petition</a> (ark 3:1:3Q9M-CSNP-89DM-M). Image: FamilySearch, shared by the author.</p>
     <div class="frames">
       <figure>
         <button type="button" class="zoom-open">
           <img src="/assets/artifacts/gaspar-flores-luisa-perez-petition-1801-heading.jpg" width="1600" height="809" alt="Opening page of the November 1801 petition in which Gaspar Flores asks to marry Luisa Pérez, before the cura of San Fernando de Béxar.">
+          <span class="zoom-hint">Enlarge</span>
         </button>
-        <figcaption class="cap">The opening of the petition, marked 1801. Gaspar Flores, español, legitimate son of Vicente Flores and Antonia Fuentes, seeks to marry Luisa Pérez, española, legitimate daughter of Antonio Pérez and María Romero. Image: FamilySearch, shared by the author.</figcaption>
+        <figcaption class="cap">The opening of the petition, marked 1801.</figcaption>
       </figure>
       <figure>
         <button type="button" class="zoom-open">
           <img src="/assets/artifacts/gaspar-flores-luisa-perez-petition-1801-signatures.jpg" width="1600" height="854" alt="Signature page of the November 1801 petition, with Gaspar Mª Flores, the consent signed by Vicente Flores, and the start of Antonio Pérez’s consent.">
+          <span class="zoom-hint">Enlarge</span>
         </button>
-        <figcaption class="cap">The hands of Gaspar Mª Flores and of Vicente Flores. Vicente’s line begins “Digo yo Vicente Flores, que doy mi libre consentimiento” — “I, Vicente Flores, give my free consent.” The start of Antonio’s consent follows on the same page. Image: FamilySearch, shared by the author.</figcaption>
+        <figcaption class="cap">The hands of Gaspar Mª Flores and of Vicente Flores. The start of Antonio’s consent follows on the same page.</figcaption>
       </figure>
     </div>
+    <p>A matrimonial petition before the cura of San Fernando shows Gaspar Flores, called español, originario of this presidio, legitimate son of Vicente Flores and Antonia Fuentes, seeking to marry Luisa Pérez, española, originaria of this presidio, legitimate daughter of Antonio Pérez and María Romero. The page carries the signature and rubric of Gaspar Mª Flores, and his father Vicente Flores signs his consent. Vicente’s line begins “Digo yo Vicente Flores, que doy mi libre consentimiento” — “I, Vicente Flores, give my free consent.” The day in November is not clear enough to state as a fact. A later margin date of a finished marriage is not legible enough here. This is a signed petition, not a marriage certificate, and it is not used as proof of the unread 1837 estate-file title.</p>
+    <p class="bridge">This signed petition is the San Antonio paper in which Gaspar, son of Vicente Flores, asks to marry Luisa Pérez; it is the generation that stands between the Travieso founding and the later Concordia line.</p>
+    <p class="meta">Citation: <a href="https://www.familysearch.org/ark:/61903/3:1:3Q9M-CSNP-89DM-M">FamilySearch, San Fernando de Béxar, film 008085854, the November 1801 petition</a> (ark 3:1:3Q9M-CSNP-89DM-M). Image: FamilySearch, shared by the author.</p>
     <div class="labels">
       <span class="pill">Verified record</span>
       <span class="pill">Show image</span>
@@ -1213,17 +1235,18 @@ footer{
   <article class="card" id="ascarate-act">
     <p class="date">Approved 11 February 1858</p>
     <h3>Texas confirmation of El Rancho de Ascarete</h3>
-    <p>Chapter 120 of the Seventh Legislature relinquishes the state’s right in three leagues called El Rancho de Ascarete to Juan and Jacinto Ascarete, as the act spells the name, their heirs and assigns, to be surveyed and patented, and it preserves rights that already existed.</p>
-    <p class="bridge">This is the Texas paper behind the El Paso ranch the Chronicles give to Juana’s people; the act names Juan and Jacinto Ascarete, and does not, by itself, prove her kinship.</p>
-    <p class="meta">Citation: <a href="https://texashistory.unt.edu/ark:/67531/metapth6730/m1/1031/">H. P. N. Gammel, <em>The Laws of Texas</em>, vol. 4, p. 1027</a>. General Land Office file locator BEX 1–001390, <a href="https://www.glo.texas.gov/sites/default/files/documents/archives/surname-index/land-grant-a.pdf">surname index, letter A</a>. Credit: UNT Libraries, The Portal to Texas History.</p>
     <div class="frames">
       <figure>
         <button type="button" class="zoom-open">
           <img src="/assets/artifacts/ascarate-confirmation-1858-gammel-p1027.jpg" width="1200" height="1873" alt="Printed page of the 11 February 1858 Texas act confirming El Rancho de Ascarete, Gammel’s Laws of Texas, volume 4, page 1027.">
+          <span class="zoom-hint">Enlarge</span>
         </button>
-        <figcaption class="cap">Printed page from Gammel’s 1898 reprint of a public statute, not the original Spanish crown grant and not a deed to Juana María Ascárate. The act does not by itself prove that this Juan was Juana’s father, or that Jacinto was her brother or her son.</figcaption>
+        <figcaption class="cap">Gammel, vol. 4, p. 1027.</figcaption>
       </figure>
     </div>
+    <p>Chapter 120 of the Seventh Legislature relinquishes the state’s right in three leagues called El Rancho de Ascarete to Juan and Jacinto Ascarete, as the act spells the name, their heirs and assigns, to be surveyed and patented, and it preserves rights that already existed. The page is Gammel’s 1898 reprint of the statute, not the original Spanish crown grant and not a deed to Juana María Ascárate. It does not by itself prove that this Juan was Juana’s father, or that Jacinto was her brother or her son.</p>
+    <p class="bridge">This is the Texas paper behind the El Paso ranch the Chronicles give to Juana’s people.</p>
+    <p class="meta">Citation: <a href="https://texashistory.unt.edu/ark:/67531/metapth6730/m1/1031/">H. P. N. Gammel, <em>The Laws of Texas</em>, vol. 4, p. 1027</a>. General Land Office file locator BEX 1–001390, <a href="https://www.glo.texas.gov/sites/default/files/documents/archives/surname-index/land-grant-a.pdf">surname index, letter A</a>. Credit: UNT Libraries, The Portal to Texas History.</p>
     <div class="labels">
       <span class="pill">Verified record</span>
       <span class="pill">Show image</span>
@@ -1234,23 +1257,25 @@ footer{
   <article class="card" id="ysleta-act">
     <p class="date">Approved 31 January 1854</p>
     <h3>Texas relinquishment to the inhabitants of Ysleta</h3>
-    <p>The river's change of channel from 1829 to 1831 left Ysleta on the north side, and from 1848 the pueblo was in Texas. The 1854 act recites that move as 1831 or 1832. Chapter XXX relinquishes about two leagues on the east bank, formerly of the Cinecue town tract, to the inhabitants of Ysleta, and that bank was later treated as the dividing line with the Ascarate survey. El río, al mudar de cauce entre 1829 y 1831, dejó a Ysleta en la margen norte, y desde 1848 el pueblo estuvo en Tejas.</p>
-    <p class="bridge">This is the pueblo grant on the other bank of the same river, the title later courts would set against the Ascarate survey, in the same El Paso country as Concordia.</p>
-    <p class="meta">Citation: <a href="https://texashistory.unt.edu/ark:/67531/metapth6730/m1/46/">Gammel, vol. 4, p. 42</a> and <a href="https://texashistory.unt.edu/ark:/67531/metapth6730/m1/47/">p. 43</a>. Credit: UNT Libraries, The Portal to Texas History. A later act recites the date as 21 January 1854. That conflict is in the printed laws.</p>
     <div class="frames">
       <figure>
         <button type="button" class="zoom-open">
           <img src="/assets/artifacts/ysleta-relinquishment-1854-gammel-p42.jpg" width="1200" height="1873" alt="Printed first page of the 31 January 1854 Texas act relinquishing land to the inhabitants of Ysleta, Gammel volume 4, page 42.">
+          <span class="zoom-hint">Enlarge</span>
         </button>
-        <figcaption class="cap">Page 42. Ysleta was a Pueblo community, Ysleta del Sur. The act recites a Spanish grant and the inhabitants of Ysleta and Cinecue. The pueblo grant is shown here the same way as the ranch grant above.</figcaption>
+        <figcaption class="cap">Page 42.</figcaption>
       </figure>
       <figure>
         <button type="button" class="zoom-open">
           <img src="/assets/artifacts/ysleta-relinquishment-1854-gammel-p43.jpg" width="1200" height="1873" alt="Printed second page of the 31 January 1854 Ysleta relinquishment act, Gammel volume 4, page 43.">
+          <span class="zoom-hint">Enlarge</span>
         </button>
-        <figcaption class="cap">Page 43, the close of the same act, from the same public-domain reprint.</figcaption>
+        <figcaption class="cap">Page 43, the close of the act.</figcaption>
       </figure>
     </div>
+    <p>The river's change of channel from 1829 to 1831 left Ysleta on the north side, and from 1848 the pueblo was in Texas. The 1854 act recites that move as 1831 or 1832. Chapter XXX relinquishes about two leagues on the east bank, formerly of the Cinecue town tract, to the inhabitants of Ysleta, and that bank was later treated as the dividing line with the Ascarate survey. Ysleta del Sur was a Pueblo community, and the act recites a Spanish grant. El río, al mudar de cauce entre 1829 y 1831, dejó a Ysleta en la margen norte, y desde 1848 el pueblo estuvo en Tejas.</p>
+    <p class="bridge">This is the pueblo grant on the other bank of the same river, the title later courts would set against the Ascarate survey, in the same El Paso country as Concordia.</p>
+    <p class="meta">Citation: <a href="https://texashistory.unt.edu/ark:/67531/metapth6730/m1/46/">Gammel, vol. 4, p. 42</a> and <a href="https://texashistory.unt.edu/ark:/67531/metapth6730/m1/47/">p. 43</a>. Credit: UNT Libraries, The Portal to Texas History. A later act recites the date as 21 January 1854. That conflict is in the printed laws.</p>
     <div class="labels">
       <span class="pill">Verified record</span>
       <span class="pill">Show image</span>
@@ -1261,23 +1286,25 @@ footer{
   <article class="card" id="ysleta-amendment">
     <p class="date">15 February 1858</p>
     <h3>Amendment of the Ysleta relinquishment</h3>
-    <p>The 1858 amendment changes the 1854 relinquishment, and the printed laws recite the original approval as 21 January 1854, which does not match the 31 January date on the 1854 act.</p>
-    <p class="bridge">A later session changed the 1854 relinquishment; it belongs to the same river-boundary story as the ranch act and the later lawsuits.</p>
-    <p class="meta">Citation: <a href="https://texashistory.unt.edu/ark:/67531/metapth6730/m1/1098/">Gammel, vol. 4, pp. 1094–1095</a>. Credit: UNT Libraries, The Portal to Texas History.</p>
     <div class="frames">
       <figure>
         <button type="button" class="zoom-open">
           <img src="/assets/artifacts/ysleta-amendment-1858-gammel-p1094.jpg" width="1200" height="1873" alt="Printed first page of the 15 February 1858 amendment to the Ysleta act, Gammel volume 4, page 1094.">
+          <span class="zoom-hint">Enlarge</span>
         </button>
-        <figcaption class="cap">Page 1094 of the same reprint. Printed certified text of the statute, not a manuscript grant.</figcaption>
+        <figcaption class="cap">Page 1094.</figcaption>
       </figure>
       <figure>
         <button type="button" class="zoom-open">
           <img src="/assets/artifacts/ysleta-amendment-1858-gammel-p1095.jpg" width="1200" height="1873" alt="Printed second page of the 15 February 1858 Ysleta amendment, Gammel volume 4, page 1095.">
+          <span class="zoom-hint">Enlarge</span>
         </button>
-        <figcaption class="cap">Page 1095, the continuation of the amendment.</figcaption>
+        <figcaption class="cap">Page 1095.</figcaption>
       </figure>
     </div>
+    <p>The 1858 amendment changes the 1854 relinquishment, and the printed laws recite the original approval as 21 January 1854, which does not match the 31 January date on the 1854 act. The pages are the printed certified text of the statute, not a manuscript grant.</p>
+    <p class="bridge">A later session changed the 1854 relinquishment; it belongs to the same river-boundary story as the ranch act and the later lawsuits.</p>
+    <p class="meta">Citation: <a href="https://texashistory.unt.edu/ark:/67531/metapth6730/m1/1098/">Gammel, vol. 4, pp. 1094–1095</a>. Credit: UNT Libraries, The Portal to Texas History.</p>
     <div class="labels">
       <span class="pill">Verified record</span>
       <span class="pill">Show image</span>
@@ -1288,35 +1315,39 @@ footer{
   <article class="card" id="bracito">
     <p class="date">16 November 1854</p>
     <h3>Reciprocal Bracito deeds: García y San Juan and Hugh Stephenson</h3>
-    <p>Printed official copies show Francisco García y San Juan conveying two-thirds of Bracito, recited as 13,462 acres more or less, to Hugh Stephenson for $1,000, and Stephenson releasing the remaining third, recited as 6,731 acres more or less, back to García after a court partition. Bracito was not an original grant to Hugh.</p>
-    <p class="bridge">These are the printed deeds by which Hugh Stephenson took two-thirds of Bracito and released the rest; they are the ranch papers of the Concordia household in PASADOR and the Fifth Chronicle, and they show the tract was not an original grant to him.</p>
-    <p class="meta">Citation: U.S. House Report 321, 36th Congress, 1st session (1860), <a href="https://hdl.handle.net/11244/35808">University of Oklahoma, SHAREOK</a>. Acknowledged 17 November 1854 and recorded 12 March 1855. Credit: University of Oklahoma Libraries, SHAREOK.</p>
     <div class="frames">
       <figure>
         <button type="button" class="zoom-open">
           <img src="/assets/artifacts/bracito-garcia-to-stephenson-1854.jpg" width="665" height="1133" alt="Printed certified copy of the 16 November 1854 deed from Francisco García y San Juan to Hugh Stephenson for two-thirds of Bracito.">
+          <span class="zoom-hint">Enlarge</span>
         </button>
-        <figcaption class="cap">García to Stephenson. Printed certified copy in the 1860 House report, not the autograph deed.</figcaption>
+        <figcaption class="cap">García to Stephenson.</figcaption>
       </figure>
       <figure>
         <button type="button" class="zoom-open">
           <img src="/assets/artifacts/bracito-stephenson-to-garcia-1854-026.jpg" width="665" height="1133" alt="First printed page of the 16 November 1854 deed by which Hugh Stephenson released one-third of Bracito back to Francisco García y San Juan.">
+          <span class="zoom-hint">Enlarge</span>
         </button>
-        <figcaption class="cap">Stephenson to García, first page of the printed copy.</figcaption>
+        <figcaption class="cap">Stephenson to García, first page.</figcaption>
       </figure>
       <figure>
         <button type="button" class="zoom-open">
           <img src="/assets/artifacts/bracito-stephenson-to-garcia-1854-027.jpg" width="665" height="1133" alt="Second printed page of Hugh Stephenson’s 1854 release of one-third of Bracito to Francisco García y San Juan.">
+          <span class="zoom-hint">Enlarge</span>
         </button>
-        <figcaption class="cap">Stephenson to García, second page of the printed copy.</figcaption>
+        <figcaption class="cap">Stephenson to García, second page.</figcaption>
       </figure>
       <figure>
         <button type="button" class="zoom-open">
           <img src="/assets/artifacts/bracito-decree-1854.jpg" width="665" height="1133" alt="Printed page of the court decree in the Bracito partition between García and Stephenson, from the 1860 House report.">
+          <span class="zoom-hint">Enlarge</span>
         </button>
-        <figcaption class="cap">The partition decree, also a printed certified copy, not the court’s original paper.</figcaption>
+        <figcaption class="cap">The partition decree.</figcaption>
       </figure>
     </div>
+    <p>Printed certified copies in the 1860 House report, not the autograph deeds or the court’s original paper, show Francisco García y San Juan conveying two-thirds of Bracito, recited as 13,462 acres more or less, to Hugh Stephenson for $1,000, and Stephenson releasing the remaining third, recited as 6,731 acres more or less, back to García after a court partition. Bracito was not an original grant to Hugh.</p>
+    <p class="bridge">These are the ranch papers of the Concordia household in PASADOR and the Fifth Chronicle.</p>
+    <p class="meta">Citation: U.S. House Report 321, 36th Congress, 1st session (1860), <a href="https://hdl.handle.net/11244/35808">University of Oklahoma, SHAREOK</a>. Acknowledged 17 November 1854 and recorded 12 March 1855. Credit: University of Oklahoma Libraries, SHAREOK.</p>
     <div class="labels">
       <span class="pill">Verified record</span>
       <span class="pill">Show image</span>
@@ -1340,7 +1371,7 @@ footer{
     <p class="date">Dates this site uses: born 8 February 1809; died 6 February 1856</p>
     <h3>Juana María Ascárate de Stephenson</h3>
     <p>Those are the dates this site currently uses, following the El Paso County Historical Society’s <em>Password</em> (Spring 1995). The Handbook of Texas and a modern stone still give competing years, including a birth year of 1800 and a stone date of 5 February 1857. No new photograph of a stone is shown, and the conflict is not settled. Calling her Gabriel’s 3x-great-grandmother is family narrative, not a certified pedigree.</p>
-    <p class="bridge">The dates this site uses are the ones the El Paso chronicles keep for Juana María of Concordia; the stone and the handbook still differ, and that conflict is held.</p>
+    <p class="bridge">These are the dates the El Paso chronicles keep for Juana María of Concordia.</p>
     <p class="meta">Citation for the dates used: <a href="https://web.archive.org/web/20260505035628id_/https://www.elpasohistory.com/wp-content/uploads/2017/01/1995-40-1.pdf">El Paso County Historical Society, <em>Password</em> XL, no. 1 (Spring 1995), pp. 23–26</a>. Competing accounts: <a href="https://www.tshaonline.org/handbook/entries/stephenson-juana-maria-ascarate">Handbook of Texas</a>; <a href="https://www.findagrave.com/memorial/62786064/juana-maria-stephenson">Find a Grave memorial 62786064</a>. Credit: El Paso County Historical Society. The gravestone quotation already kept on the family pages is not reprinted here as a primary reading of the stone.</p>
     <div class="labels">
       <span class="pill">Dates used on this site (conflict held)</span>
@@ -1372,17 +1403,18 @@ footer{
   <article class="card" id="margarita-death">
     <p class="date">Died 24 June 1914, El Paso. Certificate no. 12214.</p>
     <h3>Death certificate of Margarita Stephenson de Flores</h3>
-    <p>The certificate names her father Hugo Stephenson, born in Kentucky, and her mother Juana Azcarate, born in Juárez, records her as widowed, and supports a birth in 1831 in El Paso rather than 1836.</p>
-    <p class="bridge">This is the last official paper of Hugh and Juana’s daughter, who in the Chronicles is the bride of the second convergence, the 1858 marriage that joined San Antonio to Concordia.</p>
-    <p class="meta">Citation: <a href="https://www.familysearch.org/ark:/61903/1:1:K37R-KYP">FamilySearch, Texas death certificate 12214</a>. Credit: Texas Bureau of Vital Statistics, via FamilySearch. Image: FamilySearch, shared by the author.</p>
     <div class="frames">
       <figure>
         <button type="button" class="zoom-open">
           <img src="/assets/artifacts/margarita-stephenson-de-flores-death-cert-1914.jpg" width="1088" height="990" alt="Texas death certificate number 12214 for Margarita Stephenson de Flores, who died 24 June 1914 in El Paso.">
+          <span class="zoom-hint">Enlarge</span>
         </button>
-        <figcaption class="cap">Texas death certificate no. 12214, Margarita Stephenson de Flores, died 24 June 1914, El Paso; father Hugo Stephenson, born Kentucky; mother Juana Azcarate, born Juárez; age 83, which supports a birth in 1831 in El Paso. Image: FamilySearch, shared by the author.</figcaption>
+        <figcaption class="cap">Certificate no. 12214.</figcaption>
       </figure>
     </div>
+    <p>The certificate names her father Hugo Stephenson, born in Kentucky, and her mother Juana Azcarate, born in Juárez, records her as widowed, and supports a birth in 1831 in El Paso rather than 1836.</p>
+    <p class="bridge">This is the last official paper of Hugh and Juana’s daughter, who in the Chronicles is the bride of the second convergence, the 1858 marriage that joined San Antonio to Concordia.</p>
+    <p class="meta">Citation: <a href="https://www.familysearch.org/ark:/61903/1:1:K37R-KYP">FamilySearch, Texas death certificate 12214</a>. Credit: Texas Bureau of Vital Statistics, via FamilySearch. Image: FamilySearch, shared by the author.</p>
 
     <div class="labels">
       <span class="pill">Verified record</span>
@@ -1393,17 +1425,18 @@ footer{
   <article class="card" id="flores-samaniego-marriage">
     <p class="date">3 October 1888, Santa Iglesia de San Fernando, El Carrizal, Chihuahua</p>
     <h3>Marriage of José J. Flores and Josefa Samaniego</h3>
-    <p>The register, headed “En esta Santa Yglesia de San Fernando,” records José J. Flores, called del Paso del Norte, age 25, son of José Ma. Flores and Margarita Stephenson, marrying Josefa Samaniego, daughter of Fernando Samaniego and Guadalupe Siqueiros, in the Pueblo del Carrizal. Age 25 on this date conflicts with the 24 December 1861 birth on his death certificate, and both readings are held.</p>
-    <p class="bridge">This is the Carrizal marriage of the man the later plays follow as alcalde, José J. Flores, son of José María and Margarita, to Josefa Samaniego; it is the household from which Carlos would come.</p>
-    <p class="meta">Citation: church marriage register, Santa Iglesia de San Fernando, El Carrizal, Chihuahua. The groom is “del Paso del Norte.” The church is identified with <a href="https://misionescoloniales.org/portfolios/san-fernando-de-las-amarillas/">San Fernando de las Amarillas del Carrizal</a>. Credit: the parish register. Image: FamilySearch, shared by the author.</p>
     <div class="frames">
       <figure>
         <button type="button" class="zoom-open">
           <img src="/assets/artifacts/jose-j-flores-josefa-samaniego-marriage-1888-carrizal.jpg" width="613" height="521" alt="The 3 October 1888 marriage entry of José J. Flores and Josefa Samaniego in the San Fernando register at El Carrizal, cropped to this entry.">
+          <span class="zoom-hint">Enlarge</span>
         </button>
-        <figcaption class="cap">The 3 October 1888 entry for José J. Flores, del Paso del Norte, age 25, son of José Ma. Flores and Margarita Stephenson, and Josefa Samaniego, daughter of Fernando Samaniego and Guadalupe Siqueiros. Opening: “En esta Santa Yglesia de San Fernando, á los tres días del mes de Octubre” — “In this Holy Church of San Fernando, on the third day of October.” The image is cropped to this entry so that the other marriages on the same opening are not shown. The last witness, Ygnacio Domínguez, bachelor, twenty-six, stands on the facing leaf and is named in the transcription, not pictured. Image: FamilySearch, shared by the author.</figcaption>
+        <figcaption class="cap">The 3 October 1888 entry, cropped to this marriage.</figcaption>
       </figure>
     </div>
+    <p>The register opens “En esta Santa Yglesia de San Fernando, á los tres días del mes de Octubre” — “In this Holy Church of San Fernando, on the third day of October.” It records José J. Flores, called del Paso del Norte, age 25, son of José Ma. Flores and Margarita Stephenson, marrying Josefa Samaniego, daughter of Fernando Samaniego and Guadalupe Siqueiros, in the Pueblo del Carrizal. The image is cropped to this entry so that the other marriages on the same opening are not shown. The last witness, Ygnacio Domínguez, bachelor, twenty-six, stands on the facing leaf and is named here, not pictured. Age 25 on this date conflicts with the 24 December 1861 birth on his death certificate, and both readings are held.</p>
+    <p class="bridge">This is the Carrizal marriage of the man the later plays follow as alcalde, José J. Flores, son of José María and Margarita, to Josefa Samaniego; it is the household from which Carlos would come.</p>
+    <p class="meta">Citation: church marriage register, Santa Iglesia de San Fernando, El Carrizal, Chihuahua. The groom is “del Paso del Norte.” The church is identified with <a href="https://misionescoloniales.org/portfolios/san-fernando-de-las-amarillas/">San Fernando de las Amarillas del Carrizal</a>. Credit: the parish register. Image: FamilySearch, shared by the author.</p>
 
     <div class="labels">
       <span class="pill">Verified record</span>
@@ -1414,17 +1447,18 @@ footer{
 <article class="card" id="jose-jesus-wedding-portrait">
     <p class="date">Undated. The studio mount is marked EL PASO, TEX. The church register records the marriage on 3 October 1888.</p>
     <h3>Wedding portrait of José Jesús Flores and Josefa Samaniego</h3>
-    <p>An undated studio wedding portrait from the family collection. The cardboard mount is marked “EL PASO, TEX.” at the lower right. The author identified the sitters on 22 November 2026: the groom is José Jesús Flores, and the bride “is his bride as per my genealogy.” The church register of 3 October 1888 names her Josefa Samaniego. The sitting is not dated, and is not offered as a photograph of the wedding day. The marriage was recorded at the Santa Iglesia de San Fernando, El Carrizal, Chihuahua, not in El Paso.</p>
-    <p class="bridge">This is the couple of the <a href="#flores-samaniego-marriage">Carrizal register</a> already on this page, in an El Paso studio portrait. See the <a href="/historia.html#part-viii">Eighth Chronicle</a>.</p>
-    <p class="meta">Family collection, shared by the author. Identification is family narrative. The marriage date is the register, not the date of this print.</p>
     <div class="frames portrait">
       <figure>
         <button type="button" class="zoom-open">
           <img src="/assets/artifacts/jose-jesus-flores-wedding-el-paso.jpg" width="1173" height="1600" alt="Undated studio wedding portrait of a bride in a white dress and veil and a groom in a dark coat, on a mount marked EL PASO, TEX.">
+          <span class="zoom-hint">Enlarge</span>
         </button>
-        <figcaption class="cap">Undated studio wedding portrait, the mount marked “EL PASO, TEX.” The author identified the sitters as José Jesús Flores and his bride; the 3 October 1888 register names her Josefa Samaniego. The print is not dated, and is not a photograph of the wedding day. Family collection, shared by the author.</figcaption>
+        <figcaption class="cap">The mount is marked “EL PASO, TEX.”</figcaption>
       </figure>
     </div>
+    <p>An undated studio wedding portrait from the family collection. The cardboard mount is marked “EL PASO, TEX.” at the lower right. The author identified the sitters on 22 November 2026: the groom is José Jesús Flores, and the bride “is his bride as per my genealogy.” The church register of 3 October 1888 names her Josefa Samaniego. The sitting is not dated, and is not offered as a photograph of the wedding day. The marriage was recorded at the Santa Iglesia de San Fernando, El Carrizal, Chihuahua, not in El Paso.</p>
+    <p class="bridge">This is the couple of the <a href="#flores-samaniego-marriage">Carrizal register</a> already on this page, in an El Paso studio portrait. See the <a href="/historia.html#part-viii">Eighth Chronicle</a>.</p>
+    <p class="meta">Family collection, shared by the author. Identification is family narrative. The marriage date is the register, not the date of this print.</p>
     <div class="labels">
       <span class="pill">Family narrative</span>
       <span class="pill">Family collection</span>
@@ -1435,17 +1469,18 @@ footer{
 <article class="card" id="jose-jesus-portrait">
     <p class="date">Undated</p>
     <h3>José Jesús Flores, studio portrait</h3>
-    <p>An undated studio portrait from the family collection. The author identified the sitter on 22 November 2026: “This is him light hair.” A studio signature is visible at the lower right; the name has not been read with certainty, and is not guessed here. The print is not dated.</p>
-    <p class="bridge">The later face of the man in the wedding portrait and on the <a href="#jose-jesus-death">1939 death certificate</a>. See the <a href="/historia.html#part-viii">Eighth Chronicle</a>.</p>
-    <p class="meta">Family collection, shared by the author. Identification is family narrative. The photographer has not been identified.</p>
     <div class="frames portrait">
       <figure>
         <button type="button" class="zoom-open">
           <img src="/assets/artifacts/jose-jesus-flores-portrait-light-hair.jpg" width="1200" height="1600" alt="Undated studio portrait of a man with short light hair and a heavy mustache, in a stiff collar, striped tie, and pinstripe suit.">
+          <span class="zoom-hint">Enlarge</span>
         </button>
-        <figcaption class="cap">José Jesús Flores: short light hair combed back, a heavy mustache, a tall starched collar, a striped tie, and a pinstripe suit. An undated studio portrait. Family collection; identified by the author, 22 November 2026.</figcaption>
+        <figcaption class="cap">Short light hair combed back, a heavy mustache, a tall starched collar, a striped tie, and a pinstripe suit.</figcaption>
       </figure>
     </div>
+    <p>An undated studio portrait from the family collection. The author identified the sitter on 22 November 2026: “This is him light hair.” A studio signature is visible at the lower right; the name has not been read with certainty, and is not guessed here. The print is not dated.</p>
+    <p class="bridge">The later face of the man in the wedding portrait and on the <a href="#jose-jesus-death">1939 death certificate</a>. See the <a href="/historia.html#part-viii">Eighth Chronicle</a>.</p>
+    <p class="meta">Family collection, shared by the author. Identification is family narrative. The photographer has not been identified.</p>
     <div class="labels">
       <span class="pill">Family narrative</span>
       <span class="pill">Family collection</span>
@@ -1456,17 +1491,18 @@ footer{
   <article class="card" id="jose-jesus-death">
     <p class="date">Died 12 September 1939, 1518 Montana Street, El Paso</p>
     <h3>Death certificate of José Jesús Flores</h3>
-    <p>The certificate gives his birth as 24 December 1861 in Juárez, his burial at Evergreen on 13 September 1939, his work as a real-estate dealer, his father José M. Flores as born in San Antonio, and his mother Margarita Stephenson as born in San Antonio, which is the informant Enrique Flores’s statement and not a birth register.</p>
-    <p class="bridge">The El Paso certificate closes the life that La Toma and the Eighth Chronicle take across the bridge in 1913; it records the Montana Street house and names his San Antonio father.</p>
-    <p class="meta">Citation: Texas death certificate, registration 936, file 41637. Credit: Texas Bureau of Vital Statistics. Image: FamilySearch, shared by the author.</p>
     <div class="frames">
       <figure>
         <button type="button" class="zoom-open">
           <img src="/assets/artifacts/jose-jesus-flores-death-cert-1939.jpg" width="1035" height="864" alt="Texas death certificate of José Jesús Flores, who died 12 September 1939 at 1518 Montana Street in El Paso.">
+          <span class="zoom-hint">Enlarge</span>
         </button>
-        <figcaption class="cap">Texas death certificate, registration 936, file 41637; José Jesús Flores, died 12 September 1939 at 1518 Montana Street, El Paso; birth given as 24 December 1861, Juárez; informant Enrique Flores, son. Image: FamilySearch, shared by the author.</figcaption>
+        <figcaption class="cap">Registration 936, file 41637.</figcaption>
       </figure>
     </div>
+    <p>The certificate gives his birth as 24 December 1861 in Juárez, his burial at Evergreen on 13 September 1939, his work as a real-estate dealer, his father José M. Flores as born in San Antonio, and his mother Margarita Stephenson as born in San Antonio, which is the informant Enrique Flores’s statement and not a birth register.</p>
+    <p class="bridge">The El Paso certificate closes the life that La Toma and the Eighth Chronicle take across the bridge in 1913; it records the Montana Street house and names his San Antonio father.</p>
+    <p class="meta">Citation: Texas death certificate, registration 936, file 41637. Credit: Texas Bureau of Vital Statistics. Image: FamilySearch, shared by the author.</p>
 
     <div class="labels">
       <span class="pill">Verified record</span>
@@ -1477,17 +1513,18 @@ footer{
 <article class="card" id="carlos-flores-baby-portrait">
     <p class="date">The album hand gives the birth as 10 October 1903, the date on the 1942 draft card. The photograph itself is not dated.</p>
     <h3>Carlos Francisco Flores, baby portrait</h3>
-    <p>A family album page, photographed in the collection. The print shows a child in a white dress, seated in a wicker chair. A later hand labels the child “Carlos Francisco Flores (My dad)” and “born - Oct. 10, 1903.” That birth date is the one on his World War II draft card, already on this page. The same hand labels “José Jesús Flores” as “My grandfather” and writes “Dec. 24, 1862,” which conflicts with the 24 December 1861 birth on the 1939 death certificate; both readings are held. It also labels “JOSEFA Samaniego” as “My beautiful Grandmother,” “born Sept. 22, 1863.” The first letters of the grandfather’s line are off the edge of this photograph. The annotator is not identified here.</p>
-    <p class="bridge">The childhood paper of the man who signed the <a href="#carlos-flores">1942 draft card</a>, still in the Juárez household of the <a href="/historia.html#part-ix">Ninth Chronicle</a>.</p>
-    <p class="meta">Family collection, shared by the author, 22 November 2026. The handwritten labels are family narrative. The 10 October 1903 birth is verified on the draft card.</p>
     <div class="frames">
       <figure>
         <button type="button" class="zoom-open">
           <img src="/assets/artifacts/carlos-francisco-flores-baby-portrait.jpg" width="1600" height="1192" alt="Family album page with a baby in a white dress seated in a wicker chair, labeled in a later hand Carlos Francisco Flores, born Oct. 10, 1903.">
+          <span class="zoom-hint">Enlarge</span>
         </button>
-        <figcaption class="cap">Album page: a baby in a white dress, in a wicker chair. A later hand labels the child “Carlos Francisco Flores (My dad), born - Oct. 10, 1903,” the birth date on the 1942 draft card. The same hand writes a grandfather’s birth as 24 December 1862, which conflicts with the 1861 date on the death certificate; both are held. Family collection, shared by the author.</figcaption>
+        <figcaption class="cap">A baby in a white dress, in a wicker chair.</figcaption>
       </figure>
     </div>
+    <p>A family album page, photographed in the collection. The print shows a child in a white dress, seated in a wicker chair. A later hand labels the child “Carlos Francisco Flores (My dad)” and “born - Oct. 10, 1903.” That birth date is the one on his World War II draft card, already on this page. The same hand labels “José Jesús Flores” as “My grandfather” and writes “Dec. 24, 1862,” which conflicts with the 24 December 1861 birth on the 1939 death certificate; both readings are held. It also labels “JOSEFA Samaniego” as “My beautiful Grandmother,” “born Sept. 22, 1863.” The first letters of the grandfather’s line are off the edge of this photograph. The annotator is not identified here.</p>
+    <p class="bridge">The childhood paper of the man who signed the <a href="#carlos-flores">1942 draft card</a>, still in the Juárez household of the <a href="/historia.html#part-ix">Ninth Chronicle</a>.</p>
+    <p class="meta">Family collection, shared by the author, 22 November 2026. The handwritten labels are family narrative. The 10 October 1903 birth is verified on the draft card.</p>
     <div class="labels">
       <span class="pill">Family narrative</span>
       <span class="pill">Family collection</span>
@@ -1498,18 +1535,19 @@ footer{
   <article class="card" id="carlos-flores">
     <p class="date">Born 10 October 1903, Ciudad Juárez. Died March 1988, El Paso, age 84.</p>
     <h3>Carlos F. Flores, draft registration and death</h3>
-    <p>His World War II draft card, signed Carlos F. Flores and registered in El Paso on 16 February 1942, gives his birth as 10 October 1903 in Ciudad Juárez and names Mrs. J. Flores de Samaniego at 1519 Montana as the person who would always know his address. In factual prose, on that date, he was ten at the November 1913 crossing. The plays and the remembered family telling keep their own ages.</p>
-    <p>The death, March 1988, El Paso, age 84, follows the <em>El Paso Times</em> of 22 March 1988 together with the family tree already confirmed by Gabriel. The exact day is not taken from a certificate read here. The 1950 census lists this same household with Carlos F. as age 35, which is not used to overturn the signed card, and is held. The Chronicles still also list an October 1988 obituary, and an age of 85 has been stated in that family account; that conflict is held.</p>
-    <p class="bridge">The signed card is the adult paper of the boy who crossed with his father in 1913, the grandfather in whose lap, as La Toma says, the history was learned.</p>
-    <p class="meta">Citation: U.S. Selective Service registration, Local Board No. 3, El Paso, 16 February 1942; <em>El Paso Times</em>, 22 March 1988. Credit: National Archives; the <em>El Paso Times</em>. Image: FamilySearch, shared by the author. The newspaper image is not hosted.</p>
     <div class="frames">
       <figure>
         <button type="button" class="zoom-open">
           <img src="/assets/artifacts/carlos-f-flores-wwii-draft-card-1942.jpg" width="1433" height="814" alt="Both sides of the World War II draft card signed by Carlos F. Flores at Local Board No. 3, El Paso, on 16 February 1942.">
+          <span class="zoom-hint">Enlarge</span>
         </button>
-        <figcaption class="cap">World War II draft card, signed Carlos F. Flores, Local Board No. 3, El Paso, 16 February 1942; birth 10 October 1903, Ciudad Juárez; contact Mrs. J. Flores de Samaniego, 1519 Montana. Image: FamilySearch, shared by the author.</figcaption>
+        <figcaption class="cap">World War II draft card, 16 February 1942.</figcaption>
       </figure>
     </div>
+    <p>His World War II draft card, signed Carlos F. Flores and registered in El Paso on 16 February 1942, gives his birth as 10 October 1903 in Ciudad Juárez and names Mrs. J. Flores de Samaniego at 1519 Montana as the person who would always know his address. In factual prose, on that date, he was ten at the November 1913 crossing. The plays and the remembered family telling keep their own ages.</p>
+    <p>The death, March 1988, El Paso, age 84, follows the <em>El Paso Times</em> of 22 March 1988 together with the family tree already confirmed by Gabriel. The exact day is not taken from a certificate read here. The 1950 census lists this same household with Carlos F. as age 35, which is not used to overturn the signed card, and is held. The Chronicles still also list an October 1988 obituary, and an age of 85 has been stated in that family account; that conflict is held.</p>
+    <p class="bridge">The signed card is the adult paper of the boy who crossed with his father in 1913, the grandfather in whose lap, as La Toma says, the history was learned.</p>
+    <p class="meta">Citation: U.S. Selective Service registration, Local Board No. 3, El Paso, 16 February 1942; <em>El Paso Times</em>, 22 March 1988. Credit: National Archives; the <em>El Paso Times</em>. Image: FamilySearch, shared by the author. The newspaper image is not hosted.</p>
 
     <div class="labels">
       <span class="pill">Verified record: draft card, birth only</span>
@@ -1605,25 +1643,25 @@ footer{
 </section>
 
 <section class="section" id="mexican-texas">
-  <p class="section-kicker">VI</p>
-  <h2>Coahuila y Tejas / Mexican Texas</h2>
-  <p class="section-es" lang="es">Coahuila y Tejas</p>
-  <p class="section-intro">These maps, an 1824 imprint, two Linati plates of 1828, and later Historic American Buildings Survey sheets of Béxar show the country around Gaspar’s San Antonio papers. They are not family papers. The HABS drawing and the San José photograph are twentieth-century surveys, not views of 1828.</p>
+  <h2>VI — Historical Context: Coahuila y Tejas</h2>
+  <p class="section-es" lang="es">VI — Contexto histórico: Coahuila y Tejas</p>
+  <p class="section-intro">Maps of 1822, 1833 and 1836, the 1824 constitution, two Linati plates, and later survey sheets of Béxar show the country around Gaspar’s San Antonio papers. These are supporting records, not family papers.</p>
 
   <article class="card" id="austin-map-1822">
     <p class="date">1822</p>
     <h3>Mapa topográfico de la provincia de Texas</h3>
-    <p>Stephen F. Austin’s 1822 topographic map of the Province of Texas, held by the Geography and Map Division of the Library of Congress.</p>
-    <p class="bridge">This is the Texas of Gaspar’s San Antonio years, before the Hooker and Tanner maps of the 1830s. See the <a href="/historia.html#part-iv">Fourth Chronicle</a>.</p>
-    <p class="meta">Citation: Stephen F. Austin, <em>Mapa topográfico de la provincia de Texas</em>, 1822. Credit: Library of Congress, Geography and Map Division. <a href="https://www.loc.gov/item/98687158/">loc.gov/item/98687158</a>.</p>
     <div class="frames">
       <figure>
         <button type="button" class="zoom-open">
           <img src="/assets/artifacts/austin-mapa-provincia-texas-1822.jpg" width="1600" height="1181" alt="Stephen F. Austin’s 1822 topographic map of the Province of Texas.">
+          <span class="zoom-hint">Enlarge</span>
         </button>
-        <figcaption class="cap">Stephen F. Austin, <em>Mapa topográfico de la provincia de Texas</em>, 1822. Library of Congress, Geography and Map Division.</figcaption>
+        <figcaption class="cap">Austin, 1822.</figcaption>
       </figure>
     </div>
+    <p>Stephen F. Austin’s 1822 topographic map of the Province of Texas, held by the Geography and Map Division of the Library of Congress.</p>
+    <p class="bridge">This is the Texas of Gaspar’s San Antonio years, before the Hooker and Tanner maps of the 1830s. See the <a href="/historia.html#part-iv">Fourth Chronicle</a>.</p>
+    <p class="meta">Citation: Stephen F. Austin, <em>Mapa topográfico de la provincia de Texas</em>, 1822. Credit: Library of Congress, Geography and Map Division. <a href="https://www.loc.gov/item/98687158/">loc.gov/item/98687158</a>.</p>
     <div class="labels">
       <span class="pill">Verified record</span>
       <span class="pill">Public domain</span>
@@ -1634,17 +1672,18 @@ footer{
   <article class="card" id="constitucion-1824">
     <p class="date">1824</p>
     <h3>Constitución federal de los Estados Unidos Mexicanos</h3>
-    <p>Title page of a printed 1824 copy of the Federal Constitution of the United Mexican States, from the Rare Book and Special Collections Division of the Library of Congress. The scan is the Library’s master (1,562 × 2,368 pixels); no larger facsimile was found.</p>
-    <p class="bridge">The constitution under which Coahuila y Tejas was a state, in the years of Gaspar’s later petitions. See the <a href="/historia.html#part-iv">Fourth Chronicle</a>.</p>
-    <p class="meta">Citation: <em>Constitución federal de los Estados Unidos Mexicanos</em>, [México], Impr. del Supremo Gobierno, [1824?]. Credit: Library of Congress, Rare Book and Special Collections Division, LCCN 11031218. <a href="https://www.loc.gov/item/11031218/">loc.gov/item/11031218</a>.</p>
     <div class="frames portrait">
       <figure>
         <button type="button" class="zoom-open">
           <img src="/assets/artifacts/constitucion-federal-mexico-1824.jpg" width="1055" height="1600" alt="Title page of a printed 1824 copy of the Federal Constitution of the United Mexican States.">
+          <span class="zoom-hint">Enlarge</span>
         </button>
-        <figcaption class="cap">Title page of the 1824 <em>Constitución federal de los Estados Unidos Mexicanos</em>. Library of Congress, Rare Book and Special Collections Division, LCCN 11031218.</figcaption>
+        <figcaption class="cap">Title page, 1824.</figcaption>
       </figure>
     </div>
+    <p>Title page of a printed 1824 copy of the Federal Constitution of the United Mexican States, from the Rare Book and Special Collections Division of the Library of Congress. The scan is the Library’s master (1,562 × 2,368 pixels); no larger facsimile was found.</p>
+    <p class="bridge">The constitution under which Coahuila y Tejas was a state, in the years of Gaspar’s later petitions. See the <a href="/historia.html#part-iv">Fourth Chronicle</a>.</p>
+    <p class="meta">Citation: <em>Constitución federal de los Estados Unidos Mexicanos</em>, [México], Impr. del Supremo Gobierno, [1824?]. Credit: Library of Congress, Rare Book and Special Collections Division, LCCN 11031218. <a href="https://www.loc.gov/item/11031218/">loc.gov/item/11031218</a>.</p>
     <div class="labels">
       <span class="pill">Verified record</span>
       <span class="pill">Public domain</span>
@@ -1655,17 +1694,18 @@ footer{
   <article class="card" id="hooker-map-1833">
     <p class="date">1833</p>
     <h3>Map of the State of Coahuila and Texas (Hooker, 1833)</h3>
-    <p>W. Hooker’s 1833 <em>Map of the State of Coahuila and Texas</em>, held by the University of Texas at Arlington Libraries, Special Collections.</p>
-    <p class="bridge">Coahuila y Tejas as a Mexican state, three years before the Hooker map of 1836. See the <a href="/historia.html#part-iv">Fourth Chronicle</a>.</p>
-    <p class="meta">Citation: W. Hooker, <em>Map of the State of Coahuila and Texas</em>, 1833. Credit: University of Texas at Arlington Libraries, Special Collections.</p>
     <div class="frames">
       <figure>
         <button type="button" class="zoom-open">
           <img src="/assets/artifacts/hooker-mapa-coahuila-y-texas-1833.jpg" width="1600" height="1271" alt="W. Hooker’s 1833 Map of the State of Coahuila and Texas.">
+          <span class="zoom-hint">Enlarge</span>
         </button>
-        <figcaption class="cap">W. Hooker, <em>Map of the State of Coahuila and Texas</em>, 1833. University of Texas at Arlington Libraries, Special Collections.</figcaption>
+        <figcaption class="cap">Hooker, 1833.</figcaption>
       </figure>
     </div>
+    <p>W. Hooker’s 1833 <em>Map of the State of Coahuila and Texas</em>, held by the University of Texas at Arlington Libraries, Special Collections.</p>
+    <p class="bridge">Coahuila y Tejas as a Mexican state, three years before the Hooker map of 1836. See the <a href="/historia.html#part-iv">Fourth Chronicle</a>.</p>
+    <p class="meta">Citation: W. Hooker, <em>Map of the State of Coahuila and Texas</em>, 1833. Credit: University of Texas at Arlington Libraries, Special Collections.</p>
     <div class="labels">
       <span class="pill">Verified record</span>
       <span class="pill">Public domain</span>
@@ -1676,17 +1716,18 @@ footer{
   <article class="card" id="hooker-map-1836">
     <p class="date">1836</p>
     <h3>Map of the State of Coahuila and Texas (Hooker, 1836)</h3>
-    <p>W. Hooker’s 1836 <em>Map of the State of Coahuila and Texas</em>, held by the University of Texas at Arlington Libraries, Special Collections.</p>
-    <p class="bridge">The same Hooker map, issued in the year of Texas independence. See the <a href="/historia.html#part-iv">Fourth Chronicle</a>.</p>
-    <p class="meta">Citation: W. Hooker, <em>Map of the State of Coahuila and Texas</em>, 1836. Credit: University of Texas at Arlington Libraries, Special Collections.</p>
     <div class="frames">
       <figure>
         <button type="button" class="zoom-open">
           <img src="/assets/artifacts/hooker-mapa-coahuila-y-texas-1836.jpg" width="1600" height="1334" alt="W. Hooker’s 1836 Map of the State of Coahuila and Texas.">
+          <span class="zoom-hint">Enlarge</span>
         </button>
-        <figcaption class="cap">W. Hooker, <em>Map of the State of Coahuila and Texas</em>, 1836. University of Texas at Arlington Libraries, Special Collections.</figcaption>
+        <figcaption class="cap">Hooker, 1836.</figcaption>
       </figure>
     </div>
+    <p>W. Hooker’s 1836 <em>Map of the State of Coahuila and Texas</em>, held by the University of Texas at Arlington Libraries, Special Collections.</p>
+    <p class="bridge">The same Hooker map, issued in the year of Texas independence. See the <a href="/historia.html#part-iv">Fourth Chronicle</a>.</p>
+    <p class="meta">Citation: W. Hooker, <em>Map of the State of Coahuila and Texas</em>, 1836. Credit: University of Texas at Arlington Libraries, Special Collections.</p>
     <div class="labels">
       <span class="pill">Verified record</span>
       <span class="pill">Public domain</span>
@@ -1697,17 +1738,18 @@ footer{
   <article class="card" id="austin-tanner-map-1836">
     <p class="date">1836</p>
     <h3>Map of Texas with Parts of the Adjoining States</h3>
-    <p>The 1836 Austin and Tanner <em>Map of Texas with Parts of the Adjoining States</em>, with the cartouche “República Federal Mexicana,” held by the University of Texas at Arlington Libraries, Special Collections.</p>
-    <p class="bridge">A federal Mexican cartouche on a map of the Texas year 1836. See the <a href="/historia.html#part-iv">Fourth Chronicle</a>.</p>
-    <p class="meta">Citation: Austin &amp; Tanner, <em>Map of Texas with Parts of the Adjoining States</em>, 1836. Credit: University of Texas at Arlington Libraries, Special Collections.</p>
     <div class="frames">
       <figure>
         <button type="button" class="zoom-open">
           <img src="/assets/artifacts/austin-tanner-mapa-texas-1836.jpg" width="1275" height="1600" alt="Austin and Tanner’s 1836 Map of Texas with Parts of the Adjoining States, with a República Federal Mexicana cartouche.">
+          <span class="zoom-hint">Enlarge</span>
         </button>
-        <figcaption class="cap">Austin &amp; Tanner, <em>Map of Texas with Parts of the Adjoining States</em>, 1836, with the cartouche “República Federal Mexicana.” University of Texas at Arlington Libraries, Special Collections.</figcaption>
+        <figcaption class="cap">Austin and Tanner, 1836.</figcaption>
       </figure>
     </div>
+    <p>The 1836 Austin and Tanner <em>Map of Texas with Parts of the Adjoining States</em>, with the cartouche “República Federal Mexicana,” held by the University of Texas at Arlington Libraries, Special Collections.</p>
+    <p class="bridge">A federal Mexican cartouche on a map of the Texas year 1836. See the <a href="/historia.html#part-iv">Fourth Chronicle</a>.</p>
+    <p class="meta">Citation: Austin &amp; Tanner, <em>Map of Texas with Parts of the Adjoining States</em>, 1836. Credit: University of Texas at Arlington Libraries, Special Collections.</p>
     <div class="labels">
       <span class="pill">Verified record</span>
       <span class="pill">Public domain</span>
@@ -1718,17 +1760,18 @@ footer{
   <article class="card" id="linati-1828-dragon">
     <p class="date">1828</p>
     <h3>Linati, “Dragon. Troupe de Ligne.”</h3>
-    <p>A plate from Claudio Linati’s <em>Costumes civils, militaires et religieux du Mexique</em>, Brussels, C. Sattanino / Lithographie royale de Jobard, 1828. It is a published costume plate of that year, not a family paper.</p>
-    <p class="bridge">A line dragoon of the Mexico of 1828, in the years of the Fourth Chronicle.</p>
-    <p class="meta">Citation: Claudio Linati, “Dragon. Troupe de Ligne.,” in <em>Costumes civils, militaires et religieux du Mexique</em>, Brussels, 1828. Credit: Wellcome Collection (Public Domain Mark), <a href="https://wellcomecollection.org/works/br9ukvmf">wellcomecollection.org/works/br9ukvmf</a>.</p>
     <div class="frames portrait">
       <figure>
         <button type="button" class="zoom-open">
           <img src="/assets/artifacts/linati-1828-dragon-troupe-de-ligne.jpg" width="1233" height="1600" alt="Claudio Linati’s 1828 plate Dragon. Troupe de Ligne, a lithograph of a Mexican line dragoon.">
+          <span class="zoom-hint">Enlarge</span>
         </button>
-        <figcaption class="cap">Claudio Linati, “Dragon. Troupe de Ligne.,” 1828. Wellcome Collection, Public Domain Mark.</figcaption>
+        <figcaption class="cap">“Dragon. Troupe de Ligne.,” 1828.</figcaption>
       </figure>
     </div>
+    <p>A plate from Claudio Linati’s <em>Costumes civils, militaires et religieux du Mexique</em>, Brussels, C. Sattanino / Lithographie royale de Jobard, 1828.</p>
+    <p class="bridge">A line dragoon of the Mexico of 1828, in the years of the Fourth Chronicle.</p>
+    <p class="meta">Citation: Claudio Linati, “Dragon. Troupe de Ligne.,” in <em>Costumes civils, militaires et religieux du Mexique</em>, Brussels, 1828. Credit: Wellcome Collection (Public Domain Mark), <a href="https://wellcomecollection.org/works/br9ukvmf">wellcomecollection.org/works/br9ukvmf</a>.</p>
     <div class="labels">
       <span class="pill">Verified record</span>
       <span class="pill">Public domain</span>
@@ -1739,17 +1782,18 @@ footer{
   <article class="card" id="linati-1828-hacendado">
     <p class="date">1828</p>
     <h3>Linati, “Hacendado. Créole propriétaire.”</h3>
-    <p>The companion plate from the same 1828 Linati volume: a landed proprietor. It is a published costume plate of that year, not a family paper.</p>
-    <p class="bridge">A civilian of the Mexico of 1828, beside the dragoon plate. See the <a href="/historia.html#part-iv">Fourth Chronicle</a>.</p>
-    <p class="meta">Citation: Claudio Linati, “Hacendado. Créole propriétaire.,” in <em>Costumes civils, militaires et religieux du Mexique</em>, Brussels, 1828. Credit: Wellcome Collection (Public Domain Mark), <a href="https://wellcomecollection.org/works/br9ukvmf">wellcomecollection.org/works/br9ukvmf</a>.</p>
     <div class="frames portrait">
       <figure>
         <button type="button" class="zoom-open">
           <img src="/assets/artifacts/linati-1828-hacendado-propietario.jpg" width="1233" height="1600" alt="Claudio Linati’s 1828 plate Hacendado. Créole propriétaire, a lithograph of a Mexican landed proprietor.">
+          <span class="zoom-hint">Enlarge</span>
         </button>
-        <figcaption class="cap">Claudio Linati, “Hacendado. Créole propriétaire.,” 1828. Wellcome Collection, Public Domain Mark.</figcaption>
+        <figcaption class="cap">“Hacendado. Créole propriétaire.,” 1828.</figcaption>
       </figure>
     </div>
+    <p>The companion plate from the same 1828 Linati volume: a landed proprietor.</p>
+    <p class="bridge">A civilian of the Mexico of 1828, beside the dragoon plate. See the <a href="/historia.html#part-iv">Fourth Chronicle</a>.</p>
+    <p class="meta">Citation: Claudio Linati, “Hacendado. Créole propriétaire.,” in <em>Costumes civils, militaires et religieux du Mexique</em>, Brussels, 1828. Credit: Wellcome Collection (Public Domain Mark), <a href="https://wellcomecollection.org/works/br9ukvmf">wellcomecollection.org/works/br9ukvmf</a>.</p>
     <div class="labels">
       <span class="pill">Verified record</span>
       <span class="pill">Public domain</span>
@@ -1760,17 +1804,18 @@ footer{
   <article class="card" id="habs-palacio-gobernador">
     <p class="date">Historic American Buildings Survey, twentieth century</p>
     <h3>Palacio del Gobernador / Comandancia de Béxar</h3>
-    <p>A section drawing of the Governor’s Palace, or comandancia, on the plaza de armas of San Antonio. Historic American Buildings Survey, TX-3540, sheet 7. This is a twentieth-century survey drawing, not a view of 1828.</p>
-    <p class="bridge">The comandancia on the plaza of Béxar, recorded later in these survey sheets. See the <a href="/historia.html#part-iii">Third Chronicle</a>.</p>
-    <p class="meta">Citation: Historic American Buildings Survey, TX-3540, sheet 7. Credit: Library of Congress, Prints and Photographs Division. <a href="https://www.loc.gov/pictures/item/tx1093.sheet.00007a">loc.gov/pictures/item/tx1093.sheet.00007a</a>.</p>
     <div class="frames">
       <figure>
         <button type="button" class="zoom-open">
           <img src="/assets/artifacts/palacio-del-gobernador-bexar-habs-tx-3540-lamina-7.jpg" width="1600" height="1067" alt="Historic American Buildings Survey section drawing of the Governor’s Palace in San Antonio, HABS TX-3540, sheet 7.">
+          <span class="zoom-hint">Enlarge</span>
         </button>
-        <figcaption class="cap">Palacio del Gobernador / Comandancia de Béxar, HABS TX-3540, sheet 7. A twentieth-century survey drawing, not a view of 1828. Library of Congress, Prints and Photographs Division.</figcaption>
+        <figcaption class="cap">HABS TX-3540, sheet 7.</figcaption>
       </figure>
     </div>
+    <p>A section drawing of the Governor’s Palace, or comandancia, on the plaza de armas of San Antonio. Historic American Buildings Survey, TX-3540, sheet 7. This is a twentieth-century survey drawing, not a view of 1828.</p>
+    <p class="bridge">The comandancia on the plaza of Béxar, recorded later in these survey sheets. See the <a href="/historia.html#part-iii">Third Chronicle</a>.</p>
+    <p class="meta">Citation: Historic American Buildings Survey, TX-3540, sheet 7. Credit: Library of Congress, Prints and Photographs Division. <a href="https://www.loc.gov/pictures/item/tx1093.sheet.00007a">loc.gov/pictures/item/tx1093.sheet.00007a</a>.</p>
     <div class="labels">
       <span class="pill">Verified record</span>
       <span class="pill">Public domain</span>
@@ -1781,17 +1826,18 @@ footer{
   <article class="card" id="habs-mision-san-jose">
     <p class="date">Historic American Buildings Survey, circa 1936</p>
     <h3>Misión de San José y San Miguel de Aguayo, portada principal</h3>
-    <p>A Historic American Buildings Survey photograph of the principal portal of Mission San José y San Miguel de Aguayo, San Antonio, made around 1936. It is a twentieth-century survey photograph, not a view of the colonial years.</p>
-    <p class="bridge">The mission portal as the survey recorded it in the 1930s. See the <a href="/historia.html#part-iii">Third Chronicle</a>.</p>
-    <p class="meta">Citation: Historic American Buildings Survey, HABS TEX,15-SANT,V,5E-6, circa 1936. Credit: Library of Congress, Prints and Photographs Division. <a href="https://www.loc.gov/pictures/item/tx0025.photos.155538p">loc.gov/pictures/item/tx0025.photos.155538p</a>.</p>
     <div class="frames portrait">
       <figure>
         <button type="button" class="zoom-open">
           <img src="/assets/artifacts/mision-san-jose-portada-principal-habs.jpg" width="1297" height="1600" alt="Historic American Buildings Survey photograph, circa 1936, of the principal portal of Mission San José in San Antonio.">
+          <span class="zoom-hint">Enlarge</span>
         </button>
-        <figcaption class="cap">Misión de San José y San Miguel de Aguayo, portada principal. HABS photograph, circa 1936, not a colonial-period view. Library of Congress, Prints and Photographs Division.</figcaption>
+        <figcaption class="cap">Portada principal, circa 1936.</figcaption>
       </figure>
     </div>
+    <p>A Historic American Buildings Survey photograph of the principal portal of Mission San José y San Miguel de Aguayo, San Antonio, made around 1936. It is a twentieth-century survey photograph, not a view of the colonial years.</p>
+    <p class="bridge">The mission portal as the survey recorded it in the 1930s. See the <a href="/historia.html#part-iii">Third Chronicle</a>.</p>
+    <p class="meta">Citation: Historic American Buildings Survey, HABS TEX,15-SANT,V,5E-6, circa 1936. Credit: Library of Congress, Prints and Photographs Division. <a href="https://www.loc.gov/pictures/item/tx0025.photos.155538p">loc.gov/pictures/item/tx0025.photos.155538p</a>.</p>
     <div class="labels">
       <span class="pill">Verified record</span>
       <span class="pill">Public domain</span>
@@ -1837,19 +1883,30 @@ navLinks.querySelectorAll('a').forEach(link => {
 
 const zoom = document.getElementById('zoom');
 const zoomImg = document.getElementById('zoomImg');
+const zoomClose = document.getElementById('zoomClose');
+let zoomReturn = null;
 document.querySelectorAll('.zoom-open').forEach(btn => {
   btn.addEventListener('click', () => {
     const img = btn.querySelector('img');
-    zoomImg.src = img.src;
+    zoomImg.src = img.currentSrc || img.src;
     zoomImg.alt = img.alt;
+    zoomReturn = btn;
     zoom.showModal();
+    zoomClose.focus();
   });
 });
-document.getElementById('zoomClose').addEventListener('click', () => zoom.close());
+zoomClose.addEventListener('click', () => zoom.close());
 zoom.addEventListener('click', (event) => {
   if (event.target === zoom) zoom.close();
 });
-zoom.addEventListener('close', () => { zoomImg.removeAttribute('src'); });
+zoom.addEventListener('close', () => {
+  zoomImg.removeAttribute('src');
+  zoomImg.alt = '';
+  if (zoomReturn) {
+    zoomReturn.focus();
+    zoomReturn = null;
+  }
+});
 </script>
 <script src="/assets/site-nav.js" defer></script>
 </body>
