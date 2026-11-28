@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abuela · Vicente Gabriel Flores</title>
+<meta name="description" content="Abuela. María Manuela Flores · El Paso. She had Carlos, Ramón, Antonio, Alfredo. A poem by Vicente Gabriel Flores.">
+<meta name="author" content="Vicente Gabriel Flores">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://vicentegabrielflores.com/poems/abuela.html">
+<link rel="stylesheet" href="/assets/author-credit.css">
+<link rel="alternate" type="application/atom+xml" title="What's in the Air" href="https://vicentegabrielflores.com/whats-in-the-air.xml">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Vicente Gabriel Flores">
+<meta property="og:title" content="Abuela · Vicente Gabriel Flores">
+<meta property="og:description" content="Abuela. María Manuela Flores · El Paso. She had Carlos, Ramón, Antonio, Alfredo. A poem by Vicente Gabriel Flores.">
+<meta property="og:url" content="https://vicentegabrielflores.com/poems/abuela.html">
+<meta property="og:image" content="https://vicentegabrielflores.com/assets/poems/abuela-rose.png">
+<meta property="og:image:width" content="1170">
+<meta property="og:image:height" content="1460">
+<meta property="og:image:alt" content="A red rose in thick brushstrokes rises on a gold stem from a cracked white eggshell, with two gold leaves and a gold signature on black.. Art by Vicente Gabriel Flores.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Abuela · Vicente Gabriel Flores">
+<meta name="twitter:description" content="Abuela. María Manuela Flores · El Paso. She had Carlos, Ramón, Antonio, Alfredo. A poem by Vicente Gabriel Flores.">
+<meta name="twitter:image" content="https://vicentegabrielflores.com/assets/poems/abuela-rose.png">
+<meta name="twitter:image:alt" content="A red rose in thick brushstrokes rises on a gold stem from a cracked white eggshell, with two gold leaves and a gold signature on black.. Art by Vicente Gabriel Flores.">
+<meta name="twitter:site" content="@pasadornovel">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Cinzel:wght@400;500&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Cinzel:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#080604;
+  --parchment:#f2ede2;
+  --parchment-dim:#e6d9c4;
+  --parchment-faint:#d4c6aa;
+  --rust:#7a3020;
+  --gold:#e0b45c;
+  --gold-dim:#c4963c;
+  --sep:#1e1208;
+}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--parchment);
+  font-family:'EB Garamond',Georgia,serif;
+  font-size:18px;
+  line-height:1.8;
+  overflow-x:hidden;
+}
+
+/* ── GRAIN ── */
+body::before{
+  content:'';
+  position:fixed;
+  inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events:none;
+  opacity:0.35;
+  z-index:999;
+}
+
+/* ── NAV ── */
+nav{
+  position:fixed;
+  top:0;left:0;right:0;
+  z-index:100;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:1.5rem 4rem;
+  background:linear-gradient(to bottom,rgba(8,6,4,0.95) 0%,rgba(8,6,4,0) 100%);
+  transition:background 0.4s;
+}
+nav.scrolled{background:rgba(8,6,4,0.97);border-bottom:1px solid rgba(196,151,61,0.12)}
+.nav-title{
+  font-family:'Cinzel',serif;
+  font-size:0.9rem;
+  letter-spacing:0.2em;
+  color:var(--gold);
+  text-decoration:none;
+}
+.nav-title::before{content:'← ';opacity:0.6;font-family:'EB Garamond',serif;letter-spacing:normal}
+.nav-links{display:flex;gap:1.15rem;list-style:none}
+.nav-links a{
+  font-family:'Cinzel',serif;
+  font-size:0.72rem;
+  letter-spacing:0.14em;
+  white-space:nowrap;
+  color:var(--parchment-dim);
+  text-decoration:none;
+  text-transform:uppercase;
+  transition:color 0.3s;
+}
+.nav-links a:hover{color:var(--gold)}
+.nav-links a.active{color:var(--gold)}
+
+/* ── MOBILE NAV TOGGLE ── */
+.nav-toggle{
+  display:none;
+  flex-direction:column;
+  justify-content:center;
+  gap:5px;
+  width:36px;height:36px;
+  padding:0;
+  background:none;
+  border:none;
+  cursor:pointer;
+}
+.nav-toggle span{
+  display:block;
+  width:24px;height:1.5px;
+  background:var(--gold);
+  transition:transform 0.3s ease,opacity 0.3s ease;
+}
+.nav-toggle.active span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.nav-toggle.active span:nth-child(2){opacity:0}
+.nav-toggle.active span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+
+/* ── HERO ── */
+#hero{
+  min-height:60vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:flex-start;
+  padding:9rem 4rem 5rem;
+  position:relative;
+  overflow:hidden;
+  max-width:1100px;
+  margin:0 auto;
+}
+.hero-eyebrow{
+  font-family:'Cinzel',serif;
+  font-size:0.72rem;
+  letter-spacing:0.35em;
+  color:var(--gold);
+  text-transform:uppercase;
+  margin-bottom:2rem;
+  opacity:0;
+  animation:fadeUp 1.2s 0.3s forwards;
+}
+.hero-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(4rem,10vw,9rem);
+  font-weight:300;
+  line-height:0.88;
+  letter-spacing:-0.02em;
+  color:var(--parchment);
+  margin-bottom:1.6rem;
+  opacity:0;
+  animation:fadeUp 1.4s 0.5s forwards;
+}
+.hero-subtitle{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.3rem,2.4vw,1.9rem);
+  font-weight:300;
+  font-style:italic;
+  color:var(--gold);
+  letter-spacing:0.01em;
+  margin-bottom:2.4rem;
+  opacity:0;
+  animation:fadeUp 1.4s 0.7s forwards;
+  max-width:42rem;
+}
+.hero-intro{
+  font-family:'EB Garamond',serif;
+  font-size:clamp(1rem,1.4vw,1.15rem);
+  color:var(--parchment);
+  max-width:42rem;
+  line-height:1.85;
+  border-left:1px solid var(--gold);
+  padding-left:1.5rem;
+  margin-bottom:2.4rem;
+  opacity:0;
+  animation:fadeUp 1.4s 0.9s forwards;
+}
+.hero-intro em{font-style:italic;color:var(--gold)}
+.hero-toc{
+  display:flex;
+  flex-wrap:wrap;
+  gap:0.6rem 1.5rem;
+  opacity:0;
+  animation:fadeUp 1.4s 1.1s forwards;
+}
+.hero-toc a{
+  font-family:'Cinzel',serif;
+  font-size:0.62rem;
+  letter-spacing:0.18em;
+  color:var(--parchment-dim);
+  text-decoration:none;
+  text-transform:uppercase;
+  padding:0.5rem 1rem;
+  border:1px solid rgba(196,151,61,0.2);
+  transition:all 0.3s;
+}
+.hero-toc a:hover{color:var(--gold);border-color:var(--gold)}
+
+/* ── SECTIONS ── */
+.poem-section{
+  padding:6rem 4rem;
+  max-width:760px;
+  margin:0 auto;
+  border-top:1px solid var(--sep);
+}
+.section-label{
+  font-family:'Cinzel',serif;
+  font-size:0.7rem;
+  letter-spacing:0.35em;
+  color:var(--gold);
+  text-transform:uppercase;
+  margin-bottom:4rem;
+  text-align:center;
+}
+
+/* ── POEM ── */
+.poem{
+  margin-bottom:5rem;
+}
+.poem:last-child{margin-bottom:0}
+.poem-source{
+  font-family:'Cinzel',serif;
+  font-size:0.66rem;
+  letter-spacing:0.3em;
+  color:var(--gold);
+  text-transform:uppercase;
+  text-align:center;
+  margin-bottom:1.1rem;
+}
+.poem-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2rem,4vw,2.8rem);
+  font-weight:300;
+  font-style:italic;
+  line-height:1.1;
+  color:var(--parchment);
+  text-align:center;
+  margin-bottom:0.7rem;
+}
+.poem-subtitle{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.05rem;
+  font-style:italic;
+  color:var(--parchment-dim);
+  text-align:center;
+  margin-bottom:0.6rem;
+  letter-spacing:0.02em;
+}
+.poem-framing{
+  font-family:'EB Garamond',serif;
+  font-size:0.92rem;
+  font-style:italic;
+  color:var(--parchment-faint);
+  text-align:center;
+  margin-bottom:1.4rem;
+  max-width:32rem;
+  margin-left:auto;
+  margin-right:auto;
+}
+.poem-divider{
+  color:var(--gold-dim);
+  letter-spacing:0.1em;
+  text-align:center;
+  font-size:0.9rem;
+  margin-bottom:2.4rem;
+}
+.poem-body{
+  font-family:'EB Garamond',serif;
+  font-size:1.08rem;
+  line-height:1.85;
+  color:var(--parchment);
+  max-width:42rem;
+  margin:0 auto;
+}
+.poem-body em{font-style:italic;color:var(--gold)}
+.poem-body strong{font-weight:500;color:var(--parchment);font-style:italic}
+.poem-body .stanza{
+  margin-bottom:1.6rem;
+}
+.poem-body .stanza:last-child{margin-bottom:0}
+.poem-body .stanza.dim{color:var(--parchment-dim);font-style:italic}
+.poem-body .stanza.dim em{font-style:normal;color:var(--gold)}
+.lang-divider{
+  text-align:center;
+  color:var(--gold-dim);
+  font-family:'Cormorant Garamond',serif;
+  letter-spacing:0.4em;
+  margin:2rem 0;
+  font-size:0.9rem;
+}
+
+/* ── REVEAL ── */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.9s ease,transform 0.9s ease}
+.reveal.visible{opacity:1;transform:none}
+
+/* ── FOOTER ── */
+footer{
+  padding:2.5rem 4rem;
+  border-top:1px solid var(--sep);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:1rem;
+  text-align:center;
+  margin-top:4rem;
+}
+.footer-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  width:100%;
+  max-width:1100px;
+  flex-wrap:wrap;
+  gap:1rem;
+}
+.footer-title{
+  font-family:'Cinzel',serif;
+  font-size:0.65rem;
+  letter-spacing:0.25em;
+  color:var(--gold-dim);
+}
+.footer-closing{
+  font-family:'Cormorant Garamond',serif;
+  font-size:0.95rem;
+  font-style:italic;
+  color:var(--parchment-dim);
+}
+.footer-copyright{
+  display:block;
+  margin-top:1.2rem;
+  padding-top:1.5rem;
+  border-top:1px solid var(--sep);
+  font-family:'EB Garamond',Georgia,serif;
+  font-size:0.7rem;
+  letter-spacing:0.05em;
+  color:var(--parchment-faint);
+  line-height:1.6;
+  max-width:680px;
+  text-align:center;
+}
+.footer-copyright strong{color:var(--gold-dim);font-weight:500}
+.footer-copyright a{color:inherit;border-bottom:1px solid var(--parchment-faint);text-decoration:none}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:none}
+}
+
+/* ── RESPONSIVE ── */
+@media(max-width:768px){
+  nav{padding:1.2rem 1.5rem}
+  .nav-toggle{display:flex}
+  .nav-links{
+    position:absolute;
+    top:100%;left:0;right:0;
+    flex-direction:column;
+    gap:0;
+    background:rgba(8,6,4,0.99);
+    border-bottom:1px solid rgba(196,151,61,0.18);
+    padding:0 1.5rem;
+    max-height:0;
+    overflow:hidden;
+    transition:max-height 0.4s ease,padding 0.4s ease;
+  }
+  .nav-links.open{max-height:75vh;padding:0.4rem 1.5rem 1rem}
+  .nav-links li{width:100%}
+  .nav-links a{display:block;padding:0.95rem 0.2rem;font-size:0.78rem;letter-spacing:0.16em;border-bottom:1px solid var(--sep)}
+  .nav-links li:last-child a{border-bottom:none}
+  #hero{padding:7rem 1.5rem 4rem}
+  .poem-section{padding:4rem 1.5rem}
+  .poem-body{font-size:1rem}
+  footer{padding:2rem 1.5rem}
+  .footer-row{flex-direction:column;gap:0.8rem;text-align:center}
+}
+
+
+/* ── FEATURED ART BANNER ── */
+.poem-banner{
+  width:100%;
+  background:#080604;
+  margin:0;
+  padding:5.2rem 0 0;
+  text-align:center;
+}
+.poem-banner-frame{
+  width:100%;
+  max-width:480px;
+  margin:0 auto;
+}
+.poem-banner img{
+  display:block;
+  width:100%;
+  height:auto;
+}
+.poem-banner figcaption{
+  margin:0.2rem auto 0;
+  padding:0 1.5rem 0.4rem;
+  font-family:'Cinzel',serif;
+  font-size:0.62rem;
+  letter-spacing:0.24em;
+  text-transform:uppercase;
+  color:var(--gold-dim);
+}
+@media(max-width:768px){
+  .poem-banner{padding-top:4.4rem}
+  .poem-banner figcaption{padding:0 1.5rem 0.2rem}
+}
+
+.poem-page{
+  padding:1.6rem 4rem 2rem;
+  max-width:820px;
+  margin:0 auto;
+}
+.poem-page .poem{margin-bottom:0}
+.poem-page.bilingual{max-width:1100px}
+.poem-columns{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:2.2rem 3rem;
+  align-items:start;
+}
+.poem-columns .poem-body{max-width:none}
+.col-label{
+  font-family:'Cinzel',serif;
+  font-size:0.66rem;
+  letter-spacing:0.28em;
+  text-transform:uppercase;
+  color:var(--gold);
+  text-align:center;
+  margin-bottom:1.2rem;
+}
+.edition-signature{
+  margin:2.25rem auto 0;
+  max-width:200px;
+  width:200px;
+  padding:0;
+}
+.edition-signature img{display:block;width:100%;height:auto}
+nav.poem-pager{
+  position:static;
+  top:auto;left:auto;right:auto;
+  z-index:auto;
+  display:grid;
+  width:auto;
+  background:none;
+  border:none;
+  grid-template-columns:1fr auto 1fr;
+  gap:1.2rem;
+  align-items:start;
+  margin:2.6rem 0 0;
+  padding:1.5rem 0 0;
+}
+.poem-pager a{text-decoration:none;color:var(--parchment-dim)}
+.poem-pager a:hover{color:var(--gold)}
+.pager-kicker{
+  display:block;
+  font-family:'Cinzel',serif;
+  font-size:0.62rem;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:0.35rem;
+}
+.pager-name{
+  display:block;
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;
+  font-size:1.2rem;
+  line-height:1.25;
+  color:var(--parchment);
+}
+.pager-prev{text-align:left}
+.pager-next{text-align:right}
+.pager-index{
+  font-family:'Cinzel',serif;
+  font-size:0.66rem;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:var(--gold);
+  text-align:center;
+  padding-top:0.15rem;
+}
+@media(max-width:768px){
+  .poem-page{padding:1.2rem 1.5rem 1.5rem}
+  .poem-columns{grid-template-columns:1fr;gap:2.4rem}
+  nav.poem-pager{grid-template-columns:1fr;gap:1.4rem;padding:1.4rem 0 0}
+  .pager-prev,.pager-next,.pager-index{text-align:center}
+  .edition-signature{margin-top:2rem;max-width:136px;width:136px}
+}
+
+</style>
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#000000">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  "name": "Abuela",
+  "author": {
+    "@id": "https://vicentegabrielflores.com/#author"
+  },
+  "inLanguage": [
+    "en",
+    "es"
+  ],
+  "datePublished": "2026-11-28",
+  "url": "https://vicentegabrielflores.com/poems/abuela.html",
+  "image": "https://vicentegabrielflores.com/assets/poems/abuela-rose.png",
+  "genre": "poetry"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "VisualArtwork",
+      "name": "Abuela",
+      "url": "https://vicentegabrielflores.com/poems/abuela.html",
+      "image": "https://vicentegabrielflores.com/assets/poems/abuela-rose.png",
+      "creator": {
+        "@type": "Person",
+        "@id": "https://vicentegabrielflores.com/#author",
+        "name": "Vicente Gabriel Flores"
+      },
+      "copyrightHolder": {
+        "@id": "https://vicentegabrielflores.com/#author"
+      },
+      "creditText": "Vicente Gabriel Flores",
+      "artform": "painting"
+    },
+    {
+      "@type": "ImageObject",
+      "name": "Abuela",
+      "contentUrl": "https://vicentegabrielflores.com/assets/poems/abuela-rose.png",
+      "width": 1170,
+      "height": 1460,
+      "creator": {
+        "@type": "Person",
+        "@id": "https://vicentegabrielflores.com/#author",
+        "name": "Vicente Gabriel Flores"
+      },
+      "creditText": "Vicente Gabriel Flores",
+      "copyrightNotice": "© 2026 Vicente Gabriel Flores",
+      "license": "https://vicentegabrielflores.com/rights.html",
+      "acquireLicensePage": "https://vicentegabrielflores.com/rights.html"
+    }
+  ]
+}
+</script>
+
+<style id="shared-nav-css">
+/* shared-nav */
+#navbar{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:space-between;align-items:center;gap:0.75rem;padding:0.85rem 1.25rem;background:rgba(8,6,4,0.96);border-bottom:1px solid rgba(196,151,61,0.12)}
+#navbar .nav-title{display:inline-flex;align-items:center;gap:0.45rem;flex:none;font-family:'Cinzel',serif;font-size:0.85rem;letter-spacing:0.18em;color:#e0b45c;text-decoration:none}
+#navbar .nav-title::before{content:'← ';opacity:0.6;font-family:'EB Garamond',serif;letter-spacing:normal}
+#navbar .nav-title img{width:22px;height:22px;border-radius:50%;object-fit:cover;flex:none}
+#navbar .nav-links{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:0.35rem 0.7rem;list-style:none;margin:0;padding:0}
+#navbar .nav-links a{font-family:'Cinzel',serif;font-size:0.62rem;letter-spacing:0.11em;text-transform:uppercase;text-decoration:none;color:#e6d9c4;white-space:nowrap}
+#navbar .nav-links a:hover,#navbar .nav-links a.active{color:#e0b45c}
+#navbar .nav-toggle{display:none;flex:none;flex-direction:column;justify-content:center;gap:5px;width:36px;height:36px;padding:0;background:none;border:none;cursor:pointer}
+#navbar .nav-toggle span{display:block;width:22px;height:1.5px;background:#e0b45c;transition:transform .3s ease,opacity .3s ease}
+#navbar .nav-toggle.active span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+#navbar .nav-toggle.active span:nth-child(2){opacity:0}
+#navbar .nav-toggle.active span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+.site-index{max-width:46rem;margin:0 auto;padding:2rem 1.5rem 3rem;border-top:1px solid rgba(224,180,92,0.25)}
+.site-index h2{font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;font-size:1.8rem;text-align:center;color:#f2ede2;margin:0 0 0.4rem}
+.site-index h3{font-family:'Cinzel',serif;font-size:0.66rem;letter-spacing:0.16em;text-transform:uppercase;color:#e0b45c;margin:1.35rem 0 0.35rem}
+.site-index p{font-family:'EB Garamond',Georgia,serif;font-size:1.05rem;line-height:1.7;margin:0;color:#f2ede2}
+.site-index a{color:#f2ede2;text-decoration:none;border-bottom:1px solid rgba(224,180,92,0.35)}
+.site-index a:hover{color:#e0b45c}
+.work-title a{color:inherit;text-decoration:none}
+.work-title a:hover{color:#e0b45c}
+@media(max-width:1500px){
+  #navbar .nav-toggle{display:flex}
+  #navbar .nav-links{position:absolute;top:100%;left:0;right:0;flex-direction:column;flex-wrap:nowrap;gap:0;background:rgba(8,6,4,0.98);border-bottom:1px solid rgba(196,151,61,0.18);max-height:0;overflow:hidden;padding:0 1.25rem}
+  #navbar .nav-links.open{max-height:85vh;overflow-y:auto;padding:0.4rem 1.25rem 1rem}
+  #navbar .nav-links a{display:block;padding:0.72rem 0.1rem;border-bottom:1px solid #1e1208}
+  #navbar .nav-links li:last-child a{border-bottom:none}
+}
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ImageObject",
+      "name": "vicente-gabriel-flores-signature.png",
+      "contentUrl": "https://vicentegabrielflores.com/vicente-gabriel-flores-signature.png",
+      "creator": {
+        "@type": "Person",
+        "@id": "https://vicentegabrielflores.com/#author",
+        "name": "Vicente Gabriel Flores"
+      },
+      "creditText": "Vicente Gabriel Flores",
+      "copyrightNotice": "© 2026 Vicente Gabriel Flores",
+      "license": "https://vicentegabrielflores.com/rights.html",
+      "acquireLicensePage": "https://vicentegabrielflores.com/rights.html"
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="/assets/site-nav.css">
+</head>
+<body>
+
+<nav id="navbar" aria-label="Primary">
+  <a href="/" class="nav-title"><img src="/assets/portrait-menu.webp" alt="" width="22" height="22">PASADOR</a>
+  <button class="nav-toggle" id="navToggle" type="button" aria-controls="navLinks" aria-expanded="false" aria-label="Open menu" data-label-open="Open menu" data-label-close="Close menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="navLinks">
+    <li class="nav-group">
+      <button type="button" class="nav-group-btn" aria-expanded="false" aria-controls="nav-writing">Writing</button>
+      <ul class="nav-sub" id="nav-writing">
+        <li><a href="/poems.html">Poems</a></li>
+        <li><a href="/stories/index.html">Stories</a></li>
+        <li><a href="/la-toma.html">La Toma</a></li>
+        <li><a href="/modern-play.html">The Modern Play</a></li>
+        <li><a href="/belmont-road.html">Belmont Road</a></li>
+        <li><a href="/from-ship-to-ship.html">From Ship to Ship</a></li>
+        <li><a href="/davos.html">Davos</a></li>
+        <li><a href="/the-harness-makers-son.html">The Harness-Maker’s Son</a></li>
+        <li><a href="/pasador.html">PASADOR</a></li>
+        <li><a href="/concordia.html">CONCORDIA</a></li>
+        <li><a href="/the-manifest.html">The Manifest</a></li>
+        <li><a href="/articles.html">Articles</a></li>
+      </ul>
+    </li>
+    <li class="nav-group">
+      <button type="button" class="nav-group-btn" aria-expanded="false" aria-controls="nav-art">Art</button>
+      <ul class="nav-sub" id="nav-art">
+        <li><a href="/art.html">Art</a></li>
+        <li><a href="/art/jinghan.html">Jinghan</a></li>
+        <li><a href="/art/lawrence.html">Lawrence</a></li>
+        <li><a href="/art/leo.html">Leo</a></li>
+      </ul>
+    </li>
+    <li class="nav-group"><a class="nav-direct" href="/whats-in-the-air.html">The Air</a></li>
+    <li class="nav-group">
+      <button type="button" class="nav-group-btn" aria-expanded="false" aria-controls="nav-cronicas">Las Crónicas</button>
+      <ul class="nav-sub" id="nav-cronicas">
+        <li><a href="/historia.html">Las Crónicas</a></li>
+        <li><a href="/san-antonio-1731.html">San Antonio, 1731</a></li>
+        <li><a href="/alamo.html">The Alamo</a></li>
+        <li><a href="/el-paso.html">El Paso and Juárez</a></li>
+        <li><a href="/texas-to-the-stars.html">Texas to the Stars</a></li>
+        <li><a href="/artifacts.html">Artifacts</a></li>
+        <li><a href="/familia.html">La Familia</a></li>
+      </ul>
+    </li>
+    <li class="nav-group">
+      <button type="button" class="nav-group-btn" aria-expanded="false" aria-controls="nav-author">Author</button>
+      <ul class="nav-sub" id="nav-author">
+        <li><a href="/author.html">Author</a></li>
+        <li><a href="/rights.html">Rights</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+<main>
+<figure class="poem-banner">
+  <div class="poem-banner-frame">
+    <img src="/assets/poems/abuela-rose.png" width="1170" height="1460" alt="A red rose in thick brushstrokes rises on a gold stem from a cracked white eggshell, with two gold leaves and a gold signature on black." fetchpriority="high" decoding="async">
+  </div>
+  <figcaption>Abuela · 28 November 2026</figcaption>
+</figure>
+<article class="poem-page">
+<article class="poem">
+  <p class="poem-source">A Poem · 2026</p>
+  <h1 class="poem-title" lang="es">Abuela</h1>
+  <p class="poem-subtitle">María Manuela Flores · El Paso</p>
+  <p class="author-byline"><a href="/author.html">Vicente Gabriel Flores</a></p>
+  <p class="author-byline" lang="es">por <a href="/author.html">Vicente Gabriel Flores</a></p>
+  <div class="poem-divider" aria-hidden="true">&#8883; &nbsp;&#10022;&nbsp; &#8884;</div>
+  <div class="poem-body">
+    <p class="stanza">She had Carlos, Ramón, Antonio, Alfredo,<br>
+      Carmen, Albert.<br>
+      And Manuel, the little one.</p>
+    <p class="stanza">Before work, in whatever light the season gave them,<br>
+      the window black or going gray,<br>
+      her married sons drove to their parents' house.<br>
+      The bacon went in first. It hissed and spat<br>
+      and gave the pan its fat.<br>
+      She cracked each egg on the rim and opened it into the fat;<br>
+      the clear went white, the edges crackled brown,<br>
+      and the yolks stood up gold.<br>
+      The kitchen smelled of bacon and black coffee,<br>
+      and steam came off the cups.<br>
+      Her sons sat at her table in their work clothes<br>
+      and broke the yolks with their forks: salt, smoke, the coffee bitter and hot.<br>
+      <span lang="es">Y comían.</span></p>
+    <p class="stanza">The house they drove to is the house I grew up in.<br>
+      The table came up to my chin.<br>
+      She raised her children, and she helped raise me.<br>
+      I asked her once what the shells were for.<br>
+      To feed the roses, she said.</p>
+    <p class="stanza">She carried them out in her hand, light as nothing,<br>
+      the thin skin still clinging,<br>
+      and pressed them into the dark of the watered bed,<br>
+      white in the black, the soil cool from the night.<br>
+      What the rain undid of them, the roses drank.</p>
+    <p class="stanza">The gold went to her sons.<br>
+      The white went down into the dirt.<br>
+      What came up was roses, red, and the yard was sweet with them.</p>
+    <p class="stanza">Now I paint one, rising out of a broken shell.<br>
+      <span lang="es">Rosas, abuela. Que sigan.</span></p>
+  </div>
+  <figure class="edition-signature">
+    <img src="/vicente-gabriel-flores-signature.png" alt="Signature of Vicente Gabriel Flores" width="900" height="506">
+  </figure>
+</article>
+<nav class="poem-pager" aria-label="Poems">
+  <span class="pager-edge"></span>
+  <a class="pager-index" href="/poems.html">Poems</a>
+  <span class="pager-edge"></span>
+</nav>
+</article>
+</main>
+
+<footer>
+  <div class="footer-row">
+    <span class="footer-title">POEMS · 2026</span>
+    <a href="https://x.com/pasadornovel" target="_blank" rel="noopener" style="font-family:Cinzel,serif;font-size:0.65rem;letter-spacing:0.2em;color:var(--gold-dim);text-decoration:none;">@pasadornovel</a>
+    <span class="footer-closing" lang="es">No hemos llegado aún a la vendimia.</span>
+  </div>
+  <span class="footer-copyright"><strong>© 2026 Vicente Gabriel Flores. All rights reserved.</strong> The poems of Vicente Gabriel Flores and all related text and content may not be reproduced, distributed, transmitted, or used in any form — including for the training of machine-learning systems — without the prior written permission of the author. All inquiries: <a href="https://x.com/pasadornovel" target="_blank" rel="noopener">@pasadornovel</a>.</span>
+</footer>
+
+<script>
+const nav = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+navToggle.addEventListener('click', () => {
+  const open = navLinks.classList.toggle('open');
+  navToggle.classList.toggle('active', open);
+  navToggle.setAttribute('aria-expanded', open);
+});
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    navToggle.classList.remove('active');
+    navToggle.setAttribute('aria-expanded', 'false');
+  });
+});
+</script>
+<script src="/assets/site-nav.js" defer></script>
+</body>
+</html>
