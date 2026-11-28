@@ -75,6 +75,16 @@
       <image:title>Abuela</image:title>
       <image:license>https://vicentegabrielflores.com/rights.html</image:license>
     </image:image>
+    <image:image>
+      <image:loc>https://vicentegabrielflores.com/assets/art/canary-ship-sketch-vicente-gabriel-flores-1600.jpg</image:loc>
+      <image:title>Santísima Trinidad y Nuestra Señora del Rosario</image:title>
+      <image:license>https://vicentegabrielflores.com/rights.html</image:license>
+    </image:image>
+    <image:image>
+      <image:loc>https://vicentegabrielflores.com/assets/art/la-villa-exterior-art-vicente-gabriel-flores-1600.jpg</image:loc>
+      <image:title>La Villa</image:title>
+      <image:license>https://vicentegabrielflores.com/rights.html</image:license>
+    </image:image>
   </url>
 
 <url>
@@ -212,7 +222,17 @@
 
 <url>
     <loc>https://vicentegabrielflores.com/the-manifest.html</loc>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-28</lastmod>
+    <image:image>
+      <image:loc>https://vicentegabrielflores.com/assets/art/manifest-ship-sketch-vicente-gabriel-flores-1600.jpg</image:loc>
+      <image:title>La Villa, sheet 1 of 2</image:title>
+      <image:license>https://vicentegabrielflores.com/rights.html</image:license>
+    </image:image>
+    <image:image>
+      <image:loc>https://vicentegabrielflores.com/assets/art/manifest-ship-sketch-exterior-vicente-gabriel-flores-1600.jpg</image:loc>
+      <image:title>La Villa, sheet 2 of 2</image:title>
+      <image:license>https://vicentegabrielflores.com/rights.html</image:license>
+    </image:image>
   </url>
 
 <url>
@@ -612,6 +632,30 @@
     </image:image>
   </url>
 <url>
+    <loc>https://vicentegabrielflores.com/art/canary-ship-sketch.html</loc>
+    <lastmod>2026-11-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+
+    <image:image>
+      <image:loc>https://vicentegabrielflores.com/assets/art/canary-ship-sketch-vicente-gabriel-flores-1600.jpg</image:loc>
+      <image:title>Santísima Trinidad y Nuestra Señora del Rosario</image:title>
+      <image:license>https://vicentegabrielflores.com/rights.html</image:license>
+    </image:image>
+  </url>
+<url>
+    <loc>https://vicentegabrielflores.com/art/la-villa-exterior-art.html</loc>
+    <lastmod>2026-11-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+
+    <image:image>
+      <image:loc>https://vicentegabrielflores.com/assets/art/la-villa-exterior-art-vicente-gabriel-flores-1600.jpg</image:loc>
+      <image:title>La Villa</image:title>
+      <image:license>https://vicentegabrielflores.com/rights.html</image:license>
+    </image:image>
+  </url>
+<url>
     <loc>https://vicentegabrielflores.com/es-ES/art.html</loc>
     <lastmod>2026-11-23</lastmod>
   </url>
@@ -629,6 +673,15 @@
 <url>
     <loc>https://vicentegabrielflores.com/es-ES/art/leo.html</loc>
     <lastmod>2026-11-23</lastmod>
+  </url>
+
+<url>
+    <loc>https://vicentegabrielflores.com/es-ES/art/canary-ship-sketch.html</loc>
+    <lastmod>2026-11-28</lastmod>
+  </url>
+<url>
+    <loc>https://vicentegabrielflores.com/es-ES/art/la-villa-exterior-art.html</loc>
+    <lastmod>2026-11-28</lastmod>
   </url>
 
 <url>
@@ -652,6 +705,15 @@
   </url>
 
 <url>
+    <loc>https://vicentegabrielflores.com/es-MX/art/canary-ship-sketch.html</loc>
+    <lastmod>2026-11-28</lastmod>
+  </url>
+<url>
+    <loc>https://vicentegabrielflores.com/es-MX/art/la-villa-exterior-art.html</loc>
+    <lastmod>2026-11-28</lastmod>
+  </url>
+
+<url>
     <loc>https://vicentegabrielflores.com/ja/art.html</loc>
     <lastmod>2026-11-23</lastmod>
   </url>
@@ -669,5 +731,14 @@
 <url>
     <loc>https://vicentegabrielflores.com/ja/art/leo.html</loc>
     <lastmod>2026-11-23</lastmod>
+  </url>
+
+<url>
+    <loc>https://vicentegabrielflores.com/ja/art/canary-ship-sketch.html</loc>
+    <lastmod>2026-11-28</lastmod>
+  </url>
+<url>
+    <loc>https://vicentegabrielflores.com/ja/art/la-villa-exterior-art.html</loc>
+    <lastmod>2026-11-28</lastmod>
   </url>
 </urlset>

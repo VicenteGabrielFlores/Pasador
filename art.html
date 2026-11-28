@@ -395,7 +395,39 @@ footer{
       },
       "creditText": "Vicente Gabriel Flores",
       "artform": "painting"
-    }
+    },
+        {
+          "@type": "VisualArtwork",
+          "name": "Santísima Trinidad y Nuestra Señora del Rosario",
+          "artform": "drawing",
+          "url": "https://vicentegabrielflores.com/art/canary-ship-sketch.html",
+          "image": "https://vicentegabrielflores.com/assets/art/canary-ship-sketch-vicente-gabriel-flores-1600.jpg",
+          "creator": {
+            "@type": "Person",
+            "@id": "https://vicentegabrielflores.com/#author",
+            "name": "Vicente Gabriel Flores"
+          },
+          "copyrightHolder": {
+            "@id": "https://vicentegabrielflores.com/#author"
+          },
+          "creditText": "Science, Vicente Gabriel Flores’s science studio"
+        },
+        {
+          "@type": "VisualArtwork",
+          "name": "La Villa",
+          "artform": "drawing",
+          "url": "https://vicentegabrielflores.com/art/la-villa-exterior-art.html",
+          "image": "https://vicentegabrielflores.com/assets/art/la-villa-exterior-art-vicente-gabriel-flores-1600.jpg",
+          "creator": {
+            "@type": "Person",
+            "@id": "https://vicentegabrielflores.com/#author",
+            "name": "Vicente Gabriel Flores"
+          },
+          "copyrightHolder": {
+            "@id": "https://vicentegabrielflores.com/#author"
+          },
+          "creditText": "Science, Vicente Gabriel Flores’s science studio"
+        }
   ]
 }
 </script>
@@ -545,6 +577,62 @@ footer{
       "copyrightNotice": "© 2026 Vicente Gabriel Flores",
       "license": "https://vicentegabrielflores.com/rights.html",
       "acquireLicensePage": "https://vicentegabrielflores.com/rights.html"
+    },
+    {
+      "@type": "ImageObject",
+      "name": "Santísima Trinidad y Nuestra Señora del Rosario",
+      "contentUrl": "https://vicentegabrielflores.com/assets/art/canary-ship-sketch-vicente-gabriel-flores-1600.jpg",
+      "creator": {
+        "@type": "Person",
+        "@id": "https://vicentegabrielflores.com/#author",
+        "name": "Vicente Gabriel Flores"
+      },
+      "creditText": "Science, Vicente Gabriel Flores’s science studio",
+      "copyrightNotice": "© 2026 Vicente Gabriel Flores",
+      "license": "https://vicentegabrielflores.com/rights.html",
+      "acquireLicensePage": "https://vicentegabrielflores.com/rights.html"
+    },
+    {
+      "@type": "ImageObject",
+      "name": "Santísima Trinidad y Nuestra Señora del Rosario",
+      "contentUrl": "https://vicentegabrielflores.com/assets/art/canary-ship-sketch-vicente-gabriel-flores-800.jpg",
+      "creator": {
+        "@type": "Person",
+        "@id": "https://vicentegabrielflores.com/#author",
+        "name": "Vicente Gabriel Flores"
+      },
+      "creditText": "Science, Vicente Gabriel Flores’s science studio",
+      "copyrightNotice": "© 2026 Vicente Gabriel Flores",
+      "license": "https://vicentegabrielflores.com/rights.html",
+      "acquireLicensePage": "https://vicentegabrielflores.com/rights.html"
+    },
+    {
+      "@type": "ImageObject",
+      "name": "La Villa",
+      "contentUrl": "https://vicentegabrielflores.com/assets/art/la-villa-exterior-art-vicente-gabriel-flores-1600.jpg",
+      "creator": {
+        "@type": "Person",
+        "@id": "https://vicentegabrielflores.com/#author",
+        "name": "Vicente Gabriel Flores"
+      },
+      "creditText": "Science, Vicente Gabriel Flores’s science studio",
+      "copyrightNotice": "© 2026 Vicente Gabriel Flores",
+      "license": "https://vicentegabrielflores.com/rights.html",
+      "acquireLicensePage": "https://vicentegabrielflores.com/rights.html"
+    },
+    {
+      "@type": "ImageObject",
+      "name": "La Villa",
+      "contentUrl": "https://vicentegabrielflores.com/assets/art/la-villa-exterior-art-vicente-gabriel-flores-800.jpg",
+      "creator": {
+        "@type": "Person",
+        "@id": "https://vicentegabrielflores.com/#author",
+        "name": "Vicente Gabriel Flores"
+      },
+      "creditText": "Science, Vicente Gabriel Flores’s science studio",
+      "copyrightNotice": "© 2026 Vicente Gabriel Flores",
+      "license": "https://vicentegabrielflores.com/rights.html",
+      "acquireLicensePage": "https://vicentegabrielflores.com/rights.html"
     }
   ]
 }
@@ -583,6 +671,22 @@ footer{
 
 <link rel="stylesheet" href="/assets/site-nav.css">
 <link rel="stylesheet" href="/assets/art-viewer.css">
+<style id="two-ships-css">
+.exhibit{max-width:1100px;margin:0 auto;padding:2.4rem 1.5rem 4.2rem;border-top:1px solid var(--sep)}
+.exhibit-title{font-family:'Cormorant Garamond',Georgia,serif;font-weight:300;font-size:clamp(1.8rem,3.4vw,2.6rem);line-height:1.2;text-align:center;color:var(--parchment);margin:0 0 1.7rem}
+.exhibit-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.2rem 1.75rem;align-items:start}
+.exhibit .work{border-top:none;padding:0}
+.exhibit .work-frame.contained{max-width:none;padding:0}
+.exhibit .work-frame img{display:block;width:100%;height:auto}
+.exhibit .work-title{margin-top:0}
+.exhibit .work-body{max-width:none;margin:1rem 0 0;padding:0}
+.exhibit .work-caption{font-family:'EB Garamond',Georgia,serif;font-size:1.05rem;line-height:1.55;text-transform:none;letter-spacing:0;color:var(--parchment);margin-top:.7rem}
+.exhibit .work-meta{margin-top:.85rem}
+@media(max-width:768px){
+  .exhibit{padding:1.8rem 1.5rem 3.2rem}
+  .exhibit-grid{grid-template-columns:1fr;gap:2.4rem}
+}
+</style>
 </head>
 <body data-viewer-hint="Pinch or scroll to zoom. Escape closes." data-viewer-close="Close">
 
@@ -711,6 +815,40 @@ footer{
   </div>
 </article>
 
+<section class="exhibit" id="two-ships" aria-labelledby="two-ships-title">
+  <h2 class="exhibit-title" id="two-ships-title">Two Ships / Dos naves: 1730 and the far future</h2>
+  <div class="exhibit-grid">
+    <article class="work reveal" id="canary-ship-sketch">
+      <figure class="work-frame contained">
+        <a class="art-zoom" href="/assets/art/canary-ship-sketch-vicente-gabriel-flores-1600.jpg" aria-label="Enlarge Santísima Trinidad y Nuestra Señora del Rosario">
+          <img src="/assets/art/canary-ship-sketch-vicente-gabriel-flores-800.jpg" width="800" height="622" alt="Gold pen-and-brush drawing on black of the Santísima Trinidad y Nuestra Señora del Rosario, the three-masted merchant frigate that carried Canary Islander families from Santa Cruz de Tenerife to Veracruz in 1730, shown under full sail with a midship cross-section, specifications and scale bars in metres and varas." decoding="async">
+        </a>
+      </figure>
+      <div class="work-body">
+        <h3 class="work-title"><a href="/art/canary-ship-sketch.html">Santísima Trinidad y Nuestra Señora del Rosario</a></h3>
+        <p class="work-caption" lang="en">The 1730 Canary Islander frigate Santísima Trinidad y Nuestra Señora del Rosario, gold pen-and-brush on black.</p>
+        <p class="work-caption" lang="es">La fragata de los isleños canarios de 1730, Santísima Trinidad y Nuestra Señora del Rosario, a pluma y pincel en oro sobre negro.</p>
+        <p class="work-meta" lang="en">Added <time datetime="2026-11-28">28 November 2026</time> · Drawing by Science, Vicente Gabriel Flores’s science studio</p>
+        <p class="work-meta" lang="es">Dibujo de Science, el estudio científico de Vicente Gabriel Flores</p>
+      </div>
+    </article>
+    <article class="work reveal" id="la-villa-exterior-art">
+      <figure class="work-frame contained">
+        <a class="art-zoom" href="/assets/art/la-villa-exterior-art-vicente-gabriel-flores-1600.jpg" aria-label="Enlarge La Villa">
+          <img src="/assets/art/la-villa-exterior-art-vicente-gabriel-flores-800.jpg" width="800" height="578" alt="Gold pen-and-brush drawing on black of La Villa, the generation ship of The Manifest: a vast drum-shaped town for five thousand people, braking toward a bright double star, its tethers trailing behind and a curling bow glow ahead, with a to-scale strip comparing it with the 1730 frigate." decoding="async">
+        </a>
+      </figure>
+      <div class="work-body">
+        <h3 class="work-title"><a href="/art/la-villa-exterior-art.html">La Villa</a></h3>
+        <p class="work-caption" lang="en">La Villa, the generation ship of The Manifest, gold pen-and-brush on black, with a to-scale strip beside the 1730 frigate. Hull colour and the star’s name are the studio’s design choices, not canon.</p>
+        <p class="work-caption" lang="es">La Villa, la nave generacional de The Manifest, a pluma y pincel en oro sobre negro, con una franja a escala junto a la fragata de 1730. El color del casco y el nombre de la estrella son decisiones de diseño del estudio, y no pertenecen al canon.</p>
+        <p class="work-meta" lang="en">Added <time datetime="2026-11-28">28 November 2026</time> · Drawing by Science, Vicente Gabriel Flores’s science studio</p>
+        <p class="work-meta" lang="es">Dibujo de Science, el estudio científico de Vicente Gabriel Flores</p>
+        <p class="work-related">Related work · <a href="/the-manifest.html">The Manifest</a></p>
+      </div>
+    </article>
+  </div>
+</section>
 <section class="site-index" aria-label="On this site">
   <h2>On this site</h2>
   <h3>Books, plays, and articles</h3>

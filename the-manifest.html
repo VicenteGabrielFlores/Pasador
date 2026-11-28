@@ -392,6 +392,19 @@
   }
 
   a:focus-visible,.cta:focus-visible{outline:2px solid var(--brass);outline-offset:3px;}
+
+  .plates{padding:64px 0 72px;border-top:1px solid var(--ink-line)}
+  .plates .section-title{font-size:clamp(1.55rem,3vw,2.15rem)}
+  .plates .plate-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.75rem;margin-top:1.8rem}
+  .plates figure{margin:0}
+  .plates a{display:block}
+  .plates img{display:block;width:100%;height:auto}
+  .plates figcaption p{margin:.75rem 0 0;font-size:1.05rem;line-height:1.55;color:var(--cream-soft)}
+  .plates .plate-credit{margin:1.35rem 0 0;font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--slate)}
+  @media(max-width:680px){
+    .plates{padding:48px 0 56px}
+    .plates .plate-grid{grid-template-columns:1fr;gap:1.6rem}
+  }
 </style>
   <link rel="alternate" type="application/atom+xml" title="What's in the Air" href="https://vicentegabrielflores.com/whats-in-the-air.xml">
 
@@ -440,6 +453,34 @@
         "name": "Vicente Gabriel Flores"
       },
       "creditText": "Vicente Gabriel Flores",
+      "copyrightNotice": "© 2026 Vicente Gabriel Flores",
+      "license": "https://vicentegabrielflores.com/rights.html",
+      "acquireLicensePage": "https://vicentegabrielflores.com/rights.html"
+    },
+    {
+      "@type": "ImageObject",
+      "name": "La Villa, sheet 1 of 2",
+      "contentUrl": "https://vicentegabrielflores.com/assets/art/manifest-ship-sketch-vicente-gabriel-flores-1600.jpg",
+      "creator": {
+        "@type": "Person",
+        "@id": "https://vicentegabrielflores.com/#author",
+        "name": "Vicente Gabriel Flores"
+      },
+      "creditText": "Science, Vicente Gabriel Flores’s science studio",
+      "copyrightNotice": "© 2026 Vicente Gabriel Flores",
+      "license": "https://vicentegabrielflores.com/rights.html",
+      "acquireLicensePage": "https://vicentegabrielflores.com/rights.html"
+    },
+    {
+      "@type": "ImageObject",
+      "name": "La Villa, sheet 2 of 2",
+      "contentUrl": "https://vicentegabrielflores.com/assets/art/manifest-ship-sketch-exterior-vicente-gabriel-flores-1600.jpg",
+      "creator": {
+        "@type": "Person",
+        "@id": "https://vicentegabrielflores.com/#author",
+        "name": "Vicente Gabriel Flores"
+      },
+      "creditText": "Science, Vicente Gabriel Flores’s science studio",
       "copyrightNotice": "© 2026 Vicente Gabriel Flores",
       "license": "https://vicentegabrielflores.com/rights.html",
       "acquireLicensePage": "https://vicentegabrielflores.com/rights.html"
@@ -675,6 +716,34 @@
       <p>The full manuscript, a synopsis, and additional sample pages are available to agents and editors on request. Queries are read by the author directly.</p>
       <a class="cta" href="mailto:cronista@vicentegabrielflores.com?subject=THE%20MANIFEST%20%E2%80%94%20manuscript%20request&amp;body=Dear%20Vicente%2C%0A%0AI%27d%20like%20to%20request%20the%20full%20manuscript%20of%20THE%20MANIFEST.%0A%0A">Request the manuscript</a>
       <p class="also">or write to <a href="mailto:cronista@vicentegabrielflores.com">cronista@vicentegabrielflores.com</a> &middot; <a href="https://x.com/pasadornovel" target="_blank" rel="noopener">@pasadornovel</a></p>
+    </div>
+  </section>
+
+  <section class="plates" id="engineering-sheets" aria-labelledby="engineering-sheets-title">
+    <div class="wrap reveal">
+      <h2 class="section-title" id="engineering-sheets-title">Engineering sheets / Planos de ingeniería</h2>
+      <div class="plate-grid">
+        <figure>
+          <a href="/assets/art/manifest-ship-sketch-vicente-gabriel-flores-1600.jpg">
+            <img src="/assets/art/manifest-ship-sketch-vicente-gabriel-flores-800.jpg" width="800" height="717" alt="Conceptual engineering sketch of La Villa, sheet 1: side section, ring cross-section, ring decks, braking and launch geometry, a speed curve over the 71-year crossing, and a table of principal characteristics." decoding="async">
+          </a>
+          <figcaption>
+            <p lang="en">Conceptual engineering sketch of La Villa, sheet 1 of 2.</p>
+            <p lang="es">Plano de ingeniería conceptual de La Villa, hoja 1 de 2.</p>
+          </figcaption>
+        </figure>
+        <figure>
+          <a href="/assets/art/manifest-ship-sketch-exterior-vicente-gabriel-flores-1600.jpg">
+            <img src="/assets/art/manifest-ship-sketch-exterior-vicente-gabriel-flores-800.jpg" width="800" height="717" alt="Conceptual engineering sketch of La Villa, sheet 2: exterior side view, forward hub with lounge windows, docked shuttles and rigging bay, a view from ahead, and the manuscript lines each detail rests on." decoding="async">
+          </a>
+          <figcaption>
+            <p lang="en">Conceptual engineering sketch of La Villa, sheet 2 of 2.</p>
+            <p lang="es">Plano de ingeniería conceptual de La Villa, hoja 2 de 2.</p>
+          </figcaption>
+        </figure>
+      </div>
+      <p class="plate-credit" lang="en">Drawings by Science, Vicente Gabriel Flores’s science studio.</p>
+      <p class="plate-credit" lang="es">Dibujos de Science, el estudio científico de Vicente Gabriel Flores.</p>
     </div>
   </section>
 
