@@ -32,7 +32,7 @@
 
 <url>
     <loc>https://vicentegabrielflores.com/author.html</loc>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   
@@ -44,14 +44,14 @@
 
 <url>
     <loc>https://vicentegabrielflores.com/poems.html</loc>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
 <url>
     <loc>https://vicentegabrielflores.com/art.html</loc>
-    <lastmod>2026-11-23</lastmod>
+    <lastmod>2026-11-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   
@@ -187,6 +187,13 @@
 <url>
     <loc>https://vicentegabrielflores.com/poems/it-feels-me.html</loc>
     <lastmod>2026-11-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+<url>
+    <loc>https://vicentegabrielflores.com/poems/abuela.html</loc>
+    <lastmod>2026-11-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
