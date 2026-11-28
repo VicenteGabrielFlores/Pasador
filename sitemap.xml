@@ -70,6 +70,11 @@
       <image:title>Leo</image:title>
       <image:license>https://vicentegabrielflores.com/rights.html</image:license>
     </image:image>
+    <image:image>
+      <image:loc>https://vicentegabrielflores.com/assets/poems/abuela-rose.png</image:loc>
+      <image:title>Abuela</image:title>
+      <image:license>https://vicentegabrielflores.com/rights.html</image:license>
+    </image:image>
   </url>
 
 <url>
@@ -583,6 +588,19 @@
     <image:image>
       <image:loc>https://vicentegabrielflores.com/assets/art/leo-drawing-vicente-gabriel-flores-1024.png</image:loc>
       <image:title>Leo</image:title>
+      <image:license>https://vicentegabrielflores.com/rights.html</image:license>
+    </image:image>
+  </url>
+
+<url>
+    <loc>https://vicentegabrielflores.com/art/abuela.html</loc>
+    <lastmod>2026-11-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+
+    <image:image>
+      <image:loc>https://vicentegabrielflores.com/assets/poems/abuela-rose.png</image:loc>
+      <image:title>Abuela</image:title>
       <image:license>https://vicentegabrielflores.com/rights.html</image:license>
     </image:image>
   </url>
