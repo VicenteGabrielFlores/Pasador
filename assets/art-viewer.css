@@ -35,8 +35,6 @@
   color:#f2ede2;
   margin:0.1rem 0 0;
 }
-.work-fact[hidden],
-.work-statement[hidden]{display:none !important}
 
 .art-viewer{
   width:100vw;
