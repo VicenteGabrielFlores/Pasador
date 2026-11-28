@@ -199,20 +199,6 @@ main{max-width:820px;margin:0 auto;padding:1rem 2rem 5rem}
 .cap{
   margin-top:0.55rem;font-size:0.98rem;color:var(--parchment-dim);
 }
-dialog.zoom{
-  width:min(96vw,980px);max-height:94vh;padding:0.6rem;
-  background:var(--bg);color:var(--parchment);
-  border:1px solid rgba(224,180,92,0.35);
-}
-dialog.zoom::backdrop{background:rgba(0,0,0,0.84)}
-dialog.zoom img{display:block;width:100%;height:auto;max-height:82vh;object-fit:contain;margin:0 auto}
-dialog.zoom .zoom-bar{display:flex;justify-content:flex-end;margin-bottom:0.4rem}
-dialog.zoom button{
-  font-family:'Cinzel',serif;font-size:0.62rem;letter-spacing:0.16em;
-  text-transform:uppercase;color:var(--gold);background:none;
-  border:1px solid var(--gold-dim);padding:0.4rem 0.7rem;cursor:pointer;
-}
-
 footer{
   max-width:820px;margin:0 auto;padding:3rem 2rem 4rem;text-align:center;
   border-top:1px solid var(--sep);
@@ -231,6 +217,187 @@ footer{
   font-size:0.78rem;color:var(--parchment-faint);line-height:1.6;
 }
 .footer-copyright a{color:inherit}
+
+/* ===== Artifacts review: evidence badges, timeline, zoom viewer ===== */
+html{scroll-padding-top:calc(var(--nav-h,3.7rem) + var(--tl-h,2.9rem) + 0.9rem)}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+html.zoom-lock{overflow:hidden}
+.ev{
+  display:inline-flex;align-items:center;gap:0.45rem;
+  font-family:'Cinzel',serif;font-size:0.64rem;letter-spacing:0.13em;text-transform:uppercase;
+  line-height:1.25;padding:0.3rem 0.65rem 0.3rem 0.5rem;border:1.5px solid;border-radius:2px;
+}
+.ev svg{width:1rem;height:1rem;flex:none}
+.ev .ev-es{font-family:'EB Garamond',Georgia,serif;font-size:0.82rem;letter-spacing:0.01em;text-transform:none;font-style:italic;opacity:0.82;display:none}
+.ev-verified{color:#f3cf86;border-style:solid;border-color:#e0b45c;background:rgba(224,180,92,0.1)}
+.ev-catalog{color:#adc5da;border-style:dashed;border-color:#7f9bb3;background:rgba(127,155,179,0.09)}
+.ev-family{color:#e8aa94;border-style:dotted;border-color:#c98a73;background:rgba(201,138,115,0.09)}
+@media (min-width:720px){.ev .ev-es{display:inline}.ev .ev-es::before{content:'· '}}
+.card-top{display:flex;flex-wrap:wrap;gap:0.4rem 0.6rem;align-items:center;margin:0 0 0.5rem}
+.card-top + .date{margin-top:0}
+.legend{margin:1.6rem 0 0;padding:1rem 1.1rem 0.8rem;border:1px solid var(--sep);background:rgba(224,180,92,0.03)}
+.legend-title{
+  font-family:'Cinzel',serif;font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;
+  color:var(--gold);margin:0 0 0.7rem;
+}
+.legend ul{list-style:none;margin:0;padding:0}
+.legend li{display:grid;grid-template-columns:minmax(0,15.5rem) 1fr;gap:0.35rem 1rem;align-items:start;margin:0 0 0.8rem}
+.legend li .ev{justify-self:start}
+.legend .legend-es{font-style:italic;color:var(--parchment-dim)}
+.legend .legend-text{font-size:1rem;line-height:1.6}
+@media (max-width:640px){.legend li{grid-template-columns:1fr}}
+.tl-jump{margin:0.2rem 0 1.2rem}
+.tl-jump a{
+  font-family:'Cinzel',serif;font-size:0.68rem;letter-spacing:0.16em;text-transform:uppercase;
+  color:var(--gold);text-decoration:none;border-bottom:1px solid var(--gold-dim);padding-bottom:0.15rem;
+}
+.tl-jump a:hover{color:var(--parchment)}
+.tl-jump .tl-jump-es{font-family:'EB Garamond',serif;font-style:italic;text-transform:none;letter-spacing:0.01em;color:var(--parchment-dim);font-size:0.95rem;margin-left:0.4rem}
+
+/* chronological index */
+.timeline{
+  position:sticky;top:var(--nav-h,3.7rem);z-index:90;
+  background:#080604;
+  border-top:1px solid rgba(224,180,92,0.22);border-bottom:1px solid rgba(224,180,92,0.22);
+}
+.tl-inner{max-width:1040px;margin:0 auto;display:flex;align-items:stretch;gap:0.5rem;padding:0 0.9rem}
+.tl-label{
+  align-self:center;flex:none;font-family:'Cinzel',serif;font-size:0.56rem;letter-spacing:0.2em;
+  text-transform:uppercase;color:var(--gold);line-height:1.35;
+}
+.tl-label .tl-es{display:block;font-family:'EB Garamond',serif;font-style:italic;letter-spacing:0.02em;text-transform:none;font-size:0.8rem;color:var(--parchment-dim)}
+.tl-strip-wrap{position:relative;flex:1;min-width:0}
+.tl-strip-wrap::before,.tl-strip-wrap::after{content:'';position:absolute;top:0;bottom:0;width:1.4rem;z-index:2;pointer-events:none}
+.tl-strip-wrap::before{left:0;background:linear-gradient(to right,#080604,rgba(8,6,4,0))}
+.tl-strip-wrap::after{right:0;background:linear-gradient(to left,#080604,rgba(8,6,4,0))}
+.tl-strip{
+  list-style:none;display:flex;gap:0.1rem;overflow-x:auto;overscroll-behavior-x:contain;
+  scrollbar-width:none;margin:0;padding:0 1rem;scroll-padding:0 2rem;
+}
+.tl-strip::-webkit-scrollbar{display:none}
+.tl-strip li{flex:none}
+.tl-strip a{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  min-width:3.2rem;min-height:2.9rem;padding:0.15rem 0.45rem;text-decoration:none;
+  font-family:'Cinzel',serif;font-size:0.76rem;letter-spacing:0.08em;color:var(--parchment-dim);
+  border-bottom:2px solid transparent;line-height:1.15;
+}
+.tl-strip a:hover{color:var(--parchment)}
+.tl-strip a:focus-visible,.tl-all summary:focus-visible,.tl-panel a:focus-visible{outline:2px solid var(--gold);outline-offset:-2px}
+.tl-strip a[aria-current="true"]{color:var(--gold);border-bottom-color:var(--gold)}
+.tl-strip .tl-sec{font-size:0.5rem;letter-spacing:0.12em;color:var(--gold-dim);margin-top:0.12rem}
+.tl-strip .ctx a{color:#b7a98f}
+.tl-strip .ctx .tl-sec{color:#9a8d74}
+.tl-strip .held a,.tl-strip .approx a{font-style:italic}
+.tl-all{flex:none;align-self:stretch;display:flex}
+.tl-all summary{
+  list-style:none;display:flex;align-items:center;gap:0.4rem;cursor:pointer;padding:0 0.2rem 0 0.5rem;
+  font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);
+  min-height:2.9rem;border-left:1px solid rgba(224,180,92,0.2);
+}
+.tl-all summary::-webkit-details-marker{display:none}
+.tl-all summary::after{content:'▾';font-size:0.8rem;transition:transform 0.2s}
+.tl-all[open] summary::after{transform:rotate(180deg)}
+.tl-all summary .tl-es{font-family:'EB Garamond',serif;font-style:italic;letter-spacing:0.02em;text-transform:none;font-size:0.82rem;color:var(--parchment-dim)}
+.tl-panel{
+  position:absolute;left:0;right:0;top:100%;max-height:min(72vh,calc(100dvh - var(--nav-h,3.7rem) - var(--tl-h,2.9rem) - 1rem));
+  overflow:auto;background:#080604;border-bottom:1px solid rgba(224,180,92,0.3);
+  box-shadow:0 18px 30px rgba(0,0,0,0.6);
+}
+.tl-panel-inner{max-width:1040px;margin:0 auto;padding:0.9rem 0.9rem 1.2rem}
+.tl-panel .tl-key{display:flex;flex-wrap:wrap;gap:0.4rem 0.6rem;margin:0 0 0.9rem}
+.tl-panel .tl-key .ev{font-size:0.56rem;padding:0.2rem 0.5rem 0.2rem 0.4rem}
+.tl-panel h3{
+  font-family:'Cinzel',serif;font-weight:500;font-size:0.6rem;letter-spacing:0.22em;text-transform:uppercase;
+  color:var(--gold);margin:1rem 0 0.2rem;
+}
+.tl-panel ol{list-style:none;margin:0;padding:0}
+.tl-panel li a{
+  display:grid;grid-template-columns:3.4rem minmax(0,1fr) auto;gap:0.15rem 0.7rem;align-items:baseline;
+  padding:0.5rem 0.3rem;border-bottom:1px solid var(--sep);text-decoration:none;color:var(--parchment);
+}
+.tl-panel li a:hover{background:rgba(224,180,92,0.07)}
+.tl-panel .tl-y{font-family:'Cinzel',serif;font-size:0.8rem;letter-spacing:0.06em;color:var(--gold)}
+.tl-panel .tl-t{font-size:1rem;line-height:1.35}
+.tl-panel .tl-d{display:block;font-size:0.88rem;font-style:italic;color:var(--parchment-dim)}
+.tl-panel .tl-m{display:flex;align-items:center;gap:0.5rem;font-family:'Cinzel',serif;font-size:0.54rem;letter-spacing:0.14em;color:var(--parchment-dim);white-space:nowrap}
+.tl-panel .tl-m svg{width:0.95rem;height:0.95rem}
+.tl-panel .m-verified{color:#f3cf86}.tl-panel .m-catalog{color:#adc5da}.tl-panel .m-family{color:#e8aa94}
+@media (max-width:640px){
+  .zoom-tools{width:100%}
+  .zoom-bar{padding:0.4rem 0.5rem}
+  dialog.zoom .zoom-tools button{flex:1 1 14%;min-width:2.75rem}
+  #zoomPrev,#zoomNext,#zoomOut,#zoomIn,#zoomClose{order:1}
+  #zoomFit,#zoomWidth,#zoomActual{order:2;flex:1 1 30%}
+  #zoomClose{flex-basis:22%}
+  .tl-inner{padding:0 0.4rem;gap:0.3rem}
+  .tl-label .tl-es{display:none}
+  .tl-all summary .tl-es{display:none}
+  .tl-strip a{min-width:3rem;padding:0.15rem 0.35rem}
+  .tl-panel li a{grid-template-columns:3rem minmax(0,1fr)}
+  .tl-panel .tl-m{grid-column:2}
+}
+.card{position:relative}
+.card:target::before{content:'';position:absolute;left:-0.85rem;top:1.6rem;bottom:1.4rem;width:2px;background:var(--gold)}
+.section:target{outline:none}
+.section-intro + .section-intro{margin-top:-0.6rem}
+
+/* images: larger, and the printed pages read as a spread */
+@media (min-width:900px){
+  .card .frames:not(.portrait){width:min(1180px,calc(100vw - 4rem))}
+  .card .frames.spread{grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}
+}
+.zoom-open{touch-action:manipulation}
+.zoom-hint{font-size:0.6rem;padding:0.4rem 0.65rem;box-shadow:0 0 0 1px rgba(8,6,4,0.55)}
+.zoom-hint::before{content:'⌕ ';letter-spacing:0}
+
+/* zoom viewer */
+dialog.zoom{
+  width:100vw;max-width:none;height:100vh;height:100dvh;max-height:none;margin:0;padding:0;border:0;
+  background:rgba(4,3,2,0.97);color:var(--parchment);
+}
+dialog.zoom[open]{display:flex;flex-direction:column}
+dialog.zoom::backdrop{background:rgba(0,0,0,0.9)}
+.zoom-bar{
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:0.4rem 0.8rem;
+  padding:0.5rem 0.8rem;border-bottom:1px solid rgba(224,180,92,0.25);flex:none;
+}
+.zoom-count{font-family:'Cinzel',serif;font-size:0.62rem;letter-spacing:0.16em;color:var(--parchment-dim);text-transform:uppercase;min-width:3.5rem}
+.zoom-tools{display:flex;flex-wrap:wrap;gap:0.35rem}
+dialog.zoom .zoom-tools button{
+  font-family:'Cinzel',serif;font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);
+  background:none;border:1px solid var(--gold-dim);padding:0 0.75rem;min-width:2.75rem;min-height:2.75rem;cursor:pointer;
+}
+dialog.zoom .zoom-tools .zoom-glyph{font-family:'EB Garamond',Georgia,serif;font-size:1.5rem;line-height:1;letter-spacing:0;padding:0 0.6rem}
+dialog.zoom .zoom-tools button:hover:not(:disabled){background:rgba(224,180,92,0.12)}
+dialog.zoom .zoom-tools button:disabled{opacity:0.35;cursor:default}
+dialog.zoom .zoom-tools button:focus-visible,.zoom-stage:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+dialog.zoom .zoom-tools .zoom-btn-close{background:var(--gold);color:var(--bg);font-weight:500}
+.zoom-stage{
+  flex:1;min-height:0;display:flex;overflow:auto;background:#000;touch-action:pan-x pan-y pinch-zoom;
+  overscroll-behavior:contain;cursor:grab;
+}
+.zoom-stage.dragging{cursor:grabbing;user-select:none}
+dialog.zoom .zoom-stage img{display:block;flex:none;margin:auto;max-width:none;max-height:none;width:auto;height:auto;border:0;user-select:none;-webkit-user-drag:none}
+.zoom-cap{
+  flex:none;margin:0;padding:0.55rem 0.9rem 0.65rem;border-top:1px solid rgba(224,180,92,0.25);
+  font-size:0.98rem;line-height:1.45;color:var(--parchment-dim);max-height:20vh;overflow:auto;
+}
+.zoom-cap strong{font-weight:500;color:var(--parchment)}
+.zoom-help{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* optional method note */
+.method{margin:3rem 0 0;border:1px solid var(--sep);padding:0.2rem 1.1rem}
+.method summary{
+  cursor:pointer;padding:0.8rem 0;font-family:'Cinzel',serif;font-size:0.68rem;letter-spacing:0.2em;
+  text-transform:uppercase;color:var(--gold);
+}
+.method summary .method-es{font-family:'EB Garamond',serif;font-style:italic;letter-spacing:0.02em;text-transform:none;font-size:0.95rem;color:var(--parchment-dim);margin-left:0.5rem}
+.method ul{margin:0.2rem 0 1rem 1.2rem}
+.method li{margin:0.45rem 0}
+.hero-es a,.hero-lead a,.section-intro a,.bridge a,.cap a{color:var(--gold);text-decoration:none;border-bottom:1px solid var(--gold-dim)}
+.hero-es a:hover,.hero-lead a:hover,.section-intro a:hover,.bridge a:hover,.cap a:hover{color:var(--parchment)}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
 @media(max-width:768px){
   nav{padding:1.2rem 1.5rem}
@@ -1003,6 +1170,7 @@ footer{
   <p class="author-byline" lang="es">por <a href="/author.html">Vicente Gabriel Flores</a></p>
   <p class="hero-es" lang="es">Los papeles, no la novela.</p>
   <p class="hero-es">Primary documentary evidence. The verified chronicle is <a href="/historia.html">Las Crónicas</a>. The dramatized books are <a href="/the-harness-makers-son.html">The Harness-Maker’s Son</a>, <a href="/pasador.html">PASADOR</a>, and <a href="/concordia.html">CONCORDIA: la heredera</a>.</p>
+  <p class="tl-jump"><a href="#timeline">Move in time: 1730 to 2026</a><span class="tl-jump-es" lang="es">Moverse en el tiempo</span></p>
   <div class="opening-poem">
     <h2 class="poem-title">What the Paper Keeps</h2>
     <p class="poem-subtitle" lang="es">Lo que guarda el papel</p>
@@ -1029,15 +1197,110 @@ footer{
       <img src="/vicente-gabriel-flores-signature.png" alt="Signature of Vicente Gabriel Flores" width="900" height="506">
     </figure>
   </div>
-  <p class="hero-lead">These are records behind the work, not the work itself. A verified record is an original or an official text that has been read. Family narrative is what the Chronicles and family memory say, and it stays labeled as that. Fiction is the dialogue and the scenes in the novel and the plays: a document does not rewrite a scene, and a scene is not offered here as a record.</p>
+  <p class="hero-lead">These are records behind the work, not the work itself. Fiction is the dialogue and the scenes in the novel and the plays: a document does not rewrite a scene, and a scene is not offered here as a record.</p>
   <p class="hero-lead">The papers are not all one story. They show grants and baptisms, signed letters and death certificates. They also show conflict: crown and state, the church, the colonists, and the Native peoples already living on this land. Settling new country was discovery and disruption at the same time. It was innovative, great, and awful, depending on who is looking. The settlers conquered, lived that life, and left paper that carries both the fact of conquering peoples and the richness of the land and its water, grass, and ore. The page says that plainly. Judgment belongs to the reader.</p>
   <p class="hero-lead">The page runs from the Canary Island founding through Gaspar’s San Antonio, the Stephenson ranch at Concordia, and the Juárez household that crossed the bridge in 1913, and then to the maps and plates of Coahuila y Tejas.</p>
-  <ul class="kinds">
-    <li><strong>Verified record</strong> <span lang="es">Registro verificado.</span> The text has been read, or it is a printed official copy of a statute or deed.</li>
-    <li><strong>Catalog record</strong> <span lang="es">Registro de catálogo.</span> A finding aid names the item. The instrument itself has not been read, and nothing inside it is quoted.</li>
-    <li><strong>Family narrative</strong> <span lang="es">Narrativa familiar.</span> What the family account says. It is kept, and it is not dressed up as a certificate.</li>
-  </ul>
+  <div class="legend" role="group" aria-labelledby="legendTitle">
+      <p class="legend-title" id="legendTitle">How to read the labels <span lang="es">· Cómo leer las etiquetas</span></p>
+      <ul>
+        <li><span class="ev ev-verified"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M5 8.3l2.2 2.2L11.2 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Verified record</span></span><span class="legend-text"><span class="legend-es" lang="es">Registro verificado.</span> An original or an official text that has been read, or a printed official copy of a statute or deed.</span></li>
+        <li><span class="ev ev-catalog"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect x="2.5" y="2" width="11" height="12" rx="1" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M5 5.5h6M5 8h6M5 10.5h3.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg><span>Catalog record</span></span><span class="legend-text"><span class="legend-es" lang="es">Registro de catálogo.</span> A finding aid names the item. The instrument itself has not been read, and nothing inside it is quoted.</span></li>
+        <li><span class="ev ev-family"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M2.5 3.5h11v7h-6l-3 2.5v-2.5h-2z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg><span>Family narrative</span></span><span class="legend-text"><span class="legend-es" lang="es">Narrativa familiar.</span> What the Chronicles and family memory say, and what the family account says. It stays labeled as that. It is kept, and it is not dressed up as a certificate.</span></li>
+      </ul>
+    </div>
 </header>
+
+<div id="archive">
+<div class="timeline" id="timeline" role="navigation" aria-label="Chronological index · Índice cronológico">
+  <div class="tl-inner">
+    <span class="tl-label" aria-hidden="true">Time<span class="tl-es" lang="es">Tiempo</span></span>
+    <div class="tl-strip-wrap">
+      <ol class="tl-strip" id="tlStrip" aria-label="Jump to a year · Ir a un año">
+        <li><a href="#travieso-curbelo-marriage" data-year="1730"><span class="tl-y">1730</span><span class="tl-sec" aria-hidden="true">I</span><span class="vh">, 1 entry, section I</span></a></li>
+        <li><a href="#conflict-edicts" data-year="1734"><span class="tl-y">1734</span><span class="tl-sec" aria-hidden="true">V</span><span class="vh">, 2 entries, section V</span></a></li>
+        <li><a href="#conflict-anzures" data-year="1735"><span class="tl-y">1735</span><span class="tl-sec" aria-hidden="true">V</span><span class="vh">, 1 entry, section V</span></a></li>
+        <li><a href="#conflict-sandoval" data-year="1736"><span class="tl-y">1736</span><span class="tl-sec" aria-hidden="true">V</span><span class="vh">, 1 entry, section V</span></a></li>
+        <li><a href="#conflict-missions" data-year="1771"><span class="tl-y">1771</span><span class="tl-sec" aria-hidden="true">V</span><span class="vh">, 1 entry, section V</span></a></li>
+        <li><a href="#travieso-will" data-year="1779"><span class="tl-y">1779</span><span class="tl-sec" aria-hidden="true">I</span><span class="vh">, 1 entry, section I</span></a></li>
+        <li><a href="#mariana-will" data-year="1784"><span class="tl-y">1784</span><span class="tl-sec" aria-hidden="true">I</span><span class="vh">, 1 entry, section I</span></a></li>
+        <li><a href="#gaspar-perez-petition" data-year="1801"><span class="tl-y">1801</span><span class="tl-sec" aria-hidden="true">II</span><span class="vh">, 1 entry, section II</span></a></li>
+        <li class="held"><a href="#juana-ascarate" data-year="1809"><span class="tl-y">1809</span><span class="tl-sec" aria-hidden="true">III</span><span class="vh">, 1 entry, dates held in conflict, section III</span></a></li>
+        <li class="ctx"><a href="#austin-map-1822" data-year="1822"><span class="tl-y">1822</span><span class="tl-sec" aria-hidden="true">VI</span><span class="vh">, 1 entry, section VI</span></a></li>
+        <li><a href="#gaspar-stolen-goods" data-year="1824"><span class="tl-y">1824</span><span class="tl-sec" aria-hidden="true">II·VI</span><span class="vh">, 3 entries, section II·VI</span></a></li>
+        <li class="ctx"><a href="#linati-1828-dragon" data-year="1828"><span class="tl-y">1828</span><span class="tl-sec" aria-hidden="true">VI</span><span class="vh">, 2 entries, section VI</span></a></li>
+        <li><a href="#gaspar-huerta" data-year="1829"><span class="tl-y">1829</span><span class="tl-sec" aria-hidden="true">II</span><span class="vh">, 2 entries, section II</span></a></li>
+        <li class="ctx"><a href="#hooker-map-1833" data-year="1833"><span class="tl-y">1833</span><span class="tl-sec" aria-hidden="true">VI</span><span class="vh">, 1 entry, section VI</span></a></li>
+        <li class="ctx"><a href="#hooker-map-1836" data-year="1836"><span class="tl-y">1836</span><span class="tl-sec" aria-hidden="true">VI</span><span class="vh">, 2 entries, section VI</span></a></li>
+        <li><a href="#gaspar-inventory" data-year="1837"><span class="tl-y">1837</span><span class="tl-sec" aria-hidden="true">II</span><span class="vh">, 1 entry, section II</span></a></li>
+        <li><a href="#ysleta-act" data-year="1854"><span class="tl-y">1854</span><span class="tl-sec" aria-hidden="true">III</span><span class="vh">, 2 entries, section III</span></a></li>
+        <li><a href="#ascarate-act" data-year="1858"><span class="tl-y">1858</span><span class="tl-sec" aria-hidden="true">III</span><span class="vh">, 3 entries, section III</span></a></li>
+        <li><a href="#flores-samaniego-marriage" data-year="1888"><span class="tl-y">1888</span><span class="tl-sec" aria-hidden="true">IV</span><span class="vh">, 1 entry, section IV</span></a></li>
+        <li><a href="#rio-viejo-opinions" data-year="1914"><span class="tl-y">1914</span><span class="tl-sec" aria-hidden="true">III·IV</span><span class="vh">, 2 entries, section III·IV</span></a></li>
+        <li class="ctx approx"><a href="#habs-mision-san-jose" data-year="1936"><span class="tl-y">c. 1936</span><span class="tl-sec" aria-hidden="true">VI</span><span class="vh">, 1 entry, section VI</span></a></li>
+        <li><a href="#jose-jesus-death" data-year="1939"><span class="tl-y">1939</span><span class="tl-sec" aria-hidden="true">IV</span><span class="vh">, 1 entry, section IV</span></a></li>
+        <li><a href="#carlos-flores" data-year="1942"><span class="tl-y">1942</span><span class="tl-sec" aria-hidden="true">IV</span><span class="vh">, 1 entry, section IV</span></a></li>
+        <li><a href="#author-letter-2026" data-year="2026"><span class="tl-y">2026</span><span class="tl-sec" aria-hidden="true">L</span><span class="vh">, 1 entry, section L</span></a></li>
+      </ol>
+    </div>
+    <details class="tl-all" id="tlAll">
+      <summary>Index<span class="tl-es" lang="es">Índice</span><span class="vh">: all entries in date order</span></summary>
+      <div class="tl-panel">
+        <div class="tl-panel-inner">
+          <div class="tl-key" aria-hidden="true"><span class="ev ev-verified"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M5 8.3l2.2 2.2L11.2 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Verified record</span></span><span class="ev ev-catalog"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect x="2.5" y="2" width="11" height="12" rx="1" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M5 5.5h6M5 8h6M5 10.5h3.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg><span>Catalog record</span></span><span class="ev ev-family"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M2.5 3.5h11v7h-6l-3 2.5v-2.5h-2z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg><span>Family narrative</span></span></div>
+          <p class="tl-d" style="margin:0 0 0.2rem">Every entry in date order, across the six sections. The roman numeral is the section. <span lang="es">Cada papel por fecha, a través de las seis secciones.</span></p>
+          <h3>Dated entries <span lang="es">· Con fecha</span></h3>
+          <ol>
+            <li><a href="#travieso-curbelo-marriage"><span class="tl-y">1730</span><span class="tl-t">Marriage of Vicente Álvarez Travieso and Ana María Ramírez Curbelo<span class="tl-d">15 October 1730, Pueblo de Cuautitlán</span></span><span class="tl-m"><span class="m-verified" title="Verified record"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M5 8.3l2.2 2.2L11.2 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>I</span></span></a></li>
+            <li><a href="#conflict-edicts"><span class="tl-y">1734</span><span class="tl-t">Settlers’ letters to the viceroy, with copies of royal edicts<span class="tl-d">Principal papers 2 November 1734. Index span 1719 to 2 February 1735.</span></span><span class="tl-m"><span class="m-catalog" title="Catalog record"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect x="2.5" y="2" width="11" height="12" rx="1" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M5 5.5h6M5 8h6M5 10.5h3.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg></span><span>V</span></span></a></li>
+            <li><a href="#conflict-medical"><span class="tl-y">1734</span><span class="tl-t">Travieso’s petitions to travel for medical care<span class="tl-d">2–4 November 1734. Certified 5 March 1735.</span></span><span class="tl-m"><span class="m-catalog" title="Catalog record"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect x="2.5" y="2" width="11" height="12" rx="1" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M5 5.5h6M5 8h6M5 10.5h3.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg></span><span>V</span></span></a></li>
+            <li><a href="#conflict-anzures"><span class="tl-y">1735</span><span class="tl-t">Anzures and the viceroy: settlers’ land and water<span class="tl-d">13 October 1735</span></span><span class="tl-m"><span class="m-catalog" title="Catalog record"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect x="2.5" y="2" width="11" height="12" rx="1" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M5 5.5h6M5 8h6M5 10.5h3.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg></span><span>V</span></span></a></li>
+            <li><a href="#conflict-sandoval"><span class="tl-y">1736</span><span class="tl-t">Cabildo and settlers versus Governor Manuel de Sandoval<span class="tl-d">24 January to 15 March 1736</span></span><span class="tl-m"><span class="m-catalog" title="Catalog record"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect x="2.5" y="2" width="11" height="12" rx="1" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M5 5.5h6M5 8h6M5 10.5h3.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg></span><span>V</span></span></a></li>
+            <li><a href="#conflict-missions"><span class="tl-y">1771</span><span class="tl-t">Protests against mission land claims<span class="tl-d">Documents 1771–1783. English translations 1927.</span></span><span class="tl-m"><span class="m-catalog" title="Catalog record"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect x="2.5" y="2" width="11" height="12" rx="1" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M5 5.5h6M5 8h6M5 10.5h3.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg></span><span>V</span></span></a></li>
+            <li><a href="#travieso-will"><span class="tl-y">1779</span><span class="tl-t">Will of Vicente Álvarez Travieso<span class="tl-d">16 January 1779</span></span><span class="tl-m"><span class="m-catalog" title="Catalog record"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect x="2.5" y="2" width="11" height="12" rx="1" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M5 5.5h6M5 8h6M5 10.5h3.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg></span><span>I</span></span></a></li>
+            <li><a href="#mariana-will"><span class="tl-y">1784</span><span class="tl-t">Will of Mariana Curbelo<span class="tl-d">25 September 1784</span></span><span class="tl-m"><span class="m-catalog" title="Catalog record"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect x="2.5" y="2" width="11" height="12" rx="1" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M5 5.5h6M5 8h6M5 10.5h3.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg></span><span>I</span></span></a></li>
+            <li><a href="#gaspar-perez-petition"><span class="tl-y">1801</span><span class="tl-t">Petition of Gaspar Flores to marry Luisa Pérez<span class="tl-d">November 1801, San Fernando de Béxar</span></span><span class="tl-m"><span class="m-verified" title="Verified record"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M5 8.3l2.2 2.2L11.2 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>II</span></span></a></li>
+            <li><a href="#juana-ascarate"><span class="tl-y">1809</span><span class="tl-t">Juana María Ascárate de Stephenson<span class="tl-d">Dates this site uses: born 8 February 1809; died 6 February 1856</span></span><span class="tl-m"><span class="m-family" title="Family narrative"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M2.5 3.5h11v7h-6l-3 2.5v-2.5h-2z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg></span><span>III</span></span></a></li>
+            <li><a href="#austin-map-1822"><span class="tl-y">1822</span><span class="tl-t">Mapa topográfico de la provincia de Texas<span class="tl-d">1822</span></span><span class="tl-m"><span class="m-verified" title="Verified record"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M5 8.3l2.2 2.2L11.2 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>VI</span></span></a></li>
+            <li><a href="#gaspar-stolen-goods"><span class="tl-y">1824</span><span class="tl-t">Gaspar Flores to the Laredo alcalde: stolen goods<span class="tl-d">28 November 1824, Béxar</span></span><span class="tl-m"><span class="m-verified" title="Verified record"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M5 8.3l2.2 2.2L11.2 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>II</span></span></a></li>
+            <li><a href="#gaspar-bordey"><span class="tl-y">1824</span><span class="tl-t">Gaspar Flores to the Laredo alcalde: Bordey’s belongings<span class="tl-d">11 December 1824</span></span><span class="tl-m"><span class="m-verified" title="Verified record"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M5 8.3l2.2 2.2L11.2 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>II</span></span></a></li>
+            <li><a href="#constitucion-1824"><span class="tl-y">1824</span><span class="tl-t">Constitución federal de los Estados Unidos Mexicanos<span class="tl-d">1824</span></span><span class="tl-m"><span class="m-verified" title="Verified record"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M5 8.3l2.2 2.2L11.2 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>VI</span></span></a></li>
+            <li><a href="#linati-1828-dragon"><span class="tl-y">1828</span><span class="tl-t">Linati, “Dragon. Troupe de Ligne.”<span class="tl-d">1828</span></span><span class="tl-m"><span class="m-verified" title="Verified record"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M5 8.3l2.2 2.2L11.2 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>VI</span></span></a></li>
+            <li><a href="#linati-1828-hacendado"><span class="tl-y">1828</span><span class="tl-t">Linati, “Hacendado. Créole propriétaire.”<span class="tl-d">1828</span></span><span class="tl-m"><span class="m-verified" title="Verified record"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M5 8.3l2.2 2.2L11.2 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>VI</span></span></a></li>
+            <li><a href="#gaspar-huerta"><span class="tl-y">1829</span><span class="tl-t">Gaspar Flores to the Laredo alcalde: Eduardo Huerta<span class="tl-d">9 August 1829, Béxar</span></span><span class="tl-m"><span class="m-verified" title="Verified record"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M5 8.3l2.2 2.2L11.2 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>II</span></span></a></li>
+            <li><a href="#gaspar-reyes"><span class="tl-y">1829</span><span class="tl-t">Gaspar Flores to the Laredo alcalde: Jesús de los Reyes<span class="tl-d">5 September 1829, as the Portal catalogs it</span></span><span class="tl-m"><span class="m-catalog" title="Catalog record"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect x="2.5" y="2" width="11" height="12" rx="1" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M5 5.5h6M5 8h6M5 10.5h3.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg></span><span>II</span></span></a></li>
+            <li><a href="#hooker-map-1833"><span class="tl-y">1833</span><span class="tl-t">Map of the State of Coahuila and Texas (Hooker, 1833)<span class="tl-d">1833</span></span><span class="tl-m"><span class="m-verified" title="Verified record"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M5 8.3l2.2 2.2L11.2 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>VI</span></span></a></li>
+            <li><a href="#hooker-map-1836"><span class="tl-y">1836</span><span class="tl-t">Map of the State of Coahuila and Texas (Hooker, 1836)<span class="tl-d">1836</span></span><span class="tl-m"><span class="m-verified" title="Verified record"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M5 8.3l2.2 2.2L11.2 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>VI</span></span></a></li>
+            <li><a href="#austin-tanner-map-1836"><span class="tl-y">1836</span><span class="tl-t">Map of Texas with Parts of the Adjoining States<span class="tl-d">1836</span></span><span class="tl-m"><span class="m-verified" title="Verified record"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M5 8.3l2.2 2.2L11.2 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>VI</span></span></a></li>
+            <li><a href="#gaspar-inventory"><span class="tl-y">1837</span><span class="tl-t">Inventory cataloged as the estate of Gaspar Flores and Luisa Pérez<span class="tl-d">26 January 1837</span></span><span class="tl-m"><span class="m-catalog" title="Catalog record"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect x="2.5" y="2" width="11" height="12" rx="1" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M5 5.5h6M5 8h6M5 10.5h3.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg></span><span>II</span></span></a></li>
+            <li><a href="#ysleta-act"><span class="tl-y">1854</span><span class="tl-t">Texas relinquishment to the inhabitants of Ysleta<span class="tl-d">Approved 31 January 1854</span></span><span class="tl-m"><span class="m-verified" title="Verified record"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M5 8.3l2.2 2.2L11.2 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>III</span></span></a></li>
+            <li><a href="#bracito"><span class="tl-y">1854</span><span class="tl-t">Reciprocal Bracito deeds: García y San Juan and Hugh Stephenson<span class="tl-d">16 November 1854</span></span><span class="tl-m"><span class="m-verified" title="Verified record"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M5 8.3l2.2 2.2L11.2 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>III</span></span></a></li>
+            <li><a href="#ascarate-act"><span class="tl-y">1858</span><span class="tl-t">Texas confirmation of El Rancho de Ascarete<span class="tl-d">Approved 11 February 1858</span></span><span class="tl-m"><span class="m-verified" title="Verified record"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M5 8.3l2.2 2.2L11.2 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>III</span></span></a></li>
+            <li><a href="#ysleta-amendment"><span class="tl-y">1858</span><span class="tl-t">Amendment of the Ysleta relinquishment<span class="tl-d">15 February 1858</span></span><span class="tl-m"><span class="m-verified" title="Verified record"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M5 8.3l2.2 2.2L11.2 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>III</span></span></a></li>
+            <li><a href="#ms-341"><span class="tl-y">1858</span><span class="tl-t">UTEP Stephenson–Flores papers, MS 341<span class="tl-d">Papers dated 1858–1993</span></span><span class="tl-m"><span class="m-catalog" title="Catalog record"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect x="2.5" y="2" width="11" height="12" rx="1" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M5 5.5h6M5 8h6M5 10.5h3.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg></span><span>III</span></span></a></li>
+            <li><a href="#flores-samaniego-marriage"><span class="tl-y">1888</span><span class="tl-t">Marriage of José J. Flores and Josefa Samaniego<span class="tl-d">3 October 1888, Santa Iglesia de San Fernando, El Carrizal, Chihuahua</span></span><span class="tl-m"><span class="m-verified" title="Verified record"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M5 8.3l2.2 2.2L11.2 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>IV</span></span></a></li>
+            <li><a href="#rio-viejo-opinions"><span class="tl-y">1914</span><span class="tl-t">Stevens v. Crosby and Crosby v. Stevens<span class="tl-d">5 March 1914, rehearing 23 April 1914; appeal 24 February 1916</span></span><span class="tl-m"><span class="m-verified" title="Verified record"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M5 8.3l2.2 2.2L11.2 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>III</span></span></a></li>
+            <li><a href="#margarita-death"><span class="tl-y">1914</span><span class="tl-t">Death certificate of Margarita Stephenson de Flores<span class="tl-d">Died 24 June 1914, El Paso. Certificate no. 12214.</span></span><span class="tl-m"><span class="m-verified" title="Verified record"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M5 8.3l2.2 2.2L11.2 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>IV</span></span></a></li>
+            <li><a href="#habs-mision-san-jose"><span class="tl-y">1936</span><span class="tl-t">Misión de San José y San Miguel de Aguayo, portada principal<span class="tl-d">Historic American Buildings Survey, circa 1936</span></span><span class="tl-m"><span class="m-verified" title="Verified record"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M5 8.3l2.2 2.2L11.2 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>VI</span></span></a></li>
+            <li><a href="#jose-jesus-death"><span class="tl-y">1939</span><span class="tl-t">Death certificate of José Jesús Flores<span class="tl-d">Died 12 September 1939, 1518 Montana Street, El Paso</span></span><span class="tl-m"><span class="m-verified" title="Verified record"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M5 8.3l2.2 2.2L11.2 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>IV</span></span></a></li>
+            <li><a href="#carlos-flores"><span class="tl-y">1942</span><span class="tl-t">Carlos F. Flores, draft registration and death<span class="tl-d">Born 10 October 1903, Ciudad Juárez. Died March 1988, El Paso, age 84.</span></span><span class="tl-m"><span class="m-verified" title="Verified record"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M5 8.3l2.2 2.2L11.2 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>IV</span></span></a></li>
+            <li><a href="#author-letter-2026"><span class="tl-y">2026</span><span class="tl-t">Author’s letter, 2026<span class="tl-d">Sent 18 November 2026</span></span><span class="tl-m"><span>L</span></span></a></li>
+          </ol>
+          <h3>Spans of years <span lang="es">· Lapsos</span></h3>
+          <ol>
+            <li><a href="#conflict-rio-viejo"><span class="tl-y">1831–1916</span><span class="tl-t">Río Viejo: the Ysleta grant and El Rancho de Ascarete<span class="tl-d">River change recited as 1831 or 1832. Acts of 1854 and 1858. Appeals of 1914 and 1916.</span></span><span class="tl-m"><span class="m-verified" title="Verified record"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M5 8.3l2.2 2.2L11.2 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>V</span></span></a></li>
+          </ol>
+          <h3>Undated <span lang="es">· Sin fecha</span></h3>
+          <ol>
+            <li><a href="#jose-jesus-wedding-portrait"><span class="tl-y">—</span><span class="tl-t">Wedding portrait of José Jesús Flores and Josefa Samaniego<span class="tl-d">Undated. The studio mount is marked EL PASO, TEX. The church register records the marriage on 3 October 1888.</span></span><span class="tl-m"><span class="m-family" title="Family narrative"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M2.5 3.5h11v7h-6l-3 2.5v-2.5h-2z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg></span><span>IV</span></span></a></li>
+            <li><a href="#jose-jesus-portrait"><span class="tl-y">—</span><span class="tl-t">José Jesús Flores, studio portrait<span class="tl-d">Undated</span></span><span class="tl-m"><span class="m-family" title="Family narrative"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M2.5 3.5h11v7h-6l-3 2.5v-2.5h-2z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg></span><span>IV</span></span></a></li>
+            <li><a href="#carlos-flores-baby-portrait"><span class="tl-y">—</span><span class="tl-t">Carlos Francisco Flores, baby portrait<span class="tl-d">The album hand gives the birth as 10 October 1903, the date on the 1942 draft card. The photograph itself is not dated.</span></span><span class="tl-m"><span class="m-family" title="Family narrative"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M2.5 3.5h11v7h-6l-3 2.5v-2.5h-2z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg></span><span>IV</span></span></a></li>
+            <li><a href="#habs-palacio-gobernador"><span class="tl-y">—</span><span class="tl-t">Palacio del Gobernador / Comandancia de Béxar<span class="tl-d">Historic American Buildings Survey, twentieth century</span></span><span class="tl-m"><span class="m-verified" title="Verified record"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M5 8.3l2.2 2.2L11.2 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>VI</span></span></a></li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+</div>
 
 <main id="records">
 
@@ -1047,13 +1310,14 @@ footer{
   <p class="section-es" lang="es">Travieso · Islas Canarias</p>
   <p class="section-intro">Later historical writing calls this founding company Canary Islanders (<span lang="es">Isleños</span>). The 1730 marriage register is shown. The two wills remain cataloged and unread.</p>
 
-  <article class="card" id="travieso-curbelo-marriage">
+  <article class="card" id="travieso-curbelo-marriage" data-year="1730">
+    <div class="card-top"><span class="ev ev-verified"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M5 8.3l2.2 2.2L11.2 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Verified record</span> <span class="ev-es" lang="es">Registro verificado</span></span></div>
     <p class="date">15 October 1730, Pueblo de Cuautitlán</p>
     <h3>Marriage of Vicente Álvarez Travieso and Ana María Ramírez Curbelo</h3>
     <div class="frames">
       <figure>
         <button type="button" class="zoom-open">
-          <img src="/assets/artifacts/travieso-curbelo-marriage-1730-cuautitlan.jpg" width="1400" height="721" alt="Handwritten marriage entry of 15 October 1730 for Vicente Álvarez Travieso and Ana María Ramírez Curbelo in the San Buenaventura register at Cuautitlán.">
+          <img loading="lazy" decoding="async" src="/assets/artifacts/travieso-curbelo-marriage-1730-cuautitlan.jpg" width="1400" height="721" alt="Handwritten marriage entry of 15 October 1730 for Vicente Álvarez Travieso and Ana María Ramírez Curbelo in the San Buenaventura register at Cuautitlán.">
           <span class="zoom-hint">Enlarge</span>
         </button>
         <figcaption class="cap">The 15 October 1730 entry.</figcaption>
@@ -1062,40 +1326,36 @@ footer{
     <p>The San Buenaventura marriage register records that on 15 October 1730, in the Pueblo de Cuautitlán, Vicente Álvarez Travieso and Ana María Ramírez Curbelo were married, and that they were “naturales de las Islas Canarias, vagos, viandantes” — natives of the Canary Islands, wanderers, travelers. The entry does not use the word isleños. Later family telling has given other days in September; this page follows the date on this register and does not rewrite the novel.</p>
     <p class="bridge">This is the Cuautitlán marriage the Second Chronicle turns on: Vicente and Ana María Ramírez Curbelo, recorded as natives of the Canary Islands, on the road to Béxar.</p>
     <p class="meta">Citation: <a href="https://www.familysearch.org/ark:/61903/3:1:939X-QBHQ-H?cc=1837908">FamilySearch, San Buenaventura, Cuautitlán, Matrimonios, the 15 October 1730 entry</a> (ark 3:1:939X-QBHQ-H). Credit: the parish register. Image: FamilySearch, shared by the author.</p>
-    <div class="labels">
-      <span class="pill">Verified record</span>
-      <span class="pill">Show image</span>
-    </div>
   </article>
 
-  <article class="card" id="travieso-will">
+  <article class="card" id="travieso-will" data-year="1779">
+    <div class="card-top"><span class="ev ev-catalog"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect x="2.5" y="2" width="11" height="12" rx="1" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M5 5.5h6M5 8h6M5 10.5h3.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg><span>Catalog record</span> <span class="ev-es" lang="es">Registro de catálogo</span></span></div>
     <p class="date">16 January 1779</p>
     <h3>Will of Vicente Álvarez Travieso</h3>
     <p>Bexar County’s Spanish Archives catalog a will of Vicente Álvarez Travieso, spouse Mariana Curbelo, at Wills and Estates folio 108, and the Handbook of Texas gives his death as 25 January 1779.</p>
-    <p class="bridge">In the Chronicles he is the alguacil mayor of the new villa, the man who kept filing for water; this cataloged will is the last paper of that life, not yet read here.</p>
+    <p class="bridge">In the Chronicles he is the alguacil mayor of the new villa, the man who kept filing for water; this cataloged will is the last paper of that life.</p>
     <p class="meta">Citation: <a href="https://www.bexar.org/DocumentCenter/View/35453/Wills-and-Estates-WE">Bexar County, Wills and Estates guide</a>. Credit: Bexar County Clerk, Spanish Archives.</p>
     <div class="labels">
-      <span class="pill">Catalog record</span>
       <span class="pill">Link only</span>
       <span class="pill">Needs permission</span>
     </div>
   </article>
 
-  <article class="card" id="mariana-will">
+  <article class="card" id="mariana-will" data-year="1784">
+    <div class="card-top"><span class="ev ev-catalog"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect x="2.5" y="2" width="11" height="12" rx="1" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M5 5.5h6M5 8h6M5 10.5h3.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg><span>Catalog record</span> <span class="ev-es" lang="es">Registro de catálogo</span></span></div>
     <p class="date">25 September 1784</p>
     <h3>Will of Mariana Curbelo</h3>
     <p>The same guide catalogs her will, spouse Vicente Álvarez Travieso, at folio 18, while the death year already used on this site, 1785, follows the Handbook of Texas and not a reading of the will.</p>
-    <p class="bridge">She is the wife the convoy married at Cuautitlán, mother of the Travieso line that later joins the Flores family; her will is cataloged in the same Béxar archive, and has not been read on this page.</p>
+    <p class="bridge">She is the wife the convoy married at Cuautitlán, mother of the Travieso line that later joins the Flores family.</p>
     <p class="meta">Citation: <a href="https://www.bexar.org/DocumentCenter/View/35453/Wills-and-Estates-WE">Bexar County, Wills and Estates guide</a>. Credit: Bexar County Clerk, Spanish Archives. Handbook of Texas, <a href="https://www.tshaonline.org/handbook/entries/alvarez-travieso-vicente">Vicente Álvarez Travieso</a>.</p>
     <div class="labels">
-      <span class="pill">Catalog record</span>
       <span class="pill">Link only</span>
       <span class="pill">Needs permission</span>
     </div>
   </article>
 </section>
 
-<section class="section" id="author-letter-2026">
+<section class="section" id="author-letter-2026" data-year="2026">
   <h2>Author's letter, 2026</h2>
   <p class="section-es" lang="es">Carta del autor, 2026</p>
   <div class="labels">
@@ -1131,21 +1391,23 @@ footer{
   <h2>Flores of San Antonio</h2>
   <p class="section-es" lang="es">Flores de San Antonio</p>
   <p class="section-intro">A signed petition of November 1801 is now shown. Four letters from Gaspar Flores to the alcalde of Laredo are described and linked. The scans are not hosted here. The Portal to Texas History states general terms, not an item-level license, and that review is still open.</p>
+  <p class="section-intro">In the Fourth Chronicle, Gaspar is the political voice of the Bexareños in Mexican Texas; these letters show him as an official of Béxar, signing ordinary business to the alcalde of Laredo.</p>
 
-  <article class="card" id="gaspar-perez-petition">
+  <article class="card" id="gaspar-perez-petition" data-year="1801">
+    <div class="card-top"><span class="ev ev-verified"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M5 8.3l2.2 2.2L11.2 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Verified record</span> <span class="ev-es" lang="es">Registro verificado</span></span></div>
     <p class="date">November 1801, San Fernando de Béxar</p>
     <h3>Petition of Gaspar Flores to marry Luisa Pérez</h3>
     <div class="frames">
       <figure>
         <button type="button" class="zoom-open">
-          <img src="/assets/artifacts/gaspar-flores-luisa-perez-petition-1801-heading.jpg" width="1600" height="809" alt="Opening page of the November 1801 petition in which Gaspar Flores asks to marry Luisa Pérez, before the cura of San Fernando de Béxar.">
+          <img loading="lazy" decoding="async" src="/assets/artifacts/gaspar-flores-luisa-perez-petition-1801-heading.jpg" width="1600" height="809" alt="Opening page of the November 1801 petition in which Gaspar Flores asks to marry Luisa Pérez, before the cura of San Fernando de Béxar.">
           <span class="zoom-hint">Enlarge</span>
         </button>
         <figcaption class="cap">The opening of the petition, marked 1801.</figcaption>
       </figure>
       <figure>
         <button type="button" class="zoom-open">
-          <img src="/assets/artifacts/gaspar-flores-luisa-perez-petition-1801-signatures.jpg" width="1600" height="854" alt="Signature page of the November 1801 petition, with Gaspar Mª Flores, the consent signed by Vicente Flores, and the start of Antonio Pérez’s consent.">
+          <img loading="lazy" decoding="async" src="/assets/artifacts/gaspar-flores-luisa-perez-petition-1801-signatures.jpg" width="1600" height="854" alt="Signature page of the November 1801 petition, with Gaspar Mª Flores, the consent signed by Vicente Flores, and the start of Antonio Pérez’s consent.">
           <span class="zoom-hint">Enlarge</span>
         </button>
         <figcaption class="cap">The hands of Gaspar Mª Flores and of Vicente Flores. The start of Antonio’s consent follows on the same page.</figcaption>
@@ -1154,72 +1416,64 @@ footer{
     <p>A matrimonial petition before the cura of San Fernando shows Gaspar Flores, called español, originario of this presidio, legitimate son of Vicente Flores and Antonia Fuentes, seeking to marry Luisa Pérez, española, originaria of this presidio, legitimate daughter of Antonio Pérez and María Romero. The page carries the signature and rubric of Gaspar Mª Flores, and his father Vicente Flores signs his consent. Vicente’s line begins “Digo yo Vicente Flores, que doy mi libre consentimiento” — “I, Vicente Flores, give my free consent.” The day in November is not clear enough to state as a fact. A later margin date of a finished marriage is not legible enough here. This is a signed petition, not a marriage certificate, and it is not used as proof of the unread 1837 estate-file title.</p>
     <p class="bridge">This signed petition is the San Antonio paper in which Gaspar, son of Vicente Flores, asks to marry Luisa Pérez; it is the generation that stands between the Travieso founding and the later Concordia line.</p>
     <p class="meta">Citation: <a href="https://www.familysearch.org/ark:/61903/3:1:3Q9M-CSNP-89DM-M">FamilySearch, San Fernando de Béxar, film 008085854, the November 1801 petition</a> (ark 3:1:3Q9M-CSNP-89DM-M). Image: FamilySearch, shared by the author.</p>
-    <div class="labels">
-      <span class="pill">Verified record</span>
-      <span class="pill">Show image</span>
-    </div>
   </article>
 
-  <article class="card" id="gaspar-stolen-goods">
+  <article class="card" id="gaspar-stolen-goods" data-year="1824">
+    <div class="card-top"><span class="ev ev-verified"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M5 8.3l2.2 2.2L11.2 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Verified record</span> <span class="ev-es" lang="es">Registro verificado</span></span></div>
     <p class="date">28 November 1824, Béxar</p>
     <h3>Gaspar Flores to the Laredo alcalde: stolen goods</h3>
     <p>The letter directs seizure of goods stolen by a Frenchman and then in Laredo, and it carries Gaspar’s signature and rubric. It is an official letter, not a land title.</p>
-    <p class="bridge">In the Fourth Chronicle, Gaspar is the political voice of the Bexareños in Mexican Texas; these letters show him as an official of Béxar, signing ordinary business to the alcalde of Laredo.</p>
     <p class="meta">Citation: <a href="https://texashistory.unt.edu/ark:/67531/metapth869227/">Portal to Texas History, SMLBL_02-74-26</a>. Credit: St. Mary’s University Louis J. Blume Library, Laredo Archives, via the Portal to Texas History.</p>
     <div class="labels">
-      <span class="pill">Verified record</span>
       <span class="pill">Link only</span>
       <span class="pill">Needs permission</span>
     </div>
   </article>
 
-  <article class="card" id="gaspar-bordey">
+  <article class="card" id="gaspar-bordey" data-year="1824">
+    <div class="card-top"><span class="ev ev-verified"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M5 8.3l2.2 2.2L11.2 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Verified record</span> <span class="ev-es" lang="es">Registro verificado</span></span></div>
     <p class="date">11 December 1824</p>
     <h3>Gaspar Flores to the Laredo alcalde: Bordey’s belongings</h3>
     <p>The letter instructs that the remaining belongings of the Frenchman Bordey be placed at José de Sandoval’s disposal, and the date and signature are on the page.</p>
-    <p class="bridge">In the Fourth Chronicle, Gaspar is the political voice of the Bexareños in Mexican Texas; these letters show him as an official of Béxar, signing ordinary business to the alcalde of Laredo.</p>
     <p class="meta">Citation: <a href="https://texashistory.unt.edu/ark:/67531/metapth869062/">Portal to Texas History, SMLBL_02-74-29</a>. Credit: St. Mary’s University Louis J. Blume Library, Laredo Archives, via the Portal to Texas History.</p>
     <div class="labels">
-      <span class="pill">Verified record</span>
       <span class="pill">Link only</span>
       <span class="pill">Needs permission</span>
     </div>
   </article>
 
-  <article class="card" id="gaspar-huerta">
+  <article class="card" id="gaspar-huerta" data-year="1829">
+    <div class="card-top"><span class="ev ev-verified"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M5 8.3l2.2 2.2L11.2 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Verified record</span> <span class="ev-es" lang="es">Registro verificado</span></span></div>
     <p class="date">9 August 1829, Béxar</p>
     <h3>Gaspar Flores to the Laredo alcalde: Eduardo Huerta</h3>
     <p>The letter reports Huerta’s arrest and transfer, closes with “Dios y Libertad,” and carries a clear signature and rubric.</p>
-    <p class="bridge">In the Fourth Chronicle, Gaspar is the political voice of the Bexareños in Mexican Texas; these letters show him as an official of Béxar, signing ordinary business to the alcalde of Laredo.</p>
     <p class="meta">Citation: <a href="https://texashistory.unt.edu/ark:/67531/metapth872188/">Portal to Texas History, SMLBL_03-086-66</a>. Credit: St. Mary’s University Louis J. Blume Library, Laredo Archives, via the Portal to Texas History.</p>
     <div class="labels">
-      <span class="pill">Verified record</span>
       <span class="pill">Link only</span>
       <span class="pill">Needs permission</span>
     </div>
   </article>
 
-  <article class="card" id="gaspar-reyes">
+  <article class="card" id="gaspar-reyes" data-year="1829">
+    <div class="card-top"><span class="ev ev-catalog"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect x="2.5" y="2" width="11" height="12" rx="1" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M5 5.5h6M5 8h6M5 10.5h3.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg><span>Catalog record</span> <span class="ev-es" lang="es">Registro de catálogo</span></span></div>
     <p class="date">5 September 1829, as the Portal catalogs it</p>
     <h3>Gaspar Flores to the Laredo alcalde: Jesús de los Reyes</h3>
     <p>The Portal catalogs this letter under 5 September 1829. It reports a prisoner delivered by Pablo Flores and lists property found and returned. A kinship phrase in the letter is not used here as a pedigree.</p>
-    <p class="bridge">In the Fourth Chronicle, Gaspar is the political voice of the Bexareños in Mexican Texas; these letters show him as an official of Béxar, signing ordinary business to the alcalde of Laredo.</p>
     <p class="meta">Citation: <a href="https://texashistory.unt.edu/ark:/67531/metapth873310/">Portal to Texas History, SMLBL_03-086-76</a>. Credit: St. Mary’s University Louis J. Blume Library, Laredo Archives, via the Portal to Texas History.</p>
     <div class="labels">
-      <span class="pill">Catalog record</span>
       <span class="pill">Link only</span>
       <span class="pill">Needs permission</span>
     </div>
   </article>
 
-  <article class="card" id="gaspar-inventory">
+  <article class="card" id="gaspar-inventory" data-year="1837">
+    <div class="card-top"><span class="ev ev-catalog"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect x="2.5" y="2" width="11" height="12" rx="1" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M5 5.5h6M5 8h6M5 10.5h3.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg><span>Catalog record</span> <span class="ev-es" lang="es">Registro de catálogo</span></span></div>
     <p class="date">26 January 1837</p>
     <h3>Inventory cataloged as the estate of Gaspar Flores and Luisa Pérez</h3>
     <p>Bexar County catalogs an unread file at Wills and Estates folio 43 under the title Gaspar Flores and Luisa Pérez, which is a catalog title only and not proof of a marriage read here, while the Handbook of Texas also notes an inventory of 11 February 1837, and the already approved public record is that Gaspar was elected a Béxar delegate in February 1836 and was not a signer of the Texas Declaration of Independence.</p>
-    <p class="bridge">The unread Béxar file is cataloged under those two names; it belongs to the San Antonio Flores generation that the later El Paso marriage would join, and it is not, by itself, a marriage certificate.</p>
+    <p class="bridge">It belongs to the San Antonio Flores generation that the later El Paso marriage would join.</p>
     <p class="meta">Citation: <a href="https://www.bexar.org/DocumentCenter/View/35453/Wills-and-Estates-WE">Bexar County, Wills and Estates guide</a>. Credit: Bexar County Clerk. The election and the missing signature are the official convention record, already stated on <a href="/historia.html#part-iv">Crónicas IV</a>.</p>
     <div class="labels">
-      <span class="pill">Catalog record</span>
       <span class="pill">Link only</span>
       <span class="pill">Needs permission</span>
     </div>
@@ -1232,13 +1486,14 @@ footer{
   <p class="section-es" lang="es">Stephenson · Azcárate de El Paso</p>
   <p class="section-intro">The Ysleta pueblo grant and El Rancho de Ascarete are both printed statutes. They are shown the same way: the page, the date, the credit, and what the act does and does not prove. The name appears in these papers as Azcárate, as Ascarate, and, in the 1858 act, as Ascarete.</p>
 
-  <article class="card" id="ascarate-act">
+  <article class="card" id="ascarate-act" data-year="1858">
+    <div class="card-top"><span class="ev ev-verified"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M5 8.3l2.2 2.2L11.2 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Verified record</span> <span class="ev-es" lang="es">Registro verificado</span></span></div>
     <p class="date">Approved 11 February 1858</p>
     <h3>Texas confirmation of El Rancho de Ascarete</h3>
     <div class="frames">
       <figure>
         <button type="button" class="zoom-open">
-          <img src="/assets/artifacts/ascarate-confirmation-1858-gammel-p1027.jpg" width="1200" height="1873" alt="Printed page of the 11 February 1858 Texas act confirming El Rancho de Ascarete, Gammel’s Laws of Texas, volume 4, page 1027.">
+          <img loading="lazy" decoding="async" src="/assets/artifacts/ascarate-confirmation-1858-gammel-p1027.jpg" width="1200" height="1873" alt="Printed page of the 11 February 1858 Texas act confirming El Rancho de Ascarete, Gammel’s Laws of Texas, volume 4, page 1027.">
           <span class="zoom-hint">Enlarge</span>
         </button>
         <figcaption class="cap">Gammel, vol. 4, p. 1027.</figcaption>
@@ -1248,26 +1503,25 @@ footer{
     <p class="bridge">This is the Texas paper behind the El Paso ranch the Chronicles give to Juana’s people.</p>
     <p class="meta">Citation: <a href="https://texashistory.unt.edu/ark:/67531/metapth6730/m1/1031/">H. P. N. Gammel, <em>The Laws of Texas</em>, vol. 4, p. 1027</a>. General Land Office file locator BEX 1–001390, <a href="https://www.glo.texas.gov/sites/default/files/documents/archives/surname-index/land-grant-a.pdf">surname index, letter A</a>. Credit: UNT Libraries, The Portal to Texas History.</p>
     <div class="labels">
-      <span class="pill">Verified record</span>
-      <span class="pill">Show image</span>
       <span class="pill">Public-domain statute</span>
     </div>
   </article>
 
-  <article class="card" id="ysleta-act">
+  <article class="card" id="ysleta-act" data-year="1854">
+    <div class="card-top"><span class="ev ev-verified"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M5 8.3l2.2 2.2L11.2 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Verified record</span> <span class="ev-es" lang="es">Registro verificado</span></span></div>
     <p class="date">Approved 31 January 1854</p>
     <h3>Texas relinquishment to the inhabitants of Ysleta</h3>
-    <div class="frames">
+    <div class="frames spread">
       <figure>
         <button type="button" class="zoom-open">
-          <img src="/assets/artifacts/ysleta-relinquishment-1854-gammel-p42.jpg" width="1200" height="1873" alt="Printed first page of the 31 January 1854 Texas act relinquishing land to the inhabitants of Ysleta, Gammel volume 4, page 42.">
+          <img loading="lazy" decoding="async" src="/assets/artifacts/ysleta-relinquishment-1854-gammel-p42.jpg" width="1200" height="1873" alt="Printed first page of the 31 January 1854 Texas act relinquishing land to the inhabitants of Ysleta, Gammel volume 4, page 42.">
           <span class="zoom-hint">Enlarge</span>
         </button>
         <figcaption class="cap">Page 42.</figcaption>
       </figure>
       <figure>
         <button type="button" class="zoom-open">
-          <img src="/assets/artifacts/ysleta-relinquishment-1854-gammel-p43.jpg" width="1200" height="1873" alt="Printed second page of the 31 January 1854 Ysleta relinquishment act, Gammel volume 4, page 43.">
+          <img loading="lazy" decoding="async" src="/assets/artifacts/ysleta-relinquishment-1854-gammel-p43.jpg" width="1200" height="1873" alt="Printed second page of the 31 January 1854 Ysleta relinquishment act, Gammel volume 4, page 43.">
           <span class="zoom-hint">Enlarge</span>
         </button>
         <figcaption class="cap">Page 43, the close of the act.</figcaption>
@@ -1277,69 +1531,67 @@ footer{
     <p class="bridge">This is the pueblo grant on the other bank of the same river, the title later courts would set against the Ascarate survey, in the same El Paso country as Concordia.</p>
     <p class="meta">Citation: <a href="https://texashistory.unt.edu/ark:/67531/metapth6730/m1/46/">Gammel, vol. 4, p. 42</a> and <a href="https://texashistory.unt.edu/ark:/67531/metapth6730/m1/47/">p. 43</a>. Credit: UNT Libraries, The Portal to Texas History. A later act recites the date as 21 January 1854. That conflict is in the printed laws.</p>
     <div class="labels">
-      <span class="pill">Verified record</span>
-      <span class="pill">Show image</span>
       <span class="pill">Public-domain statute</span>
     </div>
   </article>
 
-  <article class="card" id="ysleta-amendment">
+  <article class="card" id="ysleta-amendment" data-year="1858">
+    <div class="card-top"><span class="ev ev-verified"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M5 8.3l2.2 2.2L11.2 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Verified record</span> <span class="ev-es" lang="es">Registro verificado</span></span></div>
     <p class="date">15 February 1858</p>
     <h3>Amendment of the Ysleta relinquishment</h3>
-    <div class="frames">
+    <div class="frames spread">
       <figure>
         <button type="button" class="zoom-open">
-          <img src="/assets/artifacts/ysleta-amendment-1858-gammel-p1094.jpg" width="1200" height="1873" alt="Printed first page of the 15 February 1858 amendment to the Ysleta act, Gammel volume 4, page 1094.">
+          <img loading="lazy" decoding="async" src="/assets/artifacts/ysleta-amendment-1858-gammel-p1094.jpg" width="1200" height="1873" alt="Printed first page of the 15 February 1858 amendment to the Ysleta act, Gammel volume 4, page 1094.">
           <span class="zoom-hint">Enlarge</span>
         </button>
         <figcaption class="cap">Page 1094.</figcaption>
       </figure>
       <figure>
         <button type="button" class="zoom-open">
-          <img src="/assets/artifacts/ysleta-amendment-1858-gammel-p1095.jpg" width="1200" height="1873" alt="Printed second page of the 15 February 1858 Ysleta amendment, Gammel volume 4, page 1095.">
+          <img loading="lazy" decoding="async" src="/assets/artifacts/ysleta-amendment-1858-gammel-p1095.jpg" width="1200" height="1873" alt="Printed second page of the 15 February 1858 Ysleta amendment, Gammel volume 4, page 1095.">
           <span class="zoom-hint">Enlarge</span>
         </button>
         <figcaption class="cap">Page 1095.</figcaption>
       </figure>
     </div>
     <p>The 1858 amendment changes the 1854 relinquishment, and the printed laws recite the original approval as 21 January 1854, which does not match the 31 January date on the 1854 act. The pages are the printed certified text of the statute, not a manuscript grant.</p>
-    <p class="bridge">A later session changed the 1854 relinquishment; it belongs to the same river-boundary story as the ranch act and the later lawsuits.</p>
+    <p class="bridge">It belongs to the same river-boundary story as the ranch act and the later lawsuits.</p>
     <p class="meta">Citation: <a href="https://texashistory.unt.edu/ark:/67531/metapth6730/m1/1098/">Gammel, vol. 4, pp. 1094–1095</a>. Credit: UNT Libraries, The Portal to Texas History.</p>
     <div class="labels">
-      <span class="pill">Verified record</span>
-      <span class="pill">Show image</span>
       <span class="pill">Public-domain statute</span>
     </div>
   </article>
 
-  <article class="card" id="bracito">
+  <article class="card" id="bracito" data-year="1854">
+    <div class="card-top"><span class="ev ev-verified"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M5 8.3l2.2 2.2L11.2 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Verified record</span> <span class="ev-es" lang="es">Registro verificado</span></span></div>
     <p class="date">16 November 1854</p>
     <h3>Reciprocal Bracito deeds: García y San Juan and Hugh Stephenson</h3>
-    <div class="frames">
+    <div class="frames spread">
       <figure>
         <button type="button" class="zoom-open">
-          <img src="/assets/artifacts/bracito-garcia-to-stephenson-1854.jpg" width="665" height="1133" alt="Printed certified copy of the 16 November 1854 deed from Francisco García y San Juan to Hugh Stephenson for two-thirds of Bracito.">
+          <img loading="lazy" decoding="async" src="/assets/artifacts/bracito-garcia-to-stephenson-1854.jpg" width="665" height="1133" alt="Printed certified copy of the 16 November 1854 deed from Francisco García y San Juan to Hugh Stephenson for two-thirds of Bracito.">
           <span class="zoom-hint">Enlarge</span>
         </button>
         <figcaption class="cap">García to Stephenson.</figcaption>
       </figure>
       <figure>
         <button type="button" class="zoom-open">
-          <img src="/assets/artifacts/bracito-stephenson-to-garcia-1854-026.jpg" width="665" height="1133" alt="First printed page of the 16 November 1854 deed by which Hugh Stephenson released one-third of Bracito back to Francisco García y San Juan.">
+          <img loading="lazy" decoding="async" src="/assets/artifacts/bracito-stephenson-to-garcia-1854-026.jpg" width="665" height="1133" alt="First printed page of the 16 November 1854 deed by which Hugh Stephenson released one-third of Bracito back to Francisco García y San Juan.">
           <span class="zoom-hint">Enlarge</span>
         </button>
         <figcaption class="cap">Stephenson to García, first page.</figcaption>
       </figure>
       <figure>
         <button type="button" class="zoom-open">
-          <img src="/assets/artifacts/bracito-stephenson-to-garcia-1854-027.jpg" width="665" height="1133" alt="Second printed page of Hugh Stephenson’s 1854 release of one-third of Bracito to Francisco García y San Juan.">
+          <img loading="lazy" decoding="async" src="/assets/artifacts/bracito-stephenson-to-garcia-1854-027.jpg" width="665" height="1133" alt="Second printed page of Hugh Stephenson’s 1854 release of one-third of Bracito to Francisco García y San Juan.">
           <span class="zoom-hint">Enlarge</span>
         </button>
         <figcaption class="cap">Stephenson to García, second page.</figcaption>
       </figure>
       <figure>
         <button type="button" class="zoom-open">
-          <img src="/assets/artifacts/bracito-decree-1854.jpg" width="665" height="1133" alt="Printed page of the court decree in the Bracito partition between García and Stephenson, from the 1860 House report.">
+          <img loading="lazy" decoding="async" src="/assets/artifacts/bracito-decree-1854.jpg" width="665" height="1133" alt="Printed page of the court decree in the Bracito partition between García and Stephenson, from the 1860 House report.">
           <span class="zoom-hint">Enlarge</span>
         </button>
         <figcaption class="cap">The partition decree.</figcaption>
@@ -1349,25 +1601,24 @@ footer{
     <p class="bridge">These are the ranch papers of the Concordia household in PASADOR and the Fifth Chronicle.</p>
     <p class="meta">Citation: U.S. House Report 321, 36th Congress, 1st session (1860), <a href="https://hdl.handle.net/11244/35808">University of Oklahoma, SHAREOK</a>. Acknowledged 17 November 1854 and recorded 12 March 1855. Credit: University of Oklahoma Libraries, SHAREOK.</p>
     <div class="labels">
-      <span class="pill">Verified record</span>
-      <span class="pill">Show image</span>
       <span class="pill">Public-domain report</span>
     </div>
   </article>
 
-  <article class="card" id="rio-viejo-opinions">
+  <article class="card" id="rio-viejo-opinions" data-year="1914">
+    <div class="card-top"><span class="ev ev-verified"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M5 8.3l2.2 2.2L11.2 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Verified record</span> <span class="ev-es" lang="es">Registro verificado</span></span></div>
     <p class="date">5 March 1914, rehearing 23 April 1914; appeal 24 February 1916</p>
     <h3>Stevens v. Crosby and Crosby v. Stevens</h3>
     <p>The opinions recite the 1854 Ysleta act, the 1858 Ascarate act, the 1886 Randolph survey, and a patent of 14 September 1886 to Juan and Jacinto Ascarate, and they hold that the 1854 bank of the Río Viejo, not later course-and-distance calls, is the dividing line.</p>
-    <p class="bridge">The later opinions decide where the Ysleta grant meets El Rancho de Ascarete along the old river; they are the courtroom end of the land story that begins in the 1854 and 1858 acts.</p>
+    <p class="bridge">They are the courtroom end of the land story that begins in the 1854 and 1858 acts.</p>
     <p class="meta">Citation: <a href="https://www.courtlistener.com/opinion/4175276/stevens-v-crosby/">166 S.W. 62, Stevens v. Crosby</a> and <a href="https://www.courtlistener.com/opinion/4195302/crosby-v-stevens/">Crosby v. Stevens</a>. Credit: the opinions are public. Editorial headnotes are not copied. The parties are later title holders, not proved here to be Azcárate heirs, and the 1886 patent date is taken from the opinion, not from an inspection of General Land Office file BEX 1–001390.</p>
     <div class="labels">
-      <span class="pill">Verified record</span>
       <span class="pill">Link only</span>
     </div>
   </article>
 
-  <article class="card" id="juana-ascarate">
+  <article class="card" id="juana-ascarate" data-year="1809">
+    <div class="card-top"><span class="ev ev-family"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M2.5 3.5h11v7h-6l-3 2.5v-2.5h-2z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg><span>Family narrative</span> <span class="ev-es" lang="es">Narrativa familiar</span></span></div>
     <p class="date">Dates this site uses: born 8 February 1809; died 6 February 1856</p>
     <h3>Juana María Ascárate de Stephenson</h3>
     <p>Those are the dates this site currently uses, following the El Paso County Historical Society’s <em>Password</em> (Spring 1995). The Handbook of Texas and a modern stone still give competing years, including a birth year of 1800 and a stone date of 5 February 1857. No new photograph of a stone is shown, and the conflict is not settled. Calling her Gabriel’s 3x-great-grandmother is family narrative, not a certified pedigree.</p>
@@ -1375,19 +1626,18 @@ footer{
     <p class="meta">Citation for the dates used: <a href="https://web.archive.org/web/20260505035628id_/https://www.elpasohistory.com/wp-content/uploads/2017/01/1995-40-1.pdf">El Paso County Historical Society, <em>Password</em> XL, no. 1 (Spring 1995), pp. 23–26</a>. Competing accounts: <a href="https://www.tshaonline.org/handbook/entries/stephenson-juana-maria-ascarate">Handbook of Texas</a>; <a href="https://www.findagrave.com/memorial/62786064/juana-maria-stephenson">Find a Grave memorial 62786064</a>. Credit: El Paso County Historical Society. The gravestone quotation already kept on the family pages is not reprinted here as a primary reading of the stone.</p>
     <div class="labels">
       <span class="pill">Dates used on this site (conflict held)</span>
-      <span class="pill">Family narrative</span>
       <span class="pill">Link only</span>
     </div>
   </article>
 
-  <article class="card" id="ms-341">
+  <article class="card" id="ms-341" data-year="1858">
+    <div class="card-top"><span class="ev ev-catalog"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect x="2.5" y="2" width="11" height="12" rx="1" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M5 5.5h6M5 8h6M5 10.5h3.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg><span>Catalog record</span> <span class="ev-es" lang="es">Registro de catálogo</span></span></div>
     <p class="date">Papers dated 1858–1993</p>
     <h3>UTEP Stephenson–Flores papers, MS 341</h3>
     <p>The collection includes “Ascarate and Stephenson Families” and José María Flores letters and a journal, and publication of anything from it requires permission from the C. L. Sonnichsen Special Collections Department.</p>
-    <p class="bridge">These are the family papers later generations left at UTEP; they sit behind the Stephenson–Flores chapters, and nothing from the boxes is shown here without the library’s permission.</p>
+    <p class="bridge">These are the family papers later generations left at UTEP; they sit behind the Stephenson–Flores chapters.</p>
     <p class="meta">Citation: <a href="https://scholarworks.utep.edu/finding_aid/76/">UTEP finding aid, MS 341</a>. Credit: C. L. Sonnichsen Special Collections Department, The University of Texas at El Paso. No image and no uninspected quotation from the papers.</p>
     <div class="labels">
-      <span class="pill">Catalog record</span>
       <span class="pill">Link only</span>
       <span class="pill">Needs permission</span>
     </div>
@@ -1400,13 +1650,14 @@ footer{
   <p class="section-es" lang="es">Flores de Juárez y El Paso</p>
   <p class="section-intro">The facts below are approved for the prose of this site. The document images below are shown because the author shared them, with credit to FamilySearch; they remain the archives’ records. The studio portraits and the album page are from the family collection, and are labeled as family narrative.</p>
 
-  <article class="card" id="margarita-death">
+  <article class="card" id="margarita-death" data-year="1914">
+    <div class="card-top"><span class="ev ev-verified"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M5 8.3l2.2 2.2L11.2 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Verified record</span> <span class="ev-es" lang="es">Registro verificado</span></span></div>
     <p class="date">Died 24 June 1914, El Paso. Certificate no. 12214.</p>
     <h3>Death certificate of Margarita Stephenson de Flores</h3>
     <div class="frames">
       <figure>
         <button type="button" class="zoom-open">
-          <img src="/assets/artifacts/margarita-stephenson-de-flores-death-cert-1914.jpg" width="1088" height="990" alt="Texas death certificate number 12214 for Margarita Stephenson de Flores, who died 24 June 1914 in El Paso.">
+          <img loading="lazy" decoding="async" src="/assets/artifacts/margarita-stephenson-de-flores-death-cert-1914.jpg" width="1088" height="990" alt="Texas death certificate number 12214 for Margarita Stephenson de Flores, who died 24 June 1914 in El Paso.">
           <span class="zoom-hint">Enlarge</span>
         </button>
         <figcaption class="cap">Certificate no. 12214.</figcaption>
@@ -1416,19 +1667,16 @@ footer{
     <p class="bridge">This is the last official paper of Hugh and Juana’s daughter, who in the Chronicles is the bride of the second convergence, the 1858 marriage that joined San Antonio to Concordia.</p>
     <p class="meta">Citation: <a href="https://www.familysearch.org/ark:/61903/1:1:K37R-KYP">FamilySearch, Texas death certificate 12214</a>. Credit: Texas Bureau of Vital Statistics, via FamilySearch. Image: FamilySearch, shared by the author.</p>
 
-    <div class="labels">
-      <span class="pill">Verified record</span>
-      <span class="pill">Show image</span>
-    </div>
   </article>
 
-  <article class="card" id="flores-samaniego-marriage">
+  <article class="card" id="flores-samaniego-marriage" data-year="1888">
+    <div class="card-top"><span class="ev ev-verified"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M5 8.3l2.2 2.2L11.2 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Verified record</span> <span class="ev-es" lang="es">Registro verificado</span></span></div>
     <p class="date">3 October 1888, Santa Iglesia de San Fernando, El Carrizal, Chihuahua</p>
     <h3>Marriage of José J. Flores and Josefa Samaniego</h3>
     <div class="frames">
       <figure>
         <button type="button" class="zoom-open">
-          <img src="/assets/artifacts/jose-j-flores-josefa-samaniego-marriage-1888-carrizal.jpg" width="613" height="521" alt="The 3 October 1888 marriage entry of José J. Flores and Josefa Samaniego in the San Fernando register at El Carrizal, cropped to this entry.">
+          <img loading="lazy" decoding="async" src="/assets/artifacts/jose-j-flores-josefa-samaniego-marriage-1888-carrizal.jpg" width="613" height="521" alt="The 3 October 1888 marriage entry of José J. Flores and Josefa Samaniego in the San Fernando register at El Carrizal, cropped to this entry.">
           <span class="zoom-hint">Enlarge</span>
         </button>
         <figcaption class="cap">The 3 October 1888 entry, cropped to this marriage.</figcaption>
@@ -1438,19 +1686,16 @@ footer{
     <p class="bridge">This is the Carrizal marriage of the man the later plays follow as alcalde, José J. Flores, son of José María and Margarita, to Josefa Samaniego; it is the household from which Carlos would come.</p>
     <p class="meta">Citation: church marriage register, Santa Iglesia de San Fernando, El Carrizal, Chihuahua. The groom is “del Paso del Norte.” The church is identified with <a href="https://misionescoloniales.org/portfolios/san-fernando-de-las-amarillas/">San Fernando de las Amarillas del Carrizal</a>. Credit: the parish register. Image: FamilySearch, shared by the author.</p>
 
-    <div class="labels">
-      <span class="pill">Verified record</span>
-      <span class="pill">Show image</span>
-    </div>
   </article>
 
 <article class="card" id="jose-jesus-wedding-portrait">
+    <div class="card-top"><span class="ev ev-family"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M2.5 3.5h11v7h-6l-3 2.5v-2.5h-2z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg><span>Family narrative</span> <span class="ev-es" lang="es">Narrativa familiar</span></span></div>
     <p class="date">Undated. The studio mount is marked EL PASO, TEX. The church register records the marriage on 3 October 1888.</p>
     <h3>Wedding portrait of José Jesús Flores and Josefa Samaniego</h3>
     <div class="frames portrait">
       <figure>
         <button type="button" class="zoom-open">
-          <img src="/assets/artifacts/jose-jesus-flores-wedding-el-paso.jpg" width="1173" height="1600" alt="Undated studio wedding portrait of a bride in a white dress and veil and a groom in a dark coat, on a mount marked EL PASO, TEX.">
+          <img loading="lazy" decoding="async" src="/assets/artifacts/jose-jesus-flores-wedding-el-paso.jpg" width="1173" height="1600" alt="Undated studio wedding portrait of a bride in a white dress and veil and a groom in a dark coat, on a mount marked EL PASO, TEX.">
           <span class="zoom-hint">Enlarge</span>
         </button>
         <figcaption class="cap">The mount is marked “EL PASO, TEX.”</figcaption>
@@ -1460,41 +1705,39 @@ footer{
     <p class="bridge">This is the couple of the <a href="#flores-samaniego-marriage">Carrizal register</a> already on this page, in an El Paso studio portrait. See the <a href="/historia.html#part-viii">Eighth Chronicle</a>.</p>
     <p class="meta">Family collection, shared by the author. Identification is family narrative. The marriage date is the register, not the date of this print.</p>
     <div class="labels">
-      <span class="pill">Family narrative</span>
       <span class="pill">Family collection</span>
-      <span class="pill">Show image</span>
     </div>
   </article>
 
 <article class="card" id="jose-jesus-portrait">
+    <div class="card-top"><span class="ev ev-family"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M2.5 3.5h11v7h-6l-3 2.5v-2.5h-2z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg><span>Family narrative</span> <span class="ev-es" lang="es">Narrativa familiar</span></span></div>
     <p class="date">Undated</p>
     <h3>José Jesús Flores, studio portrait</h3>
     <div class="frames portrait">
       <figure>
         <button type="button" class="zoom-open">
-          <img src="/assets/artifacts/jose-jesus-flores-portrait-light-hair.jpg" width="1200" height="1600" alt="Undated studio portrait of a man with short light hair and a heavy mustache, in a stiff collar, striped tie, and pinstripe suit.">
+          <img loading="lazy" decoding="async" src="/assets/artifacts/jose-jesus-flores-portrait-light-hair.jpg" width="1200" height="1600" alt="Undated studio portrait of a man with short light hair and a heavy mustache, in a stiff collar, striped tie, and pinstripe suit.">
           <span class="zoom-hint">Enlarge</span>
         </button>
         <figcaption class="cap">Short light hair combed back, a heavy mustache, a tall starched collar, a striped tie, and a pinstripe suit.</figcaption>
       </figure>
     </div>
     <p>An undated studio portrait from the family collection. The author identified the sitter on 22 November 2026: “This is him light hair.” A studio signature is visible at the lower right; the name has not been read with certainty, and is not guessed here. The print is not dated.</p>
-    <p class="bridge">The later face of the man in the wedding portrait and on the <a href="#jose-jesus-death">1939 death certificate</a>. See the <a href="/historia.html#part-viii">Eighth Chronicle</a>.</p>
+    <p class="bridge">The later face of the man in the wedding portrait and on the <a href="#jose-jesus-death">1939 death certificate</a>.</p>
     <p class="meta">Family collection, shared by the author. Identification is family narrative. The photographer has not been identified.</p>
     <div class="labels">
-      <span class="pill">Family narrative</span>
       <span class="pill">Family collection</span>
-      <span class="pill">Show image</span>
     </div>
   </article>
 
-  <article class="card" id="jose-jesus-death">
+  <article class="card" id="jose-jesus-death" data-year="1939">
+    <div class="card-top"><span class="ev ev-verified"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M5 8.3l2.2 2.2L11.2 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Verified record</span> <span class="ev-es" lang="es">Registro verificado</span></span></div>
     <p class="date">Died 12 September 1939, 1518 Montana Street, El Paso</p>
     <h3>Death certificate of José Jesús Flores</h3>
     <div class="frames">
       <figure>
         <button type="button" class="zoom-open">
-          <img src="/assets/artifacts/jose-jesus-flores-death-cert-1939.jpg" width="1035" height="864" alt="Texas death certificate of José Jesús Flores, who died 12 September 1939 at 1518 Montana Street in El Paso.">
+          <img loading="lazy" decoding="async" src="/assets/artifacts/jose-jesus-flores-death-cert-1939.jpg" width="1035" height="864" alt="Texas death certificate of José Jesús Flores, who died 12 September 1939 at 1518 Montana Street in El Paso.">
           <span class="zoom-hint">Enlarge</span>
         </button>
         <figcaption class="cap">Registration 936, file 41637.</figcaption>
@@ -1504,19 +1747,16 @@ footer{
     <p class="bridge">The El Paso certificate closes the life that La Toma and the Eighth Chronicle take across the bridge in 1913; it records the Montana Street house and names his San Antonio father.</p>
     <p class="meta">Citation: Texas death certificate, registration 936, file 41637. Credit: Texas Bureau of Vital Statistics. Image: FamilySearch, shared by the author.</p>
 
-    <div class="labels">
-      <span class="pill">Verified record</span>
-      <span class="pill">Show image</span>
-    </div>
   </article>
 
 <article class="card" id="carlos-flores-baby-portrait">
+    <div class="card-top"><span class="ev ev-family"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M2.5 3.5h11v7h-6l-3 2.5v-2.5h-2z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg><span>Family narrative</span> <span class="ev-es" lang="es">Narrativa familiar</span></span></div>
     <p class="date">The album hand gives the birth as 10 October 1903, the date on the 1942 draft card. The photograph itself is not dated.</p>
     <h3>Carlos Francisco Flores, baby portrait</h3>
     <div class="frames">
       <figure>
         <button type="button" class="zoom-open">
-          <img src="/assets/artifacts/carlos-francisco-flores-baby-portrait.jpg" width="1600" height="1192" alt="Family album page with a baby in a white dress seated in a wicker chair, labeled in a later hand Carlos Francisco Flores, born Oct. 10, 1903.">
+          <img loading="lazy" decoding="async" src="/assets/artifacts/carlos-francisco-flores-baby-portrait.jpg" width="1600" height="1192" alt="Family album page with a baby in a white dress seated in a wicker chair, labeled in a later hand Carlos Francisco Flores, born Oct. 10, 1903.">
           <span class="zoom-hint">Enlarge</span>
         </button>
         <figcaption class="cap">A baby in a white dress, in a wicker chair.</figcaption>
@@ -1526,19 +1766,18 @@ footer{
     <p class="bridge">The childhood paper of the man who signed the <a href="#carlos-flores">1942 draft card</a>, still in the Juárez household of the <a href="/historia.html#part-ix">Ninth Chronicle</a>.</p>
     <p class="meta">Family collection, shared by the author, 22 November 2026. The handwritten labels are family narrative. The 10 October 1903 birth is verified on the draft card.</p>
     <div class="labels">
-      <span class="pill">Family narrative</span>
       <span class="pill">Family collection</span>
-      <span class="pill">Show image</span>
     </div>
   </article>
 
-  <article class="card" id="carlos-flores">
+  <article class="card" id="carlos-flores" data-year="1942">
+    <div class="card-top"><span class="ev ev-verified"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M5 8.3l2.2 2.2L11.2 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Verified record: draft card, birth only</span></span></div>
     <p class="date">Born 10 October 1903, Ciudad Juárez. Died March 1988, El Paso, age 84.</p>
     <h3>Carlos F. Flores, draft registration and death</h3>
     <div class="frames">
       <figure>
         <button type="button" class="zoom-open">
-          <img src="/assets/artifacts/carlos-f-flores-wwii-draft-card-1942.jpg" width="1433" height="814" alt="Both sides of the World War II draft card signed by Carlos F. Flores at Local Board No. 3, El Paso, on 16 February 1942.">
+          <img loading="lazy" decoding="async" src="/assets/artifacts/carlos-f-flores-wwii-draft-card-1942.jpg" width="1433" height="814" alt="Both sides of the World War II draft card signed by Carlos F. Flores at Local Board No. 3, El Paso, on 16 February 1942.">
           <span class="zoom-hint">Enlarge</span>
         </button>
         <figcaption class="cap">World War II draft card, 16 February 1942.</figcaption>
@@ -1550,9 +1789,7 @@ footer{
     <p class="meta">Citation: U.S. Selective Service registration, Local Board No. 3, El Paso, 16 February 1942; <em>El Paso Times</em>, 22 March 1988. Credit: National Archives; the <em>El Paso Times</em>. Image: FamilySearch, shared by the author. The newspaper image is not hosted.</p>
 
     <div class="labels">
-      <span class="pill">Verified record: draft card, birth only</span>
       <span class="pill">Family tree and El Paso Times: death, held</span>
-      <span class="pill">Show image</span>
     </div>
   </article>
 </section>
@@ -1563,79 +1800,79 @@ footer{
   <p class="section-es" lang="es">Conflictos en los papeles</p>
   <p class="section-intro">This section is a board of conflicts, not a hidden footnote. The captions stay short. The sources are named. The grants, the water, the church, the colonists, and the Native towns are all on the paper. A pueblo grant and a private ranch grant that meet at the same riverbank are shown the same way. Where the documents do not give a Native voice, none is invented.</p>
 
-  <article class="card" id="conflict-edicts">
+  <article class="card" id="conflict-edicts" data-year="1734">
+    <div class="card-top"><span class="ev ev-catalog"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect x="2.5" y="2" width="11" height="12" rx="1" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M5 5.5h6M5 8h6M5 10.5h3.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg><span>Catalog record</span> <span class="ev-es" lang="es">Registro de catálogo</span></span></div>
     <p class="date">Principal papers 2 November 1734. Index span 1719 to 2 February 1735.</p>
     <h3>Settlers’ letters to the viceroy, with copies of royal edicts</h3>
     <p>A cataloged dossier of about twenty pages holds settlers’ letters and copies of royal edicts about water, imprisonment, refusal of medical travel, and a priest’s fees, and Vicente is not named on this index’s list of persons.</p>
     <p class="bridge">These unread letters are the kind of viceregal paper the First Play’s water fight is built from.</p>
     <p class="meta">Citation: Archivo General de la Nación, México, <em>Provincias Internas</em>, vol. 236, ff. 244–253, indexed at <a href="https://uamr.lib.arizona.edu/item/216748">the University of Arizona</a>. Credit: AGN, via the Documentary Relations of the Southwest. No image is attached to the opened catalog record.</p>
     <div class="labels">
-      <span class="pill">Catalog record</span>
       <span class="pill">Link only</span>
       <span class="pill">Needs permission</span>
     </div>
   </article>
 
-  <article class="card" id="conflict-anzures">
+  <article class="card" id="conflict-anzures" data-year="1735">
+    <div class="card-top"><span class="ev ev-catalog"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect x="2.5" y="2" width="11" height="12" rx="1" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M5 5.5h6M5 8h6M5 10.5h3.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg><span>Catalog record</span> <span class="ev-es" lang="es">Registro de catálogo</span></span></div>
     <p class="date">13 October 1735</p>
     <h3>Anzures and the viceroy: settlers’ land and water</h3>
     <p>Representatives including Vizente Álvarez Travieso, alguacil mayor, ask the viceroy to stop the governor’s sale of the settlers’ lands and water rights and to release prisoners.</p>
     <p class="bridge">Travieso’s name appears among those asking the viceroy to stop the sale of the settlers’ land and water; that is the historical conflict Play One dramatizes, not a scene invented from this unread file.</p>
     <p class="meta">Citation: AGN, <em>Provincias Internas</em>, vol. 236, ff. 254–257, <a href="https://uamr.lib.arizona.edu/item/216749">University of Arizona index</a>. Credit: AGN, via the Documentary Relations of the Southwest.</p>
     <div class="labels">
-      <span class="pill">Catalog record</span>
       <span class="pill">Link only</span>
       <span class="pill">Needs permission</span>
     </div>
   </article>
 
-  <article class="card" id="conflict-sandoval">
+  <article class="card" id="conflict-sandoval" data-year="1736">
+    <div class="card-top"><span class="ev ev-catalog"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect x="2.5" y="2" width="11" height="12" rx="1" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M5 5.5h6M5 8h6M5 10.5h3.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg><span>Catalog record</span> <span class="ev-es" lang="es">Registro de catálogo</span></span></div>
     <p class="date">24 January to 15 March 1736</p>
     <h3>Cabildo and settlers versus Governor Manuel de Sandoval</h3>
     <p>The proceedings charge the governor with violating the rules for distributing land and water, and the viceroy orders compliance, which is viceregal enforcement and not an order shown here as signed by the King.</p>
     <p class="bridge">The same land-and-water dispute with Governor Sandoval was enforced by the viceroy; it is viceregal order, not a king’s letter to Vicente.</p>
     <p class="meta">Citation: Dolph Briscoe Center for American History, Bexar Archives, roll 8, frames 378–391, <a href="https://uamr.lib.arizona.edu/item/224999">University of Arizona index</a>. Credit: Briscoe Center, The University of Texas at Austin. Bizente Albarez Travieso is named as alguacil mayor.</p>
     <div class="labels">
-      <span class="pill">Catalog record</span>
       <span class="pill">Link only</span>
       <span class="pill">Needs permission</span>
     </div>
   </article>
 
-  <article class="card" id="conflict-medical">
+  <article class="card" id="conflict-medical" data-year="1734">
+    <div class="card-top"><span class="ev ev-catalog"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect x="2.5" y="2" width="11" height="12" rx="1" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M5 5.5h6M5 8h6M5 10.5h3.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg><span>Catalog record</span> <span class="ev-es" lang="es">Registro de catálogo</span></span></div>
     <p class="date">2–4 November 1734. Certified 5 March 1735.</p>
     <h3>Travieso’s petitions to travel for medical care</h3>
     <p>Vicente asks leave to go to Saltillo or Mexico City because there was no local doctor. The finding aids place this petition beside the governor’s restrictions; the papers themselves have not been read here.</p>
     <p class="bridge">Vicente’s petition to leave for a doctor sits beside the governor’s restrictions in the finding aids; it is the human cost of that same early Béxar conflict.</p>
     <p class="meta">Citation: Briscoe Center, Bexar Archives, roll 8, frames 295–299, <a href="https://uamr.lib.arizona.edu/item/225006">index</a>, and AGN, <em>Provincias Internas</em>, vol. 236, ff. 227–231, <a href="https://uamr.lib.arizona.edu/item/216744">index</a>. Credit: Briscoe Center and the Archivo General de la Nación.</p>
     <div class="labels">
-      <span class="pill">Catalog record</span>
       <span class="pill">Link only</span>
       <span class="pill">Needs permission</span>
     </div>
   </article>
 
-  <article class="card" id="conflict-missions">
+  <article class="card" id="conflict-missions" data-year="1771">
+    <div class="card-top"><span class="ev ev-catalog"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect x="2.5" y="2" width="11" height="12" rx="1" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M5 5.5h6M5 8h6M5 10.5h3.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg><span>Catalog record</span> <span class="ev-es" lang="es">Registro de catálogo</span></span></div>
     <p class="date">Documents 1771–1783. English translations 1927.</p>
     <h3>Protests against mission land claims</h3>
     <p>Vicente and Juan Andrés Álvarez Travieso protest mission land claims in papers that the Handbook of Texas connects with Rancho de las Mulas, a conflict between colonists and the missions over land, kept here separate from the water fight of the 1730s, and Native testimony is not in hand until the file is read.</p>
     <p class="bridge">Later in his life Vicente protested mission claims on land, a different fight from the 1730s water war, and one the Chronicles also keep in the founding generation.</p>
     <p class="meta">Citation: <a href="https://collections.briscoecenter.org/repositories/2/resources/775">Briscoe Center collection</a>; <a href="https://www.txarchives.org/utcah/finding_aids/00738.xml">Texas Archival Resources Online</a>; <a href="https://www.tshaonline.org/handbook/entries/alvarez-travieso-vicente">Handbook of Texas</a>. Credit: Briscoe Center. The 1927 translation is not hosted. Vicente died in 1779, so later papers in the span may be by heirs or by other people. No manuscript image was obtained.</p>
     <div class="labels">
-      <span class="pill">Catalog record</span>
       <span class="pill">Link only</span>
       <span class="pill">Needs permission</span>
     </div>
   </article>
 
-  <article class="card" id="conflict-rio-viejo">
+  <article class="card" id="conflict-rio-viejo" data-year="1914">
+    <div class="card-top"><span class="ev ev-verified"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M5 8.3l2.2 2.2L11.2 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Verified record</span> <span class="ev-es" lang="es">Registro verificado</span></span></div>
     <p class="date">River change recited as 1831 or 1832. Acts of 1854 and 1858. Appeals of 1914 and 1916.</p>
     <h3>Río Viejo: the Ysleta grant and El Rancho de Ascarete</h3>
     <p>The 1854 act says the inhabitants of Ysleta lost part of a grant from the government of Spain when the Rio Grande moved, leaving part of the Cinecue town tract on the east bank, and the 1914 opinion holds that the 1854 bank of the Río Viejo, not later measurements, divides that tract from the Ascarate survey.</p>
     <p class="bridge">The river that moved is the same line the courts later drew between Ysleta and the Ascarate ranch, in the country of Concordia and the later El Paso chronicles.</p>
     <p class="meta">Citation: the statutes above, <a href="#ysleta-act">Ysleta</a> and <a href="#ascarate-act">Ascarete</a>, and the opinions in <a href="#rio-viejo-opinions">Stevens v. Crosby</a>. Secondary context, not a substitute for the statute: <a href="https://www.tshaonline.org/handbook/entries/tigua-indians">Handbook of Texas, “Tigua Indians.”</a> Credit: UNT Libraries for the statutes; CourtListener for the opinions; the Texas State Historical Association for the handbook. The legal parties of 1914 and 1916 are later title holders, not automatically the original families. No original crown grant to the Azcárate family was inspected, and none is displayed.</p>
     <div class="labels">
-      <span class="pill">Verified record</span>
       <span class="pill">Images with the statutes above</span>
       <span class="pill">Handbook: link only</span>
     </div>
@@ -1645,125 +1882,121 @@ footer{
 <section class="section" id="mexican-texas">
   <h2>VI — Historical Context: Coahuila y Tejas</h2>
   <p class="section-es" lang="es">VI — Contexto histórico: Coahuila y Tejas</p>
-  <p class="section-intro">Maps of 1822, 1833 and 1836, the 1824 constitution, two Linati plates, and later survey sheets of Béxar show the country around Gaspar’s San Antonio papers. These are supporting records, not family papers.</p>
+  <p class="section-intro">Maps of 1822, 1833 and 1836, the 1824 constitution, two Linati plates, and later survey sheets of Béxar show the country around Gaspar’s San Antonio papers. These are supporting records, not family papers. The maps, the constitution and the plates belong with the <a href="/historia.html#part-iv">Fourth Chronicle</a>; the two survey sheets of Béxar belong with the <a href="/historia.html#part-iii">Third Chronicle</a>.</p>
 
-  <article class="card" id="austin-map-1822">
+  <article class="card" id="austin-map-1822" data-year="1822">
+    <div class="card-top"><span class="ev ev-verified"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M5 8.3l2.2 2.2L11.2 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Verified record</span> <span class="ev-es" lang="es">Registro verificado</span></span></div>
     <p class="date">1822</p>
     <h3>Mapa topográfico de la provincia de Texas</h3>
     <div class="frames">
       <figure>
         <button type="button" class="zoom-open">
-          <img src="/assets/artifacts/austin-mapa-provincia-texas-1822.jpg" width="1600" height="1181" alt="Stephen F. Austin’s 1822 topographic map of the Province of Texas.">
+          <img loading="lazy" decoding="async" src="/assets/artifacts/austin-mapa-provincia-texas-1822.jpg" width="1600" height="1181" alt="Stephen F. Austin’s 1822 topographic map of the Province of Texas.">
           <span class="zoom-hint">Enlarge</span>
         </button>
         <figcaption class="cap">Austin, 1822.</figcaption>
       </figure>
     </div>
     <p>Stephen F. Austin’s 1822 topographic map of the Province of Texas, held by the Geography and Map Division of the Library of Congress.</p>
-    <p class="bridge">This is the Texas of Gaspar’s San Antonio years, before the Hooker and Tanner maps of the 1830s. See the <a href="/historia.html#part-iv">Fourth Chronicle</a>.</p>
+    <p class="bridge">This is the Texas of Gaspar’s San Antonio years, before the Hooker and Tanner maps of the 1830s.</p>
     <p class="meta">Citation: Stephen F. Austin, <em>Mapa topográfico de la provincia de Texas</em>, 1822. Credit: Library of Congress, Geography and Map Division. <a href="https://www.loc.gov/item/98687158/">loc.gov/item/98687158</a>.</p>
     <div class="labels">
-      <span class="pill">Verified record</span>
       <span class="pill">Public domain</span>
-      <span class="pill">Show image</span>
     </div>
   </article>
 
-  <article class="card" id="constitucion-1824">
+  <article class="card" id="constitucion-1824" data-year="1824">
+    <div class="card-top"><span class="ev ev-verified"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M5 8.3l2.2 2.2L11.2 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Verified record</span> <span class="ev-es" lang="es">Registro verificado</span></span></div>
     <p class="date">1824</p>
     <h3>Constitución federal de los Estados Unidos Mexicanos</h3>
     <div class="frames portrait">
       <figure>
         <button type="button" class="zoom-open">
-          <img src="/assets/artifacts/constitucion-federal-mexico-1824.jpg" width="1055" height="1600" alt="Title page of a printed 1824 copy of the Federal Constitution of the United Mexican States.">
+          <img loading="lazy" decoding="async" src="/assets/artifacts/constitucion-federal-mexico-1824.jpg" width="1055" height="1600" alt="Title page of a printed 1824 copy of the Federal Constitution of the United Mexican States.">
           <span class="zoom-hint">Enlarge</span>
         </button>
         <figcaption class="cap">Title page, 1824.</figcaption>
       </figure>
     </div>
     <p>Title page of a printed 1824 copy of the Federal Constitution of the United Mexican States, from the Rare Book and Special Collections Division of the Library of Congress. The scan is the Library’s master (1,562 × 2,368 pixels); no larger facsimile was found.</p>
-    <p class="bridge">The constitution under which Coahuila y Tejas was a state, in the years of Gaspar’s later petitions. See the <a href="/historia.html#part-iv">Fourth Chronicle</a>.</p>
+    <p class="bridge">The constitution under which Coahuila y Tejas was a state, in the years of Gaspar’s later petitions.</p>
     <p class="meta">Citation: <em>Constitución federal de los Estados Unidos Mexicanos</em>, [México], Impr. del Supremo Gobierno, [1824?]. Credit: Library of Congress, Rare Book and Special Collections Division, LCCN 11031218. <a href="https://www.loc.gov/item/11031218/">loc.gov/item/11031218</a>.</p>
     <div class="labels">
-      <span class="pill">Verified record</span>
       <span class="pill">Public domain</span>
-      <span class="pill">Show image</span>
     </div>
   </article>
 
-  <article class="card" id="hooker-map-1833">
+  <article class="card" id="hooker-map-1833" data-year="1833">
+    <div class="card-top"><span class="ev ev-verified"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M5 8.3l2.2 2.2L11.2 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Verified record</span> <span class="ev-es" lang="es">Registro verificado</span></span></div>
     <p class="date">1833</p>
     <h3>Map of the State of Coahuila and Texas (Hooker, 1833)</h3>
     <div class="frames">
       <figure>
         <button type="button" class="zoom-open">
-          <img src="/assets/artifacts/hooker-mapa-coahuila-y-texas-1833.jpg" width="1600" height="1271" alt="W. Hooker’s 1833 Map of the State of Coahuila and Texas.">
+          <img loading="lazy" decoding="async" src="/assets/artifacts/hooker-mapa-coahuila-y-texas-1833.jpg" width="1600" height="1271" alt="W. Hooker’s 1833 Map of the State of Coahuila and Texas.">
           <span class="zoom-hint">Enlarge</span>
         </button>
         <figcaption class="cap">Hooker, 1833.</figcaption>
       </figure>
     </div>
     <p>W. Hooker’s 1833 <em>Map of the State of Coahuila and Texas</em>, held by the University of Texas at Arlington Libraries, Special Collections.</p>
-    <p class="bridge">Coahuila y Tejas as a Mexican state, three years before the Hooker map of 1836. See the <a href="/historia.html#part-iv">Fourth Chronicle</a>.</p>
+    <p class="bridge">Coahuila y Tejas as a Mexican state, three years before the Hooker map of 1836.</p>
     <p class="meta">Citation: W. Hooker, <em>Map of the State of Coahuila and Texas</em>, 1833. Credit: University of Texas at Arlington Libraries, Special Collections.</p>
     <div class="labels">
-      <span class="pill">Verified record</span>
       <span class="pill">Public domain</span>
-      <span class="pill">Show image</span>
     </div>
   </article>
 
-  <article class="card" id="hooker-map-1836">
+  <article class="card" id="hooker-map-1836" data-year="1836">
+    <div class="card-top"><span class="ev ev-verified"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M5 8.3l2.2 2.2L11.2 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Verified record</span> <span class="ev-es" lang="es">Registro verificado</span></span></div>
     <p class="date">1836</p>
     <h3>Map of the State of Coahuila and Texas (Hooker, 1836)</h3>
     <div class="frames">
       <figure>
         <button type="button" class="zoom-open">
-          <img src="/assets/artifacts/hooker-mapa-coahuila-y-texas-1836.jpg" width="1600" height="1334" alt="W. Hooker’s 1836 Map of the State of Coahuila and Texas.">
+          <img loading="lazy" decoding="async" src="/assets/artifacts/hooker-mapa-coahuila-y-texas-1836.jpg" width="1600" height="1334" alt="W. Hooker’s 1836 Map of the State of Coahuila and Texas.">
           <span class="zoom-hint">Enlarge</span>
         </button>
         <figcaption class="cap">Hooker, 1836.</figcaption>
       </figure>
     </div>
     <p>W. Hooker’s 1836 <em>Map of the State of Coahuila and Texas</em>, held by the University of Texas at Arlington Libraries, Special Collections.</p>
-    <p class="bridge">The same Hooker map, issued in the year of Texas independence. See the <a href="/historia.html#part-iv">Fourth Chronicle</a>.</p>
+    <p class="bridge">The same Hooker map, issued in the year of Texas independence.</p>
     <p class="meta">Citation: W. Hooker, <em>Map of the State of Coahuila and Texas</em>, 1836. Credit: University of Texas at Arlington Libraries, Special Collections.</p>
     <div class="labels">
-      <span class="pill">Verified record</span>
       <span class="pill">Public domain</span>
-      <span class="pill">Show image</span>
     </div>
   </article>
 
-  <article class="card" id="austin-tanner-map-1836">
+  <article class="card" id="austin-tanner-map-1836" data-year="1836">
+    <div class="card-top"><span class="ev ev-verified"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M5 8.3l2.2 2.2L11.2 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Verified record</span> <span class="ev-es" lang="es">Registro verificado</span></span></div>
     <p class="date">1836</p>
     <h3>Map of Texas with Parts of the Adjoining States</h3>
     <div class="frames">
       <figure>
         <button type="button" class="zoom-open">
-          <img src="/assets/artifacts/austin-tanner-mapa-texas-1836.jpg" width="1275" height="1600" alt="Austin and Tanner’s 1836 Map of Texas with Parts of the Adjoining States, with a República Federal Mexicana cartouche.">
+          <img loading="lazy" decoding="async" src="/assets/artifacts/austin-tanner-mapa-texas-1836.jpg" width="1275" height="1600" alt="Austin and Tanner’s 1836 Map of Texas with Parts of the Adjoining States, with a República Federal Mexicana cartouche.">
           <span class="zoom-hint">Enlarge</span>
         </button>
         <figcaption class="cap">Austin and Tanner, 1836.</figcaption>
       </figure>
     </div>
     <p>The 1836 Austin and Tanner <em>Map of Texas with Parts of the Adjoining States</em>, with the cartouche “República Federal Mexicana,” held by the University of Texas at Arlington Libraries, Special Collections.</p>
-    <p class="bridge">A federal Mexican cartouche on a map of the Texas year 1836. See the <a href="/historia.html#part-iv">Fourth Chronicle</a>.</p>
+    <p class="bridge">A federal Mexican cartouche on a map of the Texas year 1836.</p>
     <p class="meta">Citation: Austin &amp; Tanner, <em>Map of Texas with Parts of the Adjoining States</em>, 1836. Credit: University of Texas at Arlington Libraries, Special Collections.</p>
     <div class="labels">
-      <span class="pill">Verified record</span>
       <span class="pill">Public domain</span>
-      <span class="pill">Show image</span>
     </div>
   </article>
 
-  <article class="card" id="linati-1828-dragon">
+  <article class="card" id="linati-1828-dragon" data-year="1828">
+    <div class="card-top"><span class="ev ev-verified"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M5 8.3l2.2 2.2L11.2 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Verified record</span> <span class="ev-es" lang="es">Registro verificado</span></span></div>
     <p class="date">1828</p>
     <h3>Linati, “Dragon. Troupe de Ligne.”</h3>
     <div class="frames portrait">
       <figure>
         <button type="button" class="zoom-open">
-          <img src="/assets/artifacts/linati-1828-dragon-troupe-de-ligne.jpg" width="1233" height="1600" alt="Claudio Linati’s 1828 plate Dragon. Troupe de Ligne, a lithograph of a Mexican line dragoon.">
+          <img loading="lazy" decoding="async" src="/assets/artifacts/linati-1828-dragon-troupe-de-ligne.jpg" width="1233" height="1600" alt="Claudio Linati’s 1828 plate Dragon. Troupe de Ligne, a lithograph of a Mexican line dragoon.">
           <span class="zoom-hint">Enlarge</span>
         </button>
         <figcaption class="cap">“Dragon. Troupe de Ligne.,” 1828.</figcaption>
@@ -1773,84 +2006,107 @@ footer{
     <p class="bridge">A line dragoon of the Mexico of 1828, in the years of the Fourth Chronicle.</p>
     <p class="meta">Citation: Claudio Linati, “Dragon. Troupe de Ligne.,” in <em>Costumes civils, militaires et religieux du Mexique</em>, Brussels, 1828. Credit: Wellcome Collection (Public Domain Mark), <a href="https://wellcomecollection.org/works/br9ukvmf">wellcomecollection.org/works/br9ukvmf</a>.</p>
     <div class="labels">
-      <span class="pill">Verified record</span>
       <span class="pill">Public domain</span>
-      <span class="pill">Show image</span>
     </div>
   </article>
 
-  <article class="card" id="linati-1828-hacendado">
+  <article class="card" id="linati-1828-hacendado" data-year="1828">
+    <div class="card-top"><span class="ev ev-verified"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M5 8.3l2.2 2.2L11.2 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Verified record</span> <span class="ev-es" lang="es">Registro verificado</span></span></div>
     <p class="date">1828</p>
     <h3>Linati, “Hacendado. Créole propriétaire.”</h3>
     <div class="frames portrait">
       <figure>
         <button type="button" class="zoom-open">
-          <img src="/assets/artifacts/linati-1828-hacendado-propietario.jpg" width="1233" height="1600" alt="Claudio Linati’s 1828 plate Hacendado. Créole propriétaire, a lithograph of a Mexican landed proprietor.">
+          <img loading="lazy" decoding="async" src="/assets/artifacts/linati-1828-hacendado-propietario.jpg" width="1233" height="1600" alt="Claudio Linati’s 1828 plate Hacendado. Créole propriétaire, a lithograph of a Mexican landed proprietor.">
           <span class="zoom-hint">Enlarge</span>
         </button>
         <figcaption class="cap">“Hacendado. Créole propriétaire.,” 1828.</figcaption>
       </figure>
     </div>
     <p>The companion plate from the same 1828 Linati volume: a landed proprietor.</p>
-    <p class="bridge">A civilian of the Mexico of 1828, beside the dragoon plate. See the <a href="/historia.html#part-iv">Fourth Chronicle</a>.</p>
+    <p class="bridge">A civilian of the Mexico of 1828, beside the dragoon plate.</p>
     <p class="meta">Citation: Claudio Linati, “Hacendado. Créole propriétaire.,” in <em>Costumes civils, militaires et religieux du Mexique</em>, Brussels, 1828. Credit: Wellcome Collection (Public Domain Mark), <a href="https://wellcomecollection.org/works/br9ukvmf">wellcomecollection.org/works/br9ukvmf</a>.</p>
     <div class="labels">
-      <span class="pill">Verified record</span>
       <span class="pill">Public domain</span>
-      <span class="pill">Show image</span>
     </div>
   </article>
 
   <article class="card" id="habs-palacio-gobernador">
+    <div class="card-top"><span class="ev ev-verified"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M5 8.3l2.2 2.2L11.2 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Verified record</span> <span class="ev-es" lang="es">Registro verificado</span></span></div>
     <p class="date">Historic American Buildings Survey, twentieth century</p>
     <h3>Palacio del Gobernador / Comandancia de Béxar</h3>
     <div class="frames">
       <figure>
         <button type="button" class="zoom-open">
-          <img src="/assets/artifacts/palacio-del-gobernador-bexar-habs-tx-3540-lamina-7.jpg" width="1600" height="1067" alt="Historic American Buildings Survey section drawing of the Governor’s Palace in San Antonio, HABS TX-3540, sheet 7.">
+          <img loading="lazy" decoding="async" src="/assets/artifacts/palacio-del-gobernador-bexar-habs-tx-3540-lamina-7.jpg" width="1600" height="1067" alt="Historic American Buildings Survey section drawing of the Governor’s Palace in San Antonio, HABS TX-3540, sheet 7.">
           <span class="zoom-hint">Enlarge</span>
         </button>
         <figcaption class="cap">HABS TX-3540, sheet 7.</figcaption>
       </figure>
     </div>
     <p>A section drawing of the Governor’s Palace, or comandancia, on the plaza de armas of San Antonio. Historic American Buildings Survey, TX-3540, sheet 7. This is a twentieth-century survey drawing, not a view of 1828.</p>
-    <p class="bridge">The comandancia on the plaza of Béxar, recorded later in these survey sheets. See the <a href="/historia.html#part-iii">Third Chronicle</a>.</p>
+    <p class="bridge">The comandancia on the plaza of Béxar, recorded later in these survey sheets.</p>
     <p class="meta">Citation: Historic American Buildings Survey, TX-3540, sheet 7. Credit: Library of Congress, Prints and Photographs Division. <a href="https://www.loc.gov/pictures/item/tx1093.sheet.00007a">loc.gov/pictures/item/tx1093.sheet.00007a</a>.</p>
     <div class="labels">
-      <span class="pill">Verified record</span>
       <span class="pill">Public domain</span>
-      <span class="pill">Show image</span>
     </div>
   </article>
 
-  <article class="card" id="habs-mision-san-jose">
+  <article class="card" id="habs-mision-san-jose" data-year="1936">
+    <div class="card-top"><span class="ev ev-verified"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M5 8.3l2.2 2.2L11.2 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Verified record</span> <span class="ev-es" lang="es">Registro verificado</span></span></div>
     <p class="date">Historic American Buildings Survey, circa 1936</p>
     <h3>Misión de San José y San Miguel de Aguayo, portada principal</h3>
     <div class="frames portrait">
       <figure>
         <button type="button" class="zoom-open">
-          <img src="/assets/artifacts/mision-san-jose-portada-principal-habs.jpg" width="1297" height="1600" alt="Historic American Buildings Survey photograph, circa 1936, of the principal portal of Mission San José in San Antonio.">
+          <img loading="lazy" decoding="async" src="/assets/artifacts/mision-san-jose-portada-principal-habs.jpg" width="1297" height="1600" alt="Historic American Buildings Survey photograph, circa 1936, of the principal portal of Mission San José in San Antonio.">
           <span class="zoom-hint">Enlarge</span>
         </button>
         <figcaption class="cap">Portada principal, circa 1936.</figcaption>
       </figure>
     </div>
     <p>A Historic American Buildings Survey photograph of the principal portal of Mission San José y San Miguel de Aguayo, San Antonio, made around 1936. It is a twentieth-century survey photograph, not a view of the colonial years.</p>
-    <p class="bridge">The mission portal as the survey recorded it in the 1930s. See the <a href="/historia.html#part-iii">Third Chronicle</a>.</p>
+    <p class="bridge">The mission portal as the survey recorded it in the 1930s.</p>
     <p class="meta">Citation: Historic American Buildings Survey, HABS TEX,15-SANT,V,5E-6, circa 1936. Credit: Library of Congress, Prints and Photographs Division. <a href="https://www.loc.gov/pictures/item/tx0025.photos.155538p">loc.gov/pictures/item/tx0025.photos.155538p</a>.</p>
     <div class="labels">
-      <span class="pill">Verified record</span>
       <span class="pill">Public domain</span>
-      <span class="pill">Show image</span>
     </div>
   </article>
 </section>
 
+<details class="method" id="method">
+  <summary>Optional · How these records are handled <span class="method-es" lang="es">Opcional · Cómo se tratan estos papeles</span></summary>
+  <ul>
+    <li><strong>Verified, cataloged, remembered.</strong> A record is marked verified only when its text, or a printed official copy of a statute or deed, has been read. When a finding aid names a document and the document has not been read, it is marked catalog record and nothing inside it is quoted. What the family says is kept and marked family narrative.</li>
+    <li><strong>Citation.</strong> Each entry names its source with a link to the holding archive or library, and credits the holder. Images supplied by the author from FamilySearch carry that credit. Scans whose use has not been cleared are linked, not hosted.</li>
+    <li><strong>Reading and transcription.</strong> Spanish is quoted as written with an English rendering. Only what can be read is stated. A date or a name that is not clear enough is left unstated rather than guessed.</li>
+    <li><strong>Conflicts.</strong> When sources disagree, each reading is printed with its source and the conflict is held in the open. The page does not choose the convenient date.</li>
+    <li><strong>Images.</strong> A crop shows only the entry in question when a page also carries other people’s records. A family photograph is labeled family narrative, and is not offered as proof of a date.</li>
+    <li><strong>Fiction.</strong> The novels and plays dramatize. A document here does not rewrite a scene, and a scene is not offered as a record.</li>
+  </ul>
+</details>
 </main>
+</div>
 
-<dialog class="zoom" id="zoom">
-  <div class="zoom-bar"><button type="button" id="zoomClose">Close</button></div>
-  <img id="zoomImg" alt="">
+<dialog class="zoom" id="zoom" aria-label="Document viewer">
+  <div class="zoom-bar">
+    <span class="zoom-count" id="zoomCount" aria-live="polite"></span>
+    <div class="zoom-tools" role="toolbar" aria-label="Viewer controls">
+      <button type="button" class="zoom-glyph" id="zoomPrev" aria-label="Previous image">‹</button>
+      <button type="button" class="zoom-glyph" id="zoomNext" aria-label="Next image">›</button>
+      <button type="button" class="zoom-glyph" id="zoomOut" aria-label="Zoom out">−</button>
+      <button type="button" class="zoom-glyph" id="zoomIn" aria-label="Zoom in">+</button>
+      <button type="button" id="zoomFit" title="Whole image (key 0)">Fit</button>
+      <button type="button" id="zoomWidth" title="Fit to width (key 2)">Width</button>
+      <button type="button" id="zoomActual" title="Actual size (key 1)">100%</button>
+      <button type="button" id="zoomClose" class="zoom-btn-close">Close</button>
+    </div>
+  </div>
+  <div class="zoom-stage" id="zoomStage" tabindex="0" role="group" aria-label="Image, scrollable" aria-describedby="zoomHelp">
+    <img id="zoomImg" alt="">
+  </div>
+  <p class="zoom-help" id="zoomHelp">Arrow keys scroll the image. Plus and minus zoom. 0 fits the whole image, 2 fits the width, 1 shows actual size. Left and right square brackets move between images. Escape closes.</p>
+  <p class="zoom-cap" id="zoomCap"></p>
 </dialog>
 
 <footer>
@@ -1881,32 +2137,224 @@ navLinks.querySelectorAll('a').forEach(link => {
   });
 });
 
-const zoom = document.getElementById('zoom');
-const zoomImg = document.getElementById('zoomImg');
-const zoomClose = document.getElementById('zoomClose');
-let zoomReturn = null;
-document.querySelectorAll('.zoom-open').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const img = btn.querySelector('img');
-    zoomImg.src = img.currentSrc || img.src;
-    zoomImg.alt = img.alt;
-    zoomReturn = btn;
-    zoom.showModal();
-    zoomClose.focus();
-  });
-});
-zoomClose.addEventListener('click', () => zoom.close());
-zoom.addEventListener('click', (event) => {
-  if (event.target === zoom) zoom.close();
-});
-zoom.addEventListener('close', () => {
-  zoomImg.removeAttribute('src');
-  zoomImg.alt = '';
-  if (zoomReturn) {
-    zoomReturn.focus();
-    zoomReturn = null;
+(function () {
+  var root = document.documentElement;
+
+  /* sticky offsets: measure the fixed site bar and the timeline */
+  var bar = document.getElementById('navbar');
+  var tl = document.getElementById('timeline');
+  function offsets() {
+    if (bar) root.style.setProperty('--nav-h', bar.offsetHeight + 'px');
+    if (tl) root.style.setProperty('--tl-h', tl.offsetHeight + 'px');
   }
-});
+  offsets();
+  window.addEventListener('resize', offsets);
+  window.addEventListener('load', offsets);
+
+  /* chronological index: scroll-spy, panel */
+  var strip = document.getElementById('tlStrip');
+  var panelWrap = document.getElementById('tlAll');
+  if (strip) {
+    var chips = Array.prototype.slice.call(strip.querySelectorAll('a[data-year]'));
+    var byYear = {};
+    chips.forEach(function (a) { byYear[a.getAttribute('data-year')] = a; });
+    var current = null;
+    function setCurrent(year) {
+      if (year === current) return;
+      current = year;
+      chips.forEach(function (a) {
+        if (a.getAttribute('data-year') === year) a.setAttribute('aria-current', 'true');
+        else a.removeAttribute('aria-current');
+      });
+      var a = byYear[year];
+      if (a) {
+        var wrap = strip;
+        var left = a.parentElement.offsetLeft - (wrap.clientWidth - a.offsetWidth) / 2;
+        wrap.scrollTo({ left: Math.max(0, left), behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+      }
+    }
+    var cards = Array.prototype.slice.call(document.querySelectorAll('[data-year]')).filter(function (el) { return el.id; });
+    var ticking = false;
+    function spy() {
+      ticking = false;
+      var line = (tl ? tl.getBoundingClientRect().bottom : 0) + 140;
+      var hit = null;
+      for (var i = 0; i < cards.length; i++) {
+        if (cards[i].getBoundingClientRect().top <= line) hit = cards[i]; else break;
+      }
+      if (hit) setCurrent(hit.getAttribute('data-year'));
+    }
+    window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(spy); } }, { passive: true });
+    window.addEventListener('resize', spy);
+    spy();
+  }
+  if (panelWrap) {
+    var summary = panelWrap.querySelector('summary');
+    function closePanel(refocus) {
+      if (!panelWrap.open) return;
+      panelWrap.open = false;
+      if (refocus && summary) summary.focus();
+    }
+    panelWrap.addEventListener('toggle', offsets);
+    panelWrap.querySelectorAll('.tl-panel a').forEach(function (a) {
+      a.addEventListener('click', function () { closePanel(false); });
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && panelWrap.open) { e.preventDefault(); closePanel(true); }
+    });
+    document.addEventListener('click', function (e) {
+      if (panelWrap.open && !tl.contains(e.target)) closePanel(false);
+    });
+  }
+
+  /* document viewer: fit, width, 100%, zoom, pan, previous and next within a card */
+  var zoom = document.getElementById('zoom');
+  if (!zoom) return;
+  var stage = document.getElementById('zoomStage');
+  var img = document.getElementById('zoomImg');
+  var cap = document.getElementById('zoomCap');
+  var count = document.getElementById('zoomCount');
+  var btnPrev = document.getElementById('zoomPrev');
+  var btnNext = document.getElementById('zoomNext');
+  var group = [];
+  var index = 0;
+  var opener = null;
+  var scale = 1;
+  var MIN = 0.1, MAX = 4;
+
+  function natural() { return { w: img.naturalWidth || 1, h: img.naturalHeight || 1 }; }
+  function apply(s, fx, fy) {
+    var n = natural();
+    var oldW = img.clientWidth || n.w * scale;
+    var oldH = img.clientHeight || n.h * scale;
+    var px = (stage.scrollLeft + fx) / oldW;
+    var py = (stage.scrollTop + fy) / oldH;
+    scale = Math.min(MAX, Math.max(MIN, s));
+    img.style.width = Math.round(n.w * scale) + 'px';
+    img.style.height = Math.round(n.h * scale) + 'px';
+    stage.scrollLeft = px * img.clientWidth - fx;
+    stage.scrollTop = py * img.clientHeight - fy;
+    var pct = Math.round(scale * 100);
+    document.getElementById('zoomActual').setAttribute('title', 'Actual size (100%). Now ' + pct + '%');
+  }
+  function center() { return [stage.clientWidth / 2, stage.clientHeight / 2]; }
+  function fit() {
+    var n = natural();
+    scale = Math.min(stage.clientWidth / n.w, stage.clientHeight / n.h);
+    scale = Math.min(MAX, Math.max(MIN, scale));
+    img.style.width = Math.round(n.w * scale) + 'px';
+    img.style.height = Math.round(n.h * scale) + 'px';
+    stage.scrollLeft = 0; stage.scrollTop = 0;
+  }
+  /* first view: on a narrow screen a wide handwritten page opens at the height of the viewer,
+     so the hand is large enough to read, and the reader pans sideways */
+  function firstView() {
+    var n = natural();
+    if (stage.clientWidth < 700 && n.w / n.h > 1.3) {
+      scale = Math.min(1, Math.max(MIN, stage.clientHeight / n.h));
+      img.style.width = Math.round(n.w * scale) + 'px';
+      img.style.height = Math.round(n.h * scale) + 'px';
+      stage.scrollLeft = 0; stage.scrollTop = 0;
+    } else { fit(); }
+  }
+  function fitWidth() {
+    var n = natural();
+    scale = Math.min(MAX, Math.max(MIN, stage.clientWidth / n.w));
+    img.style.width = Math.round(n.w * scale) + 'px';
+    img.style.height = Math.round(n.h * scale) + 'px';
+    stage.scrollLeft = 0; stage.scrollTop = 0;
+  }
+  function actual() { var c = center(); apply(1, c[0], c[1]); }
+  function zoomBy(f) { var c = center(); apply(scale * f, c[0], c[1]); }
+
+  function show(i) {
+    index = i;
+    var btn = group[i];
+    var src = btn.querySelector('img');
+    var fig = btn.closest('figure');
+    var card = btn.closest('article');
+    var title = card ? card.querySelector('h3') : null;
+    var capEl = fig ? fig.querySelector('figcaption') : null;
+    img.removeAttribute('style');
+    img.onload = function () { firstView(); };
+    img.src = src.currentSrc || src.src;
+    img.alt = src.alt;
+    cap.innerHTML = '';
+    if (title) { var s = document.createElement('strong'); s.textContent = title.textContent; cap.appendChild(s); cap.appendChild(document.createTextNode(capEl ? ' — ' : '')); }
+    if (capEl) cap.appendChild(document.createTextNode(capEl.textContent));
+    count.textContent = group.length > 1 ? (i + 1) + ' / ' + group.length : '';
+    btnPrev.hidden = btnNext.hidden = group.length < 2;
+    btnPrev.disabled = i === 0;
+    btnNext.disabled = i === group.length - 1;
+    if (img.complete && img.naturalWidth) firstView();
+  }
+  function openAt(btn) {
+    var frames = btn.closest('.frames');
+    group = frames ? Array.prototype.slice.call(frames.querySelectorAll('.zoom-open')) : [btn];
+    opener = btn;
+    root.classList.add('zoom-lock');
+    zoom.showModal();
+    show(group.indexOf(btn));
+    stage.focus();
+  }
+  document.querySelectorAll('.zoom-open').forEach(function (btn) {
+    btn.addEventListener('click', function () { openAt(btn); });
+  });
+  document.getElementById('zoomClose').addEventListener('click', function () { zoom.close(); });
+  document.getElementById('zoomIn').addEventListener('click', function () { zoomBy(1.35); });
+  document.getElementById('zoomOut').addEventListener('click', function () { zoomBy(1 / 1.35); });
+  document.getElementById('zoomFit').addEventListener('click', fit);
+  document.getElementById('zoomWidth').addEventListener('click', fitWidth);
+  document.getElementById('zoomActual').addEventListener('click', actual);
+  btnPrev.addEventListener('click', function () { if (index > 0) show(index - 1); });
+  btnNext.addEventListener('click', function () { if (index < group.length - 1) show(index + 1); });
+  zoom.addEventListener('close', function () {
+    root.classList.remove('zoom-lock');
+    img.removeAttribute('src');
+    img.removeAttribute('style');
+    img.alt = '';
+    if (opener) { opener.focus(); opener = null; }
+  });
+  zoom.addEventListener('keydown', function (e) {
+    if (e.ctrlKey || e.metaKey || e.altKey) return;
+    if (e.key === '+' || e.key === '=') { e.preventDefault(); zoomBy(1.35); }
+    else if (e.key === '-' || e.key === '_') { e.preventDefault(); zoomBy(1 / 1.35); }
+    else if (e.key === '0') { e.preventDefault(); fit(); }
+    else if (e.key === '1') { e.preventDefault(); actual(); }
+    else if (e.key === '2') { e.preventDefault(); fitWidth(); }
+    else if (e.key === '[' && index > 0) { e.preventDefault(); show(index - 1); }
+    else if (e.key === ']' && index < group.length - 1) { e.preventDefault(); show(index + 1); }
+  });
+  stage.addEventListener('wheel', function (e) {
+    if (!e.ctrlKey) return;
+    e.preventDefault();
+    var r = stage.getBoundingClientRect();
+    apply(scale * (e.deltaY < 0 ? 1.12 : 1 / 1.12), e.clientX - r.left, e.clientY - r.top);
+  }, { passive: false });
+  stage.addEventListener('dblclick', function (e) {
+    var r = stage.getBoundingClientRect();
+    var n = natural();
+    var fitScale = Math.min(stage.clientWidth / n.w, stage.clientHeight / n.h);
+    if (Math.abs(scale - fitScale) < 0.02) apply(Math.max(1, fitScale * 2), e.clientX - r.left, e.clientY - r.top);
+    else fit();
+  });
+  var drag = null;
+  stage.addEventListener('pointerdown', function (e) {
+    if (e.pointerType === 'touch' || e.button !== 0) return;
+    drag = { x: e.clientX, y: e.clientY, l: stage.scrollLeft, t: stage.scrollTop };
+    stage.setPointerCapture(e.pointerId);
+    stage.classList.add('dragging');
+  });
+  stage.addEventListener('pointermove', function (e) {
+    if (!drag) return;
+    stage.scrollLeft = drag.l - (e.clientX - drag.x);
+    stage.scrollTop = drag.t - (e.clientY - drag.y);
+  });
+  function endDrag() { drag = null; stage.classList.remove('dragging'); }
+  stage.addEventListener('pointerup', endDrag);
+  stage.addEventListener('pointercancel', endDrag);
+  window.addEventListener('resize', function () { if (zoom.open) fit(); });
+})();
 </script>
 <script src="/assets/site-nav.js" defer></script>
 </body>
