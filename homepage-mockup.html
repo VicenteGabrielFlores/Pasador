@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vicente Gabriel Flores — Homepage preview</title>
+<meta name="description" content="Preview of a quieter homepage. The live homepage is unchanged.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="author" content="Vicente Gabriel Flores">
+<meta name="theme-color" content="#070709">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Cinzel:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site-nav.css">
+<style>
+  :root{
+    --iron:#070709;
+    --leaf:#e5c158;
+    --type:#f2ede2;
+    --type-soft:#e6d9c4;
+  }
+  html{background:var(--iron)}
+  body{
+    margin:0;
+    background:var(--iron);
+    color:var(--type);
+    font-family:"EB Garamond",Georgia,serif;
+    font-size:1.125rem;
+    line-height:1.5;
+  }
+  body #navbar{
+    background:linear-gradient(180deg, rgba(7,7,9,0.92), rgba(7,7,9,0.45) 75%, transparent);
+    border-bottom:0;
+  }
+  a{color:var(--leaf)}
+  a:hover{color:var(--type)}
+  a:focus-visible{outline:1px solid var(--leaf);outline-offset:4px}
+  .page{
+    width:min(1120px, calc(100% - 2.75rem));
+    margin:0 auto;
+    padding:6.25rem 0 4.5rem;
+  }
+  .open h1{
+    margin:1.35rem 0 0;
+    font-family:"Cinzel",serif;
+    font-weight:400;
+    font-size:0.72rem;
+    letter-spacing:0.32em;
+    text-transform:uppercase;
+    color:var(--leaf);
+  }
+  .portrait{
+    display:block;
+    width:min(15.5rem, 74vw);
+    height:auto;
+    border:1px solid rgba(229,193,88,0.4);
+  }
+  .line{
+    max-width:16.5rem;
+    margin:0.85rem 0 0;
+    font-family:"Cormorant Garamond",Georgia,serif;
+    font-weight:500;
+    font-size:clamp(1.45rem, 2.5vw, 1.85rem);
+    line-height:1.22;
+    color:var(--type);
+  }
+  .sign{
+    display:block;
+    width:min(13.5rem, 68vw);
+    height:auto;
+    margin-top:1.35rem;
+  }
+  .books{margin-top:5.5rem}
+  .book{
+    display:grid;
+    grid-template-columns:minmax(0, 16.25rem);
+    row-gap:1.35rem;
+    align-items:start;
+    margin:0 0 6.75rem;
+  }
+  .book h2{margin:0;font-size:inherit;font-weight:inherit;line-height:inherit}
+  .book h2 a{display:block;color:inherit;text-decoration:none}
+  .plate{
+    box-sizing:border-box;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    aspect-ratio:5 / 8;
+    padding:1.35rem 1.2rem 1.25rem;
+    background:
+      radial-gradient(ellipse at 50% 0%, rgba(229,193,88,0.07), transparent 58%),
+      var(--iron);
+    border:1px solid rgba(229,193,88,0.42);
+  }
+  .book h2 a:hover .plate,
+  .book h2 a:focus-visible .plate{border-color:var(--leaf)}
+  .kicker{
+    font-family:"Cinzel",serif;
+    font-size:0.62rem;
+    font-weight:400;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    color:var(--leaf);
+  }
+  .kicker .when{
+    display:block;
+    margin-top:0.45rem;
+    letter-spacing:0.16em;
+    color:var(--type-soft);
+  }
+  .title{
+    display:block;
+    border-top:1px solid rgba(229,193,88,0.45);
+    padding-top:0.85rem;
+    font-family:"Cormorant Garamond",Georgia,serif;
+    font-weight:500;
+    font-size:2.15rem;
+    line-height:0.98;
+    letter-spacing:-0.01em;
+    color:var(--type);
+  }
+  .title .sub{
+    display:block;
+    margin-top:0.45rem;
+    font-style:italic;
+    font-weight:400;
+    font-size:1.2rem;
+    letter-spacing:0;
+    color:var(--leaf);
+  }
+  .book img{
+    display:block;
+    width:100%;
+    height:auto;
+    border:1px solid rgba(229,193,88,0.42);
+  }
+  .book h2 a:hover img,
+  .book h2 a:focus-visible img{border-color:var(--leaf)}
+  .book p{
+    margin:0;
+    max-width:22rem;
+    font-size:1.28rem;
+    line-height:1.4;
+    color:var(--type-soft);
+  }
+  .news{
+    max-width:34rem;
+    margin:1.5rem 0 6.5rem;
+  }
+  .news p{margin:0;font-size:1.2rem;line-height:1.55;color:var(--type)}
+  .news p + p{margin-top:0.8rem;color:var(--type-soft)}
+  .rest .group{margin-top:3.1rem}
+  .rest .group:first-child{margin-top:0}
+  .rest a{
+    display:block;
+    width:fit-content;
+    padding:0.42rem 0;
+    font-family:"Cinzel",serif;
+    font-size:0.68rem;
+    font-weight:400;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    text-decoration:none;
+    color:var(--leaf);
+  }
+  .rest a.quiet{
+    font-family:"Cormorant Garamond",Georgia,serif;
+    font-style:italic;
+    font-size:1.28rem;
+    letter-spacing:0;
+    text-transform:none;
+    color:var(--type);
+    padding-top:0.1rem;
+  }
+  .rest a:hover,.rest a:focus-visible{color:var(--type)}
+  .rest a.quiet:hover,.rest a.quiet:focus-visible{color:var(--leaf)}
+  .footer-note{
+    width:min(1120px, calc(100% - 2.75rem));
+    margin:0 auto;
+    padding:2.5rem 0 3.5rem;
+    text-align:left;
+    color:var(--type-soft);
+    font-size:0.98rem;
+  }
+  .footer-note a{color:var(--leaf)}
+  @media (min-width:800px){
+    .page{width:min(1120px, calc(100% - 12vw));padding-top:6.75rem}
+    .books{margin-top:6.5rem}
+    .book{
+      grid-template-columns:minmax(220px, 340px) minmax(0, 26rem);
+      column-gap:clamp(2.5rem, 6vw, 5.75rem);
+      align-items:end;
+      margin-bottom:11rem;
+    }
+    .footer-note{width:min(1120px, calc(100% - 12vw))}
+  }
+</style>
+</head>
+<body>
+<nav id="navbar" aria-label="Primary">
+  <a href="index.html" class="nav-title"><img src="assets/portrait-menu.webp" alt="" width="22" height="22">PASADOR</a>
+  <button class="nav-toggle" id="navToggle" type="button" aria-controls="navLinks" aria-expanded="false" aria-label="Open menu" data-label-open="Open menu" data-label-close="Close menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="navLinks">
+    <li class="nav-group">
+      <button type="button" class="nav-group-btn" aria-expanded="false" aria-controls="nav-writing">Writing</button>
+      <ul class="nav-sub" id="nav-writing">
+        <li><a href="poems.html">Poems</a></li>
+        <li><a href="stories/index.html">Stories</a></li>
+        <li><a href="la-toma.html">La Toma</a></li>
+        <li><a href="modern-play.html">The Modern Play</a></li>
+        <li><a href="belmont-road.html">Belmont Road</a></li>
+        <li><a href="from-ship-to-ship.html">From Ship to Ship</a></li>
+        <li><a href="davos.html">Davos</a></li>
+        <li><a href="the-harness-makers-son.html">The Harness-Maker’s Son</a></li>
+        <li><a href="pasador.html">PASADOR</a></li>
+        <li><a href="concordia.html">CONCORDIA</a></li>
+        <li><a href="the-manifest.html">The Manifest</a></li>
+        <li><a href="articles.html">Articles</a></li>
+      </ul>
+    </li>
+    <li class="nav-group">
+      <button type="button" class="nav-group-btn" aria-expanded="false" aria-controls="nav-art">Art</button>
+      <ul class="nav-sub" id="nav-art">
+        <li><a href="art.html">Art</a></li>
+        <li><a href="art/jinghan.html">Jinghan</a></li>
+        <li><a href="art/lawrence.html">Lawrence</a></li>
+        <li><a href="art/leo.html">Leo</a></li>
+      </ul>
+    </li>
+    <li class="nav-group"><a class="nav-direct" href="whats-in-the-air.html">The Air</a></li>
+    <li class="nav-group">
+      <button type="button" class="nav-group-btn" aria-expanded="false" aria-controls="nav-cronicas">Las Crónicas</button>
+      <ul class="nav-sub" id="nav-cronicas">
+        <li><a href="historia.html">Las Crónicas</a></li>
+        <li><a href="san-antonio-1731.html">San Antonio, 1731</a></li>
+        <li><a href="alamo.html">The Alamo</a></li>
+        <li><a href="el-paso.html">El Paso and Juárez</a></li>
+        <li><a href="texas-to-the-stars.html">Texas to the Stars</a></li>
+        <li><a href="artifacts.html">Artifacts</a></li>
+        <li><a href="familia.html">La Familia</a></li>
+      </ul>
+    </li>
+    <li class="nav-group">
+      <button type="button" class="nav-group-btn" aria-expanded="false" aria-controls="nav-author">Author</button>
+      <ul class="nav-sub" id="nav-author">
+        <li><a href="author.html">Author</a></li>
+        <li><a href="rights.html">Rights</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+<main class="page">
+  <header class="open">
+    <img class="portrait" src="assets/author-portrait-dramatic.jpg" width="1199" height="1312" alt="Vicente Gabriel Flores, author portrait, November 2026">
+    <h1>Vicente Gabriel Flores</h1>
+    <p class="line">A King’s Promise — one family, 296 years, two oceans, five flags.</p>
+    <img class="sign" src="vicente-gabriel-flores-signature.png" width="900" height="506" alt="Handwritten signature of Vicente Gabriel Flores">
+  </header>
+
+  <section class="books" aria-label="Books">
+    <article class="book">
+      <h2>
+        <a href="the-harness-makers-son.html">
+          <span class="plate">
+            <span class="kicker">Book One<span class="when">1706–1731</span></span>
+            <span class="title">The Harness-Maker’s Son</span>
+          </span>
+        </a>
+      </h2>
+      <p>The book underneath the others.</p>
+    </article>
+
+    <article class="book">
+      <h2>
+        <a href="pasador.html">
+          <span class="plate">
+            <span class="kicker">1731–1913</span>
+            <span class="title">PASADOR</span>
+          </span>
+        </a>
+      </h2>
+      <p>A Tejano family saga told as five plays in the bilingual register of the border.</p>
+    </article>
+
+    <article class="book">
+      <h2>
+        <a href="concordia.html">
+          <span class="plate">
+            <span class="kicker">1828–1870</span>
+            <span class="title">CONCORDIA<span class="sub">la heredera</span></span>
+          </span>
+        </a>
+      </h2>
+      <p>The prose novel of Juana María Ascárate, heir of Concordia.</p>
+    </article>
+
+    <article class="book">
+      <h2>
+        <a href="la-toma.html">
+          <span class="plate">
+            <span class="kicker">14–15 November 1913</span>
+            <span class="title">La Toma</span>
+          </span>
+        </a>
+      </h2>
+      <p>The night Pancho Villa took Ciudad Juárez and the alcalde walked his ten-year-old son across the International Bridge into El Paso.</p>
+    </article>
+
+    <article class="book">
+      <h2>
+        <a href="modern-play.html">
+          <img src="modern-play-cover.jpg" width="900" height="1440" alt="Cover of A King’s Promise: Book One — The Modern Play">
+        </a>
+      </h2>
+      <p>The American present, staged as history and read on Mars — and, beneath that public record, a Tejano family carrying a promise forward.</p>
+    </article>
+
+    <article class="book">
+      <h2>
+        <a href="from-ship-to-ship.html">
+          <span class="plate">
+            <span class="kicker">1730–1731</span>
+            <span class="title">From Ship to Ship</span>
+          </span>
+        </a>
+      </h2>
+      <p>A monthly play following the Canary Islander families from Tenerife to San Antonio, ship to ship.</p>
+    </article>
+
+    <article class="book">
+      <h2>
+        <a href="belmont-road.html">
+          <span class="plate">
+            <span class="kicker">December 2024</span>
+            <span class="title">Belmont Road</span>
+          </span>
+        </a>
+      </h2>
+      <p>An eighteen-year-old walks home from a football social and does not arrive.</p>
+    </article>
+
+    <article class="book">
+      <h2>
+        <a href="pasador.html">
+          <span class="plate">
+            <span class="kicker">1730–1913</span>
+            <span class="title">The epic play cycle</span>
+          </span>
+        </a>
+      </h2>
+      <p>The Canary (1730–1803), The Revolution (1821–1836), The River (1800–1856), The Mine (1858–1870), and The Mayor (1862–1913).</p>
+    </article>
+
+    <article class="book">
+      <h2>
+        <a href="the-manifest.html">
+          <span class="plate">
+            <span class="kicker">The far horizon</span>
+            <span class="title">The Manifest<span class="sub">A Novel of A King’s Promise</span></span>
+          </span>
+        </a>
+      </h2>
+      <p>The same Tejano family aboard a generation ship, braking toward the first living world.</p>
+    </article>
+  </section>
+
+  <section class="news">
+    <p lang="en">His bilingual poem <em>&ldquo;What Was in the Air&rdquo;</em> is forthcoming in <em>Password</em>, the journal of the El Paso County Historical Society.</p>
+    <p lang="es">Su poema bilingüe <em>&ldquo;What Was in the Air&rdquo;</em> próximamente en <em>Password</em>, la revista de la Sociedad Histórica del Condado de El Paso.</p>
+  </section>
+
+  <nav class="rest" aria-label="Archive">
+    <div class="group">
+      <a href="whats-in-the-air.html">What’s in the Air</a>
+      <a class="quiet" href="whats-in-the-air-2026-11-27.html" lang="en">Unscratched</a>
+      <a class="quiet" href="whats-in-the-air-2026-11-27.html" lang="es">Sin una raya</a>
+    </div>
+    <div class="group">
+      <a href="poems.html">The Poems</a>
+      <a class="quiet" href="poems/the-bolt-of-the-old-door.html">The Bolt of the Old Door</a>
+    </div>
+    <div class="group">
+      <a href="stories/index.html">Stories</a>
+      <a class="quiet" href="stories/salt-water.html">Salt Water</a>
+      <a class="quiet" href="stories/the-buried-port.html">The Buried Port</a>
+      <a class="quiet" href="stories/the-girl-at-concordia.html">The Girl at Concordia</a>
+    </div>
+    <div class="group">
+      <a href="artifacts.html">Artifacts</a>
+    </div>
+    <div class="group">
+      <a href="historia.html">Las Crónicas</a>
+      <a class="quiet" href="san-antonio-1731.html">San Antonio, 1731</a>
+      <a class="quiet" href="alamo.html">The Alamo</a>
+      <a class="quiet" href="el-paso.html">El Paso and Juárez</a>
+      <a class="quiet" href="texas-to-the-stars.html">Texas to the Stars</a>
+    </div>
+    <div class="group">
+      <a href="familia.html">La Familia</a>
+    </div>
+    <div class="group">
+      <a href="author.html">Author</a>
+    </div>
+    <div class="group">
+      <a href="art.html">Visual art</a>
+      <a class="quiet" href="art/jinghan.html">Jinghan</a>
+      <a class="quiet" href="art/lawrence.html">Lawrence</a>
+      <a class="quiet" href="art/leo.html">Leo</a>
+    </div>
+    <div class="group">
+      <a href="articles.html">Articles</a>
+      <a href="rights.html">Rights</a>
+    </div>
+    <div class="group">
+      <a href="davos.html">Davos</a>
+      <a class="quiet" href="from-ship-to-ship-01-laetare.html">Play I — Laetare</a>
+    </div>
+  </nav>
+</main>
+
+<p class="footer-note">PASADOR · Vicente Gabriel Flores · 2026 · <a href="https://x.com/pasadornovel">@pasadornovel</a><br>© 2026 Vicente Gabriel Flores. All rights reserved.</p>
+<script src="assets/site-nav.js" defer></script>
+</body>
+</html>
